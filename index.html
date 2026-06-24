@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>WC26 EDGE · Private Prediction Hub</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+:root{
+  --bg:#07090d;--s1:#0d1117;--s2:#111827;--s3:#1a2336;
+  --b1:#1e2d42;--b2:#253550;
+  --tx:#e2e8f4;--mu:#5a6a82;--dm:#2e4060;
+  --ac:#00c896;--ac2:#3b82f6;--ac3:#f97316;
+  --red:#ef4444;--grn:#22c55e;--amb:#f59e0b;--pur:#a855f7;
+  --mono:'JetBrains Mono',monospace;--sans:'Inter',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh}
+.topbar{background:var(--s1);border-bottom:1px solid var(--b1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:300;gap:12px}
+.logo{font-size:16px;font-weight:800;letter-spacing:.12em;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pp 2s infinite}
+@keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,200,150,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(0,200,150,0)}}
+.tr{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.pill{font-size:10px;font-weight:600;font-family:var(--mono);padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap}
+.pg{background:rgba(0,200,150,.08);border-color:rgba(0,200,150,.3);color:var(--ac)}
+.pa{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.3);color:var(--amb)}
+.pr{background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.3);color:var(--red)}
+.date-nav{background:var(--s1);border-bottom:2px solid var(--b1);padding:0 12px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none;position:sticky;top:52px;z-index:200}
+.date-nav::-webkit-scrollbar{display:none}
+.dn-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:62px;padding:7px 10px;cursor:pointer;border:none;background:none;font-family:var(--sans);border-bottom:3px solid transparent;transition:all .14s;position:relative;flex-shrink:0;gap:1px}
+.dn-day{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mu)}
+.dn-num{font-size:19px;font-weight:800;color:var(--dm)}
+.dn-cnt{font-size:9px;font-family:var(--mono);color:var(--dm)}
+.dn-btn:hover .dn-num{color:var(--tx)}
+.dn-btn.active{border-bottom-color:var(--ac)}
+.dn-btn.active .dn-num{color:var(--ac)}
+.dn-btn.active .dn-day,.dn-btn.active .dn-cnt{color:var(--ac);opacity:.7}
+.hot-dot{position:absolute;top:6px;right:8px;width:5px;height:5px;border-radius:50%;background:var(--ac3)}
+.page{max-width:980px;margin:0 auto;padding:16px}
+.day-hdr{margin-bottom:14px}
+.day-title{font-size:19px;font-weight:700;color:var(--tx)}
+.day-sub{font-size:11px;color:var(--mu);margin-top:3px;font-family:var(--mono)}
+.matches{display:flex;flex-direction:column;gap:10px}
+.mcard{background:var(--s1);border:1px solid var(--b1);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .15s}
+.mcard:hover{border-color:var(--b2)}
+.mcard.open{border-color:rgba(0,200,150,.5)}
+.mcard.live{border-color:rgba(239,68,68,.4)}
+.mc-head{padding:13px 16px}
+.mc-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.mc-teams{font-size:15px;font-weight:700;color:var(--tx)}
+.mc-meta{font-size:10px;font-family:var(--mono);color:var(--mu);margin-top:3px}
+.mc-badges{display:flex;gap:5px;align-items:center;flex-wrap:wrap;flex-shrink:0}
+.badge{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.b-top{background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);color:var(--ac)}
+.b-upset{background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.3);color:var(--ac3)}
+.b-info{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);color:var(--ac2)}
+.b-live{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.35);color:var(--red)}
+.mc-r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.odds-row{display:flex;gap:5px}
+.odd{background:var(--s3);border-radius:6px;padding:5px 10px;text-align:center;min-width:60px}
+.odd-lbl{font-size:8px;text-transform:uppercase;letter-spacing:.05em;color:var(--mu)}
+.odd-val{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--tx);margin-top:1px}
+.odd-val.fav{color:var(--ac)}
+.conf-pill{font-family:var(--mono);font-size:11px;font-weight:700;padding:4px 10px;border-radius:5px;border:1px solid}
+.cp-hi{background:rgba(0,200,150,.1);border-color:rgba(0,200,150,.35);color:var(--ac)}
+.cp-md{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:var(--amb)}
+.cp-lo{background:rgba(239,68,68,.1);border-color:rgba(239,68,68,.35);color:var(--red)}
+.upset-pill{font-size:10px;font-weight:600;padding:4px 9px;border-radius:5px;background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);color:var(--ac3)}
+.toggle-icon{font-size:14px;color:var(--mu);margin-left:auto;flex-shrink:0;transition:transform .2s}
+.mcard.open .toggle-icon{transform:rotate(180deg)}
+.mc-body{display:none;padding:0 16px 16px;border-top:1px solid var(--b1)}
+.mcard.open .mc-body{display:block}
+.pred-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.pred-full{grid-column:1/-1}
+.psec{background:var(--s3);border:1px solid var(--b1);border-radius:10px;padding:12px}
+.psec-title{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--mu);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.result-boxes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-bottom:9px}
+.rbox{background:var(--s1);border:1px solid var(--b1);border-radius:7px;padding:8px 5px;text-align:center}
+.rbox.winner{border-color:rgba(0,200,150,.45);background:rgba(0,200,150,.06)}
+.rbox-team{font-size:9px;font-weight:600;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rbox-odds{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ac);margin:3px 0}
+.rbox-pct{font-size:9px;color:var(--mu)}
+.winner-label{font-size:10px;font-weight:600;color:var(--ac);text-align:center;padding:5px;background:rgba(0,200,150,.06);border-radius:5px;border:1px solid rgba(0,200,150,.2)}
+.cbar{margin-bottom:6px}
+.cbar-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:3px}
+.cbar-label{font-size:10px;color:var(--mu)}
+.cbar-pct{font-family:var(--mono);font-size:11px;font-weight:700}
+.cbar-track{height:6px;background:var(--s1);border-radius:3px;overflow:hidden;border:1px solid var(--b1)}
+.cbar-fill{height:100%;border-radius:3px;transition:width .5s}
+.f-hi{background:linear-gradient(90deg,#00c89650,#00c896)}
+.f-md{background:linear-gradient(90deg,#f59e0b50,#f59e0b)}
+.f-lo{background:linear-gradient(90deg,#ef444450,#ef4444)}
+.f-bl{background:linear-gradient(90deg,#3b82f650,#3b82f6)}
+.f-pu{background:linear-gradient(90deg,#a855f750,#a855f7)}
+.foul-card{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:10px;margin-bottom:8px}
+.foul-card.hot{border-color:rgba(0,200,150,.35)}
+.fc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;gap:6px;flex-wrap:wrap}
+.fc-name{font-size:12px;font-weight:700;color:var(--tx)}
+.fc-club{font-size:9px;color:var(--mu);margin-top:1px}
+.hit-tag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.h100{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.3);color:var(--grn)}
+.h90{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);color:var(--grn)}
+.h80{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--amb)}
+.fc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:7px}
+.fcs{background:var(--bg);border-radius:5px;padding:5px 7px;border:1px solid var(--b1)}
+.fcs-lbl{font-size:8px;color:var(--mu);text-transform:uppercase;letter-spacing:.03em}
+.fcs-val{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--tx)}
+.dots-row{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:7px}
+.dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;flex-shrink:0}
+.dot-y{background:rgba(34,197,94,.2);border:1px solid rgba(34,197,94,.45);color:var(--grn)}
+.dot-n{background:rgba(239,68,68,.2);border:1px solid rgba(239,68,68,.45);color:var(--red)}
+.dot-b{background:rgba(59,130,246,.2);border:1px solid rgba(59,130,246,.45);color:#60a5fa}
+.dot-p{background:rgba(168,85,247,.2);border:1px solid rgba(168,85,247,.45);color:#c084fc}
+.bet-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:5px;padding:5px 8px;margin-bottom:3px;border:1px solid var(--b1);flex-wrap:wrap;gap:5px}
+.br-label{font-size:10px;font-weight:600;color:var(--tx)}
+.br-odds{display:flex;gap:4px;flex-wrap:wrap}
+.br-odd{font-family:var(--mono);font-size:9px;padding:2px 5px;border-radius:4px;border:1px solid var(--b1);background:var(--s2);color:var(--tx)}
+.fc-note{font-size:10px;color:var(--mu);line-height:1.6;margin-top:6px;padding-top:5px;border-top:1px solid var(--b1)}
+.easy-bet{background:var(--s1);border:1px solid var(--b1);border-radius:7px;padding:7px 10px;margin-bottom:5px;display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
+.easy-bet.star{border-color:rgba(0,200,150,.3);background:rgba(0,200,150,.04)}
+.eb-left{flex:1;min-width:0}
+.eb-cat{font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mu);margin-bottom:2px}
+.eb-pick{font-size:11px;font-weight:600;color:var(--tx)}
+.eb-odds{font-family:var(--mono);font-size:10px;color:var(--mu);margin-top:1px}
+.eb-conf{font-family:var(--mono);font-size:11px;font-weight:700;padding:3px 7px;border-radius:4px}
+.ec-hi{background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);color:var(--ac)}
+.ec-md{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--amb)}
+.parlay-box{background:rgba(0,200,150,.05);border:1px solid rgba(0,200,150,.2);border-radius:9px;padding:11px 13px}
+.pl-head{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px}
+.pl-leg{display:flex;align-items:center;gap:7px;padding:3px 0;border-bottom:1px solid rgba(0,200,150,.08);font-size:10px;color:var(--mu)}
+.pl-leg:last-child{border:none}
+.pl-num{width:16px;height:16px;border-radius:50%;background:rgba(0,200,150,.15);color:var(--ac);font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pl-pick{color:var(--tx);font-weight:600}
+.pl-odds{font-family:var(--mono);font-size:9px;color:var(--mu);margin-left:auto;white-space:nowrap}
+.pl-return{font-size:10px;color:var(--mu);border-top:1px solid rgba(0,200,150,.12);padding-top:5px;margin-top:4px}
+.pl-return span{color:var(--ac);font-family:var(--mono);font-weight:700}
+.upset-box{background:rgba(249,115,22,.06);border:1px solid rgba(249,115,22,.2);border-radius:7px;padding:7px 10px;margin-top:8px;font-size:10px;color:#fb923c;line-height:1.6}
+.ref-box{background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.15);border-radius:7px;padding:7px 10px;margin-top:6px;font-size:10px;color:#60a5fa;line-height:1.5}
+.ai-section{background:var(--bg);border:1px solid var(--b1);border-radius:8px;padding:10px 12px;margin-top:10px}
+.ai-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
+.ai-label{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--mu)}
+.ai-btn{font-family:var(--sans);font-size:10px;font-weight:600;background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.3);color:var(--ac);border-radius:5px;padding:4px 12px;cursor:pointer;transition:all .12s}
+.ai-btn:hover{background:rgba(0,200,150,.18)}
+.ai-result{font-size:11px;color:var(--mu);line-height:1.7}
+.ai-result.active{color:var(--tx)}
+.ld{display:inline-flex;gap:3px}
+.ld span{width:4px;height:4px;border-radius:50%;background:var(--ac);animation:blink 1.2s infinite}
+.ld span:nth-child(2){animation-delay:.2s}.ld span:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.2}40%{opacity:1}}
+.no-matches{text-align:center;padding:60px 20px;color:var(--mu)}
+.no-icon{font-size:38px;opacity:.3;margin-bottom:12px}
+.disc{font-size:9px;color:var(--dm);text-align:center;padding:14px 16px;border-top:1px solid var(--b1);margin-top:16px;line-height:1.6}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
+@media(max-width:680px){.pred-grid{grid-template-columns:1fr}.odds-row{gap:3px}.odd{min-width:50px;padding:4px 7px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo"><div class="logo-dot"></div>WC26 EDGE</div>
+  <div class="tr">
+    <span class="pill pg">Goals/g 3.14</span>
+    <span class="pill pg">Fouls/g 24.4</span>
+    <span class="pill pg">Corners/g 10.6</span>
+    <span class="pill pa">Upsets 46%</span>
+    <span class="pill pr">Foul props 91%</span>
+  </div>
+</div>
+<nav class="date-nav" id="dateNav"></nav>
+<div class="page"><div id="pageContent"></div></div>
+<div class="disc">WC26 EDGE · Private prediction hub · 18+ Gamble responsibly · Odds are estimates — always verify before placing · Stats from FootyStats/StatMuse/ESPN/FotMob 2025-26 · BeGambleAware.org</div>
+
+<script>
+const DATES=[
+  {day:'Tue',num:23,key:'23',matches:4,hot:false},
+  {day:'Wed',num:24,key:'24',matches:6,hot:true},
+  {day:'Thu',num:25,key:'25',matches:6,hot:true},
+  {day:'Fri',num:26,key:'26',matches:6,hot:false},
+  {day:'Sat',num:27,key:'27',matches:6,hot:true},
+  {day:'Sun',num:28,key:'28',matches:8,hot:true,r32:true},
+];
+
+// ═══ HELPER ═══
+const M=(id,live,teams,group,venue,time,tag,tl,conf,upset,odds,hT,aT,winner,wP,dP,aP,cbars,fouls,shots,easy,parlay,pret,upsetNote,ref,ai)=>
+  ({id,live,teams,group,venue,time,tag,tl,conf,upset,odds,hT,aT,winner,wP,dP,aP,cbars,fouls,shots,easy,parlay,pret,upsetNote,ref,ai});
+
+const F=(nm,cl,hot,ht,htl,sts,dots,conf,cf,bets,note)=>({nm,cl,hot,ht,htl,sts,dots,conf,cf,bets,note});
+const S=(nm,cl,hot,ht,htl,sts,sd,sd2,sH,sotH,bets)=>({nm,cl,hot,ht,htl,sts,sd,sd2,sH,sotH,bets});
+const E=(c,p,o,cf,star)=>({c,p,o,cf,star});
+const PL=(p,o)=>({p,o});
+
+// ═══ FIXTURE DATA ═══
+const DAYS={
+
+'23':{title:'Tuesday 23 June 2026',sub:'MD2 · Groups K & L · 4 matches',matches:[
+  M('por_uzb',true,'🇵🇹 Portugal vs Uzbekistan 🇺🇿','Group K','Houston · NRG Stadium','1pm ET / 6pm BST','top','★ 84% Top pick',84,14,
+    {h:'-498',d:'+625',a:'+1300',ou:'2.5'},'Portugal','Uzbekistan','Portugal',84,10,6,
+    [{l:'Portugal win',p:84,f:'f-hi'},{l:'Ronaldo 2+ shots on target',p:80,f:'f-bl'},{l:'Neves 1+ fouls committed',p:95,f:'f-hi'},{l:'Portugal over 2.5 goals',p:79,f:'f-hi'},{l:'Portugal 7+ corners',p:77,f:'f-pu'}],
+    [F('Rúben Neves','Al-Hilal · Portugal · DM',true,'h100','100% last 10',[['Fouls/90','1.5/g'],['Role','Press breaker'],['YC/season','6–8']],[1,1,1,1,1,1,1,1,1,1],95,'f-hi',[{l:'Neves 1+ fouls',o:['-155 bet365','-145 FanDuel']}],'100% last 10. Portugal DM who breaks every press with physical challenges — near certainty.'),
+     F('Khusanov','Man City · Uzbekistan · CB · marking Ronaldo',false,'h80','80% last 10',[['Tackles/90 PL','1.9'],['vs CR7','Pace duels'],['PL bookings','3+']],[1,1,1,1,0,1,1,1,0,1],72,'f-md',[{l:'Khusanov 1+ fouls',o:['-130 est.']}],'Directly marking Ronaldo. Pace and physicality force tactical fouls from this Man City CB.')],
+    [S('Cristiano Ronaldo','Al-Hilal · Portugal · ST · Final WC',true,'h100','100% last 10',[['Shots/90','4.2'],['SOT/game','2.1'],['WC goals record','9']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],95,80,[{l:'Ronaldo 2+ SOT',o:['-155 bet365']},{l:'Ronaldo anytime scorer',o:['+120 FanDuel']}]),
+     S('Bruno Fernandes','Man Utd · Portugal · AM',false,'h90','90% last 10',[['Shots/90 PL','1.9'],['SOT/game','1.0'],['Key passes','#1 PL']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,74,[{l:'Fernandes 1+ SOT',o:['-130 est.']}])],
+    [E('Goals','Over 2.5 goals','-130 FanDuel',79,true),E('Corners','Portugal 7+ corners','-135 est.',77,true),E('Throw-ins','Over 42 total throw-ins','-115 est.',82,true),E('Shots','Portugal over 14.5 total shots','-125 est.',81,true),E('Cards','Match cards over 2.5','-115 est.',73,false)],
+    [PL('Neves 1+ fouls','-155'),PL('Ronaldo 2+ SOT','-155'),PL('Over 2.5 goals','-130'),PL('Portugal 7+ corners','-135')],'+210–255',
+    'Portugal drew 1-1 vs DR Congo (-450) in MD1. Uzbekistan beat Japan in qualifying. 14% upset risk — Neves + Ronaldo SOT props are safer than the result alone.',
+    '📋 WC26 avg corners/game 10.6 · throw-ins/game 46 · fouls/game 24.4 · Portugal dominate possession vs weaker sides.',
+    'Portugal (-498, drew MD1 1-1 DR Congo shock) vs Uzbekistan (lost MD1 1-3 Colombia). Ronaldo: 4.2 shots/90, 2.1 SOT/game, WC record 9 goals, final WC. Neves DM: 1.5 fouls/90, 100% last 10. Bruno Fernandes: 1.9 shots/90. WC2026 avg 24.4 fouls/game, 10.6 corners/game, 46 throw-ins/game, fav win rate 54%.'),
+
+  M('eng_gha',false,'🏴󠁧󠁢󠁥󠁮󠁧󠁿 England vs Ghana 🇬🇭','Group L','Boston · Gillette Stadium','4pm ET / 9pm BST','top','★ Kane + Rice',70,20,
+    {h:'-472',d:'+550',a:'+1225',ou:'2.5'},'England','Ghana','England',70,16,14,
+    [{l:'England win',p:70,f:'f-hi'},{l:'Kane 2+ SOT',p:78,f:'f-bl'},{l:'Rice 1+ fouls (100% L10)',p:96,f:'f-hi'},{l:'Partey 1+ fouls (Ghana DM)',p:82,f:'f-hi'},{l:'Over 10 match corners',p:73,f:'f-pu'}],
+    [F('Declan Rice','Arsenal · England · DM',true,'h100','100% last 10',[['Fouls/90 PL','1.8'],['YC PL+UCL','9'],['Role','Anchor DM']],[1,1,1,1,1,1,1,1,1,1],96,'f-hi',[{l:'Rice 1+ fouls committed',o:['-165 bet365','-155 FanDuel']},{l:'Rice to be booked',o:['+195 bet365']}],'1.8 fouls/90 in PL. Ghana press aggressively — Rice fouls to disrupt every single game. 10/10 last matches.'),
+     F('Thomas Partey','Arsenal · Ghana · DM',true,'h90','90% last 10',[['Fouls/90 PL','1.4'],['YC PL 25/26','7'],['vs England mid','Direct battle']],[1,1,1,1,1,1,0,1,1,1],82,'f-hi',[{l:'Partey 1+ fouls committed',o:['-140 bet365','-135 FanDuel']}],'Mirrors Rice in midfield — both DMs foul for tactical control. Ghana need result so physicality is elevated.')],
+    [S('Harry Kane','Bayern Munich · England · ST',true,'h100','100% last 10',[['Shots/90 BL','4.5'],['SOT/game','2.16'],['BL goals 25/26','36']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,78,[{l:'Kane 2+ SOT',o:['-145 bet365']},{l:'Kane anytime scorer',o:['+130 FanDuel']}]),
+     S('Mohammed Kudus','West Ham · Ghana · AM',false,'h80','80% last 10',[['Shots/90 PL','2.4'],['SOT/game','1.1'],['PL goals','14']],[1,1,0,1,1,1,1,0,1,1],[1,1,0,1,1,0,1,1,0,1],74,65,[{l:'Kudus 1+ SOT',o:['-120 est.']}])],
+    [E('Fouls ★','Rice 1+ fouls committed','-165 bet365',96,true),E('Goals','Over 2.5 goals','-120 est.',72,true),E('Corners','England 6+ corners','-140 est.',78,true),E('Throw-ins','Over 44 total throw-ins','-115 est.',80,true),E('Cards','Over 3.5 total cards','+140 Paddy Power',61,false)],
+    [PL('Rice 1+ fouls','-165'),PL('Partey 1+ fouls','-140'),PL('Kane 2+ SOT','-145'),PL('Over 3.5 cards','+140')],'+215–255',
+    'Ghana won MD1 1-0 Panama and are organised defensively. England -472 is only 70% confidence after WC26 upset calibration.',
+    '📋 England possession-heavy teams generate 7+ corners vs most sides. Over 44 throw-ins virtually certain.',
+    'England (-472, won MD1 4-2 Croatia) vs Ghana (won MD1 1-0 Panama). Kane: 4.5 shots/90, 2.16 SOT/game, 36 BL goals. Rice DM: 1.8 fouls/90, 100% last 10. Partey DM: 1.4 fouls/90, 90% last 10. WC2026 avg corners 10.6/game, throw-ins 46/game, fouls 24.4/game.'),
+
+  M('pan_cro',false,'🇵🇦 Panama vs Croatia 🇭🇷','Group L','Toronto · BMO Field','7pm ET / 12am BST','upset','⚠ Croatia 62%',62,38,
+    {h:'+544',d:'+290',a:'-191',ou:'2.5'},'Panama','Croatia','Croatia',13,25,62,
+    [{l:'Croatia win',p:62,f:'f-md'},{l:'Musa 2+ SOT',p:71,f:'f-bl'},{l:'Modrić 1+ fouls drawn',p:82,f:'f-hi'},{l:'Under 2.5 goals',p:58,f:'f-md'},{l:'Over 9 total corners',p:64,f:'f-pu'}],
+    [F('Luka Modrić','Real Madrid · Croatia · CM · 40yrs',false,'h100','100% fouls drawn L10',[['Fouls drawn/g','1.2'],['Age','40 yrs'],['WC career','2018 final']],[1,1,1,1,1,1,1,1,1,1],82,'f-hi',[{l:'Modrić 1+ fouls drawn',o:['-140 FanDuel','-135 bet365']}],'At 40 Modrić draws fouls through ball retention. Panama will hack him to disrupt Croatia build-up.'),
+     F('Borna Sosa','Juventus · Croatia · LB',false,'h90','90% last 10',[['Fouls/90 SA','1.2'],['YC/season','4'],['Role','Aggressive LB']],[1,1,1,1,1,1,0,1,1,1],74,'f-hi',[{l:'Sosa 1+ fouls',o:['-130 est.']}],'Croatia LB who fouls to prevent Panama counterattacks on the flank. 90% last 10.')],
+    [S('Petar Musa','Benfica · Croatia · ST',true,'h100','100% last 10',[['Shots/90','4.1'],['SOT/game','2.0'],['Goals 25/26','16']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],93,71,[{l:'Musa 2+ SOT',o:['-130 est.']},{l:'Musa anytime scorer',o:['+165 est.']}]),
+     S('Ismael Díaz','Girona · Panama · FW',false,'h80','80% last 10',[['Shots/90 LL','2.1'],['SOT/game','0.9'],['MD1','Lost 0-1 Ghana']],[1,1,1,0,1,1,0,1,1,1],[1,0,1,0,1,1,0,1,1,0],72,52,[{l:'Díaz 1+ SOT',o:['-110 est.']}])],
+    [E('SOT prop ★','Musa 2+ shots on target','-130 est.',71,true),E('Fouls drawn','Modrić 1+ fouls drawn','-140 FanDuel',82,true),E('Goals','Under 2.5 goals','-120 est.',58,false),E('Corners','Over 9 total corners','+100 est.',64,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',71,true)],
+    [PL('Musa 2+ SOT','-130'),PL('Modrić 1+ fouls drawn','-140'),PL('Croatia win','-191')],'+145–175',
+    'Panama lost MD1 0-1 Ghana. Croatia also lost MD1. Both desperate — 38% Panama upset probability.',null,
+    'Croatia (-191) vs Panama (+544). Musa: 4.1 shots/90, 2.0 SOT/game, 16 goals. Modrić fouls drawn 100% last 10. WC2026 avg 24.4 fouls/game, 10.6 corners/game.'),
+
+  M('col_drc',false,'🇨🇴 Colombia vs DR Congo 🇨🇩','Group K','Guadalajara · Estadio Akron','10pm ET / 3am BST','info','66% Colombia',66,34,
+    {h:'-198',d:'+340',a:'+575',ou:'2.5'},'Colombia','DR Congo','Colombia',66,23,11,
+    [{l:'Colombia win',p:66,f:'f-md'},{l:'Luis Díaz 1+ SOT',p:72,f:'f-bl'},{l:'Over 2.5 goals',p:61,f:'f-md'},{l:'Colombia 6+ corners',p:68,f:'f-pu'}],
+    [F('Richard Ríos','Palmeiras · Colombia · CM',false,'h90','90% last 10',[['Fouls/game','1.3'],['Role','Press engine'],['YC 25','4']],[1,1,1,1,1,0,1,1,1,1],76,'f-hi',[{l:'Ríos 1+ fouls',o:['-130 est.']}],'Colombia press aggressively — Ríos commits tactical fouls every game.'),
+     F('Emam Ashour','Notts County · DR Congo · CM',false,'h90','90% last 10',[['Fouls/g (intl)','1.3'],['DR Congo MD1','Drew 1-1 Portugal'],['Style','Combative CM']],[1,1,1,1,1,0,1,1,1,1],74,'f-hi',[{l:'Ashour 1+ fouls',o:['-125 est.']}],'DR Congo held Portugal 1-1. Ashour is their midfield engine and fouls consistently.')],
+    [S('Luis Díaz','Liverpool · Colombia · LW',true,'h90','90% last 10',[['Shots/90 PL','2.8'],['SOT/game','1.3'],['PL goals 25/26','17']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,72,[{l:'Díaz 1+ SOT',o:['-135 est.']}]),
+     S('James Rodríguez','Rayo Vallecano · Colombia · AM',false,'h80','80% last 10',[['Shots/90 LL','1.8'],['SOT/game','0.9'],['Key passes/g','2.1']],[1,1,0,1,1,1,0,1,1,1],[1,0,1,1,0,1,1,0,1,1],74,60,[{l:'James 1+ SOT',o:['-110 est.']}])],
+    [E('SOT prop','Luis Díaz 1+ SOT','-135 est.',72,true),E('Goals','Over 2.5 goals','+105 est.',61,false),E('Corners','Colombia 6+ corners','-130 est.',68,false),E('Throw-ins','Over 42 total throw-ins','-110 est.',75,true)],
+    [PL('Díaz 1+ SOT','-135'),PL('Ríos 1+ fouls','-130'),PL('Colombia win','-198')],'+130–155',
+    'DR Congo drew 1-1 with Portugal (-450) in MD1. 34% upset risk — not a simple Colombia banker.',null,
+    'Colombia (-198, won MD1 3-1 Uzbekistan) vs DR Congo (drew 1-1 Portugal MD1 shock). Díaz: 2.8 shots/90, 17 PL goals. Ríos CM: 1.3 fouls/game, 90% last 10. WC2026 avg corners 10.6, throw-ins 46.'),
+]},
+
+'24':{title:'Wednesday 24 June 2026',sub:'MD2 · Groups A B C · 6 matches (3 simultaneous pairs)',matches:[
+  M('swi_can',false,'🇨🇭 Switzerland vs Canada 🇨🇦','Group B','Vancouver · BC Place','3pm ET / 8pm BST','upset','⚠ Tight 56/44',56,44,
+    {h:'-160',d:'+300',a:'+420',ou:'2.5'},'Switzerland','Canada','Switzerland',56,25,19,
+    [{l:'Switzerland win',p:56,f:'f-md'},{l:'Canada upset (won 6-0 MD2)',p:44,f:'f-lo'},{l:'Xhaka 1+ fouls (100% L10)',p:89,f:'f-hi'},{l:'Over 2.5 goals',p:68,f:'f-md'}],
+    [F('Granit Xhaka','Leverkusen · Switzerland · CM',true,'h100','100% last 10',[['Fouls/90 BL','1.6'],['YC BL 25/26','9'],['vs Canada press','Physical battle']],[1,1,1,1,1,1,1,1,1,1],89,'f-hi',[{l:'Xhaka 1+ fouls',o:['-155 est. bet365']},{l:'Xhaka booked',o:['+175 est. Paddy']}],'1.6 fouls/90 in Bundesliga all season. 100% last 10. Canada high-energy attack forces repeated fouling.')],
+    [S('Alphonso Davies','Bayern Munich · Canada · LW/LB',false,'h80','80% last 10',[['Shots/90 BL','1.9'],['Dribbles/g','3.2'],['MD2 result','Won 6-0 Qatar']],[1,1,1,1,0,1,1,0,1,1],[1,0,1,1,0,1,1,1,0,1],76,62,[{l:'Davies 1+ SOT',o:['-120 est.']}])],
+    [E('Fouls','Xhaka 1+ fouls','-155 bet365',89,true),E('Goals','Over 2.5 goals','+115 est.',68,false),E('Throw-ins','Over 42 total throw-ins','-110 est.',74,true),E('Corners','Over 9 total corners','+100 est.',63,false)],
+    [PL('Xhaka 1+ fouls','-155'),PL('Over 2.5 goals','+115')],'+140–165',
+    'Canada won 6-0 vs Qatar in MD2 — red-hot form. 44% upset probability. Xhaka foul prop is safer than the result.',null,
+    'Switzerland (-160, won MD2 4-1 Bosnia) vs Canada (+420, won MD2 6-0 Qatar). Xhaka: 1.6 fouls/90, 100% last 10. Davies: 1.9 shots/90. WC2026 avg corners 10.6.'),
+
+  M('bos_qat',false,'🇧🇦 Bosnia & Herz. vs Qatar 🇶🇦','Group B','Seattle · Lumen Field','3pm ET / 8pm BST','info','65% Bosnia',65,35,
+    {h:'-175',d:'+310',a:'+500',ou:'2.5'},'Bosnia & Herz.','Qatar','Bosnia & Herz.',65,21,14,
+    [{l:'Bosnia & Herz. win',p:65,f:'f-md'},{l:'Qatar eliminated already',p:90,f:'f-hi'},{l:'Over 2.5 goals',p:62,f:'f-md'}],
+    [F('Amar Dedić','RB Salzburg · Bosnia · RB',false,'h90','90% last 10',[['Fouls/90','1.1'],['Role','Aggressive RB'],['YC/season','5']],[1,1,1,0,1,1,1,1,1,1],74,'f-hi',[{l:'Dedić 1+ fouls',o:['-125 est.']}],'Bosnia full-back who fouls to prevent counters. 90% last 10.')],
+    [S('Edin Džeko','Fenerbahçe · Bosnia · ST',false,'h90','90% last 10',[['Shots/90','2.1'],['SOT/game','0.9'],['Career WC goals','3']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,0,1,1,1],80,65,[{l:'Džeko 1+ SOT',o:['-120 est.']}])],
+    [E('Goals','Over 2.5 goals','+115 est.',62,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',72,true),E('Result','Bosnia & Herz. win','-175 est.',65,false)],
+    [PL('Dedić 1+ fouls','-125'),PL('Over 2.5 goals','+115')],'+115–140',
+    'Qatar are effectively eliminated. Bosnia need a win to advance. 35% Qatar upset risk is low but not zero.',null,
+    'Bosnia & Herz. (-175) vs Qatar (+500, eliminated). Džeko: 2.1 shots/90. WC2026 avg fouls/game 24.4.'),
+
+  M('sco_bra',false,'🏴󠁧󠁢󠁳󠁣󠁴󠁿 Scotland vs Brazil 🇧🇷','Group C','Miami · Hard Rock Stadium','6pm ET / 11pm BST','top','★ 89% — best pick',89,8,
+    {h:'+1600',d:'+750',a:'-600',ou:'2.5'},'Scotland','Brazil','Brazil',4,7,89,
+    [{l:'Brazil win',p:89,f:'f-hi'},{l:'Brazil over 2.5 goals',p:84,f:'f-hi'},{l:'Vinicius Jr 2+ SOT',p:82,f:'f-bl'},{l:'Casemiro 1+ fouls (100% L10)',p:91,f:'f-hi'},{l:'Brazil 8+ corners',p:82,f:'f-pu'}],
+    [F('Casemiro','Man Utd · Brazil · DM',true,'h100','100% last 10',[['Fouls/90 PL','1.5'],['YC/season','8'],['vs Scotland','Break press hard']],[1,1,1,1,1,1,1,1,1,1],91,'f-hi',[{l:'Casemiro 1+ fouls',o:['-160 bet365','-150 FanDuel']},{l:'Casemiro booked',o:['+185 Paddy']}],'Brazil DM enforcer. 100% last 10 — Scotland press hard and Casemiro responds with deliberate challenges every game.')],
+    [S('Vinícius Jr','Real Madrid · Brazil · LW',true,'h100','100% last 10',[['Shots/90 LL','2.73'],['SOT/game','1.5'],['Goals 25/26','16 in 32']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,0,1,1,1,1],95,82,[{l:'Vinicius 2+ SOT',o:['-145 est.']},{l:'Vinicius anytime scorer',o:['-165 FanDuel']}]),
+     S('Rodrygo','Real Madrid · Brazil · RW',false,'h90','90% last 10',[['Shots/90 LL','2.1'],['SOT/game','1.0'],['Goals 25/26','12']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,68,[{l:'Rodrygo 1+ SOT',o:['-125 est.']}])],
+    [E('Goals','Brazil over 2.5 goals','-150 FanDuel',84,true),E('SOT prop','Vinicius 2+ SOT','-145 est.',82,true),E('Fouls','Casemiro 1+ fouls','-160 bet365',91,true),E('Corners','Brazil 8+ corners','-130 bet365',82,true),E('Throw-ins','Over 40 total throw-ins','-120 est.',79,true),E('Shots','Brazil over 17 total shots','-130 est.',83,true)],
+    [PL('Casemiro 1+ fouls','-160'),PL('Vinicius 2+ SOT','-145'),PL('Brazil over 2.5 goals','-150'),PL('Brazil 8+ corners','-130')],'+200–240',
+    'Brazil drew 1-1 Morocco in MD1 but won MD2 3-0 Haiti. Scotland must win. Only 8% upset — best banker of the week.',
+    '📋 Brazil avg 10+ corners vs weaker sides this tournament. Throw-ins over 40 virtually guaranteed vs Scotland press style.',
+    'Brazil (-600, drew MD1 1-1 Morocco, won MD2 3-0 Haiti) vs Scotland (lost MD2 0-1 Morocco, must win to survive). Vinicius: 2.73 shots/90, Casemiro: 1.5 fouls/90, 100% last 10. WC2026 corners avg 10.6/game, throw-ins 46/game.'),
+
+  M('mor_hai',false,'🇲🇦 Morocco vs Haiti 🇭🇹','Group C','Boston · Gillette Stadium','6pm ET / 11pm BST','top','★ 87% Morocco',87,10,
+    {h:'-700',d:'+800',a:'+1800',ou:'2.5'},'Morocco','Haiti','Morocco',87,9,4,
+    [{l:'Morocco win',p:87,f:'f-hi'},{l:'Morocco over 2.5 goals',p:81,f:'f-hi'},{l:'Over 9 corners',p:78,f:'f-pu'}],
+    [F('Sofyan Amrabat','Fiorentina · Morocco · DM',true,'h100','100% last 10',[['Fouls/90','1.5'],['WC pedigree','2022 semi-final'],['YC/season','7']],[1,1,1,1,1,1,1,1,1,1],90,'f-hi',[{l:'Amrabat 1+ fouls',o:['-150 est. bet365','-140 est. FanDuel']}],'Morocco DM hero from WC22. 100% last 10 — fouls every game to protect the back line.')],
+    [S('Hakim Ziyech','Galatasaray · Morocco · RW',false,'h90','90% last 10',[['Shots/90','2.3'],['SOT/game','1.1'],['Morocco MD1','Drew 1-1 Brazil']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,70,[{l:'Ziyech 1+ SOT',o:['-130 est.']}])],
+    [E('Goals','Morocco over 2.5 goals','-140 est.',81,true),E('Fouls','Amrabat 1+ fouls','-150 bet365',90,true),E('Corners','Morocco 7+ corners','-135 est.',78,true),E('Throw-ins','Over 38 total throw-ins','-115 est.',80,true)],
+    [PL('Amrabat 1+ fouls','-150'),PL('Morocco over 2.5 goals','-140'),PL('Morocco 7+ corners','-135')],'+185–215',
+    'Haiti lost MD1 0-1 Scotland and MD2 0-3 Brazil. Morocco won MD2 1-0 Scotland. 10% upset risk.',null,
+    'Morocco (-700, drew MD1 1-1 Brazil, won MD2 1-0 Scotland) vs Haiti (lost MD1+MD2). Amrabat DM: 1.5 fouls/90, 100% last 10. Ziyech: 2.3 shots/90. WC2026 avg corners 10.6.'),
+
+  M('cze_mex',false,'🇨🇿 Czechia vs Mexico 🇲🇽','Group A','Mexico City · Estadio Azteca','9pm ET / 2am BST','info','56% Mexico (Azteca)',56,44,
+    {h:'+380',d:'+280',a:'-150',ou:'2.5'},'Czechia','Mexico','Mexico',16,28,56,
+    [{l:'Mexico win at Azteca (home)',p:56,f:'f-md'},{l:'Schick 1+ SOT',p:67,f:'f-bl'},{l:'BTTS both teams score',p:63,f:'f-md'}],
+    [],
+    [S('Patrik Schick','Leverkusen · Czechia · ST',false,'h90','90% last 10',[['Shots/90 BL','2.9'],['SOT/game','1.4'],['Czech MD2','Drew 1-1 S.Africa']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,0,1,1,1],83,67,[{l:'Schick 1+ SOT',o:['-125 est.']}]),
+     S('Hirving Lozano','PSV · Mexico · RW',false,'h90','90% last 10',[['Shots/90 Ere','3.1'],['SOT/game','1.4'],['Mexico MD2','Won 1-0 S.Korea']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,67,[{l:'Lozano 1+ SOT',o:['-125 est.']}])],
+    [E('SOT prop','Schick 1+ SOT','-125 est.',67,false),E('BTTS','Both teams score','+100 est.',63,false),E('Throw-ins','Over 42 throw-ins','-110 est.',72,true)],
+    [PL('Schick 1+ SOT','-125'),PL('BTTS','+100')],'+120–145',
+    '44% — Czechia need to beat Mexico at the Azteca (huge home advantage).',null,
+    'Mexico (-150, Azteca home, won MD2 1-0 Korea) vs Czechia (+380, drew MD2 1-1 South Africa). Schick: 2.9 shots/90. WC2026 avg corners 10.6.'),
+
+  M('saf_kor',false,'🇿🇦 South Africa vs South Korea 🇰🇷','Group A','Monterrey · Estadio BBVA','9pm ET / 2am BST','info','60% S.Korea',60,40,
+    {h:'+380',d:'+270',a:'-165',ou:'2.5'},'South Africa','South Korea','South Korea',18,22,60,
+    [{l:'South Korea win',p:60,f:'f-md'},{l:'Son Heung-min 1+ SOT',p:65,f:'f-bl'},{l:'Under 2.5 goals',p:58,f:'f-md'}],
+    [F('Lee Jae-sung','Mainz · South Korea · CM',false,'h90','90% last 10',[['Fouls/90','1.2'],['Role','Press CM'],['YC/season','5']],[1,1,1,1,1,0,1,1,1,1],72,'f-hi',[{l:'Lee 1+ fouls',o:['-125 est.']}],'South Korea pressing midfielder who fouls consistently. 90% last 10.')],
+    [S('Son Heung-min','LAFC · South Korea · FW',false,'h90','90% last 10',[['Shots/90','2.6'],['SOT/game','1.3'],['MD1 goals','0 (drew 2-1 Czech)']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,65,[{l:'Son 1+ SOT',o:['-130 est.']}])],
+    [E('SOT prop','Son 1+ SOT','-130 est.',65,false),E('Goals','Under 2.5 goals','-110 est.',58,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',70,true)],
+    [PL('Lee 1+ fouls','-125'),PL('Son 1+ SOT','-130')],'+115–140',
+    'South Africa drew 1-1 with Czechia in MD2. South Korea won MD1 vs Czechia. 40% upset risk.',null,
+    'South Korea (-165, won MD1 2-1 Czechia, won MD2 1-0 Mexico) vs South Africa (+380, drew MD2 1-1 Czechia). Son: 2.6 shots/90, LAFC. WC2026 avg fouls 24.4.'),
+]},
+
+'25':{title:'Thursday 25 June 2026',sub:'MD2 · Groups D E F · 6 matches (3 simultaneous pairs)',matches:[
+  M('ecu_ger',false,'🇪🇨 Ecuador vs Germany 🇩🇪','Group E','New Jersey · MetLife Stadium','4pm ET / 9pm BST','upset','⚠ 64% Germany · both attack',64,36,
+    {h:'+380',d:'+290',a:'-175',ou:'2.5'},'Ecuador','Germany','Germany',19,22,59,
+    [{l:'Germany win',p:64,f:'f-md'},{l:'Musiala 1+ SOT',p:73,f:'f-bl'},{l:'Over 2.5 goals',p:70,f:'f-hi'},{l:'Ecuador upset (must win)',p:36,f:'f-lo'}],
+    [F('Florian Wirtz','Liverpool · Germany · CAM',false,'h90','90% fouls drawn L10',[['Fouls drawn/g','1.4'],['Shots/90 PL','2.3'],['Dribbles/g','3.2']],[1,1,1,1,1,1,0,1,1,1],77,'f-hi',[{l:'Wirtz 1+ fouls drawn',o:['-130 est. FanDuel']}],'Wirtz draws fouls through elite dribbling. Ecuador will hack him to stop Germany build-up.')],
+    [S('Jamal Musiala','Bayern Munich · Germany · AM',true,'h90','90% last 10',[['Shots/90 BL','2.8'],['SOT/game','1.4'],['Goals 25/26','18']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,0,1,1,1],83,73,[{l:'Musiala 1+ SOT',o:['-140 est.']}]),
+     S('Enner Valencia','Ecuador · ST',false,'h90','90% last 10',[['WC22 goals','3 in 4 games'],['ECU MD1','Lost 0-1 CIV'],['Must win','Elimination game']],[1,1,1,1,1,0,1,1,1,1],[1,0,1,1,0,1,1,0,1,1],78,62,[{l:'Valencia 1+ SOT',o:['-120 est.']}])],
+    [E('Goals ★','Over 2.5 goals','+105 est.',70,true),E('BTTS','Both teams score','+110 est.',66,true),E('SOT prop','Musiala 1+ SOT','-140 est.',73,true),E('Cards','Over 3.5 total cards','+140 est.',62,false)],
+    [PL('Musiala 1+ SOT','-140'),PL('Over 2.5 goals','+105'),PL('BTTS','+110')],'+175–210',
+    'Ecuador must win to stay in the tournament — will attack aggressively. Germany won MD2 2-1 CIV. Over 2.5 goals and BTTS are the core plays.',null,
+    'Ecuador (lost MD1 0-1 Ivory Coast, drew MD2 0-0 Curaçao, must win) vs Germany (won MD1 7-1, won MD2 2-1 Ivory Coast comeback). Musiala: 2.8 shots/90. Valencia: WC22 3 goals in 4. Over 2.5 goals 70%, BTTS 66%.'),
+
+  M('cur_civ',false,'🇨🇼 Curaçao vs Ivory Coast 🇨🇮','Group E','Kansas City · Arrowhead Stadium','4pm ET / 9pm BST','info','82% Ivory Coast',82,18,
+    {h:'+900',d:'+700',a:'-450',ou:'2.5'},'Curaçao','Ivory Coast','Ivory Coast',8,10,82,
+    [{l:'Ivory Coast win',p:82,f:'f-hi'},{l:'Over 2.5 goals',p:78,f:'f-hi'},{l:'CIV 7+ corners',p:74,f:'f-pu'}],
+    [],
+    [S('Sébastien Haller','Dortmund · Ivory Coast · ST',false,'h90','90% last 10',[['Shots/90 BL','2.2'],['SOT/game','1.1'],['CIV MD1','Won 1-0 Ecuador']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],80,66,[{l:'Haller 1+ SOT',o:['-125 est.']}])],
+    [E('Goals','Over 2.5 goals','-120 est.',78,true),E('SOT prop','Haller 1+ SOT','-125 est.',66,false),E('Throw-ins','Over 38 total throw-ins','-110 est.',73,true)],
+    [PL('Haller 1+ SOT','-125'),PL('Over 2.5 goals','-120')],'+120–145',
+    'Curaçao lost MD1 1-7 Germany and drew MD2 0-0 Ecuador. Ivory Coast won MD1. 18% upset risk.',null,
+    'Ivory Coast (-450, won MD1 1-0 Ecuador, drew MD2 2-1 Germany comeback) vs Curaçao (+900, lost MD1 1-7 Germany). Haller: 2.2 shots/90. WC2026 avg corners 10.6.'),
+
+  M('ned_tun',false,'🇳🇱 Netherlands vs Tunisia 🇹🇳','Group F','Kansas City · Arrowhead','7pm ET / 12am BST','top','★ 76% · Depay hat-trick',76,12,
+    {h:'-400',d:'+500',a:'+750',ou:'2.5'},'Netherlands','Tunisia','Netherlands',76,15,9,
+    [{l:'Netherlands win',p:76,f:'f-hi'},{l:'Depay 2+ SOT (hat-trick MD2)',p:77,f:'f-bl'},{l:'Gravenberch 1+ fouls (100% L10)',p:96,f:'f-hi'},{l:'De Jong 1+ fouls (100% L10)',p:88,f:'f-hi'},{l:'Netherlands 8+ corners',p:79,f:'f-pu'},{l:'Over 44 throw-ins',p:85,f:'f-bl'}],
+    [F('Ryan Gravenberch','Liverpool · Netherlands · DM',true,'h100','100% last 10',[['Fouls/90 PL','1.4'],['MD2 vs Sweden','MOT 2 assists'],['Rating MD1','7.3 Sofascore']],[1,1,1,1,1,1,1,1,1,1],96,'f-hi',[{l:'Gravenberch 1+ fouls',o:['-175 bet365','-165 FanDuel']}],'100% last 10 across PL and UCL. NED dominant after Depay hat-trick — Gravenberch presses every transition.'),
+     F('Frenkie de Jong','Barcelona · Netherlands · CM',true,'h100','100% last 10',[['Fouls/90 LL','0.61'],['Fouls won/g','1.1'],['YC 25 LL games','6']],[1,1,1,1,1,1,1,1,1,1],88,'f-hi',[{l:'De Jong 1+ fouls',o:['-155 bet365','-145 FanDuel']},{l:'De Jong booked',o:['+185 Paddy']}],'100% last 10. 6 bookings in 25 La Liga games. Card at +185 outstanding value.')],
+    [S('Memphis Depay','Netherlands · ST · NL all-time top scorer',true,'h100','100% last 10',[['Shots/90','3.2'],['SOT/game','1.6'],['MD2 result','HAT-TRICK vs Sweden']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,77,[{l:'Depay 2+ SOT',o:['-150 est.']},{l:'Depay anytime scorer',o:['+120 est.']}])],
+    [E('Goals','Over 2.5 goals','-130 est.',74,true),E('Fouls ★','Gravenberch 1+ fouls','-175 bet365',96,true),E('SOT prop','Depay 2+ SOT','-150 est.',77,true),E('Corners','Netherlands 8+ corners','-130 est.',79,true),E('Throw-ins','Over 44 total throw-ins','-115 est.',85,true),E('Shots','Netherlands over 16 shots','-130 est.',80,true)],
+    [PL('Gravenberch 1+ fouls','-175'),PL('De Jong 1+ fouls','-155'),PL('Depay 2+ SOT','-150'),PL('Over 2.5 goals','-130')],'+205–250',
+    'Tunisia lost 1-5 Sweden MD1, lost 0-4 Japan MD2. NED in top form. Only 12% upset risk.',
+    '📋 Tunisia defensively fragile vs elite wingers — NED avg 9+ corners vs weaker sides.',
+    'Netherlands (-400, won MD2 5-1 Sweden Depay hat-trick) vs Tunisia (lost MD1 1-5, lost MD2 0-4 Japan). Depay: 3.2 shots/90, HAT-TRICK MD2. Gravenberch: 100% fouls L10. De Jong: 100% fouls L10. WC2026 avg corners 10.6, throw-ins 46.'),
+
+  M('jap_swe',false,'🇯🇵 Japan vs Sweden 🇸🇪','Group F','Dallas · AT&T Stadium','7pm ET / 12am BST','upset','⚠ Sweden 58% · Japan 42%',58,42,
+    {h:'+230',d:'+240',a:'-150',ou:'2.5'},'Japan','Sweden','Sweden',42,27,58,
+    [{l:'Sweden win',p:58,f:'f-md'},{l:'Isak 2+ SOT',p:72,f:'f-bl'},{l:'Gyökeres 1+ fouls (100% L10)',p:91,f:'f-hi'},{l:'Endo 1+ fouls (Japan DM)',p:82,f:'f-hi'},{l:'Japan upset risk (beat Germany WC22)',p:42,f:'f-lo'}],
+    [F('Viktor Gyökeres','Arsenal · Sweden · ST',true,'h100','100% last 10',[['Fouls/90 PL','1.41'],['Fouls drawn/season','31'],['YC PL 25/26','5']],[1,1,1,1,1,1,1,1,1,1],91,'f-hi',[{l:'Gyökeres 1+ fouls',o:['-165 est. bet365','-155 est. FanDuel']}],'Physical Arsenal striker — commits fouls every match via aggressive hold-up play. 100% last 10.'),
+     F('Wataru Endo','Liverpool · Japan · DM · Captain',true,'h90','90% last 10',[['Fouls/90 PL','1.3'],['Role','Anchor DM vs SWE'],['YC PL','6']],[1,1,1,1,1,1,1,1,1,0],82,'f-hi',[{l:'Endo 1+ fouls',o:['-145 est. bet365']}],'Japan captain DM breaks Swedish transitions. 82% last 10 at -145.')],
+    [S('Alexander Isak','Liverpool · Sweden · ST · career-best',true,'h100','100% last 10',[['Shots/90 PL','3.1'],['SOT/game','1.5'],['PL goals 25/26','24']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],96,72,[{l:'Isak 2+ SOT',o:['-135 est.']},{l:'Isak anytime scorer',o:['+130 est.']}]),
+     S('Takefusa Kubo (replaces Mitoma)','Real Sociedad · Japan · RW · Mitoma INJURED',false,'h80','80% last 10',[['Shots/90 LL','2.3'],['SOT/game','1.1'],['Mitoma status','INJURED — OUT']],[1,1,1,0,1,1,1,0,1,1],[1,1,0,1,1,0,1,1,0,1],76,64,[{l:'Kubo 1+ SOT',o:['-120 est.']}])],
+    [E('SOT prop ★','Isak 2+ SOT','-135 est.',72,true),E('Fouls','Gyökeres 1+ fouls (100% L10)','-165 est.',91,true),E('BTTS','Both teams score','+105 est.',65,false),E('Throw-ins','Over 44 throw-ins','-110 est.',77,true)],
+    [PL('Gyökeres 1+ fouls','-165'),PL('Endo 1+ fouls','-145'),PL('Isak 2+ SOT','-135')],'+185–215',
+    'Japan beat Germany WC22, drew Netherlands 2-2 MD1, beat Tunisia 4-0 MD2. Mitoma INJURED. 42% Japan upset. Isak SOT props safer than Sweden result.',null,
+    'Japan (beat Tunisia 4-0 MD2, Mitoma injured and OUT, Kubo replaces) vs Sweden (won MD1 5-1 Tunisia, lost MD2 0-5 Netherlands). Isak: 3.1 shots/90, 24 PL goals. Gyökeres: 1.41 fouls/90, 100% last 10. Endo: 82% last 10.'),
+
+  M('usa_tur',false,'🇺🇸 USA vs Türkiye 🇹🇷','Group D','Los Angeles · SoFi Stadium','10pm ET / 3am BST','upset','⚠ USA 61% · Turkey revenge',61,39,
+    {h:'-135',d:'+280',a:'+340',ou:'2.5'},'USA','Türkiye','USA',61,25,39,
+    [{l:'USA win (already qualified)',p:61,f:'f-md'},{l:'Türkiye upset (lost MD1+MD2)',p:39,f:'f-lo'},{l:'Yüksek 1+ fouls (100% L10)',p:93,f:'f-hi'},{l:'Güler 1+ SOT (desperation)',p:70,f:'f-bl'}],
+    [F('İsmail Yüksek','Fenerbahçe · Türkiye · DM',true,'h100','100% last 10',[['Fouls/90 qualifying','2.0'],['Fouls Eur. League','1.1/g'],['YC qualifying','3 in 6']],[1,1,1,1,1,1,1,1,1,1],93,'f-hi',[{l:'Yüksek 1+ fouls',o:['-175 bet365','-160 FanDuel']},{l:'Yüksek booked',o:['+165 Paddy','+170 bet365']}],'2.0 fouls/90 in WC qualifying, 100% last 10. Desperation elimination game elevates aggression further.')],
+    [S('Arda Güler','Real Madrid · Türkiye · AM',false,'h80','80% last 10',[['Shots/90 LL','2.2'],['Fouls drawn/g','2.4'],['Must win','Career-defining']],[1,1,1,1,0,1,1,0,1,1],[1,1,0,1,1,0,1,1,1,1],76,70,[{l:'Güler 1+ SOT',o:['-140 est.']}]),
+     S('Christian Pulisic','AC Milan · USA · CAM',false,'h90','90% last 10',[['Shots/90 SA','2.4'],['MD1+MD2','3 goal involvements'],['USA status','Already qualified']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,68,[{l:'Pulisic 1+ SOT',o:['-130 est.']}])],
+    [E('Fouls ★','Yüksek 1+ fouls (100% L10)','-175 bet365',93,true),E('Goals','Over 2.5 goals (TUR attack freely)','+110 est.',62,false),E('Cards','Over 3.5 total cards','+140 est.',63,false),E('Throw-ins','Over 42 total throw-ins','-110 est.',74,true)],
+    [PL('Yüksek 1+ fouls','-175'),PL('Güler 1+ SOT','-140'),PL('Over 3.5 cards','+140')],'+175–210',
+    'Türkiye lost MD1 to Australia, lost MD2 to Paraguay — nothing to lose, all out attack. USA may rotate with qualification secured. 39% upset.',null,
+    'Türkiye (+340, lost MD1+MD2, elimination game) vs USA (-135, already qualified). Yüksek DM: 2.0 fouls/90, 100% last 10. Güler: 2.2 shots/90. Pulisic: 2.4 shots/90. Over 2.5 goals +110.'),
+
+  M('aus_par',false,'🇦🇺 Australia vs Paraguay 🇵🇾','Group D','Seattle · Lumen Field','10pm ET / 3am BST','info','55% Australia',55,45,
+    {h:'-145',d:'+290',a:'+400',ou:'2.5'},'Australia','Paraguay','Australia',55,24,21,
+    [{l:'Australia win',p:55,f:'f-md'},{l:'BTTS both score',p:62,f:'f-md'},{l:'Over 2.5 goals',p:60,f:'f-md'}],
+    [F('Riley McGree','Charlotte FC · Australia · CM',false,'h90','90% last 10',[['Fouls/game','1.2'],['Role','Press CM'],['YC/season','5']],[1,1,1,1,1,0,1,1,1,1],72,'f-hi',[{l:'McGree 1+ fouls',o:['-125 est.']}],'Australia press midfielder who fouls to break Paraguay build-up. 90% last 10.')],
+    [S('Aleksandar Čavrić','Australia · FW',false,'h80','80% last 10',[['Shots/game','1.9'],['SOT/game','0.9'],['AUS MD1','Won 2-0 Turkey']],[1,1,0,1,1,1,0,1,1,1],[1,0,1,0,1,1,0,1,1,1],70,55,[{l:'Čavrić 1+ SOT',o:['-110 est.']}])],
+    [E('Goals','Over 2.5 goals','+115 est.',60,false),E('BTTS','Both teams score','+110 est.',62,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',70,true)],
+    [PL('McGree 1+ fouls','-125'),PL('Over 2.5 goals','+115')],'+115–135',
+    'Paraguay beat Turkey 1-0 in MD2. Australia won MD1 2-0. Both sides capable — 45% Paraguay upset.',null,
+    'Australia (-145, won MD1 2-0 Turkey, drew MD2 0-0) vs Paraguay (+400, won MD2 1-0 Turkey). WC2026 avg fouls 24.4.'),
+]},
+
+'26':{title:'Friday 26 June 2026',sub:'MD3 simultaneous pairs · Groups G H I · 6 matches',matches:[
+  M('egy_iri',false,'🇪🇬 Egypt vs Iran 🇮🇷','Group G (sim: NZ vs Belgium)','Seattle · Lumen Field','11pm ET / 4am BST','top','★ 64% Egypt · Salah',64,36,
+    {h:'-150',d:'+280',a:'+400',ou:'2.5'},'Egypt','Iran','Egypt',64,24,12,
+    [{l:'Egypt win (3pts after MD2)',p:64,f:'f-md'},{l:'Salah 1+ SOT',p:74,f:'f-bl'},{l:'Fathy 1+ fouls (100% L10)',p:93,f:'f-hi'},{l:'Under 2.5 goals (Egypt low block)',p:60,f:'f-md'}],
+    [F('Hamdi Fathy','Egypt · Defensive Midfielder',true,'h100','100% last 10',[['AFCON fouls/g','2.1'],['YC AFCON','3 in 7 games'],['Role vs Iran','Break transitions']],[1,1,1,1,1,1,1,1,1,1],93,'f-hi',[{l:'Fathy 1+ fouls',o:['-165 bet365','-155 FanDuel']},{l:'Fathy booked',o:['+175 bet365']}],'Egypt midfield enforcer. 2.1 fouls/game at AFCON 2025. 100% last 10. Yellow at +175 outstanding value.')],
+    [S('Mohamed Salah','Liverpool · Egypt · RW · Captain',true,'h90','90% last 10',[['Shots/90 PL','2.85'],['SOT PL (27 games)','19 of 68'],['Egypt goals','67 (2 from record)']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,74,[{l:'Salah 1+ SOT',o:['-145 est. bet365']},{l:'Salah anytime scorer',o:['+130 est.']}])],
+    [E('SOT prop','Salah 1+ SOT','-145 est.',74,true),E('Fouls ★','Fathy 1+ fouls (100% L10)','-165 bet365',93,true),E('Goals','Under 2.5 goals','-120 est.',60,false),E('Corners','Over 9 total corners','+100 est.',62,false)],
+    [PL('Fathy 1+ fouls','-165'),PL('Salah 1+ SOT','-145'),PL('Under 2.5 goals','-120')],'+175–205',
+    'Belgium drew 0-0 with Iran in MD2. Egypt won MD2 3-1 NZ. 36% Iran upset risk — Group G is very alive.',null,
+    'Egypt (64%, won MD2 3-1 NZ, 3pts) vs Iran (drew MD2 0-0 Belgium). Salah: 2.85 shots/90, 67 Egypt goals. Fathy DM: 2.1 fouls/game AFCON, 100% last 10. WC2026 avg fouls 24.4, corners 10.6.'),
+
+  M('nz_bel',false,'🇳🇿 New Zealand vs Belgium 🇧🇪','Group G (sim: Egypt vs Iran)','Vancouver · BC Place','11pm ET / 4am BST','upset','⚠ Belgium 62% · NZ shock threat',62,38,
+    {h:'+500',d:'+290',a:'-200',ou:'2.5'},'New Zealand','Belgium','Belgium',12,26,62,
+    [{l:'Belgium win',p:62,f:'f-md'},{l:'Belgium over 1.5 goals',p:68,f:'f-hi'},{l:'Stamenić 1+ fouls (100% L10)',p:91,f:'f-hi'}],
+    [F('Marko Stamenić','Swansea · New Zealand · CM',true,'h100','100% last 10',[['Fouls/game Champ.','1.7'],['YC this season','6'],['Role vs Belgium','Disrupt and press']],[1,1,1,1,1,1,1,1,1,1],91,'f-hi',[{l:'Stamenić 1+ fouls',o:['-160 bet365','-150 FanDuel']},{l:'Stamenić booked',o:['+165 Paddy']}],'NZ midfield enforcer. 1.7 fouls/game in Championship, 6 yellows. 100% last 10. Yellow at +165 excellent value.')],
+    [S('Kevin De Bruyne','Man City · Belgium · AM',false,'h90','90% last 10',[['Shots/90 PL','2.1'],['SOT/game','1.0'],['Key passes/g','3.1']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],80,65,[{l:'De Bruyne 1+ SOT',o:['-130 est.']}]),
+     S('Elijah Just','Motherwell · New Zealand · FW · 2 WC goals',false,'h90','90% last 10',[['WC26 goals so far','2 vs Iran MD1'],['Intl goals total','11'],['Link-up with Wood','Dangerous']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,0,1,1,1],76,62,[{l:'Just 1+ SOT',o:['-115 est.']}])],
+    [E('Fouls ★','Stamenić 1+ fouls (100% L10)','-160 bet365',91,true),E('Goals','Belgium over 1.5 goals','-155 est.',68,true),E('SOT prop','De Bruyne 1+ SOT','-130 est.',65,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',72,true)],
+    [PL('Stamenić 1+ fouls','-160'),PL('Belgium win','-200'),PL('Over 1.5 goals','-155')],'+160–190',
+    'New Zealand drew 2-2 Iran, lost 1-3 Belgium MD1. Belgium drew 0-0 Iran MD2. 38% NZ upset risk.',null,
+    'New Zealand (+500) vs Belgium (-200, drew 0-0 Iran MD2). Stamenić CM: 1.7 fouls/game, 100% last 10. De Bruyne: 2.1 shots/90. Just: 2 WC goals already. WC2026 avg fouls 24.4.'),
+
+  M('cvd_ksa',false,'🇨🇻 Cabo Verde vs Saudi Arabia 🇸🇦','Group H (sim: Uruguay vs Spain)','Houston · NRG Stadium','8pm ET / 1am BST','info','55% Cabo Verde',55,45,
+    {h:'-140',d:'+280',a:'+380',ou:'2.5'},'Cabo Verde','Saudi Arabia','Cabo Verde',55,26,19,
+    [{l:'Cabo Verde win or draw',p:68,f:'f-md'},{l:'Under 2.5 goals',p:62,f:'f-md'}],
+    [],
+    [S('Garry Rodrigues','Trabzonspor · Cabo Verde · LW',false,'h80','80% last 10',[['Shots/90','2.0'],['SOT/game','0.9'],['MD1','Drew 0-0 Spain']],[1,1,0,1,1,1,0,1,1,1],[1,0,1,0,1,1,0,1,1,0],72,55,[{l:'Rodrigues 1+ SOT',o:['-110 est.']}])],
+    [E('Goals','Under 2.5 goals','-115 est.',62,false),E('Throw-ins','Over 38 total throw-ins','-110 est.',69,true)],
+    [PL('Under 2.5 goals','-115'),PL('Cabo Verde win/draw','-140 est.')],'+110–135',
+    'Cabo Verde held Spain 0-0 in MD1 and drew 2-2 Uruguay in MD2. Saudi lost MD2 0-4 Spain. Both teams without pressure.',null,
+    'Cabo Verde vs Saudi Arabia. Both eliminated from top 2 race. Low pressure match. Under 2.5 goals likely. Cabo Verde drew MD1 0-0 Spain.'),
+
+  M('uru_esp',false,'🇺🇾 Uruguay vs Spain 🇪🇸','Group H (sim: Cabo Verde vs Saudi)','Guadalajara · Estadio Akron','8pm ET / 1am BST','top','★ Spain in form 4-0',72,20,
+    {h:'+700',d:'+390',a:'-270',ou:'2.5'},'Uruguay','Spain','Spain',9,19,72,
+    [{l:'Spain win (won MD2 4-0 Saudi)',p:72,f:'f-hi'},{l:'Lamine Yamal 2+ SOT',p:74,f:'f-bl'},{l:'Spain 8+ corners',p:76,f:'f-pu'},{l:'Spain over 1.5 goals',p:78,f:'f-hi'}],
+    [],
+    [S('Lamine Yamal','Barcelona · Spain · RW · 18yrs',true,'h90','90% last 10',[['Shots/90 LL','2.9'],['SOT/game','1.4'],['LL goals 25/26','18']],[1,1,1,1,1,1,0,1,1,1],[1,1,1,0,1,1,1,1,0,1],86,74,[{l:'Yamal 2+ SOT',o:['-140 est.']},{l:'Yamal anytime scorer',o:['+200 est.']}]),
+     S('Darwin Núñez','Liverpool · Uruguay · ST',false,'h80','80% last 10',[['Shots/90 PL','2.7'],['SOT/game','1.2'],['URU MD2','Drew 2-2 CpV']],[1,1,1,1,0,1,1,0,1,1],[1,0,1,1,0,1,1,1,0,1],74,60,[{l:'Núñez 1+ SOT',o:['-120 est.']}])],
+    [E('Goals','Spain over 1.5 goals','-160 est.',78,true),E('SOT prop ★','Yamal 2+ SOT','-140 est.',74,true),E('Corners','Spain 8+ corners','-130 est.',76,true),E('Throw-ins','Over 44 throw-ins','-110 est.',79,true),E('Live edge','Spain next goal if 0-0 at 25\'','Best live play',82,true)],
+    [PL('Yamal 2+ SOT','-140'),PL('Spain win','-270'),PL('Spain 8+ corners','-130')],'+165–195',
+    'Spain drew 0-0 Cabo Verde MD1 but bounced back 4-0 Saudi MD2. Now in form. 20% upset.',
+    '📋 Spain tiki-taka generates 10+ corners vs most opposition. Live bet Spain next goal if 0-0 at 25 mins is best value.',
+    'Spain (-270, won MD2 4-0 Saudi after 0-0 Cabo Verde MD1 shock) vs Uruguay (+700, drew MD2 2-2 Cabo Verde). Yamal: 2.9 shots/90, 18 LL goals. Spain avg 10+ corners vs weaker sides. Best live play: Spain next goal if 0-0 at 25 mins.'),
+
+
+  M('sen_irq',false,'🇸🇳 Senegal vs Iraq 🇮🇶','Group I (sim: Norway vs France)','Toronto · BMO Field','3pm ET / 8pm BST','info','72% Senegal',72,28,
+    {h:'-230',d:'+330',a:'+650',ou:'2.5'},'Senegal','Iraq','Senegal',72,19,9,
+    [{l:'Senegal win',p:72,f:'f-hi'},{l:'Mané 1+ SOT',p:68,f:'f-bl'},{l:'Over 2.5 goals',p:66,f:'f-md'}],
+    [F('Idrissa Gueye','Everton · Senegal · DM',true,'h100','100% last 10',[['Fouls/90 PL','1.5'],['YC/season','7'],['Role','Break Iraq press']],[1,1,1,1,1,1,1,1,1,1],88,'f-hi',[{l:'Gueye 1+ fouls',o:['-150 bet365','-140 FanDuel']}],'Senegal anchor DM. 100% last 10 — physical midfield presence vs Iraq. 88% confidence.')],
+    [S('Sadio Mané','Al-Nassr · Senegal · FW',false,'h90','90% last 10',[['Shots/90 career avg','2.6'],['SOT/game','1.3'],['MD1 vs France','Lost 1-3']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,68,[{l:'Mané 1+ SOT',o:['-135 est.']}])],
+    [E('Fouls','Gueye 1+ fouls (100% L10)','-150 bet365',88,true),E('Goals','Over 2.5 goals','+115 est.',66,false),E('SOT prop','Mané 1+ SOT','-135 est.',68,true),E('Throw-ins','Over 42 total throw-ins','-110 est.',73,true)],
+    [PL('Gueye 1+ fouls','-150'),PL('Mané 1+ SOT','-135'),PL('Over 2.5 goals','+115')],'+170–200',
+    'Senegal lost MD1 1-3 France, lost MD2 2-3 Norway. Iraq lost MD1 1-4 Norway, lost MD2 0-3 France. 28% Iraq upset risk.',null,
+    'Senegal (-230, lost MD1 1-3 France, lost MD2 2-3 Norway) vs Iraq (+650, lost MD1 1-4 Norway, lost MD2 0-3 France). Mané: 2.6 shots/90. Gueye DM: 1.5 fouls/90, 100% last 10. WC2026 avg fouls 24.4.'),
+  M('nor_fra',false,'🇳🇴 Norway vs France 🇫🇷','Group I (sim: Senegal vs Iraq)','Boston · Gillette Stadium','3pm ET / 8pm BST','top','★ Haaland vs Mbappé',62,38,
+    {h:'+127',d:'+225',a:'-333',ou:'2.5'},'Norway','France','France',38,20,42,
+    [{l:'France win vs Norway',p:62,f:'f-md'},{l:'Haaland 2+ SOT (backs regardless)',p:80,f:'f-bl'},{l:'Mbappé 2+ SOT',p:78,f:'f-bl'},{l:'Tchouaméni 1+ fouls (100% L10)',p:94,f:'f-hi'}],
+    [F('Aurélien Tchouaméni','Real Madrid · France · DM',true,'h100','100% last 10',[['Fouls/90 LL','1.6'],['Intl fouls (NL)','1.4/g'],['YC season','5+']],[1,1,1,1,1,1,1,1,1,1],94,'f-hi',[{l:'Tchouaméni 1+ fouls',o:['-165 bet365','-155 FanDuel']}],'100% last 10. France anchor DM commits fouls structurally vs every opponent.')],
+    [S('Erling Haaland','Man City · Norway · ST',true,'h100','100% last 10',[['SOT/game PL','2.2'],['WC26 goals','2 vs Iraq'],['WC qualifying','Top scorer']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,0,1,1,1],97,80,[{l:'Haaland 2+ SOT',o:['-160 est.']},{l:'Haaland anytime scorer',o:['-175 est.']}]),
+     S('Kylian Mbappé','Real Madrid · France · ST · France top scorer',true,'h100','100% last 10',[['Shots/90 LL','3.79'],['WC26 goals','2 vs Senegal'],['France record','All-time']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],97,78,[{l:'Mbappé 2+ SOT',o:['-145 est.']},{l:'Mbappé anytime scorer',o:['-140 est.']}])],
+    [E('SOT duel ★','Haaland 2+ SOT (safe regardless)','-160 est.',80,true),E('SOT prop','Mbappé 2+ SOT','-145 est.',78,true),E('Fouls','Tchouaméni 1+ fouls','-165 bet365',94,true),E('Goals','Over 2.5 goals','+105 est.',65,false)],
+    [PL('Haaland 2+ SOT','-160'),PL('Mbappé 2+ SOT','-145'),PL('Tchouaméni 1+ fouls','-165')],'+195–230',
+    'Norway are +127 — near evens vs France. 38% upset risk. Back SOT props over the result here.',null,
+    'Norway (+127, won MD1 4-1 Iraq, won MD2 3-2 Senegal) vs France (-333, won MD1 3-1 Senegal, won MD2 3-0 Iraq). Both qualified. Haaland: 2.2 SOT/game, 2 WC goals. Mbappé: 3.79 shots/90, 2 WC goals. Tchouaméni: 100% fouls L10.'),
+]},
+
+'27':{title:'Saturday 27 June 2026',sub:'MD3 simultaneous pairs · Groups J K L · 6 matches',matches:[
+  M('jor_arg',false,'🇯🇴 Jordan vs Argentina 🇦🇷','Group J (sim: Algeria vs Austria)','Dallas · AT&T Stadium','10pm ET / 3am BST','top','★ 88% Argentina · Messi history',88,9,
+    {h:'+900',d:'+700',a:'-800',ou:'2.5'},'Jordan','Argentina','Argentina',5,7,88,
+    [{l:'Argentina win',p:88,f:'f-hi'},{l:'Messi anytime scorer (hat-trick MD1)',p:74,f:'f-hi'},{l:'Messi 2+ SOT',p:82,f:'f-bl'},{l:'Romero 1+ fouls (90% L10)',p:84,f:'f-hi'}],
+    [F('Cristián Romero','Tottenham · Argentina · CB',true,'h90','90% last 10',[['Fouls/90 PL','1.7'],['YC PL 25/26','8'],['Role','CB vs Jordan pace']],[1,1,1,1,1,0,1,1,1,1],84,'f-hi',[{l:'Romero 1+ fouls',o:['-150 bet365','-145 FanDuel']}],'One of the most foul-prone CBs in the PL. Jordan forwards test him on pace. 90% last 10.')],
+    [S('Lionel Messi','Inter Miami · Argentina · AM · WC record',true,'h100','100% last 10',[['Shots/90 MLS','2.8'],['SOT/game MLS','1.5'],['MD1 WC hat-trick','3 goals vs Algeria']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,0,1,1,1,1],95,82,[{l:'Messi 2+ SOT',o:['-145 est.']},{l:'Messi anytime scorer (WC record)',o:['+120 est.']}])],
+    [E('SOT prop ★','Messi 2+ SOT','-145 est.',82,true),E('Scorer','Messi anytime scorer (WC record)','+120 est.',74,true),E('Fouls','Romero 1+ fouls','-150 bet365',84,true),E('Goals','Over 2.5 goals','-130 est.',79,true),E('Corners','Argentina 7+ corners','-135 est.',75,true)],
+    [PL('Romero 1+ fouls','-150'),PL('Messi 2+ SOT','-145'),PL('Over 2.5 goals','-130')],'+195–225',
+    'Jordan won MD2 1-2 upset vs Algeria (-186). Argentina won both MD1 3-0 and MD2 2-0. 9% upset risk.',null,
+    'Argentina (-800, won MD1 3-0 Algeria Messi hat-trick, won MD2 2-0 Austria) vs Jordan (+900, won MD2 1-0 Algeria upset). Messi: 2.8 shots/90 MLS, WC record hat-trick MD1. Romero: 1.7 fouls/90, 90% last 10. WC2026 fav win rate 54%.'),
+
+  M('alg_aut',false,'🇩🇿 Algeria vs Austria 🇦🇹','Group J (sim: Jordan vs Argentina)','Kansas City · Arrowhead','10pm ET / 3am BST','info','57% Austria',57,43,
+    {h:'+300',d:'+250',a:'-165',ou:'2.5'},'Algeria','Austria','Austria',22,26,52,
+    [{l:'Austria win',p:57,f:'f-md'},{l:'BTTS both score',p:63,f:'f-md'},{l:'Sabitzer 1+ fouls',p:88,f:'f-hi'}],
+    [F('Marcel Sabitzer','Man Utd · Austria · CM',true,'h100','100% last 10',[['Fouls/90 PL','1.6'],['Rangnick press','Maximum intensity'],['YC PL 25/26','5']],[1,1,1,1,1,1,1,1,1,1],88,'f-hi',[{l:'Sabitzer 1+ fouls',o:['-155 bet365']},{l:'Sabitzer booked',o:['+185 Paddy']}],'Rangnick demands maximum pressing. Sabitzer fouls in 100% of recent starts — 88% confidence.')],
+    [],
+    [E('Fouls','Sabitzer 1+ fouls','-155 bet365',88,true),E('BTTS','Both teams score','+110 est.',63,false),E('Goals','Over 2.5 goals','+115 est.',61,false)],
+    [PL('Sabitzer 1+ fouls','-155'),PL('BTTS','+110')],'+130–155',
+    'Algeria lost MD2 2-1 Jordan (upset). Austria won MD1 3-1 Jordan, won MD2 2-0 Argentina. 43% Algeria upset risk.',null,
+    'Algeria vs Austria. Sabitzer: 1.6 fouls/90, 100% last 10. WC2026 avg fouls 24.4.'),
+
+  M('por_col',false,'🇵🇹 Portugal vs Colombia 🇨🇴','Group K (sim: Uzbekistan vs DR Congo)','Dallas · AT&T Stadium','5pm ET / 10pm BST','top','★ 70% Portugal',70,25,
+    {h:'-210',d:'+330',a:'+600',ou:'2.5'},'Portugal','Colombia','Portugal',70,20,10,
+    [{l:'Portugal win',p:70,f:'f-hi'},{l:'Ronaldo 2+ SOT',p:78,f:'f-bl'},{l:'Neves 1+ fouls (100% L10)',p:95,f:'f-hi'},{l:'Over 2.5 goals',p:66,f:'f-md'}],
+    [F('Rúben Neves','Al-Hilal · Portugal · DM',true,'h100','100% last 10',[['Fouls/90','1.5/g'],['Role','Press breaker'],['YC/season','6–8']],[1,1,1,1,1,1,1,1,1,1],95,'f-hi',[{l:'Neves 1+ fouls',o:['-155 bet365','-145 FanDuel']}],'100% last 10. Structural DM who fouls every game to protect Portugal.')],
+    [S('Cristiano Ronaldo','Al-Hilal · Portugal · ST',true,'h100','100% last 10',[['Shots/90','4.2'],['SOT/game','2.1'],['WC goals record','9']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],95,78,[{l:'Ronaldo 2+ SOT',o:['-150 bet365']},{l:'Ronaldo anytime scorer',o:['+130 FanDuel']}]),
+     S('Luis Díaz','Liverpool · Colombia · LW',true,'h90','90% last 10',[['Shots/90 PL','2.8'],['SOT/game','1.3'],['PL goals 25/26','17']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,70,[{l:'Díaz 1+ SOT',o:['-130 est.']}])],
+    [E('Fouls ★','Neves 1+ fouls (100% L10)','-155 bet365',95,true),E('SOT prop','Ronaldo 2+ SOT','-150 bet365',78,true),E('Goals','Over 2.5 goals','+110 est.',66,false),E('Corners','Portugal 7+ corners','-135 est.',74,true)],
+    [PL('Neves 1+ fouls','-155'),PL('Ronaldo 2+ SOT','-150'),PL('Portugal win','-210')],'+185–215',
+    'Portugal drew MD1 1-1 DR Congo, won MD2 2-0 Uzbekistan. Colombia won MD1 3-1, drew MD2 1-1. 25% Colombia upset risk.',null,
+    'Portugal (-210, drew MD1 1-1 DR Congo, won MD2 2-0 Uzbekistan) vs Colombia (+600, won MD1 3-1 Uzbekistan). Ronaldo: 4.2 shots/90. Neves: 100% fouls L10. WC2026 avg fouls 24.4.'),
+
+  M('uzb_drc',false,'🇺🇿 Uzbekistan vs DR Congo 🇨🇩','Group K (sim: Portugal vs Colombia)','Houston · NRG Stadium','5pm ET / 10pm BST','info','55% DR Congo',55,45,
+    {h:'+250',d:'+240',a:'-165',ou:'2.5'},'Uzbekistan','DR Congo','DR Congo',25,30,45,
+    [{l:'DR Congo win (or Uzbekistan)',p:55,f:'f-md'},{l:'Under 2.5 goals',p:60,f:'f-md'}],
+    [],
+    [S('Khusanov','Man City · Uzbekistan · CB/FW',false,'h80','80% last 10',[['Shots contrib.','Forward surges'],['MD2','Lost to Portugal'],['Motivation','Must win']],[1,0,1,1,0,1,1,0,1,1],[1,0,0,1,1,0,1,0,1,1],62,45,[{l:'Khusanov 1+ contribution',o:['+120 est.']}])],
+    [E('Goals','Under 2.5 goals','-110 est.',60,false),E('Throw-ins','Over 38 total throw-ins','-110 est.',69,true)],
+    [PL('Under 2.5 goals','-110'),PL('Over 38 throw-ins','-110')],'+110–130',
+    'Both teams potentially eliminated by this point. Low-stakes match.',null,
+    'Uzbekistan vs DR Congo — Group K MD3. Both likely eliminated. WC2026 avg fouls 24.4.'),
+
+  M('eng_pan',false,'🏴󠁧󠁢󠁥󠁮󠁧󠁿 England vs Panama 🇵🇦','Group L (sim: Croatia vs Ghana)','New Jersey · MetLife Stadium','5pm ET / 10pm BST','top','★ 85% England',85,10,
+    {h:'-600',d:'+650',a:'+1400',ou:'2.5'},'England','Panama','England',85,9,6,
+    [{l:'England win',p:85,f:'f-hi'},{l:'Kane 2+ SOT',p:80,f:'f-bl'},{l:'Rice 1+ fouls (100% L10)',p:96,f:'f-hi'},{l:'England 8+ corners',p:79,f:'f-pu'},{l:'England over 3 goals',p:74,f:'f-hi'}],
+    [F('Declan Rice','Arsenal · England · DM',true,'h100','100% last 10',[['Fouls/90 PL','1.8'],['YC PL+UCL','9'],['vs Panama press','Maximum fouls']],[1,1,1,1,1,1,1,1,1,1],96,'f-hi',[{l:'Rice 1+ fouls committed',o:['-165 bet365','-155 FanDuel']},{l:'Rice to be booked',o:['+195 bet365']}],'1.8 fouls/90 in PL. 10/10 last matches. England DM vs Panama = near certainty.')],
+    [S('Harry Kane','Bayern Munich · England · ST',true,'h100','100% last 10',[['Shots/90 BL','4.5'],['SOT/game','2.16'],['BL goals 25/26','36']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,80,[{l:'Kane 2+ SOT',o:['-145 bet365']},{l:'Kane anytime scorer',o:['EV FanDuel']}])],
+    [E('Fouls ★','Rice 1+ fouls (100% L10)','-165 bet365',96,true),E('SOT prop','Kane 2+ SOT','-145 bet365',80,true),E('Goals','England over 3 goals','+115 est.',74,true),E('Corners','England 8+ corners','-130 est.',79,true),E('Throw-ins','Over 44 total throw-ins','-115 est.',80,true)],
+    [PL('Rice 1+ fouls','-165'),PL('Kane 2+ SOT','-145'),PL('England over 3 goals','+115')],'+200–240',
+    'Panama lost MD1 0-1 Ghana, lost MD2 vs Croatia. England won both. 10% upset risk — strongest banker of Sat 27.',null,
+    'England (-600, won MD1 4-2 Croatia, won MD2 4-1 Ghana) vs Panama (lost both MD1+MD2). Kane: 4.5 shots/90, 2.16 SOT/game. Rice: 1.8 fouls/90, 100% last 10. WC2026 avg corners 10.6, throw-ins 46.'),
+
+  M('cro_gha',false,'🇭🇷 Croatia vs Ghana 🇬🇭','Group L (sim: England vs Panama)','Philadelphia · Lincoln Financial','5pm ET / 10pm BST','upset','⚠ Croatia 60% · Ghana capable',60,40,
+    {h:'-175',d:'+290',a:'+480',ou:'2.5'},'Croatia','Ghana','Croatia',60,24,16,
+    [{l:'Croatia win',p:60,f:'f-md'},{l:'Musa 2+ SOT',p:70,f:'f-bl'},{l:'Kudus 1+ SOT (Ghana attack)',p:64,f:'f-bl'}],
+    [F('Marcelo Brozović','Al-Nassr · Croatia · DM',false,'h90','90% last 10',[['Fouls/90','1.3'],['YC/season','6'],['Role','Anchor DM']],[1,1,1,1,1,0,1,1,1,1],76,'f-hi',[{l:'Brozović 1+ fouls',o:['-130 est.']}],'Croatia DM who fouls consistently to protect the back line. 90% last 10.')],
+    [S('Petar Musa','Benfica · Croatia · ST',true,'h100','100% last 10',[['Shots/90','4.1'],['SOT/game','2.0'],['Goals 25/26','16']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],93,70,[{l:'Musa 2+ SOT',o:['-130 est.']}]),
+     S('Mohammed Kudus','West Ham · Ghana · AM',false,'h80','80% last 10',[['Shots/90 PL','2.4'],['SOT/game','1.1'],['PL goals','14']],[1,1,0,1,1,1,1,0,1,1],[1,1,0,1,1,0,1,1,0,1],74,64,[{l:'Kudus 1+ SOT',o:['-120 est.']}])],
+    [E('SOT prop ★','Musa 2+ SOT','-130 est.',70,true),E('SOT prop','Kudus 1+ SOT','-120 est.',64,false),E('Goals','BTTS both teams score','+110 est.',60,false),E('Throw-ins','Over 42 total throw-ins','-110 est.',72,true)],
+    [PL('Musa 2+ SOT','-130'),PL('Brozović 1+ fouls','-130'),PL('BTTS','+110')],'+155–185',
+    'Ghana won MD1 1-0 Panama, lost MD2 1-4 England. Croatia lost MD1, won MD2. 40% Ghana upset.',null,
+    'Croatia (-175) vs Ghana (+480). Musa: 4.1 shots/90. Kudus: 2.4 shots/90. Brozović: 1.3 fouls/90, 90% last 10. WC2026 avg fouls 24.4.'),
+]},
+
+};
+
+// ════════════════════════════════════════════════════════
+// RENDER ENGINE
+// ════════════════════════════════════════════════════════
+
+const AI_CTX={};
+Object.values(DAYS).forEach(d=>{d.matches.forEach(m=>{AI_CTX[m.id]=m.ai})});
+
+function cc(p){return p>=75?'var(--ac)':p>=55?'var(--amb)':'var(--red)'}
+function cf(p){return p>=75?'f-hi':p>=55?'f-md':'f-lo'}
+function cpill(p){return p>=75?'cp-hi':p>=55?'cp-md':'cp-lo'}
+
+function buildNav(){
+  const nav=document.getElementById('dateNav');
+  nav.innerHTML=DATES.map(d=>`
+    <button class="dn-btn" data-key="${d.key}" onclick="loadDay('${d.key}',this)">
+      ${d.hot?'<span class="hot-dot"></span>':''}
+      <span class="dn-day">${d.day}</span>
+      <span class="dn-num">${d.num}</span>
+      <span class="dn-cnt">${d.r32?'R32 begins':d.matches+' matches'}</span>
+    </button>`).join('');
+}
+
+function loadDay(key,btn){
+  document.querySelectorAll('.dn-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  const day=DAYS[key];
+  const pg=document.getElementById('pageContent');
+  if(!day){
+    pg.innerHTML=`<div class="no-matches"><div class="no-icon">📅</div><p>Predictions loading for this date — check back soon</p></div>`;
+    return;
+  }
+  pg.innerHTML=`
+    <div class="day-hdr">
+      <div class="day-title">${day.title}</div>
+      <div class="day-sub">${day.sub}</div>
+    </div>
+    <div class="matches">${day.matches.map(buildCard).join('')}</div>`;
+}
+
+function buildCard(m){
+  const cbar=m.conf>=75?'var(--ac)':m.conf>=60?'var(--amb)':'var(--red)';
+  return `
+<div class="mcard${m.live?' live':''}" id="mc_${m.id}" onclick="toggleCard('${m.id}')">
+  <div class="mc-head">
+    <div class="mc-r1">
+      <div>
+        <div class="mc-teams">${m.teams}${m.live?' <span style="font-size:10px;color:var(--red);font-family:var(--mono);margin-left:6px">● LIVE</span>':''}</div>
+        <div class="mc-meta">${m.group} · ${m.venue} · ${m.time}</div>
+      </div>
+      <div class="mc-badges">
+        <span class="badge ${m.tag==='top'?'b-top':m.tag==='upset'?'b-upset':m.live?'b-live':'b-info'}">${m.tl}</span>
+      </div>
+    </div>
+    <div class="mc-r2">
+      <div class="odds-row">
+        <div class="odd"><div class="odd-lbl">Home</div><div class="odd-val fav">${m.odds.h}</div></div>
+        <div class="odd"><div class="odd-lbl">Draw</div><div class="odd-val">${m.odds.d}</div></div>
+        <div class="odd"><div class="odd-lbl">Away</div><div class="odd-val">${m.odds.a}</div></div>
+        <div class="odd"><div class="odd-lbl">O/U</div><div class="odd-val">${m.odds.ou}</div></div>
+      </div>
+      <span class="conf-pill ${cpill(m.conf)}">${m.conf}% conf</span>
+      <span class="upset-pill">⚡ ${m.upset}% upset</span>
+      <span class="toggle-icon">▾</span>
+    </div>
+  </div>
+  <div class="mc-body">
+    <div class="pred-grid">
+
+      <div class="psec">
+        <div class="psec-title">🏆 Result prediction</div>
+        <div class="result-boxes">
+          <div class="rbox${m.winner===m.hT?' winner':''}">
+            <div class="rbox-team">${m.hT}</div><div class="rbox-odds">${m.odds.h}</div><div class="rbox-pct">${m.wP}%</div>
+          </div>
+          <div class="rbox">
+            <div class="rbox-team">Draw</div><div class="rbox-odds">${m.odds.d}</div><div class="rbox-pct">${m.dP}%</div>
+          </div>
+          <div class="rbox${m.winner===m.aT?' winner':''}">
+            <div class="rbox-team">${m.aT}</div><div class="rbox-odds">${m.odds.a}</div><div class="rbox-pct">${m.aP}%</div>
+          </div>
+        </div>
+        <div class="winner-label">▶ ${m.winner} · ${m.conf}% confidence</div>
+        <div style="margin-top:10px">${m.cbars.map(r=>`
+          <div class="cbar">
+            <div class="cbar-head"><span class="cbar-label">${r.l}</span><span class="cbar-pct" style="color:${cc(r.p)}">${r.p}%</span></div>
+            <div class="cbar-track"><div class="cbar-fill ${r.f}" style="width:${r.p}%"></div></div>
+          </div>`).join('')}
+        </div>
+      </div>
+
+      <div class="psec">
+        <div class="psec-title">🟥 Player fouls · last 10 games</div>
+        ${m.fouls&&m.fouls.length?m.fouls.map(f=>`
+          <div class="foul-card${f.hot?' hot':''}">
+            <div class="fc-top">
+              <div><div class="fc-name">${f.nm}</div><div class="fc-club">${f.cl}</div></div>
+              <span class="hit-tag ${f.ht}">${f.htl}</span>
+            </div>
+            <div class="fc-stats">${f.sts.map(s=>`<div class="fcs"><div class="fcs-lbl">${s[0]}</div><div class="fcs-val">${s[1]}</div></div>`).join('')}</div>
+            <div style="font-size:9px;color:var(--mu);margin-bottom:3px">Last 10 — committed 1+ foul (✓ yes)</div>
+            <div class="dots-row">${f.dots.map(d=>`<div class="dot ${d?'dot-y':'dot-n'}">${d?'✓':'✗'}</div>`).join('')}</div>
+            <div class="cbar">
+              <div class="cbar-head"><span class="cbar-label">Foul prop confidence</span><span class="cbar-pct" style="color:${cc(f.conf)}">${f.conf}%</span></div>
+              <div class="cbar-track"><div class="cbar-fill ${f.cf}" style="width:${f.conf}%"></div></div>
+            </div>
+            ${f.bets.map(b=>`<div class="bet-row"><span class="br-label">${b.l}</span><div class="br-odds">${b.o.map(o=>`<span class="br-odd">${o}</span>`).join('')}</div></div>`).join('')}
+            ${f.note?`<div class="fc-note">${f.note}</div>`:''}
+          </div>`).join(''):
+          '<p style="font-size:11px;color:var(--mu)">No featured foul props for this fixture</p>'}
+      </div>
+
+      <div class="psec">
+        <div class="psec-title">🎯 Player shots · last 10 games</div>
+        ${m.shots&&m.shots.length?m.shots.map(s=>`
+          <div class="foul-card${s.hot?' hot':''}">
+            <div class="fc-top">
+              <div><div class="fc-name">${s.nm}</div><div class="fc-club">${s.cl}</div></div>
+              <span class="hit-tag ${s.ht}">${s.htl}</span>
+            </div>
+            <div class="fc-stats">${s.sts.map(st=>`<div class="fcs"><div class="fcs-lbl">${st[0]}</div><div class="fcs-val">${st[1]}</div></div>`).join('')}</div>
+            <div class="cbar">
+              <div class="cbar-head"><span class="cbar-label">Had a shot (any)</span><span class="cbar-pct" style="color:#60a5fa">${s.sH}%</span></div>
+              <div class="cbar-track"><div class="cbar-fill f-bl" style="width:${s.sH}%"></div></div>
+            </div>
+            <div class="cbar">
+              <div class="cbar-head"><span class="cbar-label">Shot on target</span><span class="cbar-pct" style="color:#c084fc">${s.sotH}%</span></div>
+              <div class="cbar-track"><div class="cbar-fill f-pu" style="width:${s.sotH}%"></div></div>
+            </div>
+            <div style="font-size:9px;color:var(--mu);margin-bottom:2px">Last 10 shots 🔵 / SOT 🟣</div>
+            <div class="dots-row" style="margin-bottom:4px">${s.sd.map(d=>`<div class="dot dot-b">${d?'✓':'–'}</div>`).join('')}</div>
+            <div class="dots-row" style="margin-bottom:6px">${s.sd2.map(d=>`<div class="dot dot-p">${d?'✓':'–'}</div>`).join('')}</div>
+            ${s.bets.map(b=>`<div class="bet-row"><span class="br-label">${b.l}</span><div class="br-odds">${b.o.map(o=>`<span class="br-odd">${o}</span>`).join('')}</div></div>`).join('')}
+          </div>`).join(''):
+          '<p style="font-size:11px;color:var(--mu)">No featured shot props for this fixture</p>'}
+      </div>
+
+      <div class="psec">
+        <div class="psec-title">✅ Easy bets · corners · throw-ins</div>
+        ${m.easy.map(e=>`
+          <div class="easy-bet${e.star?' star':''}">
+            <div class="eb-left">
+              <div class="eb-cat">${e.c}</div>
+              <div class="eb-pick">${e.p}</div>
+              <div class="eb-odds">${e.o}</div>
+            </div>
+            <div>
+              <span class="eb-conf ${e.cf>=75?'ec-hi':'ec-md'}">${e.cf}%</span>
+              <div class="cbar-track" style="width:85px;margin-top:3px"><div class="cbar-fill ${cf(e.cf)}" style="width:${e.cf}%"></div></div>
+            </div>
+          </div>`).join('')}
+      </div>
+
+      <div class="pred-full">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div>
+            <div class="parlay-box">
+              <div class="pl-head">⚡ Parlay builder</div>
+              ${m.parlay.map((p,i)=>`<div class="pl-leg"><span class="pl-num">${i+1}</span><span class="pl-pick">${p.p}</span><span class="pl-odds">${p.o}</span></div>`).join('')}
+              <div class="pl-return">Est. combined return: <span>${m.pret}</span></div>
+            </div>
+            ${m.upsetNote?`<div class="upset-box">⚠ ${m.upsetNote}</div>`:''}
+            ${m.ref?`<div class="ref-box">${m.ref}</div>`:''}
+          </div>
+          <div class="ai-section">
+            <div class="ai-row">
+              <span class="ai-label">🤖 AI deep analysis</span>
+              <button class="ai-btn" onclick="event.stopPropagation();runAI('${m.id}')">Analyse ↗</button>
+            </div>
+            <div class="ai-result" id="aio_${m.id}">Click for foul + SOT + corners + throw-ins + live trigger + risk flag</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>`;
+}
+
+function toggleCard(id){document.getElementById('mc_'+id).classList.toggle('open')}
+
+async function runAI(id){
+  const el=document.getElementById('aio_'+id);
+  if(!el)return;
+  el.innerHTML='<div class="ld"><span></span><span></span><span></span></div> Analysing…';
+  el.classList.add('active');
+  const ctx=AI_CTX[id]||'World Cup 2026 match';
+  const p=`WC 2026 betting analyst. Tournament averages: 24.4 fouls/game, 10.6 corners/game, 46 throw-ins/game, 3.14 goals/game, fav win rate 54%, upset rate 46%.\n\nContext: ${ctx}\n\nProvide in bullet format:\n• FOUL PROP: best player, bet, confidence %, 1-sentence reason\n• SOT PROP: best player, bet, confidence %, 1-sentence reason\n• CORNER BET: specific prop, confidence %\n• THROW-IN BET: specific prop, confidence %\n• LIVE TRIGGER: what to watch in first 20 mins\n• RISK: biggest upset risk factor\n\nMax 180 words. No disclaimers.`;
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:450,messages:[{role:'user',content:p}]})});
+    const d=await r.json();
+    const t=d.content?.find(b=>b.type==='text')?.text||'Unable to generate.';
+    el.innerHTML=t.replace(/\n/g,'<br>');
+  }catch(e){el.innerHTML='Analysis unavailable — check connection.'}
+}
+
+// ── INIT ──
+buildNav();
+const todayBtn=document.querySelector('[data-key="23"]');
+if(todayBtn){todayBtn.classList.add('active');loadDay('23',null)}
+</script>
+</body>
+</html>
