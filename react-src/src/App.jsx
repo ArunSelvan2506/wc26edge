@@ -471,7 +471,7 @@ function SettingsModal({ apiKey, setApiKey, apiMode, setApiMode, onClose }) {
 
 // ─── MAIN APP ─────────────────────────────────────────────────────
 export default function App() {
-  const [activeDay,    setActiveDay]    = useState('24');
+  const [activeDay,    setActiveDay]    = useState('25');
   const [showSettings, setShowSettings] = useState(false);
   const [apiKey,       setApiKey]       = useState('');
   const [apiMode,      setApiMode]      = useState('demo');
