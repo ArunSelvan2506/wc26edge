@@ -154,6 +154,37 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .no-matches{text-align:center;padding:60px 20px;color:var(--mu)}
 .disc{font-size:9px;color:var(--dm);text-align:center;padding:14px;border-top:1px solid var(--b1);margin-top:16px;line-height:1.6}
 @media(max-width:640px){.pred-grid{grid-template-columns:1fr}.odds-row{gap:3px}.odd{min-width:48px;padding:4px 6px}}
+
+/* FIXTURES TAB */
+.nav-fixtures-btn{font-size:11px;font-weight:700;padding:4px 14px;border-radius:5px;border:1px solid rgba(0,200,150,.4);background:rgba(0,200,150,.08);color:var(--ac);cursor:pointer;font-family:var(--sans);white-space:nowrap;transition:all .12s;margin-left:8px}
+.nav-fixtures-btn:hover{background:rgba(0,200,150,.18)}
+.nav-fixtures-btn.active{background:rgba(0,200,150,.2);border-color:var(--ac)}
+#fixturesOverlay{display:none;position:fixed;inset:0;background:rgba(7,9,13,.95);z-index:500;overflow-y:auto}
+#fixturesOverlay.open{display:block}
+.fix-panel{max-width:860px;margin:0 auto;padding:16px}
+.fix-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:sticky;top:0;background:rgba(7,9,13,.97);padding:12px 0;border-bottom:1px solid var(--b1);z-index:10}
+.fix-title{font-size:17px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:8px}
+.fix-close{font-size:22px;color:var(--mu);cursor:pointer;background:none;border:none;font-family:var(--sans);line-height:1;padding:4px 8px}
+.fix-close:hover{color:var(--tx)}
+.fix-day{margin-bottom:18px}
+.fix-day-hdr{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);padding:6px 10px;background:var(--s1);border-radius:6px;margin-bottom:8px;border-left:3px solid var(--ac)}
+.fix-row{display:grid;grid-template-columns:90px 1fr 1fr 1fr;align-items:center;gap:8px;padding:8px 10px;background:var(--s1);border:1px solid var(--b1);border-radius:8px;margin-bottom:5px;cursor:pointer;transition:border-color .12s}
+.fix-row:hover{border-color:rgba(0,200,150,.4)}
+.fix-row.done{opacity:.5}
+.fix-time{font-family:var(--mono);font-size:11px;font-weight:600}
+.fix-ist{font-size:9px;color:var(--mu);margin-top:1px}
+.fix-teams{font-size:12px;font-weight:600;color:var(--tx)}
+.fix-grp{font-size:9px;color:var(--mu);margin-top:1px}
+.fix-venue{font-size:10px;color:var(--mu)}
+.fix-result{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ac);text-align:right}
+.fix-result.done{color:var(--mu)}
+.fix-live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:4px;animation:blink 1.4s infinite}
+.fix-stage{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.fs-gs{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.25);color:var(--ac2)}
+.fs-r32{background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.25);color:var(--ac3)}
+.fs-r16{background:rgba(168,85,247,.1);border:1px solid rgba(168,85,247,.25);color:var(--pur)}
+.fs-qf{background:rgba(0,200,150,.1);border:1px solid rgba(0,200,150,.25);color:var(--ac)}
+@media(max-width:600px){.fix-row{grid-template-columns:75px 1fr;}.fix-venue,.fix-result{display:none}}
 </style>
 </head>
 <body>
@@ -165,10 +196,21 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
     <span class="pill pg">Corners/g 10.6</span>
     <span class="pill pa">Upsets 46%</span>
     <span class="pill pr">Foul props 91%</span>
-  </div>
+    <button class="nav-fixtures-btn" id="fixBtn" onclick="toggleFixtures()">📅 Fixtures</button>
+</div>
 </div>
 <nav class="date-nav" id="dateNav"></nav>
 
+
+<div id="fixturesOverlay">
+  <div class="fix-panel">
+    <div class="fix-header">
+      <div class="fix-title"><span style="font-size:18px">📅</span> WC 2026 Full Fixtures <span style="font-size:11px;color:var(--mu);font-family:var(--mono);font-weight:400">· All times IST</span></div>
+      <button class="fix-close" onclick="toggleFixtures()">✕</button>
+    </div>
+    <div id="fixturesContent"></div>
+  </div>
+</div>
 <div class="page"><div id="pg"></div></div>
 <div class="disc">WC26 EDGE · Private prediction hub · 18+ Gamble responsibly · Odds are estimates, always verify · BeGambleAware.org</div>
 <script>
@@ -524,6 +566,124 @@ async function runAI(id){
     const d=await r.json();
     el.innerHTML=(d.content?.find(b=>b.type==='text')?.text||'Unable to generate.').replace(/\n/g,'<br>');
   }catch(e){el.innerHTML='Analysis unavailable.';}
+}
+
+
+const FIXTURES=[
+  {date:'Thu 25 Jun',matches:[
+    {time:'1:30am',ist:'1:30am IST',teams:'Ecuador vs Germany',grp:'Group E',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+    {time:'1:30am',ist:'1:30am IST',teams:'Curacao vs Ivory Coast',grp:'Group E',venue:'Lincoln Financial Field, Philadelphia',done:false,result:''},
+    {time:'4:30am',ist:'4:30am IST',teams:'Japan vs Sweden',grp:'Group F',venue:'AT&T Stadium, Dallas',done:false,result:''},
+    {time:'4:30am',ist:'4:30am IST',teams:'Tunisia vs Netherlands',grp:'Group F',venue:'Arrowhead Stadium, Kansas City',done:false,result:''},
+    {time:'7:30am',ist:'7:30am IST',teams:'Turkey vs USA',grp:'Group D',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
+    {time:'7:30am',ist:'7:30am IST',teams:'Paraguay vs Australia',grp:'Group D',venue:'Levis Stadium, Santa Clara',done:false,result:''},
+  ],stage:'Group Stage \xb7 MD3'},
+  {date:'Fri 26 Jun',matches:[
+    {time:'12:30am',ist:'12:30am IST',teams:'Norway vs France',grp:'Group I',venue:'Gillette Stadium, Boston',done:false,result:''},
+    {time:'12:30am',ist:'12:30am IST',teams:'Senegal vs Iraq',grp:'Group I',venue:'BMO Field, Toronto',done:false,result:''},
+    {time:'5:30am',ist:'5:30am IST',teams:'Uruguay vs Spain',grp:'Group H',venue:'Estadio Akron, Guadalajara',done:false,result:''},
+    {time:'5:30am',ist:'5:30am IST',teams:'Cabo Verde vs Saudi Arabia',grp:'Group H',venue:'NRG Stadium, Houston',done:false,result:''},
+    {time:'8:30am',ist:'8:30am IST',teams:'Egypt vs Iran',grp:'Group G',venue:'Lumen Field, Seattle',done:false,result:''},
+    {time:'8:30am',ist:'8:30am IST',teams:'New Zealand vs Belgium',grp:'Group G',venue:'BC Place, Vancouver',done:false,result:''},
+  ],stage:'Group Stage \xb7 MD3'},
+  {date:'Sat 27 Jun',matches:[
+    {time:'2:30am',ist:'2:30am IST',teams:'Panama vs England',grp:'Group L',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+    {time:'2:30am',ist:'2:30am IST',teams:'Croatia vs Ghana',grp:'Group L',venue:'Lincoln Financial Field, Philadelphia',done:false,result:''},
+    {time:'5:00am',ist:'5:00am IST',teams:'Colombia vs Portugal',grp:'Group K',venue:'Hard Rock Stadium, Miami',done:false,result:''},
+    {time:'5:00am',ist:'5:00am IST',teams:'DR Congo vs Uzbekistan',grp:'Group K',venue:'Mercedes-Benz Stadium, Atlanta',done:false,result:''},
+    {time:'7:30am',ist:'7:30am IST',teams:'Algeria vs Austria',grp:'Group J',venue:'Arrowhead Stadium, Kansas City',done:false,result:''},
+    {time:'7:30am',ist:'7:30am IST',teams:'Jordan vs Argentina',grp:'Group J',venue:'AT&T Stadium, Dallas',done:false,result:''},
+  ],stage:'Group Stage \xb7 MD3'},
+  {date:'Sun 28 Jun',matches:[
+    {time:'12:30am',ist:'12:30am IST',teams:'Canada vs South Africa',grp:'R32 \xb7 Match 85',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
+  ],stage:'Round of 32 \xb7 R32 begins'},
+  {date:'Mon 29 Jun',matches:[
+    {time:'10:30am',ist:'10:30am IST',teams:'Winners C vs Runners-up F',grp:'R32 \xb7 Match 86',venue:'NRG Stadium, Houston',done:false,result:''},
+    {time:'2:00am',ist:'2:00am IST',teams:'Winners E vs Best 3rd',grp:'R32 \xb7 Match 87',venue:'Gillette Stadium, Boston',done:false,result:''},
+    {time:'6:30am',ist:'6:30am IST',teams:'Winners F vs Runners-up C',grp:'R32 \xb7 Match 88',venue:'Estadio BBVA, Monterrey',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Tue 30 Jun',matches:[
+    {time:'10:30am',ist:'10:30am IST',teams:'Runners-up E vs Runners-up I',grp:'R32 \xb7 Match 89',venue:'AT&T Stadium, Dallas',done:false,result:''},
+    {time:'2:30am',ist:'2:30am IST',teams:'Winners I vs Best 3rd (C/D/F/G/H)',grp:'R32 \xb7 Match 90',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+    {time:'6:30am',ist:'6:30am IST',teams:'Mexico vs Best 3rd (C/E/F/H/I)',grp:'R32 \xb7 Match 91',venue:'Estadio Azteca, Mexico City',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Wed 1 Jul',matches:[
+    {time:'9:30am',ist:'9:30am IST',teams:'Winners L vs Best 3rd (E/H/I/J/K)',grp:'R32 \xb7 Match 80',venue:'Mercedes-Benz Stadium, Atlanta',done:false,result:''},
+    {time:'1:30am',ist:'1:30am IST',teams:'Winners G vs Best 3rd (A/E/H/I/J)',grp:'R32 \xb7 Match 82',venue:'Lumen Field, Seattle',done:false,result:''},
+    {time:'5:30am',ist:'5:30am IST',teams:'USA vs Best 3rd (B/E/F/I/J)',grp:'R32 \xb7 Match 81',venue:'Levis Stadium, Santa Clara',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Thu 2 Jul',matches:[
+    {time:'12:30am',ist:'12:30am IST',teams:'Winners H vs Runners-up J',grp:'R32 \xb7 Match 93',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
+    {time:'4:30am',ist:'4:30am IST',teams:'Runners-up K vs Runners-up L',grp:'R32 \xb7 Match 94',venue:'BMO Field, Toronto',done:false,result:''},
+    {time:'8:30am',ist:'8:30am IST',teams:'Winners B vs Best 3rd (E/F/G/I/J)',grp:'R32 \xb7 Match 95',venue:'BC Place, Vancouver',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Fri 3 Jul',matches:[
+    {time:'11:30pm',ist:'11:30pm IST',teams:'Runners-up D vs Runners-up G',grp:'R32 \xb7 Match 96',venue:'AT&T Stadium, Dallas',done:false,result:''},
+    {time:'3:30am',ist:'3:30am IST',teams:'Winners J vs Runners-up H',grp:'R32 \xb7 Match 97',venue:'Hard Rock Stadium, Miami',done:false,result:''},
+    {time:'7:00am',ist:'7:00am IST',teams:'Winners K vs Best 3rd (D/E/I/J/L)',grp:'R32 \xb7 Match 98',venue:'Arrowhead Stadium, Kansas City',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Sat 4 Jul',matches:[
+    {time:'10:30pm',ist:'10:30pm IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 99',venue:'NRG Stadium, Houston',done:false,result:''},
+    {time:'2:30am',ist:'2:30am IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 100',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Sun 5 Jul',matches:[
+    {time:'1:30am',ist:'1:30am IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 101',venue:'Gillette Stadium, Boston',done:false,result:''},
+    {time:'5:30am',ist:'5:30am IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 102',venue:'Estadio Azteca, Mexico City',done:false,result:''},
+  ],stage:'Round of 32'},
+  {date:'Thu 9 Jul',matches:[
+    {time:'1:30am',ist:'1:30am IST',teams:'QF 1 TBD',grp:'Quarter-Final',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+    {time:'5:30am',ist:'5:30am IST',teams:'QF 2 TBD',grp:'Quarter-Final',venue:'AT&T Stadium, Dallas',done:false,result:''},
+  ],stage:'Quarter-Finals'},
+  {date:'Fri 10 Jul',matches:[
+    {time:'1:30am',ist:'1:30am IST',teams:'QF 3 TBD',grp:'Quarter-Final',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
+  ],stage:'Quarter-Finals'},
+  {date:'Sat 11 Jul',matches:[
+    {time:'2:30am',ist:'2:30am IST',teams:'QF 4 TBD',grp:'Quarter-Final',venue:'Hard Rock Stadium, Miami',done:false,result:''},
+    {time:'6:30am',ist:'6:30am IST',teams:'QF 5 TBD',grp:'Quarter-Final',venue:'NRG Stadium, Houston',done:false,result:''},
+  ],stage:'Quarter-Finals'},
+  {date:'Tue 14 Jul',matches:[
+    {time:'12:30am',ist:'12:30am IST',teams:'Semi-Final 1 TBD',grp:'Semi-Final',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+  ],stage:'Semi-Finals'},
+  {date:'Wed 15 Jul',matches:[
+    {time:'12:30am',ist:'12:30am IST',teams:'Semi-Final 2 TBD',grp:'Semi-Final',venue:'Mercedes-Benz Stadium, Atlanta',done:false,result:''},
+  ],stage:'Semi-Finals'},
+  {date:'Sat 18 Jul',matches:[
+    {time:'2:30am',ist:'2:30am IST',teams:'Third Place Play-off TBD',grp:'Bronze Final',venue:'Hard Rock Stadium, Miami',done:false,result:''},
+  ],stage:'Third Place Play-off'},
+  {date:'Sun 19 Jul',matches:[
+    {time:'12:30am',ist:'12:30am IST',teams:'\ud83c\udfc6 WORLD CUP FINAL TBD',grp:'FINAL \xb7 July 19',venue:'MetLife Stadium, New Jersey',done:false,result:''},
+  ],stage:'FINAL'},
+];
+
+function toggleFixtures(){
+  const ov=document.getElementById('fixturesOverlay');
+  const btn=document.getElementById('fixBtn');
+  const isOpen=ov.classList.toggle('open');
+  btn.classList.toggle('active',isOpen);
+  if(isOpen && !document.getElementById('fixturesContent').innerHTML){
+    renderFixtures();
+  }
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+function renderFixtures(){
+  const stageColors={'Group Stage \xb7 MD3':'fs-gs','Round of 32 \xb7 R32 begins':'fs-r32','Round of 32':'fs-r32','Quarter-Finals':'fs-qf','Semi-Finals':'fs-r16','Third Place Play-off':'fs-r16','FINAL':'fs-qf'};
+  const html=FIXTURES.map(day=>{
+    const rows=day.matches.map(m=>{
+      const stageClass=stageColors[day.stage]||'fs-gs';
+      return '<div class="fix-row'+(m.done?' done':'')+'" onclick="this.querySelector(\'.fix-stage\')&&void(0)">'+
+        '<div><div class="fix-time" style="color:'+(m.done?'var(--mu)':'var(--ac)')+'">'+m.ist+'</div></div>'+
+        '<div><div class="fix-teams">'+m.teams+'</div><div class="fix-grp">'+m.grp+'</div></div>'+
+        '<div class="fix-venue">'+m.venue+'</div>'+
+        '<div style="text-align:right"><span class="fix-stage '+stageClass+'">'+day.stage.split('\xb7')[0].trim()+'</span>'+
+        (m.result?'<div class="fix-result done" style="margin-top:3px">'+m.result+'</div>':'')+'</div>'+
+      '</div>';
+    }).join('');
+    return '<div class="fix-day">'+
+      '<div class="fix-day-hdr">'+day.date+' <span style="color:var(--ac2);font-family:var(--mono);font-size:9px;margin-left:4px">'+day.stage+'</span></div>'+
+      rows+'</div>';
+  }).join('');
+  document.getElementById('fixturesContent').innerHTML=html;
 }
 
 buildNav();
