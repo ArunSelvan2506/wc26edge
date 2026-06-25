@@ -570,91 +570,160 @@ async function runAI(id){
 
 
 const FIXTURES=[
-  {date:'Thu 25 Jun',matches:[
-    {time:'1:30am',ist:'1:30am IST',teams:'Ecuador vs Germany',grp:'Group E',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-    {time:'1:30am',ist:'1:30am IST',teams:'Curacao vs Ivory Coast',grp:'Group E',venue:'Lincoln Financial Field, Philadelphia',done:false,result:''},
-    {time:'4:30am',ist:'4:30am IST',teams:'Japan vs Sweden',grp:'Group F',venue:'AT&T Stadium, Dallas',done:false,result:''},
-    {time:'4:30am',ist:'4:30am IST',teams:'Tunisia vs Netherlands',grp:'Group F',venue:'Arrowhead Stadium, Kansas City',done:false,result:''},
-    {time:'7:30am',ist:'7:30am IST',teams:'Turkey vs USA',grp:'Group D',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
-    {time:'7:30am',ist:'7:30am IST',teams:'Paraguay vs Australia',grp:'Group D',venue:'Levis Stadium, Santa Clara',done:false,result:''},
-  ],stage:'Group Stage \xb7 MD3'},
-  {date:'Fri 26 Jun',matches:[
-    {time:'12:30am',ist:'12:30am IST',teams:'Norway vs France',grp:'Group I',venue:'Gillette Stadium, Boston',done:false,result:''},
-    {time:'12:30am',ist:'12:30am IST',teams:'Senegal vs Iraq',grp:'Group I',venue:'BMO Field, Toronto',done:false,result:''},
-    {time:'5:30am',ist:'5:30am IST',teams:'Uruguay vs Spain',grp:'Group H',venue:'Estadio Akron, Guadalajara',done:false,result:''},
-    {time:'5:30am',ist:'5:30am IST',teams:'Cabo Verde vs Saudi Arabia',grp:'Group H',venue:'NRG Stadium, Houston',done:false,result:''},
-    {time:'8:30am',ist:'8:30am IST',teams:'Egypt vs Iran',grp:'Group G',venue:'Lumen Field, Seattle',done:false,result:''},
-    {time:'8:30am',ist:'8:30am IST',teams:'New Zealand vs Belgium',grp:'Group G',venue:'BC Place, Vancouver',done:false,result:''},
-  ],stage:'Group Stage \xb7 MD3'},
-  {date:'Sat 27 Jun',matches:[
-    {time:'2:30am',ist:'2:30am IST',teams:'Panama vs England',grp:'Group L',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-    {time:'2:30am',ist:'2:30am IST',teams:'Croatia vs Ghana',grp:'Group L',venue:'Lincoln Financial Field, Philadelphia',done:false,result:''},
-    {time:'5:00am',ist:'5:00am IST',teams:'Colombia vs Portugal',grp:'Group K',venue:'Hard Rock Stadium, Miami',done:false,result:''},
-    {time:'5:00am',ist:'5:00am IST',teams:'DR Congo vs Uzbekistan',grp:'Group K',venue:'Mercedes-Benz Stadium, Atlanta',done:false,result:''},
-    {time:'7:30am',ist:'7:30am IST',teams:'Algeria vs Austria',grp:'Group J',venue:'Arrowhead Stadium, Kansas City',done:false,result:''},
-    {time:'7:30am',ist:'7:30am IST',teams:'Jordan vs Argentina',grp:'Group J',venue:'AT&T Stadium, Dallas',done:false,result:''},
-  ],stage:'Group Stage \xb7 MD3'},
-  {date:'Sun 28 Jun',matches:[
-    {time:'12:30am',ist:'12:30am IST',teams:'Canada vs South Africa',grp:'R32 \xb7 Match 85',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
-  ],stage:'Round of 32 \xb7 R32 begins'},
-  {date:'Mon 29 Jun',matches:[
-    {time:'10:30am',ist:'10:30am IST',teams:'Winners C vs Runners-up F',grp:'R32 \xb7 Match 86',venue:'NRG Stadium, Houston',done:false,result:''},
-    {time:'2:00am',ist:'2:00am IST',teams:'Winners E vs Best 3rd',grp:'R32 \xb7 Match 87',venue:'Gillette Stadium, Boston',done:false,result:''},
-    {time:'6:30am',ist:'6:30am IST',teams:'Winners F vs Runners-up C',grp:'R32 \xb7 Match 88',venue:'Estadio BBVA, Monterrey',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Tue 30 Jun',matches:[
-    {time:'10:30am',ist:'10:30am IST',teams:'Runners-up E vs Runners-up I',grp:'R32 \xb7 Match 89',venue:'AT&T Stadium, Dallas',done:false,result:''},
-    {time:'2:30am',ist:'2:30am IST',teams:'Winners I vs Best 3rd (C/D/F/G/H)',grp:'R32 \xb7 Match 90',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-    {time:'6:30am',ist:'6:30am IST',teams:'Mexico vs Best 3rd (C/E/F/H/I)',grp:'R32 \xb7 Match 91',venue:'Estadio Azteca, Mexico City',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Wed 1 Jul',matches:[
-    {time:'9:30am',ist:'9:30am IST',teams:'Winners L vs Best 3rd (E/H/I/J/K)',grp:'R32 \xb7 Match 80',venue:'Mercedes-Benz Stadium, Atlanta',done:false,result:''},
-    {time:'1:30am',ist:'1:30am IST',teams:'Winners G vs Best 3rd (A/E/H/I/J)',grp:'R32 \xb7 Match 82',venue:'Lumen Field, Seattle',done:false,result:''},
-    {time:'5:30am',ist:'5:30am IST',teams:'USA vs Best 3rd (B/E/F/I/J)',grp:'R32 \xb7 Match 81',venue:'Levis Stadium, Santa Clara',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Thu 2 Jul',matches:[
-    {time:'12:30am',ist:'12:30am IST',teams:'Winners H vs Runners-up J',grp:'R32 \xb7 Match 93',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
-    {time:'4:30am',ist:'4:30am IST',teams:'Runners-up K vs Runners-up L',grp:'R32 \xb7 Match 94',venue:'BMO Field, Toronto',done:false,result:''},
-    {time:'8:30am',ist:'8:30am IST',teams:'Winners B vs Best 3rd (E/F/G/I/J)',grp:'R32 \xb7 Match 95',venue:'BC Place, Vancouver',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Fri 3 Jul',matches:[
-    {time:'11:30pm',ist:'11:30pm IST',teams:'Runners-up D vs Runners-up G',grp:'R32 \xb7 Match 96',venue:'AT&T Stadium, Dallas',done:false,result:''},
-    {time:'3:30am',ist:'3:30am IST',teams:'Winners J vs Runners-up H',grp:'R32 \xb7 Match 97',venue:'Hard Rock Stadium, Miami',done:false,result:''},
-    {time:'7:00am',ist:'7:00am IST',teams:'Winners K vs Best 3rd (D/E/I/J/L)',grp:'R32 \xb7 Match 98',venue:'Arrowhead Stadium, Kansas City',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Sat 4 Jul',matches:[
-    {time:'10:30pm',ist:'10:30pm IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 99',venue:'NRG Stadium, Houston',done:false,result:''},
-    {time:'2:30am',ist:'2:30am IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 100',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Sun 5 Jul',matches:[
-    {time:'1:30am',ist:'1:30am IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 101',venue:'Gillette Stadium, Boston',done:false,result:''},
-    {time:'5:30am',ist:'5:30am IST',teams:'R32 Match TBD',grp:'R32 \xb7 Match 102',venue:'Estadio Azteca, Mexico City',done:false,result:''},
-  ],stage:'Round of 32'},
-  {date:'Thu 9 Jul',matches:[
-    {time:'1:30am',ist:'1:30am IST',teams:'QF 1 TBD',grp:'Quarter-Final',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-    {time:'5:30am',ist:'5:30am IST',teams:'QF 2 TBD',grp:'Quarter-Final',venue:'AT&T Stadium, Dallas',done:false,result:''},
-  ],stage:'Quarter-Finals'},
-  {date:'Fri 10 Jul',matches:[
-    {time:'1:30am',ist:'1:30am IST',teams:'QF 3 TBD',grp:'Quarter-Final',venue:'SoFi Stadium, Los Angeles',done:false,result:''},
-  ],stage:'Quarter-Finals'},
-  {date:'Sat 11 Jul',matches:[
-    {time:'2:30am',ist:'2:30am IST',teams:'QF 4 TBD',grp:'Quarter-Final',venue:'Hard Rock Stadium, Miami',done:false,result:''},
-    {time:'6:30am',ist:'6:30am IST',teams:'QF 5 TBD',grp:'Quarter-Final',venue:'NRG Stadium, Houston',done:false,result:''},
-  ],stage:'Quarter-Finals'},
-  {date:'Tue 14 Jul',matches:[
-    {time:'12:30am',ist:'12:30am IST',teams:'Semi-Final 1 TBD',grp:'Semi-Final',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-  ],stage:'Semi-Finals'},
-  {date:'Wed 15 Jul',matches:[
-    {time:'12:30am',ist:'12:30am IST',teams:'Semi-Final 2 TBD',grp:'Semi-Final',venue:'Mercedes-Benz Stadium, Atlanta',done:false,result:''},
-  ],stage:'Semi-Finals'},
-  {date:'Sat 18 Jul',matches:[
-    {time:'2:30am',ist:'2:30am IST',teams:'Third Place Play-off TBD',grp:'Bronze Final',venue:'Hard Rock Stadium, Miami',done:false,result:''},
-  ],stage:'Third Place Play-off'},
-  {date:'Sun 19 Jul',matches:[
-    {time:'12:30am',ist:'12:30am IST',teams:'\ud83c\udfc6 WORLD CUP FINAL TBD',grp:'FINAL \xb7 July 19',venue:'MetLife Stadium, New Jersey',done:false,result:''},
-  ],stage:'FINAL'},
-];
+  /* ─── GROUP STAGE MD3 ─── */
+  {date:'Fri 26 Jun (IST)',grpLabel:'IST dates — Thu 25 Jun ET games',stage:'Group Stage \xb7 MD3 \xb7 Groups D E F',matches:[
+    {ist:'1:30am',teams:'Ecuador vs Germany',grp:'Group E \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'1:30am',teams:'Curacao vs Ivory Coast',grp:'Group E \xb7 Lincoln Financial, Philadelphia',done:false},
+    {ist:'4:30am',teams:'Japan vs Sweden',grp:'Group F \xb7 AT&T Stadium, Dallas',done:false},
+    {ist:'4:30am',teams:'Tunisia vs Netherlands',grp:'Group F \xb7 Arrowhead Stadium, Kansas City',done:false},
+    {ist:'7:30am',teams:'Turkey vs USA',grp:'Group D \xb7 SoFi Stadium, Los Angeles',done:false},
+    {ist:'7:30am',teams:'Paraguay vs Australia',grp:'Group D \xb7 Levis Stadium, Santa Clara',done:false},
+  ]},
+  {date:'Sat 27 Jun (IST)',grpLabel:'IST dates — Fri 26 Jun ET games',stage:'Group Stage \xb7 MD3 \xb7 Groups G H I',matches:[
+    {ist:'12:30am',teams:'Norway vs France',grp:'Group I \xb7 Gillette Stadium, Boston',done:false},
+    {ist:'12:30am',teams:'Senegal vs Iraq',grp:'Group I \xb7 BMO Field, Toronto',done:false},
+    {ist:'5:30am',teams:'Uruguay vs Spain',grp:'Group H \xb7 Estadio Akron, Guadalajara',done:false},
+    {ist:'5:30am',teams:'Cabo Verde vs Saudi Arabia',grp:'Group H \xb7 NRG Stadium, Houston',done:false},
+    {ist:'8:30am',teams:'Egypt vs Iran',grp:'Group G \xb7 Lumen Field, Seattle',done:false},
+    {ist:'8:30am',teams:'New Zealand vs Belgium',grp:'Group G \xb7 BC Place, Vancouver',done:false},
+  ]},
+  {date:'Sun 28 Jun (IST)',grpLabel:'IST dates — Sat 27 Jun ET games',stage:'Group Stage \xb7 MD3 \xb7 Groups J K L',matches:[
+    {ist:'2:30am',teams:'Panama vs England',grp:'Group L \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'2:30am',teams:'Croatia vs Ghana',grp:'Group L \xb7 Lincoln Financial, Philadelphia',done:false},
+    {ist:'5:00am',teams:'Colombia vs Portugal',grp:'Group K \xb7 Hard Rock Stadium, Miami',done:false},
+    {ist:'5:00am',teams:'DR Congo vs Uzbekistan',grp:'Group K \xb7 Mercedes-Benz Stadium, Atlanta',done:false},
+    {ist:'7:30am',teams:'Algeria vs Austria',grp:'Group J \xb7 Arrowhead Stadium, Kansas City',done:false},
+    {ist:'7:30am',teams:'Jordan vs Argentina',grp:'Group J \xb7 AT&T Stadium, Dallas',done:false},
+  ]},
+  /* ─── ROUND OF 32 ─── */
+  {date:'Mon 29 Jun (IST)',grpLabel:'Sun 28 Jun ET',stage:'Round of 32',matches:[
+    {ist:'12:30am',teams:'Canada vs South Africa',grp:'R32 M85 \xb7 SoFi Stadium, Los Angeles',done:false},
+  ]},
+  {date:'Tue 30 Jun (IST)',grpLabel:'Mon 29 Jun ET',stage:'Round of 32',matches:[
+    {ist:'10:30am',teams:'Winners C vs Runners-up F',grp:'R32 M86 \xb7 NRG Stadium, Houston',done:false},
+    {ist:'2:00pm',teams:'Winners E vs Best 3rd (A/B/C/D/F)',grp:'R32 M87 \xb7 Gillette Stadium, Boston',done:false},
+    {ist:'6:30pm',teams:'Winners F vs Runners-up C',grp:'R32 M88 \xb7 Estadio BBVA, Monterrey',done:false},
+  ]},
+  {date:'Wed 1 Jul (IST)',grpLabel:'Tue 30 Jun ET',stage:'Round of 32',matches:[
+    {ist:'10:30am',teams:'Runners-up E vs Runners-up I',grp:'R32 M89 \xb7 AT&T Stadium, Dallas',done:false},
+    {ist:'2:30pm',teams:'Winners I vs Best 3rd (C/D/F/G/H)',grp:'R32 M90 \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'6:30pm',teams:'Mexico vs Best 3rd (C/E/F/H/I)',grp:'R32 M91 \xb7 Estadio Azteca, Mexico City',done:false},
+  ]},
+  {date:'Thu 2 Jul (IST)',grpLabel:'Wed 1 Jul ET',stage:'Round of 32',matches:[
+    {ist:'9:30am',teams:'Winners L vs Best 3rd (E/H/I/J/K)',grp:'R32 M80 \xb7 Mercedes-Benz Stadium, Atlanta',done:false},
+    {ist:'1:30am',teams:'Winners G vs Best 3rd (A/E/H/I/J)',grp:'R32 M82 \xb7 Lumen Field, Seattle',done:false},
+    {ist:'5:30am',teams:'USA vs Best 3rd (B/E/F/I/J)',grp:'R32 M81 \xb7 Levis Stadium, Santa Clara',done:false},
+  ]},
+  {date:'Fri 3 Jul (IST)',grpLabel:'Thu 2 Jul ET',stage:'Round of 32',matches:[
+    {ist:'12:30am',teams:'Winners H vs Runners-up J',grp:'R32 M93 \xb7 SoFi Stadium, Los Angeles',done:false},
+    {ist:'4:30am',teams:'Runners-up K vs Runners-up L',grp:'R32 M94 \xb7 BMO Field, Toronto',done:false},
+    {ist:'8:30am',teams:'Winners B vs Best 3rd (E/F/G/I/J)',grp:'R32 M95 \xb7 BC Place, Vancouver',done:false},
+  ]},
+  {date:'Sat 4 Jul (IST)',grpLabel:'Fri 3 Jul ET',stage:'Round of 32',matches:[
+    {ist:'11:30pm',teams:'Runners-up D vs Runners-up G',grp:'R32 M96 \xb7 AT&T Stadium, Dallas',done:false},
+    {ist:'3:30am',teams:'Winners J vs Runners-up H',grp:'R32 M97 \xb7 Hard Rock Stadium, Miami',done:false},
+    {ist:'7:00am',teams:'Winners K vs Best 3rd (D/E/I/J/L)',grp:'R32 M98 \xb7 Arrowhead Stadium, Kansas City',done:false},
+  ]},
+  {date:'Sat 4 & Sun 5 Jul (IST)',grpLabel:'Sat 4 & Sun 5 Jul ET',stage:'Round of 32 \xb7 Final 4 matches',matches:[
+    {ist:'Sat 11:30pm',teams:'R32 Match TBD',grp:'R32 M99 \xb7 NRG Stadium, Houston',done:false},
+    {ist:'Sun 3:30am',teams:'R32 Match TBD',grp:'R32 M100 \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'Sun 1:30am',teams:'R32 Match TBD',grp:'R32 M101 \xb7 Gillette Stadium, Boston',done:false},
+    {ist:'Sun 5:30am',teams:'R32 Match TBD',grp:'R32 M102 \xb7 Estadio Azteca, Mexico City',done:false},
+  ]},
+  /* ─── ROUND OF 16 ─── */
+  {date:'Sat 4 Jul (IST)',grpLabel:'Fri 4 Jul ET — R16 begins',stage:'Round of 16',matches:[
+    {ist:'8:30pm',teams:'Winners M83 vs Winners M84',grp:'R16 M103 \xb7 AT&T Stadium, Dallas',done:false},
+  ]},
+  {date:'Sun 5 Jul (IST)',grpLabel:'Sat 5 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M81 vs Winners M82',grp:'R16 M104 \xb7 Lumen Field, Seattle',done:false},
+    {ist:'8:00pm',teams:'Winners M79 vs Winners M80',grp:'R16 M105 \xb7 Mercedes-Benz Stadium, Atlanta',done:false},
+  ]},
+  {date:'Mon 6 Jul (IST)',grpLabel:'Sun 6 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M77 vs Winners M78',grp:'R16 M106 \xb7 BC Place, Vancouver',done:false},
+    {ist:'8:30pm',teams:'Winners M89 vs Winners M90',grp:'R16 M107 \xb7 SoFi Stadium, Los Angeles',done:false},
+  ]},
+  {date:'Tue 7 Jul (IST)',grpLabel:'Mon 6 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M91 vs Winners M92',grp:'R16 M108 \xb7 BMO Field, Toronto',done:false},
+    {ist:'8:30pm',teams:'Winners M85 vs Winners M86',grp:'R16 M109 \xb7 Hard Rock Stadium, Miami',done:false},
+  ]},
+  {date:'Wed 8 Jul (IST)',grpLabel:'Tue 7 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M87 vs Winners M88',grp:'R16 M110 \xb7 Arrowhead Stadium, Kansas City',done:false},
+  ]},
+  /* ─── QUARTER-FINALS (4 matches) ─── */
+  {date:'Fri 10 Jul (IST)',grpLabel:'Thu 9 Jul ET',stage:'Quarter-Finals \xb7 QF 1 of 4',matches:[
+    {ist:'6:30am',teams:'QF1: W103 vs W104',grp:'QF M97 \xb7 Gillette Stadium, Boston \xb7 9pm ET',done:false},
+  ]},
+  {date:'Sat 11 Jul (IST)',grpLabel:'Fri 10 Jul ET',stage:'Quarter-Finals \xb7 QF 2 of 4',matches:[
+    {ist:'5:30am',teams:'QF2: W107 vs W108',grp:'QF M98 \xb7 SoFi Stadium, Los Angeles \xb7 8pm ET',done:false},
+  ]},
+  {date:'Sun 12 Jul (IST)',grpLabel:'Sat 11 Jul ET',stage:'Quarter-Finals \xb7 QF 3 & 4 of 4',matches:[
+    {ist:'2:30am',teams:'QF3: W105 vs W106',grp:'QF M99 \xb7 Hard Rock Stadium, Miami \xb7 5pm ET',done:false},
+    {ist:'6:30am',teams:'QF4: W109 vs W110',grp:'QF M100 \xb7 Arrowhead Stadium, Kansas City \xb7 9pm ET',done:false},
+  ]},
+  /* ─── SEMI-FINALS ─── */
+  {date:'Wed 15 Jul (IST)',grpLabel:'Tue 14 Jul ET',stage:'Semi-Finals',matches:[
+    {ist:'12:30am',teams:'SF1: QF1 winner vs QF2 winner',grp:'SF M101 \xb7 AT&T Stadium, Dallas \xb7 3pm ET',done:false},
+  ]},
+  {date:'Thu 16 Jul (IST)',grpLabel:'Wed 15 Jul ET',stage:'Semi-Finals',matches:[
+    {ist:'12:30am',teams:'SF2: QF3 winner vs QF4 winner',grp:'SF M102 \xb7 Mercedes-Benz Stadium, Atlanta \xb7 3pm ET',done:false},
+  ]},
+  /* ─── BRONZE FINAL ─── */
+  {date:'Sun 19 Jul (IST)',grpLabel:'Sat 18 Jul ET',stage:'Third Place Play-off',matches:[
+    {ist:'2:30am',teams:'Third Place Play-off',grp:'M103 \xb7 Hard Rock Stadium, Miami \xb7 5pm ET',done:false},
+  ]},
+  /* ─── FINAL ─── */
+  {date:'Mon 20 Jul (IST)',grpLabel:'Sun 19 Jul ET',stage:'\ud83c\udfc6 WORLD CUP FINAL',matches:[
+    {ist:'12:30am',teams:'\ud83c\udfc6 WORLD CUP FINAL',grp:'MetLife Stadium, New Jersey \xb7 3pm ET',done:false},
+  ]},
+];;
 
+function toggleFixtures(){
+  const ov=document.getElementById('fixturesOverlay');
+  const btn=document.getElementById('fixBtn');
+  const isOpen=ov.classList.toggle('open');
+  btn.classList.toggle('active',isOpen);
+  if(isOpen && !document.getElementById('fixturesContent').innerHTML){
+    renderFixtures();
+  }
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+function renderFixtures(){
+  const stageTag={
+    'Group Stage \xb7 MD3 \xb7 Groups D E F':'fs-gs',
+    'Group Stage \xb7 MD3 \xb7 Groups G H I':'fs-gs',
+    'Group Stage \xb7 MD3 \xb7 Groups J K L':'fs-gs',
+    'Round of 32':'fs-r32',
+    'Round of 32 \xb7 Final 4 matches':'fs-r32',
+    'Round of 16':'fs-r16',
+    'Quarter-Finals \xb7 QF 1 of 4':'fs-qf',
+    'Quarter-Finals \xb7 QF 2 of 4':'fs-qf',
+    'Quarter-Finals \xb7 QF 3 & 4 of 4':'fs-qf',
+    'Semi-Finals':'fs-r16',
+    'Third Place Play-off':'fs-r16',
+    '\ud83c\udfc6 WORLD CUP FINAL':'fs-qf',
+  };
+  const content=FIXTURES.map(day=>{
+    const sc=stageTag[day.stage]||'fs-gs';
+    const stageShort=day.stage.split('\xb7')[0].trim();
+    const rows=day.matches.map(m=>
+      '<div class="fix-row'+(m.done?' done':'')+'">'+
+        '<div><div class="fix-time" style="color:'+(m.done?'var(--mu)':'var(--ac)')+'">'+m.ist+'</div><div class="fix-ist" style="font-size:9px;color:var(--mu)">IST</div></div>'+
+        '<div><div class="fix-teams">'+m.teams+'</div><div class="fix-grp">'+m.grp+'</div></div>'+
+        '<div style="text-align:right;flex-shrink:0"><span class="fix-stage '+sc+'">'+stageShort+'</span></div>'+
+      '</div>'
+    ).join('');
+    return '<div class="fix-day">'+
+      '<div class="fix-day-hdr">'+
+        day.date+
+        (day.grpLabel?'<span style="color:var(--mu);font-size:9px;font-weight:400;margin-left:6px">('+day.grpLabel+' ET)</span>':'')+
+        '<span style="color:var(--ac2);font-family:var(--mono);font-size:9px;margin-left:8px">'+day.stage+'</span>'+
+      '</div>'+
+      rows+
+    '</div>';
+  }).join('');
+  document.getElementById('fixturesContent').innerHTML=content;
+}
 function toggleFixtures(){
   const ov=document.getElementById('fixturesOverlay');
   const btn=document.getElementById('fixBtn');
