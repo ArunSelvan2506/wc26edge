@@ -215,18 +215,18 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 <div class="disc">WC26 EDGE · Private prediction hub · 18+ Gamble responsibly · Odds are estimates, always verify · BeGambleAware.org</div>
 <script>
 const DATES=[
-  {day:'THU',num:25,key:'25',cnt:6,hot:true,today:true},
-  {day:'FRI',num:26,key:'26',cnt:6,hot:true},
-  {day:'SAT',num:27,key:'27',cnt:6,hot:true},
-  {day:'SUN',num:28,key:'28',cnt:8,hot:true,r32:true},
+  {day:'FRI',num:26,key:'25',cnt:6,hot:true,today:true,etNote:'Thu 25 Jun ET'},
+  {day:'SAT',num:27,key:'26',cnt:6,hot:true,etNote:'Fri 26 Jun ET'},
+  {day:'SUN',num:28,key:'27',cnt:6,hot:true,etNote:'Sat 27 Jun ET'},
+  {day:'MON',num:29,key:'28',cnt:8,hot:true,r32:true,etNote:'Sun 28 Jun ET'},
 ];
 const F=(nm,cl,hot,ht,htl,sts,dots,conf,bets,note)=>({nm,cl,hot,ht,htl,sts,dots,conf,bets,note});
 const S=(nm,cl,hot,ht,htl,sts,sd,sd2,sH,sotH,bets)=>({nm,cl,hot,ht,htl,sts,sd,sd2,sH,sotH,bets});
 const E=(c,p,o,cf,star)=>({c,p,o,cf,star});
 const PL=(p,o)=>({p,o});
 const DAYS={
-'25':{title:'Thursday 25 June 2026',sub:'TODAY \xb7 MD3 \xb7 Groups D E F \xb7 6 matches \xb7 4pm / 7pm / 10pm ET',matches:[
-  {id:'ecu_ger',live:false,teams:'\ud83c\uddea\ud83c\udde8 Ecuador vs Germany \ud83c\udde9\ud83c\uddea',group:'Group E',venue:'New Jersey \xb7 MetLife Stadium',time:'4pm ET / 9pm BST',tag:'upset',tl:'\u26a0 64% Germany \xb7 Ecuador desperate',conf:64,upset:36,odds:{h:'+380',d:'+290',a:'-175',ou:'2.5'},hT:'Ecuador',aT:'Germany',winner:'Germany',wP:19,dP:22,aP:59,
+'25':{title:'Friday 26 June 2026 (IST)',sub:'TODAY \xb7 MD3 \xb7 Groups D E F \xb7 6 matches \xb7 Thu 25 Jun ET \xb7 kickoffs 1:30am / 4:30am / 7:30am IST',matches:[
+  {id:'ecu_ger',live:false,teams:'\ud83c\uddea\ud83c\udde8 Ecuador vs Germany \ud83c\udde9\ud83c\uddea',group:'Group E',venue:'New Jersey \xb7 MetLife Stadium',time:'1:30am IST (next day) · 4pm ET',tag:'upset',tl:'\u26a0 64% Germany \xb7 Ecuador desperate',conf:64,upset:36,odds:{h:'+380',d:'+290',a:'-175',ou:'2.5'},hT:'Ecuador',aT:'Germany',winner:'Germany',wP:19,dP:22,aP:59,
   cbars:[{l:'Germany win',p:64,f:'f-md'},{l:'Over 2.5 goals (Ecuador must attack)',p:71,f:'f-hi'},{l:'BTTS both score',p:66,f:'f-md'},{l:'Musiala 1+ SOT',p:73,f:'f-bl'}],
   fouls:[],
   shots:[S('Jamal Musiala','Bayern Munich \xb7 Germany \xb7 AM',true,'h90','90% last 10',[['Shots/90 BL','2.8'],['SOT/game','1.4'],['Goals 25/26','18']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,0,1,1,1],83,73,[{l:'Musiala 1+ SOT',o:['-140 est.']}]),S('Enner Valencia','Ecuador \xb7 ST \xb7 veteran captain',false,'h80','80% last 10',[['WC22 goals','3 in 4 games'],['Must win game','Yes'],['Motivation','Maximum']],[1,1,1,1,0,1,1,0,1,1],[1,0,1,1,0,1,1,0,1,1],74,60,[{l:'Valencia 1+ SOT',o:['-115 est.']}])],
@@ -235,7 +235,7 @@ const DAYS={
   upset:'Ecuador must win \u2014 0pts, lost MD1 0-1 CIV, drew MD2 0-0 Curacao. Over 2.5 and BTTS are the plays.',
   ai:'Ecuador (must win, 0pts) vs Germany (6pts, already qualified). Musiala: 2.8 shots/90. Over 2.5 goals 71%, BTTS 66%.'},
 
-  {id:'cur_civ',live:false,teams:'\ud83c\udde8\ud83c\uddfc Curacao vs Ivory Coast \ud83c\udde8\ud83c\uddee',group:'Group E',venue:'Philadelphia \xb7 Lincoln Financial Field',time:'4pm ET / 9pm BST',tag:'info',tl:'82% Ivory Coast',conf:82,upset:18,odds:{h:'+900',d:'+700',a:'-450',ou:'2.5'},hT:'Curacao',aT:'Ivory Coast',winner:'Ivory Coast',wP:8,dP:10,aP:82,
+  {id:'cur_civ',live:false,teams:'\ud83c\udde8\ud83c\uddfc Curacao vs Ivory Coast \ud83c\udde8\ud83c\uddee',group:'Group E',venue:'Philadelphia \xb7 Lincoln Financial Field',time:'1:30am IST (next day) · 4pm ET',tag:'info',tl:'82% Ivory Coast',conf:82,upset:18,odds:{h:'+900',d:'+700',a:'-450',ou:'2.5'},hT:'Curacao',aT:'Ivory Coast',winner:'Ivory Coast',wP:8,dP:10,aP:82,
   cbars:[{l:'Ivory Coast win',p:82,f:'f-hi'},{l:'Over 2.5 goals',p:78,f:'f-hi'},{l:'Ivory Coast 7+ corners',p:74,f:'f-pu'},{l:'Haller 1+ SOT',p:72,f:'f-bl'}],
   fouls:[],
   shots:[S('Sebastien Haller','Dortmund \xb7 Ivory Coast \xb7 ST',false,'h90','90% last 10',[['Shots/90 BL','2.2'],['SOT/game','1.1'],['CIV MD2','Won 2-1 Germany']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],80,66,[{l:'Haller 1+ SOT',o:['-125 est.']}])],
@@ -244,7 +244,7 @@ const DAYS={
   upset:'Curacao drew 0-0 Ecuador MD2 (historic point). CIV won MD2 2-1 Germany. 18% upset.',
   ai:'Ivory Coast (-450, 6pts) vs Curacao (+900, 1pt). Haller: 2.2 shots/90.'},
 
-  {id:'ned_tun',live:false,teams:'\ud83c\uddf3\ud83c\uddf1 Netherlands vs Tunisia \ud83c\uddf9\ud83c\uddf3',group:'Group F',venue:'Kansas City \xb7 Arrowhead Stadium',time:'7pm ET / 12am BST',tag:'top',tl:'\u2605 85% Netherlands',conf:85,upset:8,odds:{h:'-500',d:'+600',a:'+1200',ou:'2.5'},hT:'Netherlands',aT:'Tunisia',winner:'Netherlands',wP:85,dP:10,aP:5,
+  {id:'ned_tun',live:false,teams:'\ud83c\uddf3\ud83c\uddf1 Netherlands vs Tunisia \ud83c\uddf9\ud83c\uddf3',group:'Group F',venue:'Kansas City \xb7 Arrowhead Stadium',time:'4:30am IST (next day) · 7pm ET',tag:'top',tl:'\u2605 85% Netherlands',conf:85,upset:8,odds:{h:'-500',d:'+600',a:'+1200',ou:'2.5'},hT:'Netherlands',aT:'Tunisia',winner:'Netherlands',wP:85,dP:10,aP:5,
   cbars:[{l:'Netherlands win',p:85,f:'f-hi'},{l:'Depay 2+ SOT',p:80,f:'f-bl'},{l:'Gravenberch 1+ fouls (100%)',p:96,f:'f-hi'},{l:'De Jong 1+ fouls (100%)',p:88,f:'f-hi'},{l:'Netherlands 8+ corners',p:82,f:'f-pu'},{l:'Over 44 throw-ins',p:86,f:'f-bl'}],
   fouls:[F('Ryan Gravenberch','Liverpool \xb7 Netherlands \xb7 DM',true,'h100','100% last 10',[['Fouls/90 PL','1.4'],['MD2 vs Sweden','MOT 5-1'],['Rating avg','7.4 Sofascore']],[1,1,1,1,1,1,1,1,1,1],96,[{l:'Gravenberch 1+ fouls',o:['-175 bet365','-165 FanDuel']}],'100% last 10. Netherlands dominant. Fouls every game to control midfield.'),F('Frenkie de Jong','Barcelona \xb7 Netherlands \xb7 CM',true,'h100','100% last 10',[['Fouls/90 LL','0.61'],['Fouls won/g','1.1'],['YC 25 LL games','6']],[1,1,1,1,1,1,1,1,1,1],88,[{l:'De Jong 1+ fouls',o:['-155 bet365','-145 FanDuel']},{l:'De Jong booked',o:['+185 Paddy']}],'100% last 10. 6 bookings in 25 La Liga games. Card at +185 outstanding value.')],
   shots:[S('Memphis Depay','Netherlands \xb7 ST \xb7 NL all-time top scorer',true,'h100','100% last 10',[['Shots/90','3.2'],['SOT/game','1.6'],['WC26 MD1','Scored in 5-1 win']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,80,[{l:'Depay 2+ SOT',o:['-150 est.']},{l:'Depay anytime scorer',o:['+120 est.']}])],
@@ -254,7 +254,7 @@ const DAYS={
   ref:'\ud83d\udccb Tunisia defensively fragile. NED avg 9+ corners in dominant wins.',
   ai:'Netherlands (-500, won both MD1+MD2) vs Tunisia (eliminated, 0pts). Depay: 3.2 shots/90. Gravenberch: 100% fouls L10.'},
 
-  {id:'jap_swe',live:false,teams:'\ud83c\uddef\ud83c\uddf5 Japan vs Sweden \ud83c\uddf8\ud83c\uddea',group:'Group F',venue:'Dallas \xb7 AT&T Stadium',time:'7pm ET / 12am BST',tag:'upset',tl:'\u26a0 Sweden 58% \xb7 Japan 42%',conf:58,upset:42,odds:{h:'+230',d:'+240',a:'-150',ou:'2.5'},hT:'Japan',aT:'Sweden',winner:'Sweden',wP:42,dP:27,aP:58,
+  {id:'jap_swe',live:false,teams:'\ud83c\uddef\ud83c\uddf5 Japan vs Sweden \ud83c\uddf8\ud83c\uddea',group:'Group F',venue:'Dallas \xb7 AT&T Stadium',time:'4:30am IST (next day) · 7pm ET',tag:'upset',tl:'\u26a0 Sweden 58% \xb7 Japan 42%',conf:58,upset:42,odds:{h:'+230',d:'+240',a:'-150',ou:'2.5'},hT:'Japan',aT:'Sweden',winner:'Sweden',wP:42,dP:27,aP:58,
   cbars:[{l:'Sweden win',p:58,f:'f-md'},{l:'Isak 2+ SOT',p:74,f:'f-bl'},{l:'Gyokeres 1+ fouls (100%)',p:91,f:'f-hi'},{l:'Endo 1+ fouls (Japan DM)',p:82,f:'f-hi'},{l:'Japan upset risk (beat Germany WC22!)',p:42,f:'f-lo'}],
   fouls:[F('Viktor Gyokeres','Arsenal \xb7 Sweden \xb7 ST',true,'h100','100% last 10',[['Fouls/90 PL','1.41'],['Fouls drawn/season','31'],['YC PL 25/26','5']],[1,1,1,1,1,1,1,1,1,1],91,[{l:'Gyokeres 1+ fouls',o:['-165 est. bet365']}],'Physical Arsenal striker. 100% last 10.'),F('Wataru Endo','Liverpool \xb7 Japan \xb7 DM \xb7 Captain',true,'h90','90% last 10',[['Fouls/90 PL','1.3'],['Role','Anchor DM'],['YC PL','6']],[1,1,1,1,1,1,1,1,1,0],82,[{l:'Endo 1+ fouls',o:['-145 est. bet365']}],'Japan captain breaks Swedish transitions. 82% last 10.')],
   shots:[S('Alexander Isak','Liverpool \xb7 Sweden \xb7 ST',true,'h100','100% last 10',[['Shots/90 PL','3.1'],['SOT/game','1.5'],['PL goals 25/26','24']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],96,74,[{l:'Isak 2+ SOT',o:['-135 est.']},{l:'Isak anytime scorer',o:['+130 est.']}]),S('Takefusa Kubo','Real Sociedad \xb7 Japan \xb7 RW \xb7 Mitoma OUT',false,'h80','80% last 10',[['Shots/90 LL','2.3'],['SOT/game','1.1'],['Mitoma status','INJURED OUT']],[1,1,1,0,1,1,1,0,1,1],[1,1,0,1,1,0,1,1,0,1],76,64,[{l:'Kubo 1+ SOT',o:['-120 est.']}])],
@@ -263,7 +263,7 @@ const DAYS={
   upset:'Japan beat Germany WC22. Mitoma INJURED OUT full tournament. 42% upset.',
   ai:'Japan (Mitoma OUT, beat Tunisia 4-0 MD2) vs Sweden (lost 0-5 Netherlands MD1). Isak: 3.1 shots/90. Gyokeres: 100% fouls L10.'},
 
-  {id:'usa_tur',live:false,teams:'\ud83c\uddfa\ud83c\uddf8 USA vs Turkey \ud83c\uddf9\ud83c\uddf7',group:'Group D',venue:'Los Angeles \xb7 SoFi Stadium',time:'10pm ET / 3am BST',tag:'upset',tl:'\u26a0 USA 61% \xb7 Turkey revenge',conf:61,upset:39,odds:{h:'-135',d:'+280',a:'+340',ou:'2.5'},hT:'USA',aT:'Turkey',winner:'USA',wP:61,dP:25,aP:39,
+  {id:'usa_tur',live:false,teams:'\ud83c\uddfa\ud83c\uddf8 USA vs Turkey \ud83c\uddf9\ud83c\uddf7',group:'Group D',venue:'Los Angeles \xb7 SoFi Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'upset',tl:'\u26a0 USA 61% \xb7 Turkey revenge',conf:61,upset:39,odds:{h:'-135',d:'+280',a:'+340',ou:'2.5'},hT:'USA',aT:'Turkey',winner:'USA',wP:61,dP:25,aP:39,
   cbars:[{l:'USA win (already qualified)',p:61,f:'f-md'},{l:'Turkey upset (lost MD1+MD2)',p:39,f:'f-lo'},{l:'Yuksek 1+ fouls (100% L10)',p:93,f:'f-hi'},{l:'Guler 1+ SOT',p:70,f:'f-bl'}],
   fouls:[F('Ismail Yuksek','Fenerbahce \xb7 Turkey \xb7 DM',true,'h100','100% last 10',[['Fouls/90 qual','2.0'],['Europa League','1.1/g'],['YC qualifying','3 in 6']],[1,1,1,1,1,1,1,1,1,1],93,[{l:'Yuksek 1+ fouls',o:['-175 bet365','-160 FanDuel']},{l:'Yuksek booked',o:['+165 Paddy']}],'2.0 fouls/90 in WC qualifying, 100% last 10. Elimination game elevates aggression.')],
   shots:[S('Arda Guler','Real Madrid \xb7 Turkey \xb7 AM',false,'h80','80% last 10',[['Shots/90 LL','2.2'],['Fouls drawn/g','2.4'],['Must win','Career moment']],[1,1,1,1,0,1,1,0,1,1],[1,1,0,1,1,0,1,1,1,1],76,70,[{l:'Guler 1+ SOT',o:['-140 est.']}]),S('Christian Pulisic','AC Milan \xb7 USA \xb7 CAM',false,'h90','90% last 10',[['Shots/90 SA','2.4'],['MD1+MD2','3 goal involvements'],['Calf injury','Doubtful']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,68,[{l:'Pulisic 1+ SOT',o:['-130 est.']}])],
@@ -272,7 +272,7 @@ const DAYS={
   upset:'Turkey lost both MD1+MD2, 0 goals scored. Nothing to lose \u2014 39% upset.',
   ai:'USA (-135, already qualified Group D winners) vs Turkey (+340, lost MD1+MD2, elimination). Yuksek: 2.0 fouls/90, 100% L10.'},
 
-  {id:'aus_par',live:false,teams:'\ud83c\udde6\ud83c\uddfa Australia vs Paraguay \ud83c\uddf5\ud83c\uddfe',group:'Group D',venue:'Santa Clara \xb7 Levis Stadium',time:'10pm ET / 3am BST',tag:'info',tl:'55% Australia',conf:55,upset:45,odds:{h:'-145',d:'+290',a:'+400',ou:'2.5'},hT:'Australia',aT:'Paraguay',winner:'Australia',wP:55,dP:24,aP:21,
+  {id:'aus_par',live:false,teams:'\ud83c\udde6\ud83c\uddfa Australia vs Paraguay \ud83c\uddf5\ud83c\uddfe',group:'Group D',venue:'Santa Clara \xb7 Levis Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'info',tl:'55% Australia',conf:55,upset:45,odds:{h:'-145',d:'+290',a:'+400',ou:'2.5'},hT:'Australia',aT:'Paraguay',winner:'Australia',wP:55,dP:24,aP:21,
   cbars:[{l:'Australia win',p:55,f:'f-md'},{l:'BTTS both score',p:62,f:'f-md'},{l:'Over 2.5 goals',p:60,f:'f-md'}],
   fouls:[],shots:[],
   easy:[E('Goals','Over 2.5 goals','+115 est.',60,false),E('BTTS','Both teams score','+110 est.',62,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',70,true)],
@@ -281,8 +281,8 @@ const DAYS={
   ai:'Australia (-145, won MD1 2-0 Turkey) vs Paraguay (+400, won MD2 1-0 Turkey). Both need points.'},
 ]},
 
-'26':{title:'Friday 26 June 2026',sub:'MD3 \xb7 Groups G H I \xb7 6 matches \xb7 3 simultaneous pairs',matches:[
-  {id:'nor_fra',live:false,teams:'\ud83c\uddf3\ud83c\uddf4 Norway vs France \ud83c\uddeb\ud83c\uddf7',group:'Group I',venue:'Boston \xb7 Gillette Stadium',time:'3pm ET / 8pm BST',tag:'top',tl:'\u2605 Haaland vs Mbappe',conf:62,upset:38,odds:{h:'+127',d:'+225',a:'-333',ou:'2.5'},hT:'Norway',aT:'France',winner:'France',wP:38,dP:20,aP:42,
+'26':{title:'Saturday 27 June 2026 (IST)',sub:'MD3 \xb7 Groups G H I \xb7 6 matches \xb7 Fri 26 Jun ET \xb7 kickoffs 12:30am / 5:30am / 8:30am IST',matches:[
+  {id:'nor_fra',live:false,teams:'\ud83c\uddf3\ud83c\uddf4 Norway vs France \ud83c\uddeb\ud83c\uddf7',group:'Group I',venue:'Boston \xb7 Gillette Stadium',time:'12:30am IST (next day) · 3pm ET',tag:'top',tl:'\u2605 Haaland vs Mbappe',conf:62,upset:38,odds:{h:'+127',d:'+225',a:'-333',ou:'2.5'},hT:'Norway',aT:'France',winner:'France',wP:38,dP:20,aP:42,
   cbars:[{l:'France win vs Norway',p:62,f:'f-md'},{l:'Haaland 2+ SOT (safe regardless)',p:80,f:'f-bl'},{l:'Mbappe 2+ SOT',p:78,f:'f-bl'},{l:'Tchouameni 1+ fouls (100% L10)',p:94,f:'f-hi'}],
   fouls:[F('Aurelien Tchouameni','Real Madrid \xb7 France \xb7 DM',true,'h100','100% last 10',[['Fouls/90 LL','1.6'],['Intl fouls (NL)','1.4/g'],['YC season','5+']],[1,1,1,1,1,1,1,1,1,1],94,[{l:'Tchouameni 1+ fouls',o:['-165 bet365','-155 FanDuel']}],'100% last 10 La Liga + Nations League. France anchor DM commits fouls structurally.')],
   shots:[S('Erling Haaland','Man City \xb7 Norway \xb7 ST',true,'h100','100% last 10',[['SOT/game PL','2.2'],['WC26 goals','4 (Iraq+Senegal)'],['Qualifying','Top scorer']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,0,1,1,1],97,80,[{l:'Haaland 2+ SOT',o:['-160 est.']},{l:'Haaland anytime scorer',o:['-175 est.']}]),S('Kylian Mbappe','Real Madrid \xb7 France \xb7 ST',true,'h100','100% last 10',[['Shots/90 LL','3.79'],['WC26 goals','4 (Senegal+Iraq)'],['Golden Boot','Leading']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],97,78,[{l:'Mbappe 2+ SOT',o:['-145 est.']},{l:'Mbappe anytime scorer',o:['-140 est.']}])],
@@ -291,7 +291,7 @@ const DAYS={
   upset:'Norway are +127 \u2014 near evens vs France. 38% upset. Back SOT props over the result.',
   ai:'Norway (+127, 6pts, Haaland 4 WC goals) vs France (-333, 6pts, Mbappe 4 WC goals). Haaland: 2.2 SOT/game. Mbappe: 3.79 shots/90. Tchouameni: 100% fouls L10.'},
 
-  {id:'sen_irq',live:false,teams:'\ud83c\uddf8\ud83c\uddf3 Senegal vs Iraq \ud83c\uddee\ud83c\uddf6',group:'Group I',venue:'Toronto \xb7 BMO Field',time:'3pm ET / 8pm BST',tag:'info',tl:'72% Senegal',conf:72,upset:28,odds:{h:'-230',d:'+330',a:'+650',ou:'2.5'},hT:'Senegal',aT:'Iraq',winner:'Senegal',wP:72,dP:19,aP:9,
+  {id:'sen_irq',live:false,teams:'\ud83c\uddf8\ud83c\uddf3 Senegal vs Iraq \ud83c\uddee\ud83c\uddf6',group:'Group I',venue:'Toronto \xb7 BMO Field',time:'12:30am IST (next day) · 3pm ET',tag:'info',tl:'72% Senegal',conf:72,upset:28,odds:{h:'-230',d:'+330',a:'+650',ou:'2.5'},hT:'Senegal',aT:'Iraq',winner:'Senegal',wP:72,dP:19,aP:9,
   cbars:[{l:'Senegal win',p:72,f:'f-hi'},{l:'Gueye 1+ fouls (100% L10)',p:88,f:'f-hi'},{l:'Mane 1+ SOT',p:68,f:'f-bl'}],
   fouls:[F('Idrissa Gueye','Everton \xb7 Senegal \xb7 DM',true,'h100','100% last 10',[['Fouls/90 PL','1.5'],['YC/season','7'],['Role','Break Iraq press']],[1,1,1,1,1,1,1,1,1,1],88,[{l:'Gueye 1+ fouls',o:['-150 bet365','-140 FanDuel']}],'Senegal anchor DM. 100% last 10. Physical presence vs Iraq.')],
   shots:[S('Sadio Mane','Al-Nassr \xb7 Senegal \xb7 FW',false,'h90','90% last 10',[['Shots/90 career avg','2.6'],['SOT/game','1.3'],['MD1','Lost 1-3 France']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,68,[{l:'Mane 1+ SOT',o:['-135 est.']}])],
@@ -300,7 +300,7 @@ const DAYS={
   upset:'Senegal lost MD1+MD2. Iraq lost MD1+MD2. 28% Iraq upset.',
   ai:'Senegal (-230) vs Iraq (+650). Gueye: 1.5 fouls/90, 100% last 10. Mane: 2.6 shots/90.'},
 
-  {id:'uru_esp',live:false,teams:'\ud83c\uddfa\ud83c\uddfe Uruguay vs Spain \ud83c\uddea\ud83c\uddf8',group:'Group H',venue:'Guadalajara \xb7 Estadio Akron',time:'8pm ET / 1am BST',tag:'top',tl:'\u2605 Spain in top form',conf:72,upset:20,odds:{h:'+700',d:'+390',a:'-270',ou:'2.5'},hT:'Uruguay',aT:'Spain',winner:'Spain',wP:9,dP:19,aP:72,
+  {id:'uru_esp',live:false,teams:'\ud83c\uddfa\ud83c\uddfe Uruguay vs Spain \ud83c\uddea\ud83c\uddf8',group:'Group H',venue:'Guadalajara \xb7 Estadio Akron',time:'5:30am IST (next day) · 8pm ET',tag:'top',tl:'\u2605 Spain in top form',conf:72,upset:20,odds:{h:'+700',d:'+390',a:'-270',ou:'2.5'},hT:'Uruguay',aT:'Spain',winner:'Spain',wP:9,dP:19,aP:72,
   cbars:[{l:'Spain win (won MD2 4-0 Saudi)',p:72,f:'f-hi'},{l:'Lamine Yamal 2+ SOT',p:74,f:'f-bl'},{l:'Spain 8+ corners',p:76,f:'f-pu'},{l:'Spain over 1.5 goals',p:78,f:'f-hi'}],
   fouls:[],
   shots:[S('Lamine Yamal','Barcelona \xb7 Spain \xb7 RW \xb7 18yrs',true,'h90','90% last 10',[['Shots/90 LL','2.9'],['SOT/game','1.4'],['LL goals 25/26','18']],[1,1,1,1,1,1,0,1,1,1],[1,1,1,0,1,1,1,1,0,1],86,74,[{l:'Yamal 2+ SOT',o:['-140 est.']},{l:'Yamal anytime scorer',o:['+200 est.']}])],
@@ -310,7 +310,7 @@ const DAYS={
   ref:'\ud83d\udccb Live bet: Spain next goal if 0-0 at 25 mins.',
   ai:'Spain (-270, won MD2 4-0 Saudi) vs Uruguay (+700). Yamal: 2.9 shots/90, 18 LL goals.'},
 
-  {id:'cvd_ksa',live:false,teams:'\ud83c\udde8\ud83c\uddfb Cabo Verde vs Saudi Arabia \ud83c\uddf8\ud83c\udde6',group:'Group H',venue:'Houston \xb7 NRG Stadium',time:'8pm ET / 1am BST',tag:'info',tl:'55% Cabo Verde',conf:55,upset:45,odds:{h:'-140',d:'+280',a:'+380',ou:'2.5'},hT:'Cabo Verde',aT:'Saudi Arabia',winner:'Cabo Verde',wP:55,dP:26,aP:19,
+  {id:'cvd_ksa',live:false,teams:'\ud83c\udde8\ud83c\uddfb Cabo Verde vs Saudi Arabia \ud83c\uddf8\ud83c\udde6',group:'Group H',venue:'Houston \xb7 NRG Stadium',time:'5:30am IST (next day) · 8pm ET',tag:'info',tl:'55% Cabo Verde',conf:55,upset:45,odds:{h:'-140',d:'+280',a:'+380',ou:'2.5'},hT:'Cabo Verde',aT:'Saudi Arabia',winner:'Cabo Verde',wP:55,dP:26,aP:19,
   cbars:[{l:'Cabo Verde win or draw',p:55,f:'f-md'},{l:'Under 2.5 goals',p:62,f:'f-md'}],
   fouls:[],shots:[],
   easy:[E('Goals','Under 2.5 goals','-115 est.',62,false),E('Throw-ins','Over 38 total throw-ins','-110 est.',69,true)],
@@ -318,7 +318,7 @@ const DAYS={
   upset:'Low-pressure match for both. Under 2.5 goals likely.',
   ai:'Cabo Verde vs Saudi Arabia. Both without top-2 pressure. Under 2.5 goals likely.'},
 
-  {id:'egy_iri',live:false,teams:'\ud83c\uddea\ud83c\uddec Egypt vs Iran \ud83c\uddee\ud83c\uddf7',group:'Group G',venue:'Seattle \xb7 Lumen Field',time:'11pm ET / 4am BST',tag:'top',tl:'\u2605 64% Egypt \xb7 Salah',conf:64,upset:36,odds:{h:'-150',d:'+280',a:'+400',ou:'2.5'},hT:'Egypt',aT:'Iran',winner:'Egypt',wP:64,dP:24,aP:12,
+  {id:'egy_iri',live:false,teams:'\ud83c\uddea\ud83c\uddec Egypt vs Iran \ud83c\uddee\ud83c\uddf7',group:'Group G',venue:'Seattle \xb7 Lumen Field',time:'8:30am IST (next day) · 11pm ET',tag:'top',tl:'\u2605 64% Egypt \xb7 Salah',conf:64,upset:36,odds:{h:'-150',d:'+280',a:'+400',ou:'2.5'},hT:'Egypt',aT:'Iran',winner:'Egypt',wP:64,dP:24,aP:12,
   cbars:[{l:'Egypt win',p:64,f:'f-md'},{l:'Salah 1+ SOT',p:74,f:'f-bl'},{l:'Fathy 1+ fouls (100% L10)',p:93,f:'f-hi'}],
   fouls:[F('Hamdi Fathy','Egypt \xb7 Defensive Midfielder',true,'h100','100% last 10',[['AFCON fouls/g','2.1'],['YC AFCON','3 in 7'],['Role','Break transitions']],[1,1,1,1,1,1,1,1,1,1],93,[{l:'Fathy 1+ fouls',o:['-165 bet365','-155 FanDuel']},{l:'Fathy booked',o:['+175 bet365']}],'Egypt midfield enforcer. 2.1 fouls/game AFCON. 100% last 10. Yellow at +175 great value.')],
   shots:[S('Mohamed Salah','Liverpool \xb7 Egypt \xb7 RW \xb7 Captain',true,'h90','90% last 10',[['Shots/90 PL','2.85'],['SOT/game','1.3'],['Egypt goals','67']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,74,[{l:'Salah 1+ SOT',o:['-145 est.']},{l:'Salah anytime scorer',o:['+130 est.']}])],
@@ -327,7 +327,7 @@ const DAYS={
   upset:'Belgium drew 0-0 Iran MD2. Egypt won MD2 3-1 NZ. 36% Iran upset.',
   ai:'Egypt (64%, won MD2 3-1 NZ) vs Iran (drew MD2 0-0 Belgium). Salah: 2.85 shots/90. Fathy: 2.1 fouls/game, 100% last 10.'},
 
-  {id:'nz_bel',live:false,teams:'\ud83c\uddf3\ud83c\uddff New Zealand vs Belgium \ud83c\udde7\ud83c\uddea',group:'Group G',venue:'Vancouver \xb7 BC Place',time:'11pm ET / 4am BST',tag:'upset',tl:'\u26a0 Belgium 62% \xb7 NZ shock threat',conf:62,upset:38,odds:{h:'+500',d:'+290',a:'-200',ou:'2.5'},hT:'New Zealand',aT:'Belgium',winner:'Belgium',wP:12,dP:26,aP:62,
+  {id:'nz_bel',live:false,teams:'\ud83c\uddf3\ud83c\uddff New Zealand vs Belgium \ud83c\udde7\ud83c\uddea',group:'Group G',venue:'Vancouver \xb7 BC Place',time:'8:30am IST (next day) · 11pm ET',tag:'upset',tl:'\u26a0 Belgium 62% \xb7 NZ shock threat',conf:62,upset:38,odds:{h:'+500',d:'+290',a:'-200',ou:'2.5'},hT:'New Zealand',aT:'Belgium',winner:'Belgium',wP:12,dP:26,aP:62,
   cbars:[{l:'Belgium win',p:62,f:'f-md'},{l:'Stamenic 1+ fouls (100% L10)',p:91,f:'f-hi'},{l:'Belgium over 1.5 goals',p:68,f:'f-hi'}],
   fouls:[F('Marko Stamenic','Swansea \xb7 New Zealand \xb7 CM',true,'h100','100% last 10',[['Fouls/game Champ.','1.7'],['YC this season','6'],['Role vs Belgium','Disrupt and press']],[1,1,1,1,1,1,1,1,1,1],91,[{l:'Stamenic 1+ fouls',o:['-160 bet365','-150 FanDuel']},{l:'Stamenic booked',o:['+165 Paddy']}],'NZ midfield enforcer. 1.7 fouls/game, 6 yellows. 100% last 10. Yellow at +165 outstanding value.')],
   shots:[S('Kevin De Bruyne','Man City \xb7 Belgium \xb7 AM',false,'h90','90% last 10',[['Shots/90 PL','2.1'],['SOT/game','1.0'],['Key passes/g','3.1']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],80,65,[{l:'De Bruyne 1+ SOT',o:['-130 est.']}])],
@@ -337,8 +337,8 @@ const DAYS={
   ai:'NZ (+500) vs Belgium (-200, drew 0-0 Iran MD2). Stamenic: 1.7 fouls/game, 100% last 10. De Bruyne: 2.1 shots/90.'},
 ]},
 
-'27':{title:'Saturday 27 June 2026',sub:'MD3 \xb7 Groups J K L \xb7 6 matches \xb7 simultaneous pairs',matches:[
-  {id:'jor_arg',live:false,teams:'\ud83c\uddef\ud83c\uddf4 Jordan vs Argentina \ud83c\udde6\ud83c\uddf7',group:'Group J',venue:'Dallas \xb7 AT&T Stadium',time:'10pm ET / 3am BST',tag:'top',tl:'\u2605 88% Argentina \xb7 Messi hat-trick',conf:88,upset:9,odds:{h:'+900',d:'+700',a:'-800',ou:'2.5'},hT:'Jordan',aT:'Argentina',winner:'Argentina',wP:5,dP:7,aP:88,
+'27':{title:'Sunday 28 June 2026 (IST)',sub:'MD3 \xb7 Groups J K L \xb7 6 matches \xb7 Sat 27 Jun ET \xb7 kickoffs 2:30am / 5:00am / 7:30am IST',matches:[
+  {id:'jor_arg',live:false,teams:'\ud83c\uddef\ud83c\uddf4 Jordan vs Argentina \ud83c\udde6\ud83c\uddf7',group:'Group J',venue:'Dallas \xb7 AT&T Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'top',tl:'\u2605 88% Argentina \xb7 Messi hat-trick',conf:88,upset:9,odds:{h:'+900',d:'+700',a:'-800',ou:'2.5'},hT:'Jordan',aT:'Argentina',winner:'Argentina',wP:5,dP:7,aP:88,
   cbars:[{l:'Argentina win',p:88,f:'f-hi'},{l:'Messi 2+ SOT',p:82,f:'f-bl'},{l:'Romero 1+ fouls',p:84,f:'f-hi'},{l:'Argentina over 2.5 goals',p:79,f:'f-hi'}],
   fouls:[F('Cristian Romero','Tottenham \xb7 Argentina \xb7 CB',true,'h90','90% last 10',[['Fouls/90 PL','1.7'],['YC PL 25/26','8'],['Role','CB vs Jordan pace']],[1,1,1,1,1,0,1,1,1,1],84,[{l:'Romero 1+ fouls',o:['-150 bet365','-145 FanDuel']}],'One of most foul-prone CBs in PL. Jordan pace forwards test him constantly. 90% last 10.')],
   shots:[S('Lionel Messi','Inter Miami \xb7 Argentina \xb7 AM',true,'h100','100% last 10',[['Shots/90 MLS','2.8'],['SOT/game','1.5'],['MD1 hat-trick','3 goals vs Algeria']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,0,1,1,1,1],95,82,[{l:'Messi 2+ SOT',o:['-145 est.']},{l:'Messi anytime scorer',o:['+120 est.']}])],
@@ -347,7 +347,7 @@ const DAYS={
   upset:'Jordan won MD2 1-0 Algeria upset. Argentina won both MD1+MD2. Only 9% upset.',
   ai:'Argentina (-800, Messi hat-trick MD1) vs Jordan (+900). Messi: 2.8 shots/90. Romero: 1.7 fouls/90, 90% last 10.'},
 
-  {id:'alg_aut',live:false,teams:'\ud83c\udde9\ud83c\uddff Algeria vs Austria \ud83c\udde6\ud83c\uddf9',group:'Group J',venue:'Kansas City \xb7 Arrowhead Stadium',time:'10pm ET / 3am BST',tag:'info',tl:'60% Austria',conf:60,upset:40,odds:{h:'+350',d:'+280',a:'-185',ou:'2.5'},hT:'Algeria',aT:'Austria',winner:'Austria',wP:15,dP:25,aP:60,
+  {id:'alg_aut',live:false,teams:'\ud83c\udde9\ud83c\uddff Algeria vs Austria \ud83c\udde6\ud83c\uddf9',group:'Group J',venue:'Kansas City \xb7 Arrowhead Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'info',tl:'60% Austria',conf:60,upset:40,odds:{h:'+350',d:'+280',a:'-185',ou:'2.5'},hT:'Algeria',aT:'Austria',winner:'Austria',wP:15,dP:25,aP:60,
   cbars:[{l:'Austria win',p:60,f:'f-md'},{l:'BTTS both score',p:58,f:'f-md'},{l:'Over 2.5 goals',p:62,f:'f-md'}],
   fouls:[],shots:[],
   easy:[E('Goals','Over 2.5 goals','+105 est.',62,false),E('BTTS','Both teams score','+110 est.',58,false),E('Throw-ins','Over 40 throw-ins','-110 est.',70,true)],
@@ -355,7 +355,7 @@ const DAYS={
   upset:'Algeria won MD2 2-1 Jordan upset. Austria won MD1 3-1 Jordan. 40% Algeria upset.',
   ai:'Austria (-185, won MD1 3-1 Jordan) vs Algeria (+350, won MD2 2-1 Jordan). Both need win.'},
 
-  {id:'por_col',live:false,teams:'\ud83c\uddf5\ud83c\uddf9 Portugal vs Colombia \ud83c\udde8\ud83c\uddf4',group:'Group K',venue:'Miami \xb7 Hard Rock Stadium',time:'7:30pm ET / 12:30am BST',tag:'top',tl:'\u2605 70% Portugal \xb7 Ronaldo brace',conf:70,upset:25,odds:{h:'-210',d:'+330',a:'+600',ou:'2.5'},hT:'Portugal',aT:'Colombia',winner:'Portugal',wP:70,dP:20,aP:10,
+  {id:'por_col',live:false,teams:'\ud83c\uddf5\ud83c\uddf9 Portugal vs Colombia \ud83c\udde8\ud83c\uddf4',group:'Group K',venue:'Miami \xb7 Hard Rock Stadium',time:'5:00am IST (next day) · 7:30pm ET',tag:'top',tl:'\u2605 70% Portugal \xb7 Ronaldo brace',conf:70,upset:25,odds:{h:'-210',d:'+330',a:'+600',ou:'2.5'},hT:'Portugal',aT:'Colombia',winner:'Portugal',wP:70,dP:20,aP:10,
   cbars:[{l:'Portugal win',p:70,f:'f-hi'},{l:'Ronaldo 2+ SOT',p:78,f:'f-bl'},{l:'Neves 1+ fouls (100% L10)',p:95,f:'f-hi'},{l:'Over 2.5 goals',p:66,f:'f-md'}],
   fouls:[F('Ruben Neves','Al-Hilal \xb7 Portugal \xb7 DM',true,'h100','100% last 10',[['Fouls/90','1.5/g'],['Role','Press breaker'],['YC/season','6\u20138']],[1,1,1,1,1,1,1,1,1,1],95,[{l:'Neves 1+ fouls',o:['-155 bet365','-145 FanDuel']}],'100% last 10. Structural DM who fouls every game.')],
   shots:[S('Cristiano Ronaldo','Al-Hilal \xb7 Portugal \xb7 ST \xb7 brace MD2',true,'h100','100% last 10',[['Shots/90','4.2'],['SOT/game','2.1'],['MD2 vs Uzbekistan','BRACE (5-0)']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],95,78,[{l:'Ronaldo 2+ SOT',o:['-150 bet365']},{l:'Ronaldo anytime scorer',o:['+130 FanDuel']}]),S('Luis Diaz','Liverpool \xb7 Colombia \xb7 LW',true,'h90','90% last 10',[['Shots/90 PL','2.8'],['SOT/game','1.3'],['PL goals 25/26','17']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,70,[{l:'Diaz 1+ SOT',o:['-130 est.']}])],
@@ -364,7 +364,7 @@ const DAYS={
   upset:'Portugal won MD2 5-0 Uzbekistan Ronaldo brace. Colombia drew MD2 1-1. 25% upset.',
   ai:'Portugal (-210, won MD2 5-0 Ronaldo brace) vs Colombia (+600). Ronaldo: 4.2 shots/90. Neves: 100% fouls L10.'},
 
-  {id:'uzb_drc',live:false,teams:'\ud83c\uddfa\ud83c\uddff Uzbekistan vs DR Congo \ud83c\udde8\ud83c\udde9',group:'Group K',venue:'Atlanta \xb7 Mercedes-Benz Stadium',time:'7:30pm ET / 12:30am BST',tag:'info',tl:'58% DR Congo',conf:58,upset:42,odds:{h:'+350',d:'+280',a:'-185',ou:'2.5'},hT:'Uzbekistan',aT:'DR Congo',winner:'DR Congo',wP:14,dP:28,aP:58,
+  {id:'uzb_drc',live:false,teams:'\ud83c\uddfa\ud83c\uddff Uzbekistan vs DR Congo \ud83c\udde8\ud83c\udde9',group:'Group K',venue:'Atlanta \xb7 Mercedes-Benz Stadium',time:'5:00am IST (next day) · 7:30pm ET',tag:'info',tl:'58% DR Congo',conf:58,upset:42,odds:{h:'+350',d:'+280',a:'-185',ou:'2.5'},hT:'Uzbekistan',aT:'DR Congo',winner:'DR Congo',wP:14,dP:28,aP:58,
   cbars:[{l:'DR Congo win',p:58,f:'f-md'},{l:'Under 2.5 goals',p:60,f:'f-md'}],
   fouls:[],shots:[],
   easy:[E('Goals','Under 2.5 goals','-110 est.',60,false),E('Throw-ins','Over 38 throw-ins','-110 est.',68,true)],
@@ -372,7 +372,7 @@ const DAYS={
   upset:'Uzbekistan lost MD2 0-5. DR Congo lost MD2 0-1. Both desperate. 42% Uzbekistan upset.',
   ai:'Uzbekistan vs DR Congo. Both eliminated from top 2. Low-pressure match.'},
 
-  {id:'eng_pan',live:false,teams:'\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f England vs Panama \ud83c\uddf5\ud83c\udde6',group:'Group L',venue:'New Jersey \xb7 MetLife Stadium',time:'5pm ET / 10pm BST',tag:'top',tl:'\u2605 85% England',conf:85,upset:10,odds:{h:'-600',d:'+650',a:'+1400',ou:'2.5'},hT:'England',aT:'Panama',winner:'England',wP:85,dP:9,aP:6,
+  {id:'eng_pan',live:false,teams:'\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f England vs Panama \ud83c\uddf5\ud83c\udde6',group:'Group L',venue:'New Jersey \xb7 MetLife Stadium',time:'2:30am IST (next day) · 5pm ET',tag:'top',tl:'\u2605 85% England',conf:85,upset:10,odds:{h:'-600',d:'+650',a:'+1400',ou:'2.5'},hT:'England',aT:'Panama',winner:'England',wP:85,dP:9,aP:6,
   cbars:[{l:'England win',p:85,f:'f-hi'},{l:'Kane 2+ SOT',p:80,f:'f-bl'},{l:'Rice 1+ fouls (100% L10)',p:96,f:'f-hi'},{l:'England over 3 goals',p:74,f:'f-hi'},{l:'England 8+ corners',p:79,f:'f-pu'}],
   fouls:[F('Declan Rice','Arsenal \xb7 England \xb7 DM',true,'h100','100% last 10',[['Fouls/90 PL','1.8'],['YC PL+UCL','9'],['vs Panama','Near certainty']],[1,1,1,1,1,1,1,1,1,1],96,[{l:'Rice 1+ fouls committed',o:['-165 bet365','-155 FanDuel']},{l:'Rice to be booked',o:['+195 bet365']}],'1.8 fouls/90 in PL. 10/10 last matches. England DM vs Panama = near certainty.')],
   shots:[S('Harry Kane','Bayern Munich \xb7 England \xb7 ST',true,'h100','100% last 10',[['Shots/90 BL','4.5'],['SOT/game','2.16'],['BL goals 25/26','36']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,80,[{l:'Kane 2+ SOT',o:['-145 bet365']},{l:'Kane anytime scorer',o:['EV FanDuel']}])],
@@ -381,7 +381,7 @@ const DAYS={
   upset:'Panama lost both MD1+MD2. England won both. 10% upset \u2014 best Saturday banker.',
   ai:'England (-600, won MD1+MD2) vs Panama (lost both). Kane: 4.5 shots/90. Rice: 1.8 fouls/90, 100% last 10.'},
 
-  {id:'cro_gha',live:false,teams:'\ud83c\udded\ud83c\uddf7 Croatia vs Ghana \ud83c\uddec\ud83c\udded',group:'Group L',venue:'Philadelphia \xb7 Lincoln Financial Field',time:'5pm ET / 10pm BST',tag:'upset',tl:'\u26a0 Croatia 65% \xb7 Ghana threat',conf:65,upset:35,odds:{h:'-200',d:'+320',a:'+600',ou:'2.5'},hT:'Croatia',aT:'Ghana',winner:'Croatia',wP:65,dP:21,aP:14,
+  {id:'cro_gha',live:false,teams:'\ud83c\udded\ud83c\uddf7 Croatia vs Ghana \ud83c\uddec\ud83c\udded',group:'Group L',venue:'Philadelphia \xb7 Lincoln Financial Field',time:'2:30am IST (next day) · 5pm ET',tag:'upset',tl:'\u26a0 Croatia 65% \xb7 Ghana threat',conf:65,upset:35,odds:{h:'-200',d:'+320',a:'+600',ou:'2.5'},hT:'Croatia',aT:'Ghana',winner:'Croatia',wP:65,dP:21,aP:14,
   cbars:[{l:'Croatia win',p:65,f:'f-md'},{l:'Modric 1+ fouls drawn (100%)',p:82,f:'f-hi'},{l:'Musa 2+ SOT',p:71,f:'f-bl'}],
   fouls:[F('Luka Modric','Real Madrid \xb7 Croatia \xb7 CM \xb7 40yrs',false,'h100','100% fouls drawn L10',[['Fouls drawn/g','1.2'],['Age','40 yrs'],['WC career','2018 final']],[1,1,1,1,1,1,1,1,1,1],82,[{l:'Modric 1+ fouls drawn',o:['-140 FanDuel','-135 bet365']}],'At 40 Modric draws fouls through ball retention. Ghana will hack him constantly.')],
   shots:[S('Petar Musa','Benfica \xb7 Croatia \xb7 ST',true,'h100','100% last 10',[['Shots/90','4.1'],['SOT/game','2.0'],['Goals 25/26','16']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],93,71,[{l:'Musa 2+ SOT',o:['-130 est.']},{l:'Musa anytime scorer',o:['+165 est.']}])],
@@ -404,6 +404,7 @@ function buildNav(){
       <span class="dn-day">${d.day}</span>
       <span class="dn-num">${d.num}</span>
       <span class="dn-cnt">${d.r32?'R32 begins':d.today?'TODAY \xb7 '+d.cnt:d.cnt+' matches'}</span>
+      ${d.etNote?'<span class="dn-et" style="font-size:8px;color:var(--mu);font-family:var(--mono);margin-top:1px">'+d.etNote+'</span>':''}
     </button>`).join('');
 }
 
