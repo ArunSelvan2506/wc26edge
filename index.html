@@ -145,15 +145,6 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .pl-ret span{color:var(--ac);font-family:var(--mono);font-weight:700}
 .upset-box{background:rgba(251,140,67,.06);border:1px solid rgba(251,140,67,.2);border-radius:7px;padding:7px 10px;font-size:10px;color:#fb923c;line-height:1.6;margin-bottom:6px}
 .ref-box{background:rgba(91,150,239,.06);border:1px solid rgba(91,150,239,.15);border-radius:7px;padding:7px 10px;font-size:10px;color:#60a5fa;line-height:1.5;margin-bottom:6px}
-.ai-blk{background:var(--bg);border:1px solid var(--b1);border-radius:8px;padding:10px 12px}
-.ai-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:5px}
-.ai-lbl{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu)}
-.ai-btn{font-family:var(--sans);font-size:10px;font-weight:600;background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac);border-radius:5px;padding:4px 12px;cursor:pointer}
-.ai-out{font-size:11px;color:var(--mu);line-height:1.7}
-.ai-out.on{color:var(--tx)}
-.ld{display:inline-flex;gap:3px}
-.ld span{width:4px;height:4px;border-radius:50%;background:var(--ac);animation:bk 1.2s infinite}
-.ld span:nth-child(2){animation-delay:.2s}.ld span:nth-child(3){animation-delay:.4s}
 .no-matches{text-align:center;padding:60px 20px;color:var(--mu)}
 .disc{font-size:9px;color:var(--dm);text-align:center;padding:14px;border-top:1px solid var(--b1);margin-top:16px;line-height:1.6}
 @media(max-width:640px){.pred-grid{grid-template-columns:1fr}.odds-row{gap:3px}.odd{min-width:48px;padding:4px 6px}}
@@ -675,7 +666,7 @@ function buildTabs(m){
     {id:'fouls', label:'Fouls ('+m.fouls.length+')'},
     {id:'shots', label:'Shots ('+m.shots.length+')'},
     {id:'easy',  label:'Easy bets'},
-    {id:'parlay',label:'Parlay + AI'},
+    {id:'parlay',label:'⚡ Parlay'},
   ];
   const tabBar='<div class="tabs" id="tabs_'+m.id+'">'+
     tabs.map((t,i)=>'<button class="tab-btn'+(i===0?' active':'')+'" onclick="event.stopPropagation();switchTab(\''+m.id+'\',\''+t.id+'\',this)">'+t.label+'</button>').join('')+
@@ -758,64 +749,13 @@ function buildParlay(m){
   const vlegs=m.parlay.map(p=>({p:p.p,o:p.o,prob:legProb(m,p.p,p.o)}));
   const vm=parlayMetrics(vlegs);
   const valueHtml=parlayCard('\u26a1 Value parlay \u2014 higher risk / reward','Curated combo \xb7 bigger payout, lower strike rate \xb7 book est. '+m.pret,vlegs,vm,gradeOf(vm.prob));
-  return '<div class="pred-grid">'+
-    '<div>'+
+  return '<div>'+
       safeHtml+
       valueHtml+
       '<div style="font-size:9px;color:var(--dm);line-height:1.5;margin-bottom:6px">Combined hit % multiplies each leg\u2019s model confidence (assumes legs are independent \u2014 correlated legs like win + over may vary). Higher hit % = safer, lower payout.</div>'+
       (m.upsetNote?'<div class="upset-box">\u26a0 '+m.upsetNote+'</div>':'')+
       (m.ref?'<div class="ref-box">'+m.ref+'</div>':'')+
-    '</div>'+
-    '<div class="ai-blk">'+
-      '<div class="ai-row"><span class="ai-lbl">\ud83d\udcca Smart analysis</span>'+
-      '<button class="ai-btn" onclick="event.stopPropagation();runAI(\''+m.id+'\')">Analyse \u2197</button></div>'+
-      '<div class="ai-out" id="aio_'+m.id+'">Tap Analyse for the pick, foul + SOT props, goals edge vs baseline, corners, throw-ins, safe parlay & risk</div>'+
-    '</div>'+
   '</div>';
-}
-
-// Find a match by id across every day.
-function findMatch(id){
-  for(const k of Object.keys(DAYS)){const m=(DAYS[k].matches||[]).find(x=>x.id===id); if(m)return m;}
-  return null;
-}
-/* Local analysis engine \u2014 builds the bullet read-out from this match's model
-   data + openfootball baselines + the parlay/edge logic. Runs entirely in the
-   browser (no API key, no external call), so it works on the static site. */
-function localAnalysis(m){
-  const b=OG_STATS.baseline, R=[];
-  const bull=(ic,lbl,txt)=>R.push('<div style="margin-bottom:6px;line-height:1.55"><b style="color:var(--ac)">'+ic+' '+lbl+':</b> '+txt+'</div>');
-  const wOdds=m.winner===m.hT?m.odds.h:m.winner===m.aT?m.odds.a:m.odds.d;
-  bull('\u25b6','PICK', m.winner+' @ '+wOdds+' \u00b7 '+m.conf+'% model confidence.');
-  if(m.fouls&&m.fouls.length){
-    const f=m.fouls.slice().sort((a,b)=>b.conf-a.conf)[0]; const bet=f.bets&&f.bets[0];
-    bull('\u26bd','FOUL PROP',(bet?bet.l:f.nm+' 1+ fouls')+' \u2014 '+f.conf+'% ('+f.htl+')'+(bet&&bet.o?' @ '+bet.o.join(' / '):''));
-  }
-  if(m.shots&&m.shots.length){
-    const s=m.shots.slice().sort((a,b)=>b.sotH-a.sotH)[0]; const bet=s.bets&&s.bets[0];
-    bull('\ud83c\udfaf','SOT PROP',(bet?bet.l:s.nm+' 1+ SOT')+' \u2014 SOT '+s.sotH+'% / shot '+s.sH+'%'+(bet&&bet.o?' @ '+bet.o.join(' / '):''));
-  }
-  const o=matchOver25(m);
-  if(o!=null){const d=o-b.over25Pct; const lean=d>=8?'lean OVER 2.5':d<=-8?'lean UNDER 2.5':'in line with baseline \u2014 no edge';
-    bull('\ud83e\udd45','GOALS','model Over 2.5 '+o+'% vs '+b.over25Pct+'% WC baseline \u2192 '+(d>=0?'+':'')+d+' edge \u00b7 '+lean+'.');
-  } else bull('\ud83e\udd45','GOALS','WC baseline \u2014 Over 2.5 '+b.over25Pct+'%, BTTS '+b.bttsPct+'%, '+b.goalsPerGame+' goals/g (last 3 WCs).');
-  const corner=(m.easy||[]).find(e=>/corner/i.test(e.c+' '+e.p)); if(corner) bull('\ud83d\udea9','CORNERS',corner.p+' @ '+corner.o+' \u2014 '+corner.cf+'%.');
-  const thr=(m.easy||[]).find(e=>/throw/i.test(e.c+' '+e.p)); if(thr) bull('\u21a9','THROW-INS',thr.p+' @ '+thr.o+' \u2014 '+thr.cf+'%.');
-  const sp=safeParlay(m);
-  if(sp&&sp.length>=2){const sm=parlayMetrics(sp);
-    bull('\ud83d\udfe2','SAFE PARLAY',sp.map(l=>l.p).join(' + ')+' \u2014 ~'+Math.round(sm.prob*100)+'% combined hit'+(sm.dec?', +'+sm.dec.toFixed(2)+'x':'')+'.');
-  }
-  bull('\u26a0','RISK', m.upsetNote || ((m.upset||'?')+'% upset risk.'));
-  R.push('<div style="font-size:9px;color:var(--dm);margin-top:7px;padding-top:6px;border-top:1px solid var(--b1)">Generated from this match\u2019s model data + openfootball baselines ('+OG_STATS.allTime.matches+' WC matches). Runs locally \u2014 no external API.</div>');
-  return R.join('');
-}
-function runAI(id){
-  const el=document.getElementById('aio_'+id); if(!el)return;
-  const m=findMatch(id);
-  el.classList.add('on');
-  if(!m){el.innerHTML='No data for this match.';return;}
-  el.innerHTML='<div class="ld"><span></span><span></span><span></span></div> Crunching the numbers\u2026';
-  setTimeout(()=>{ el.innerHTML=localAnalysis(m); }, 280);
 }
 
 
