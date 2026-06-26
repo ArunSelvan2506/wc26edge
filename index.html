@@ -14,16 +14,16 @@
 :root{--bg:#0f141b;--s1:#171d27;--s2:#1d2532;--s3:#26303f;--b1:#303d4f;--b2:#3b4a5e;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh}
-/* World Cup pitch backdrop — fixed, faint, behind all content */
+/* World Cup 2026 emblem backdrop — original trophy + wordmark, fixed & faint */
 body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--bg);
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 520'%3E%3Cg fill='none' stroke='%232dc8a0' stroke-opacity='0.13' stroke-width='1.6'%3E%3Crect x='8' y='8' width='344' height='504' rx='4'/%3E%3Cline x1='8' y1='260' x2='352' y2='260'/%3E%3Ccircle cx='180' cy='260' r='54'/%3E%3Ccircle cx='180' cy='260' r='2.6' fill='%232dc8a0' fill-opacity='0.2' stroke='none'/%3E%3Crect x='96' y='8' width='168' height='66'/%3E%3Crect x='140' y='8' width='80' height='26'/%3E%3Crect x='96' y='446' width='168' height='66'/%3E%3Crect x='140' y='486' width='80' height='26'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 380'%3E%3Cg fill='none' stroke='%232dc8a0' stroke-opacity='0.14' stroke-width='3' stroke-linejoin='round' stroke-linecap='round'%3E%3Cpath d='M100 66 q-38 2 -38 38 q0 32 40 34'/%3E%3Cpath d='M200 66 q38 2 38 38 q0 32 -40 34'/%3E%3Cpath d='M96 58 L204 58 L196 132 q-46 46 -100 0 Z'/%3E%3Cline x1='150' y1='150' x2='150' y2='214'/%3E%3Cpath d='M112 250 q38 -42 76 0'/%3E%3Crect x='118' y='250' width='64' height='14' rx='3'/%3E%3Crect x='100' y='272' width='100' height='16' rx='4'/%3E%3C/g%3E%3Ctext x='150' y='332' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='15' letter-spacing='6' fill='%232dc8a0' fill-opacity='0.16'%3EWORLD CUP%3C/text%3E%3Ctext x='150' y='368' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='31' letter-spacing='3' fill='%232dc8a0' fill-opacity='0.15'%3E2026%3C/text%3E%3C/svg%3E"),
     radial-gradient(120% 80% at 50% -15%, rgba(45,200,160,.13), transparent 60%),
     radial-gradient(90% 60% at 50% 116%, rgba(91,150,239,.08), transparent 60%),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.016) 0 2px, transparent 2px 72px);
+    repeating-linear-gradient(90deg, rgba(255,255,255,.014) 0 2px, transparent 2px 76px);
   background-repeat:no-repeat,no-repeat,no-repeat,repeat;
-  background-position:center 42%,center,center,center;
-  background-size:min(620px,116vw) auto,cover,cover,auto;}
+  background-position:center 34%,center,center,center;
+  background-size:min(340px,68vw) auto,cover,cover,auto;}
 ::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
 @keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(45,200,160,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(45,200,160,0)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
@@ -218,14 +218,8 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .of-btn:hover{color:var(--tx)}
 .of-btn.active{background:rgba(45,200,160,.16);color:var(--ac)}
 
-/* LOGO MARK + HOST-NATION BANNER */
+/* LOGO MARK */
 .logo-mark{flex-shrink:0;filter:drop-shadow(0 0 5px rgba(45,200,160,.45));animation:pp 3s infinite}
-.host-bar{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:linear-gradient(90deg,rgba(239,109,109,.07),rgba(45,200,160,.07),rgba(246,178,63,.07));border-bottom:1px solid var(--b1);padding:7px 12px}
-.host-bar .ht{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:5px}
-.host-bar .hn{font-size:10px;color:var(--mu);display:flex;align-items:center;gap:5px;white-space:nowrap}
-.host-bar .hn b{color:var(--tx);font-weight:600}
-.host-bar .fl{font-size:14px;line-height:1}
-@media(max-width:460px){.host-bar{gap:10px}.host-bar .hn b{display:none}}
 </style>
 </head>
 <body>
@@ -248,12 +242,6 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
   <span class="pill pa" title="Curated estimate — not present in the open dataset">Fouls/g 24.4</span>
   <span class="pill pa" title="Curated estimate — not present in the open dataset">Corners/g 10.6</span>
   <span class="pill pr">Foul props 91%</span>
-</div>
-<div class="host-bar">
-  <span class="ht">🏆 World Cup 2026</span>
-  <span class="hn"><span class="fl">🇨🇦</span> <b>Canada</b></span>
-  <span class="hn"><span class="fl">🇲🇽</span> <b>Mexico</b></span>
-  <span class="hn"><span class="fl">🇺🇸</span> <b>USA</b></span>
 </div>
 
 
