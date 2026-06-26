@@ -1,25 +1,19 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { DATES, DAYS, WC_TABLE, OG_STATS } from './data.js';
+import { WC_TABLE, OG_STATS } from './data.js';
 import { fitFromTable } from './lib/model.js';
-import { activeDates, firstActiveKey, shownMatches, doneCount } from './lib/completion.js';
 import { OddsToggle, Toast } from './components/Bits.jsx';
-import MatchCard from './components/MatchCard.jsx';
+import Fixtures from './components/Fixtures.jsx';
 import Standings from './components/Standings.jsx';
 
 const VIEWS = [
-  { id: 'matches', label: 'Matches' },
+  { id: 'fixtures', label: 'Fixtures' },
   { id: 'standings', label: 'Standings' },
   { id: 'about', label: 'About' },
 ];
 
 export default function App() {
-  // Recompute "now" once per mount so completed matches/days drop out.
-  const now = useMemo(() => Date.now(), []);
-  const dates = useMemo(() => activeDates(now), [now]);
-  const [view, setView] = useState('matches');
-  const [dayKey, setDayKey] = useState(() => firstActiveKey(now));
-  const [showDone, setShowDone] = useState(false);
+  const [view, setView] = useState('fixtures');
   const [fmt, setFmt] = useState(() => {
     try { return localStorage.getItem('wc_oddsfmt') || 'frac'; } catch { return 'frac'; }
   });
@@ -54,25 +48,12 @@ export default function App() {
         </div>
       </header>
 
-      {view === 'matches' && (
-        <nav className="date-nav">
-          {dates.map(d => (
-            <button key={d.key} className={'dn-btn' + (d.key === dayKey ? ' active' : '')} onClick={() => setDayKey(d.key)}>
-              {d.hot && <span className="hot-dot" />}
-              <span className="dn-day">{d.day}</span>
-              <span className="dn-num">{d.num}</span>
-              <span className="dn-cnt">{d.r32 ? 'R32' : d.cnt + ' gm'}</span>
-            </button>
-          ))}
-        </nav>
-      )}
-
       <main className="page">
         <AnimatePresence mode="wait">
           <motion.div key={view}
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
-            {view === 'matches' && <MatchesView dayKey={dayKey} fmt={fmt} rat={rat} now={now} showDone={showDone} setShowDone={setShowDone} />}
+            {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} />}
             {view === 'standings' && <Standings />}
             {view === 'about' && <About />}
           </motion.div>
@@ -85,41 +66,6 @@ export default function App() {
 
       <Toast />
     </>
-  );
-}
-
-function MatchesView({ dayKey, fmt, rat, now, showDone, setShowDone }) {
-  const day = DAYS[dayKey];
-  if (!day) {
-    const d = DATES.find(x => x.key === dayKey);
-    return (
-      <div className="no-matches">
-        <div style={{ fontFamily: 'var(--disp)', fontSize: 20, color: 'var(--mu)' }}>{d?.r32 ? 'Round of 32' : 'Fixtures'}</div>
-        <p style={{ marginTop: 8 }}>Fixtures are set once the group stage completes.</p>
-      </div>
-    );
-  }
-  const matches = shownMatches(dayKey, showDone, now);
-  const done = doneCount(dayKey, now);
-  return (
-    <div>
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap' }}>
-        <div>
-          <h1 className="day-title">{day.title}</h1>
-          <div className="day-sub">{day.sub}</div>
-        </div>
-        {done > 0 && (
-          <button className="nav-btn" style={{ marginBottom: 14 }} onClick={() => setShowDone(s => !s)}>
-            {showDone ? 'Hide completed' : `Show completed (${done})`}
-          </button>
-        )}
-      </div>
-      <div className="matches">
-        {matches.length
-          ? matches.map((m, i) => <MatchCard key={m.id} m={m} fmt={fmt} rat={rat} index={i} />)
-          : <div className="no-matches">All matches for this day are completed. <button className="nav-btn" onClick={() => setShowDone(true)} style={{ marginTop: 10 }}>Show completed</button></div>}
-      </div>
-    </div>
   );
 }
 
