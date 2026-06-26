@@ -9,9 +9,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>WC26 EDGE · Prediction Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0f141b;--s1:#171d27;--s2:#1d2532;--s3:#26303f;--b1:#303d4f;--b2:#3b4a5e;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
+:root{--bg:#0f141b;--s1:#171d27;--s2:#1d2532;--s3:#26303f;--b1:#303d4f;--b2:#3b4a5e;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--disp:'Oswald','Inter',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh}
 /* World Cup 2026 backdrop — original gold trophy illustration + wordmark, fixed & faint */
@@ -30,7 +30,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes bk{0%,80%,100%{opacity:.2}40%{opacity:1}}
 .topbar{background:var(--s1);border-bottom:1px solid var(--b1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:300;gap:10px}
-.logo{font-size:15px;font-weight:800;letter-spacing:.08em;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.logo{font-family:var(--disp);font-size:17px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
 .topbar{gap:8px}
 @media(max-width:460px){
   .logo{font-size:13px;letter-spacing:.03em}
@@ -50,8 +50,8 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .date-nav{background:var(--s1);border-bottom:2px solid var(--b1);padding:0 10px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none;position:sticky;top:52px;z-index:200}
 .date-nav::-webkit-scrollbar{display:none}
 .dn-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:62px;padding:7px 10px;cursor:pointer;border:none;background:none;font-family:var(--sans);flex-shrink:0;gap:1px;position:relative;border-bottom:3px solid transparent;transition:all .13s}
-.dn-day{font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--mu)}
-.dn-num{font-size:18px;font-weight:800;color:var(--dm)}
+.dn-day{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.dn-num{font-family:var(--disp);font-size:21px;font-weight:700;color:var(--dm)}
 .dn-cnt{font-size:9px;font-family:var(--mono);color:var(--dm)}
 .dn-btn.active{border-bottom-color:var(--ac)}
 .dn-btn.active .dn-num,.dn-btn.active .dn-day,.dn-btn.active .dn-cnt{color:var(--ac)}
@@ -62,7 +62,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 
 
 .page{max-width:980px;margin:0 auto;padding:16px}
-.day-title{font-size:19px;font-weight:700;color:var(--tx);margin-bottom:2px}
+.day-title{font-family:var(--disp);font-size:23px;font-weight:700;letter-spacing:.01em;color:var(--tx);margin-bottom:2px}
 .day-sub{font-size:11px;color:var(--mu);margin-top:3px;font-family:var(--mono);margin-bottom:14px}
 .matches{display:flex;flex-direction:column;gap:12px}
 /* MATCH CARD */
@@ -71,10 +71,10 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .mc.open{border-color:rgba(45,200,160,.5)}
 .mc-head{padding:14px 16px}
 .mc-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:9px;flex-wrap:wrap}
-.mc-teams{font-size:15px;font-weight:700;color:var(--tx);letter-spacing:-.01em}
+.mc-teams{font-family:var(--disp);font-size:16px;font-weight:600;color:var(--tx);letter-spacing:.01em}
 .mc-meta{font-size:10.5px;font-family:var(--mono);color:var(--mu);margin-top:4px;line-height:1.4}
 .mc-r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.badge{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.badge{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
 .b-top{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac)}
 .b-upset{background:rgba(251,140,67,.1);border:1px solid rgba(251,140,67,.3);color:var(--ac3)}
 .b-info{background:rgba(91,150,239,.1);border:1px solid rgba(91,150,239,.25);color:var(--ac2)}
@@ -95,13 +95,13 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 /* TABS */
 .tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b1);overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab-btn{font-size:11.5px;font-weight:600;padding:8px 13px;border:none;background:none;font-family:var(--sans);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .1s}
+.tab-btn{font-size:13px;font-weight:600;letter-spacing:.02em;padding:8px 13px;border:none;background:none;font-family:var(--disp);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .1s}
 .tab-btn.active{border-bottom-color:var(--ac);color:var(--ac)}
 .tab-pane{display:none}.tab-pane.active{display:block}
 /* RESULT */
 .pred-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .psec{background:var(--s3);border:1px solid var(--b1);border-radius:9px;padding:11px}
-.psec-t{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
+.psec-t{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
 .rboxes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:7px}
 .rbox{background:var(--s1);border:1px solid var(--b1);border-radius:7px;padding:7px 4px;text-align:center}
 .rbox.win{border-color:rgba(45,200,160,.45);background:rgba(45,200,160,.05)}
@@ -178,7 +178,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 #fixturesOverlay.open{display:block}
 .fix-panel{max-width:860px;margin:0 auto;padding:16px}
 .fix-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:sticky;top:0;background:rgba(15,20,27,.97);padding:12px 0;border-bottom:1px solid var(--b1);z-index:10}
-.fix-title{font-size:17px;font-weight:700;color:var(--ac);display:flex;align-items:center;gap:8px}
+.fix-title{font-family:var(--disp);font-size:19px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:8px}
 .fix-close{font-size:22px;color:var(--mu);cursor:pointer;background:none;border:none;font-family:var(--sans);line-height:1;padding:4px 8px}
 .fix-close:hover{color:var(--tx)}
 .fix-day{margin-bottom:18px}
