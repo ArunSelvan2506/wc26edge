@@ -1,0 +1,1027 @@
+{
+ "source": "openfootball/worldcup.json (CC0, 2026 scores are seed data)",
+ "generated": "2026-06-26",
+ "cutoff": "2026-06-26",
+ "groups": {
+  "A": {
+   "table": [
+    {
+     "team": "Mexico",
+     "p": 3,
+     "w": 3,
+     "d": 0,
+     "l": 0,
+     "gf": 6,
+     "ga": 0,
+     "gd": 6,
+     "pts": 9
+    },
+    {
+     "team": "South Africa",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 2,
+     "ga": 3,
+     "gd": -1,
+     "pts": 4
+    },
+    {
+     "team": "South Korea",
+     "p": 3,
+     "w": 1,
+     "d": 0,
+     "l": 2,
+     "gf": 2,
+     "ga": 3,
+     "gd": -1,
+     "pts": 3
+    },
+    {
+     "team": "Czech Republic",
+     "p": 3,
+     "w": 0,
+     "d": 1,
+     "l": 2,
+     "gf": 2,
+     "ga": 6,
+     "gd": -4,
+     "pts": 1
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-11",
+     "t1": "Mexico",
+     "t2": "South Africa",
+     "s1": 2,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-11",
+     "t1": "South Korea",
+     "t2": "Czech Republic",
+     "s1": 2,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-18",
+     "t1": "Czech Republic",
+     "t2": "South Africa",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-18",
+     "t1": "Mexico",
+     "t2": "South Korea",
+     "s1": 1,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-24",
+     "t1": "Czech Republic",
+     "t2": "Mexico",
+     "s1": 0,
+     "s2": 3
+    },
+    {
+     "date": "2026-06-24",
+     "t1": "South Africa",
+     "t2": "South Korea",
+     "s1": 1,
+     "s2": 0
+    }
+   ]
+  },
+  "B": {
+   "table": [
+    {
+     "team": "Switzerland",
+     "p": 3,
+     "w": 2,
+     "d": 1,
+     "l": 0,
+     "gf": 7,
+     "ga": 3,
+     "gd": 4,
+     "pts": 7
+    },
+    {
+     "team": "Canada",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 8,
+     "ga": 3,
+     "gd": 5,
+     "pts": 4
+    },
+    {
+     "team": "Bosnia & Herzegovina",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 5,
+     "ga": 6,
+     "gd": -1,
+     "pts": 4
+    },
+    {
+     "team": "Qatar",
+     "p": 3,
+     "w": 0,
+     "d": 1,
+     "l": 2,
+     "gf": 2,
+     "ga": 10,
+     "gd": -8,
+     "pts": 1
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-12",
+     "t1": "Canada",
+     "t2": "Bosnia & Herzegovina",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-13",
+     "t1": "Qatar",
+     "t2": "Switzerland",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-18",
+     "t1": "Switzerland",
+     "t2": "Bosnia & Herzegovina",
+     "s1": 4,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-18",
+     "t1": "Canada",
+     "t2": "Qatar",
+     "s1": 6,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-24",
+     "t1": "Switzerland",
+     "t2": "Canada",
+     "s1": 2,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-24",
+     "t1": "Bosnia & Herzegovina",
+     "t2": "Qatar",
+     "s1": 3,
+     "s2": 1
+    }
+   ]
+  },
+  "C": {
+   "table": [
+    {
+     "team": "Brazil",
+     "p": 3,
+     "w": 2,
+     "d": 1,
+     "l": 0,
+     "gf": 7,
+     "ga": 1,
+     "gd": 6,
+     "pts": 7
+    },
+    {
+     "team": "Morocco",
+     "p": 3,
+     "w": 2,
+     "d": 1,
+     "l": 0,
+     "gf": 6,
+     "ga": 3,
+     "gd": 3,
+     "pts": 7
+    },
+    {
+     "team": "Scotland",
+     "p": 3,
+     "w": 1,
+     "d": 0,
+     "l": 2,
+     "gf": 1,
+     "ga": 4,
+     "gd": -3,
+     "pts": 3
+    },
+    {
+     "team": "Haiti",
+     "p": 3,
+     "w": 0,
+     "d": 0,
+     "l": 3,
+     "gf": 2,
+     "ga": 8,
+     "gd": -6,
+     "pts": 0
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-13",
+     "t1": "Brazil",
+     "t2": "Morocco",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-13",
+     "t1": "Haiti",
+     "t2": "Scotland",
+     "s1": 0,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-19",
+     "t1": "Scotland",
+     "t2": "Morocco",
+     "s1": 0,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-19",
+     "t1": "Brazil",
+     "t2": "Haiti",
+     "s1": 3,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-24",
+     "t1": "Scotland",
+     "t2": "Brazil",
+     "s1": 0,
+     "s2": 3
+    },
+    {
+     "date": "2026-06-24",
+     "t1": "Morocco",
+     "t2": "Haiti",
+     "s1": 4,
+     "s2": 2
+    }
+   ]
+  },
+  "D": {
+   "table": [
+    {
+     "team": "USA",
+     "p": 3,
+     "w": 2,
+     "d": 0,
+     "l": 1,
+     "gf": 8,
+     "ga": 4,
+     "gd": 4,
+     "pts": 6
+    },
+    {
+     "team": "Australia",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 2,
+     "ga": 2,
+     "gd": 0,
+     "pts": 4
+    },
+    {
+     "team": "Paraguay",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 2,
+     "ga": 4,
+     "gd": -2,
+     "pts": 4
+    },
+    {
+     "team": "Turkey",
+     "p": 3,
+     "w": 1,
+     "d": 0,
+     "l": 2,
+     "gf": 3,
+     "ga": 5,
+     "gd": -2,
+     "pts": 3
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-12",
+     "t1": "USA",
+     "t2": "Paraguay",
+     "s1": 4,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-13",
+     "t1": "Australia",
+     "t2": "Turkey",
+     "s1": 2,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-19",
+     "t1": "USA",
+     "t2": "Australia",
+     "s1": 2,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-19",
+     "t1": "Turkey",
+     "t2": "Paraguay",
+     "s1": 0,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-25",
+     "t1": "Turkey",
+     "t2": "USA",
+     "s1": 3,
+     "s2": 2
+    },
+    {
+     "date": "2026-06-25",
+     "t1": "Paraguay",
+     "t2": "Australia",
+     "s1": 0,
+     "s2": 0
+    }
+   ]
+  },
+  "E": {
+   "table": [
+    {
+     "team": "Germany",
+     "p": 3,
+     "w": 2,
+     "d": 0,
+     "l": 1,
+     "gf": 10,
+     "ga": 4,
+     "gd": 6,
+     "pts": 6
+    },
+    {
+     "team": "Ivory Coast",
+     "p": 3,
+     "w": 2,
+     "d": 0,
+     "l": 1,
+     "gf": 4,
+     "ga": 2,
+     "gd": 2,
+     "pts": 6
+    },
+    {
+     "team": "Ecuador",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 2,
+     "ga": 2,
+     "gd": 0,
+     "pts": 4
+    },
+    {
+     "team": "Curaçao",
+     "p": 3,
+     "w": 0,
+     "d": 1,
+     "l": 2,
+     "gf": 1,
+     "ga": 9,
+     "gd": -8,
+     "pts": 1
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-14",
+     "t1": "Germany",
+     "t2": "Curaçao",
+     "s1": 7,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-14",
+     "t1": "Ivory Coast",
+     "t2": "Ecuador",
+     "s1": 1,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-20",
+     "t1": "Germany",
+     "t2": "Ivory Coast",
+     "s1": 2,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-20",
+     "t1": "Ecuador",
+     "t2": "Curaçao",
+     "s1": 0,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-25",
+     "t1": "Curaçao",
+     "t2": "Ivory Coast",
+     "s1": 0,
+     "s2": 2
+    },
+    {
+     "date": "2026-06-25",
+     "t1": "Ecuador",
+     "t2": "Germany",
+     "s1": 2,
+     "s2": 1
+    }
+   ]
+  },
+  "F": {
+   "table": [
+    {
+     "team": "Netherlands",
+     "p": 3,
+     "w": 2,
+     "d": 1,
+     "l": 0,
+     "gf": 10,
+     "ga": 4,
+     "gd": 6,
+     "pts": 7
+    },
+    {
+     "team": "Japan",
+     "p": 3,
+     "w": 1,
+     "d": 2,
+     "l": 0,
+     "gf": 7,
+     "ga": 3,
+     "gd": 4,
+     "pts": 5
+    },
+    {
+     "team": "Sweden",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 7,
+     "ga": 7,
+     "gd": 0,
+     "pts": 4
+    },
+    {
+     "team": "Tunisia",
+     "p": 3,
+     "w": 0,
+     "d": 0,
+     "l": 3,
+     "gf": 2,
+     "ga": 12,
+     "gd": -10,
+     "pts": 0
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-14",
+     "t1": "Netherlands",
+     "t2": "Japan",
+     "s1": 2,
+     "s2": 2
+    },
+    {
+     "date": "2026-06-14",
+     "t1": "Sweden",
+     "t2": "Tunisia",
+     "s1": 5,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-20",
+     "t1": "Netherlands",
+     "t2": "Sweden",
+     "s1": 5,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-20",
+     "t1": "Tunisia",
+     "t2": "Japan",
+     "s1": 0,
+     "s2": 4
+    },
+    {
+     "date": "2026-06-25",
+     "t1": "Japan",
+     "t2": "Sweden",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-25",
+     "t1": "Tunisia",
+     "t2": "Netherlands",
+     "s1": 1,
+     "s2": 3
+    }
+   ]
+  },
+  "G": {
+   "table": [
+    {
+     "team": "Egypt",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 4,
+     "ga": 2,
+     "gd": 2,
+     "pts": 4
+    },
+    {
+     "team": "Iran",
+     "p": 2,
+     "w": 0,
+     "d": 2,
+     "l": 0,
+     "gf": 2,
+     "ga": 2,
+     "gd": 0,
+     "pts": 2
+    },
+    {
+     "team": "Belgium",
+     "p": 2,
+     "w": 0,
+     "d": 2,
+     "l": 0,
+     "gf": 1,
+     "ga": 1,
+     "gd": 0,
+     "pts": 2
+    },
+    {
+     "team": "New Zealand",
+     "p": 2,
+     "w": 0,
+     "d": 1,
+     "l": 1,
+     "gf": 3,
+     "ga": 5,
+     "gd": -2,
+     "pts": 1
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-15",
+     "t1": "Belgium",
+     "t2": "Egypt",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-15",
+     "t1": "Iran",
+     "t2": "New Zealand",
+     "s1": 2,
+     "s2": 2
+    },
+    {
+     "date": "2026-06-21",
+     "t1": "Belgium",
+     "t2": "Iran",
+     "s1": 0,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-21",
+     "t1": "New Zealand",
+     "t2": "Egypt",
+     "s1": 1,
+     "s2": 3
+    }
+   ]
+  },
+  "H": {
+   "table": [
+    {
+     "team": "Spain",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 4,
+     "ga": 0,
+     "gd": 4,
+     "pts": 4
+    },
+    {
+     "team": "Uruguay",
+     "p": 2,
+     "w": 0,
+     "d": 2,
+     "l": 0,
+     "gf": 3,
+     "ga": 3,
+     "gd": 0,
+     "pts": 2
+    },
+    {
+     "team": "Cape Verde",
+     "p": 2,
+     "w": 0,
+     "d": 2,
+     "l": 0,
+     "gf": 2,
+     "ga": 2,
+     "gd": 0,
+     "pts": 2
+    },
+    {
+     "team": "Saudi Arabia",
+     "p": 2,
+     "w": 0,
+     "d": 1,
+     "l": 1,
+     "gf": 1,
+     "ga": 5,
+     "gd": -4,
+     "pts": 1
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-15",
+     "t1": "Spain",
+     "t2": "Cape Verde",
+     "s1": 0,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-15",
+     "t1": "Saudi Arabia",
+     "t2": "Uruguay",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-21",
+     "t1": "Spain",
+     "t2": "Saudi Arabia",
+     "s1": 4,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-21",
+     "t1": "Uruguay",
+     "t2": "Cape Verde",
+     "s1": 2,
+     "s2": 2
+    }
+   ]
+  },
+  "I": {
+   "table": [
+    {
+     "team": "France",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 6,
+     "ga": 1,
+     "gd": 5,
+     "pts": 6
+    },
+    {
+     "team": "Norway",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 7,
+     "ga": 3,
+     "gd": 4,
+     "pts": 6
+    },
+    {
+     "team": "Senegal",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 3,
+     "ga": 6,
+     "gd": -3,
+     "pts": 0
+    },
+    {
+     "team": "Iraq",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 1,
+     "ga": 7,
+     "gd": -6,
+     "pts": 0
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-16",
+     "t1": "France",
+     "t2": "Senegal",
+     "s1": 3,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-16",
+     "t1": "Iraq",
+     "t2": "Norway",
+     "s1": 1,
+     "s2": 4
+    },
+    {
+     "date": "2026-06-22",
+     "t1": "France",
+     "t2": "Iraq",
+     "s1": 3,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-22",
+     "t1": "Norway",
+     "t2": "Senegal",
+     "s1": 3,
+     "s2": 2
+    }
+   ]
+  },
+  "J": {
+   "table": [
+    {
+     "team": "Argentina",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 5,
+     "ga": 0,
+     "gd": 5,
+     "pts": 6
+    },
+    {
+     "team": "Austria",
+     "p": 2,
+     "w": 1,
+     "d": 0,
+     "l": 1,
+     "gf": 3,
+     "ga": 3,
+     "gd": 0,
+     "pts": 3
+    },
+    {
+     "team": "Algeria",
+     "p": 2,
+     "w": 1,
+     "d": 0,
+     "l": 1,
+     "gf": 2,
+     "ga": 4,
+     "gd": -2,
+     "pts": 3
+    },
+    {
+     "team": "Jordan",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 2,
+     "ga": 5,
+     "gd": -3,
+     "pts": 0
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-16",
+     "t1": "Argentina",
+     "t2": "Algeria",
+     "s1": 3,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-16",
+     "t1": "Austria",
+     "t2": "Jordan",
+     "s1": 3,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-22",
+     "t1": "Argentina",
+     "t2": "Austria",
+     "s1": 2,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-22",
+     "t1": "Jordan",
+     "t2": "Algeria",
+     "s1": 1,
+     "s2": 2
+    }
+   ]
+  },
+  "K": {
+   "table": [
+    {
+     "team": "Colombia",
+     "p": 2,
+     "w": 2,
+     "d": 0,
+     "l": 0,
+     "gf": 4,
+     "ga": 1,
+     "gd": 3,
+     "pts": 6
+    },
+    {
+     "team": "Portugal",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 6,
+     "ga": 1,
+     "gd": 5,
+     "pts": 4
+    },
+    {
+     "team": "DR Congo",
+     "p": 2,
+     "w": 0,
+     "d": 1,
+     "l": 1,
+     "gf": 1,
+     "ga": 2,
+     "gd": -1,
+     "pts": 1
+    },
+    {
+     "team": "Uzbekistan",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 1,
+     "ga": 8,
+     "gd": -7,
+     "pts": 0
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-17",
+     "t1": "Portugal",
+     "t2": "DR Congo",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-17",
+     "t1": "Uzbekistan",
+     "t2": "Colombia",
+     "s1": 1,
+     "s2": 3
+    },
+    {
+     "date": "2026-06-23",
+     "t1": "Portugal",
+     "t2": "Uzbekistan",
+     "s1": 5,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-23",
+     "t1": "Colombia",
+     "t2": "DR Congo",
+     "s1": 1,
+     "s2": 0
+    }
+   ]
+  },
+  "L": {
+   "table": [
+    {
+     "team": "England",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 4,
+     "ga": 2,
+     "gd": 2,
+     "pts": 4
+    },
+    {
+     "team": "Ghana",
+     "p": 2,
+     "w": 1,
+     "d": 1,
+     "l": 0,
+     "gf": 1,
+     "ga": 0,
+     "gd": 1,
+     "pts": 4
+    },
+    {
+     "team": "Croatia",
+     "p": 2,
+     "w": 1,
+     "d": 0,
+     "l": 1,
+     "gf": 3,
+     "ga": 4,
+     "gd": -1,
+     "pts": 3
+    },
+    {
+     "team": "Panama",
+     "p": 2,
+     "w": 0,
+     "d": 0,
+     "l": 2,
+     "gf": 0,
+     "ga": 2,
+     "gd": -2,
+     "pts": 0
+    }
+   ],
+   "results": [
+    {
+     "date": "2026-06-17",
+     "t1": "England",
+     "t2": "Croatia",
+     "s1": 4,
+     "s2": 2
+    },
+    {
+     "date": "2026-06-17",
+     "t1": "Ghana",
+     "t2": "Panama",
+     "s1": 1,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-23",
+     "t1": "England",
+     "t2": "Ghana",
+     "s1": 0,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-23",
+     "t1": "Panama",
+     "t2": "Croatia",
+     "s1": 0,
+     "s2": 1
+    }
+   ]
+  }
+ }
+}
