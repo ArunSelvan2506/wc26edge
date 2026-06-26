@@ -58,8 +58,35 @@ and fouls committed, and the top in-form shooter is suggested for the parlay.
 - Corners / throw-ins remain **team** markets; they can be fed later from
   `fixtures/statistics` (team corners over last N) — see TODO in `index.html`.
 
+## Live odds & the prediction model
+The proxy whitelist also allows the `odds` and `fixtures` endpoints, so once the
+proxy is live you can feed **real prices and results** into the model:
+- `odds?fixture=<id>&bookmaker=<id>` → live 1X2 / Over-Under / BTTS prices to
+  replace the curated American odds on each match card.
+- `fixtures?...&status=FT` → real completed scorelines.
+
+How the model uses them (see `scripts/wc-model.cjs`, the single source of truth):
+1. The 📊 **Model** tab fits opponent-adjusted Poisson / Dixon-Coles ratings from
+   completed results (today: the embedded `WC_TABLE` seed data), then derives
+   1X2 / Over 2.5 / BTTS probabilities, de-vigs the market, and shows
+   edge / EV / ¼-Kelly per market.
+2. Swap the seed results for live `fixtures` (status FT) and the ratings — and
+   therefore every probability, edge and stake — update automatically. No model
+   code changes; it just reads better data.
+3. `node scripts/backtest-model.cjs` re-runs the leave-one-out calibration
+   (Brier / log-loss / reliability) and writes `data/backtest.json`. Run it after
+   each data refresh to confirm the model still beats base rates before trusting
+   value flags. On the current seed sample it beats base rates on BTTS and is
+   ~baseline on 1X2 / Over — a real edge needs the deeper match history that live
+   data provides.
+
+> The model is the keystone: value detection, Kelly staking and calibration all
+> compare against its probabilities, so better input data lifts all three at once.
+
 ## Notes
 - The free tier exposes **club-season** stats (recent club form). For
   national-team / WC-qualifier form, set `SEASON`/league params per your plan.
 - Everything fails safe: if the proxy is down or a team can't be resolved, the
   curated data is shown instead.
+- To rebuild the embedded model after editing `scripts/wc-model.cjs`:
+  `node scripts/build-model.cjs` (re-injects it into `index.html`).

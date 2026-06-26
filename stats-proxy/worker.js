@@ -14,8 +14,8 @@
 
 const UPSTREAM = 'https://v3.football.api-sports.io';
 
-// Only these API-Football paths may be proxied (read-only, stats/squads).
-const ALLOW = [/^teams\b/, /^players\b/, /^players\/squads\b/, /^fixtures\b/, /^fixtures\/statistics\b/];
+// Only these API-Football paths may be proxied (read-only, stats/squads/odds).
+const ALLOW = [/^teams\b/, /^players\b/, /^players\/squads\b/, /^fixtures\b/, /^fixtures\/statistics\b/, /^odds\b/];
 
 // Allow your site origins to call the worker. Add your custom domain if any.
 const ALLOWED_ORIGINS = [

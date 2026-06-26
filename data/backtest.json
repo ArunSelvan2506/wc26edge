@@ -1,0 +1,122 @@
+{
+  "source": "openfootball/worldcup.json (CC0, 2026 scores are seed data)",
+  "matches": 60,
+  "baseRates": {
+    "home": 0.5166666666666667,
+    "draw": 0.26666666666666666,
+    "away": 0.21666666666666667,
+    "over": 0.55,
+    "btts": 0.5333333333333333
+  },
+  "model": {
+    "x2": {
+      "brier": 0.6303,
+      "ll": 1.049
+    },
+    "over25": {
+      "brier": 0.268,
+      "ll": 0.7395,
+      "reliability": [
+        {
+          "range": "24%pred",
+          "predMean": 0.24,
+          "obsFreq": 0.5,
+          "n": 2
+        },
+        {
+          "range": "35%pred",
+          "predMean": 0.35,
+          "obsFreq": 0,
+          "n": 2
+        },
+        {
+          "range": "46%pred",
+          "predMean": 0.46,
+          "obsFreq": 0.6,
+          "n": 5
+        },
+        {
+          "range": "55%pred",
+          "predMean": 0.55,
+          "obsFreq": 0.5,
+          "n": 18
+        },
+        {
+          "range": "65%pred",
+          "predMean": 0.65,
+          "obsFreq": 0.84,
+          "n": 19
+        },
+        {
+          "range": "75%pred",
+          "predMean": 0.75,
+          "obsFreq": 0.25,
+          "n": 12
+        },
+        {
+          "range": "81%pred",
+          "predMean": 0.81,
+          "obsFreq": 0.5,
+          "n": 2
+        }
+      ]
+    },
+    "btts": {
+      "brier": 0.2396,
+      "ll": 0.6716,
+      "reliability": [
+        {
+          "range": "27%pred",
+          "predMean": 0.27,
+          "obsFreq": 0,
+          "n": 1
+        },
+        {
+          "range": "36%pred",
+          "predMean": 0.36,
+          "obsFreq": 0,
+          "n": 1
+        },
+        {
+          "range": "46%pred",
+          "predMean": 0.46,
+          "obsFreq": 0.33,
+          "n": 6
+        },
+        {
+          "range": "56%pred",
+          "predMean": 0.56,
+          "obsFreq": 0.52,
+          "n": 21
+        },
+        {
+          "range": "66%pred",
+          "predMean": 0.66,
+          "obsFreq": 0.64,
+          "n": 22
+        },
+        {
+          "range": "74%pred",
+          "predMean": 0.74,
+          "obsFreq": 0.56,
+          "n": 9
+        }
+      ]
+    }
+  },
+  "naive": {
+    "x2": {
+      "brier": 0.615,
+      "ll": 1.025
+    },
+    "over25": {
+      "brier": 0.2475,
+      "ll": 0.6881
+    },
+    "btts": {
+      "brier": 0.2489,
+      "ll": 0.6909
+    }
+  },
+  "note": "Leave-one-out calibration over openfootball seed results. Lower Brier/LL = better. Model should beat the naive base-rate baseline."
+}
