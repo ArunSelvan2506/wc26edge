@@ -38,14 +38,20 @@ and fouls committed, and the top in-form shooter is suggested for the parlay.
 
 ## How the logic works (all fixtures)
 - `teams?search=<country>` → team id (cached in `localStorage`).
-- `players?team=<id>&season=<SEASON>` → per-player season stats incl.
-  `games.lineups` (number of **starts**) and `games.position`.
-- **Starters only:** a player must have started ≥3 games AND started ≥50% of
-  their appearances — non-starters / impact subs are filtered out, even if their
-  raw stats look good. (Falls back to top appearance-makers if start data is
-  sparse, so a tab is never empty.)
+- **World Cup / international STARTERS first:** `fixtures?team=<id>&last=6` →
+  `fixtures/lineups?fixture=<fid>&team=<id>` for each → count who appears in the
+  **starting XI**. A player must have started ≥2 of the last ~6 national-team
+  games. This is why a club regular who's a national-team benchwarmer
+  (e.g. Rúben Neves) is excluded. If lineups can't be resolved, it falls back to
+  the club-start heuristic (`games.lineups` ≥3 and ≥50% of appearances).
+- `players?team=<id>&season=<SEASON>` supplies each starter's shot/foul numbers.
 - **Shot market:** among starters, rank by shots-on-target (then total shots).
-- **Foul market:** among starters, rank by fouls committed.
+- **Foul market:** among starters, rank by fouls committed — and a foul prop is
+  **guaranteed**: if foul data is missing, the most-used central starter
+  (mid/def) is shown, so every match always has at least one foul prop.
+- ⚠️ Cost: the lineup lookups add ~7 calls per team (1 fixtures + ~6 lineups),
+  all cached 6h. On the free tier keep an eye on the daily quota; bump the
+  Worker cache TTL or upgrade the plan if you open many fixtures per day.
 - When active, the Shots / Fouls tabs are **replaced** with live in-form starter
   cards (name, position, shots/SOT or fouls, and "starts X/Y"). Curated data is
   shown only when the proxy is unset or a call fails.
