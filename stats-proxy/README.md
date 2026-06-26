@@ -36,12 +36,19 @@ Commit + deploy. Open a match → the **Shots** and **Fouls** tabs show a
 **🔥 LIVE IN-FORM** strip with the current top players by recent shots-on-target
 and fouls committed, and the top in-form shooter is suggested for the parlay.
 
-## How the logic works
+## How the logic works (all fixtures)
 - `teams?search=<country>` → team id (cached in `localStorage`).
-- `players?team=<id>&season=<SEASON>` → per-player season stats.
-- **Shot market:** rank by shots-on-target, then total shots (per appearances).
-- **Foul market:** rank by fouls committed (per appearances).
-- Only players with ≥3 appearances are considered (filters fringe squad names).
+- `players?team=<id>&season=<SEASON>` → per-player season stats incl.
+  `games.lineups` (number of **starts**) and `games.position`.
+- **Starters only:** a player must have started ≥3 games AND started ≥50% of
+  their appearances — non-starters / impact subs are filtered out, even if their
+  raw stats look good. (Falls back to top appearance-makers if start data is
+  sparse, so a tab is never empty.)
+- **Shot market:** among starters, rank by shots-on-target (then total shots).
+- **Foul market:** among starters, rank by fouls committed.
+- When active, the Shots / Fouls tabs are **replaced** with live in-form starter
+  cards (name, position, shots/SOT or fouls, and "starts X/Y"). Curated data is
+  shown only when the proxy is unset or a call fails.
 - Corners / throw-ins remain **team** markets; they can be fed later from
   `fixtures/statistics` (team corners over last N) — see TODO in `index.html`.
 
