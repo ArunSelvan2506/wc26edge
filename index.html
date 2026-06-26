@@ -673,6 +673,60 @@ function loadDay(key,btn){
 function toggleMC(id){
   const el=document.getElementById('mc_'+id);
   el.classList.toggle('open');
+  if(el.classList.contains('open')) enrichInForm(id);   // live in-form (no-op unless STATS_PROXY set)
+}
+
+/* ── Live in-form engine (optional) ───────────────────────────────────────────
+   Set STATS_PROXY to your deployed proxy URL (see stats-proxy/README.md) to pull
+   real recent form from API-Football and surface the current in-form, in-squad
+   players for the shot & foul markets. Empty by default = no network, site
+   unchanged. Everything fails safe to the curated data. */
+const STATS_PROXY = '';                 // e.g. 'https://wc26-stats.you.workers.dev'
+const SEASON = 2025;
+const _af = {};
+async function afGet(path){ const r=await fetch(STATS_PROXY+'/af/'+path); if(!r.ok) throw new Error(r.status); return (await r.json()).response; }
+async function afTeam(name){
+  const k='t:'+name; if(k in _af) return _af[k];
+  try{ const c=localStorage.getItem('wc_t_'+name); if(c){ _af[k]=+c; return +c; } }catch(e){}
+  try{ const res=await afGet('teams?search='+encodeURIComponent(name)); const id=(res&&res[0]&&res[0].team&&res[0].team.id)||null;
+    _af[k]=id; try{ if(id) localStorage.setItem('wc_t_'+name, id); }catch(e){} return id;
+  }catch(e){ return null; }
+}
+async function afSquad(name){
+  const id=await afTeam(name); if(!id) return null;
+  const k='s:'+id; if(k in _af) return _af[k];
+  try{ const res=await afGet('players?team='+id+'&season='+SEASON);
+    const ps=res.map(p=>{ const s=(p.statistics&&p.statistics[0])||{};
+      return { name:p.player.name, ap:(s.games&&s.games.appearences)||0,
+               shots:(s.shots&&s.shots.total)||0, sot:(s.shots&&s.shots.on)||0,
+               fouls:(s.fouls&&s.fouls.committed)||0 }; }).filter(p=>p.ap>=3);
+    _af[k]=ps; return ps;
+  }catch(e){ return null; }
+}
+const _byF=(ps,f,n)=>ps.filter(p=>f(p)>0).sort((a,b)=>f(b)-f(a)).slice(0,n);
+function _informStrip(title, items){
+  if(!items.length) return '';
+  return '<div style="background:rgba(45,200,160,.06);border:1px solid rgba(45,200,160,.3);border-radius:8px;padding:9px 11px;margin-bottom:9px">'+
+    '<div style="font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">🔥 Live in-form · '+title+'</div>'+
+    items.map(i=>'<div style="font-size:11px;color:var(--tx);margin-bottom:2px"><b>'+i.team+':</b> '+i.line+'</div>').join('')+
+    '<div style="font-size:8px;color:var(--dm);margin-top:3px">From recent club form · API-Football</div></div>';
+}
+async function enrichInForm(id){
+  if(!STATS_PROXY) return;
+  let m=null; for(const k of Object.keys(DAYS)){ const f=(DAYS[k].matches||[]).find(x=>x.id===id); if(f){m=f;break;} }
+  if(!m) return;
+  try{
+    const [h,a]=await Promise.all([afSquad(m.hT), afSquad(m.aT)]);
+    if(!h&&!a) return;
+    const sot=[], foul=[];
+    [[m.hT,h],[m.aT,a]].forEach(([team,ps])=>{ if(!ps)return;
+      const s=_byF(ps,p=>p.sot,1)[0]; if(s) sot.push({team, line:s.name+' — '+s.sot+' SOT in '+s.ap+' apps'});
+      const fl=_byF(ps,p=>p.fouls,1)[0]; if(fl) foul.push({team, line:fl.name+' — '+fl.fouls+' fouls in '+fl.ap+' apps'});
+    });
+    const sp=document.getElementById('tp_shots_'+id), fp=document.getElementById('tp_fouls_'+id);
+    if(sp && !sp.querySelector('.informed')){ const d=document.createElement('div'); d.className='informed'; d.innerHTML=_informStrip('shot-on-target leaders', sot); sp.insertBefore(d, sp.firstChild); }
+    if(fp && !fp.querySelector('.informed')){ const d=document.createElement('div'); d.className='informed'; d.innerHTML=_informStrip('foul leaders', foul); fp.insertBefore(d, fp.firstChild); }
+  }catch(e){ /* fail safe: keep curated data */ }
 }
 
 function switchTab(id,tab,btn){
