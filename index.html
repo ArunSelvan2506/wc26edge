@@ -697,35 +697,53 @@ async function afSquad(name){
   const k='s:'+id; if(k in _af) return _af[k];
   try{ const res=await afGet('players?team='+id+'&season='+SEASON);
     const ps=res.map(p=>{ const s=(p.statistics&&p.statistics[0])||{};
-      return { name:p.player.name, ap:(s.games&&s.games.appearences)||0,
+      return { name:p.player.name,
+               pos:(s.games&&s.games.position)||'',
+               ap:(s.games&&s.games.appearences)||0,
+               starts:(s.games&&s.games.lineups)||0,     // times in the STARTING XI
                shots:(s.shots&&s.shots.total)||0, sot:(s.shots&&s.shots.on)||0,
-               fouls:(s.fouls&&s.fouls.committed)||0 }; }).filter(p=>p.ap>=3);
+               fouls:(s.fouls&&s.fouls.committed)||0 }; })
+      .filter(p=>p.ap>=3);
     _af[k]=ps; return ps;
   }catch(e){ return null; }
 }
-const _byF=(ps,f,n)=>ps.filter(p=>f(p)>0).sort((a,b)=>f(b)-f(a)).slice(0,n);
-function _informStrip(title, items){
-  if(!items.length) return '';
-  return '<div style="background:rgba(45,200,160,.06);border:1px solid rgba(45,200,160,.3);border-radius:8px;padding:9px 11px;margin-bottom:9px">'+
-    '<div style="font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ac);margin-bottom:6px">🔥 Live in-form · '+title+'</div>'+
-    items.map(i=>'<div style="font-size:11px;color:var(--tx);margin-bottom:2px"><b>'+i.team+':</b> '+i.line+'</div>').join('')+
-    '<div style="font-size:8px;color:var(--dm);margin-top:3px">From recent club form · API-Football</div></div>';
+// Regular starters only: started most of their games. Falls back to top
+// appearance-makers if start data is sparse, so we never show an empty tab.
+function _starters(ps){
+  const reg=ps.filter(p=>p.starts>=3 && p.starts>=p.ap*0.5);
+  return reg.length ? reg : ps;
 }
+const _byF=(ps,f,n)=>ps.filter(p=>f(p)>0).sort((a,b)=>f(b)-f(a)).slice(0,n);
+function _liveCard(team,p,kind){
+  const stat = kind==='shots'
+    ? '<div class="fst"><div class="fst-l">Shots</div><div class="fst-v">'+p.shots+'</div></div><div class="fst"><div class="fst-l">On target</div><div class="fst-v">'+p.sot+'</div></div><div class="fst"><div class="fst-l">Starts</div><div class="fst-v">'+p.starts+'/'+p.ap+'</div></div>'
+    : '<div class="fst"><div class="fst-l">Fouls</div><div class="fst-v">'+p.fouls+'</div></div><div class="fst"><div class="fst-l">Per game</div><div class="fst-v">'+(p.fouls/Math.max(1,p.ap)).toFixed(1)+'</div></div><div class="fst"><div class="fst-l">Starts</div><div class="fst-v">'+p.starts+'/'+p.ap+'</div></div>';
+  const bet = kind==='shots' ? p.name+' 1+ SOT' : p.name+' 1+ fouls';
+  return '<div class="fpl hot">'+
+    '<div class="fp-top"><div><div class="fp-nm">'+p.name+'</div><div class="fp-cl">'+team+(p.pos?' \xb7 '+p.pos:'')+' \xb7 regular starter</div></div>'+
+    '<span class="htag h90">in-form</span></div>'+
+    '<div class="fp-sts">'+stat+'</div>'+
+    '<div class="bet-row copyable" data-copy="'+esc(bet)+'" onclick="copyBet(event,this)"><span class="br-l">'+bet+'</span><div class="br-os"><span class="copy-ico">⧉</span></div></div>'+
+  '</div>';
+}
+const _liveHead='<div style="font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ac);margin-bottom:9px">🔥 Live in-form starters <span style="color:var(--dm);font-weight:400;text-transform:none;letter-spacing:0">· starting XIs + recent form · API-Football</span></div>';
 async function enrichInForm(id){
   if(!STATS_PROXY) return;
   let m=null; for(const k of Object.keys(DAYS)){ const f=(DAYS[k].matches||[]).find(x=>x.id===id); if(f){m=f;break;} }
   if(!m) return;
+  const sp=document.getElementById('tp_shots_'+id), fp=document.getElementById('tp_fouls_'+id);
+  if(sp&&sp.dataset.live){ return; }                 // already enriched this card
   try{
     const [h,a]=await Promise.all([afSquad(m.hT), afSquad(m.aT)]);
     if(!h&&!a) return;
-    const sot=[], foul=[];
-    [[m.hT,h],[m.aT,a]].forEach(([team,ps])=>{ if(!ps)return;
-      const s=_byF(ps,p=>p.sot,1)[0]; if(s) sot.push({team, line:s.name+' — '+s.sot+' SOT in '+s.ap+' apps'});
-      const fl=_byF(ps,p=>p.fouls,1)[0]; if(fl) foul.push({team, line:fl.name+' — '+fl.fouls+' fouls in '+fl.ap+' apps'});
+    let shotCards='', foulCards='';
+    [[m.hT,h],[m.aT,a]].forEach(([team,ps])=>{ if(!ps||!ps.length)return;
+      const st=_starters(ps);
+      _byF(st,p=>p.sot||p.shots,1).forEach(p=>shotCards+=_liveCard(team,p,'shots'));
+      _byF(st,p=>p.fouls,1).forEach(p=>foulCards+=_liveCard(team,p,'fouls'));
     });
-    const sp=document.getElementById('tp_shots_'+id), fp=document.getElementById('tp_fouls_'+id);
-    if(sp && !sp.querySelector('.informed')){ const d=document.createElement('div'); d.className='informed'; d.innerHTML=_informStrip('shot-on-target leaders', sot); sp.insertBefore(d, sp.firstChild); }
-    if(fp && !fp.querySelector('.informed')){ const d=document.createElement('div'); d.className='informed'; d.innerHTML=_informStrip('foul leaders', foul); fp.insertBefore(d, fp.firstChild); }
+    if(sp && shotCards){ sp.dataset.live='1'; sp.innerHTML=_liveHead+shotCards; }
+    if(fp && foulCards){ fp.dataset.live='1'; fp.innerHTML=_liveHead+foulCards; }
   }catch(e){ /* fail safe: keep curated data */ }
 }
 
