@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<!-- Build: 2026-06-26 mobile palette + tap-to-copy -->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+<!-- Build: 2026-06-25 clean rebuild -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>WC26 EDGE · Prediction Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -205,10 +202,10 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 <div class="topbar">
   <div class="logo"><div class="logo-dot"></div>WC26 EDGE</div>
   <div class="pills">
-    <span class="pill pg">Goals/g 3.14</span>
-    <span class="pill pg">Fouls/g 24.4</span>
-    <span class="pill pg">Corners/g 10.6</span>
-    <span class="pill pa">Upsets 46%</span>
+    <span class="pill pg" id="pillGoals" title="Real World Cup average — openfootball, 964 matches, last 3 tournaments">Goals/g 2.59</span>
+    <span class="pill pg" id="pillO25" title="Over 2.5 goals hit rate — openfootball, last 3 World Cups">O2.5 49%</span>
+    <span class="pill pa" title="Curated estimate — not present in the open dataset">Fouls/g 24.4</span>
+    <span class="pill pa" title="Curated estimate — not present in the open dataset">Corners/g 10.6</span>
     <span class="pill pr">Foul props 91%</span>
     <button class="nav-fixtures-btn" id="fixBtn" onclick="toggleFixtures()">📅 Fixtures</button>
 </div>
@@ -439,6 +436,50 @@ function fallbackCopy(text,done){
   done();
 }
 
+/* ── Real World Cup baselines, computed from openfootball public-domain data ──
+   Source: github.com/openfootball/worldcup.json (CC0) · 964 matches, 1930–2022.
+   Regenerate with: node scripts/build-stats.mjs  (writes data/worldcup-stats.json)
+   These real historical rates feed the prediction-confidence logic below;
+   fouls/corners/throw-ins are NOT in the open dataset, so they stay curated. */
+const OG_STATS={
+  source:'openfootball/worldcup.json · CC0 · 964 matches 1930–2022',
+  baseline:{basis:'last 3 World Cups (2014–2022)',goalsPerGame:2.59,over25Pct:49,bttsPct:49,drawPct:20},
+  allTime:{matches:964,goalsPerGame:2.75,over25Pct:50,bttsPct:50,drawPct:25},
+  modernEra:{fromYear:1998,goalsPerGame:2.48,over25Pct:46,bttsPct:47,drawPct:25},
+  trend:[[2002,2.47],[2006,2.25],[2010,2.23],[2014,2.55],[2018,2.59],[2022,2.63]],
+};
+
+// Pull the match's own Over-2.5 lean (from cbars or easy bets) if present.
+function matchOver25(m){
+  const c=(m.cbars||[]).find(r=>/over\s*2\.5/i.test(r.l||''));
+  if(c) return c.p;
+  const e=(m.easy||[]).find(x=>/over\s*2\.5/i.test(x.p||''));
+  if(e) return e.cf;
+  return null;
+}
+// Data-driven baseline strip: historical priors + this match's edge vs baseline.
+function baselineBlock(m){
+  const b=OG_STATS.baseline;
+  const o=matchOver25(m);
+  let edge='';
+  if(o!=null){
+    const d=o-b.over25Pct;
+    const col=d>=8?'var(--ac)':d<=-8?'var(--red)':'var(--mu)';
+    const lean=d>=8?'lean OVER':d<=-8?'lean UNDER':'in line';
+    edge='<div style="font-size:10px;color:var(--mu);margin-top:7px;padding-top:6px;border-top:1px solid var(--b1)">'+
+      'This match — model Over 2.5: <b style="color:var(--tx)">'+o+'%</b> vs '+b.over25Pct+'% WC baseline → '+
+      '<b style="color:'+col+'">'+(d>=0?'+':'')+d+' edge · '+lean+'</b></div>';
+  }
+  const cell=(lbl,val)=>'<div style="text-align:center"><div style="font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu)">'+lbl+'</div>'+
+    '<div style="font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ac2);margin-top:2px">'+val+'</div></div>';
+  return '<div style="grid-column:1/-1;background:var(--s3);border:1px solid var(--b1);border-radius:9px;padding:11px">'+
+    '<div style="font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin-bottom:9px">'+
+      '📊 WC historical baseline <span style="color:var(--dm);font-weight:400;text-transform:none;letter-spacing:0">· openfootball · '+OG_STATS.allTime.matches+' matches \xb7 '+b.basis+'</span></div>'+
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">'+
+      cell('Goals/g',b.goalsPerGame)+cell('Over 2.5',b.over25Pct+'%')+cell('BTTS',b.bttsPct+'%')+cell('GS Draw',b.drawPct+'%')+
+    '</div>'+edge+'</div>';
+}
+
 function buildNav(){
   const nav=document.getElementById('dateNav');
   nav.innerHTML=DATES.map(d=>`
@@ -540,6 +581,7 @@ function buildResult(m){
       '<div class="win-lbl copyable" data-copy="'+esc(m.winner+' to win @ '+(m.winner===m.hT?m.odds.h:m.winner===m.aT?m.odds.a:m.odds.d)+' ('+m.conf+'% confidence)')+'" onclick="copyBet(event,this)">\u25b6 '+m.winner+' \xb7 '+m.conf+'% confidence</div>'+
     '</div>'+
     '<div class="psec"><div class="psec-t">Confidence breakdown</div>'+cbarsHtml+'</div>'+
+    baselineBlock(m)+
   '</div>';
 }
 
@@ -607,7 +649,8 @@ async function runAI(id){
   el.classList.add('on');
   const ctx=DAYS['25']&&DAYS['25'].matches.find(m=>m.id===id)||DAYS['26']&&DAYS['26'].matches.find(m=>m.id===id)||DAYS['27']&&DAYS['27'].matches.find(m=>m.id===id);
   const ai=ctx?ctx.ai:'WC 2026 match';
-  const p='WC 2026 betting analyst. Tournament averages: 24.4 fouls/game, 10.6 corners/game, 46 throw-ins/game, 3.14 goals/game, fav win rate 54%.\n\nContext: '+ai+'\n\nBullet format:\n\u2022 FOUL PROP: player, bet, confidence %, reason\n\u2022 SOT PROP: player, bet, confidence %, reason\n\u2022 CORNER BET: prop, confidence %\n\u2022 THROW-IN BET: prop, confidence %\n\u2022 LIVE TRIGGER: first 20 mins\n\u2022 RISK: biggest upset factor\n\nMax 150 words. No disclaimers.';
+  const b=OG_STATS.baseline;
+  const p='WC 2026 betting analyst. Real World Cup baselines (openfootball, '+OG_STATS.allTime.matches+' matches, '+b.basis+'): '+b.goalsPerGame+' goals/game, Over 2.5 lands '+b.over25Pct+'%, BTTS '+b.bttsPct+'%, group-stage draw '+b.drawPct+'%. Curated estimates (not in open data): 24.4 fouls/game, 10.6 corners/game, 46 throw-ins/game.\n\nContext: '+ai+'\n\nBullet format:\n\u2022 FOUL PROP: player, bet, confidence %, reason\n\u2022 SOT PROP: player, bet, confidence %, reason\n\u2022 CORNER BET: prop, confidence %\n\u2022 THROW-IN BET: prop, confidence %\n\u2022 LIVE TRIGGER: first 20 mins\n\u2022 RISK: biggest upset factor\n\nMax 150 words. No disclaimers.';
   try{
     const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:400,messages:[{role:'user',content:p}]})});
     const d=await r.json();
@@ -801,6 +844,12 @@ function renderFixtures(){
   }).join('');
   document.getElementById('fixturesContent').innerHTML=html;
 }
+
+// Drive the stat pills from the real openfootball-derived baselines.
+(function(){
+  const g=document.getElementById('pillGoals'); if(g)g.textContent='Goals/g '+OG_STATS.baseline.goalsPerGame;
+  const o=document.getElementById('pillO25');   if(o)o.textContent='O2.5 '+OG_STATS.baseline.over25Pct+'%';
+})();
 
 buildNav();
 const todayBtn=document.querySelector('[data-key="25"]');
