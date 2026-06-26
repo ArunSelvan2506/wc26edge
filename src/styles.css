@@ -10,8 +10,8 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
   background-repeat:no-repeat;background-position:center 30%;background-size:min(360px,74vw) auto}
 .backdrop-glow{position:fixed;inset:0;z-index:-1;pointer-events:none;
   background:radial-gradient(50% 40% at 50% 28%, rgba(247,212,122,.16), rgba(247,212,122,.03) 45%, transparent 64%);
-  animation:breathe 9s ease-in-out infinite}
-@keyframes breathe{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.06)}}
+  will-change:opacity;animation:breathe 10s ease-in-out infinite}
+@keyframes breathe{0%,100%{opacity:.55}50%{opacity:.95}}
 @media(prefers-reduced-motion:reduce){.backdrop-glow{animation:none}*{scroll-behavior:auto}}
 ::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
 @keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(45,200,160,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(45,200,160,0)}}
@@ -78,9 +78,9 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 
 .tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b1);overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab-btn{font-size:13px;font-weight:600;letter-spacing:.02em;padding:8px 13px;border:none;background:none;font-family:var(--disp);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .1s;position:relative}
-.tab-btn.active{color:var(--ac)}
-.tab-underline{position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--ac);border-radius:2px}
+.tab-btn{font-size:13px;font-weight:600;letter-spacing:.02em;padding:8px 13px;border:none;background:none;font-family:var(--disp);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .12s,border-color .12s}
+.tab-btn:hover{color:var(--tx)}
+.tab-btn.active{color:var(--ac);border-bottom-color:var(--ac)}
 
 .pred-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .psec{background:var(--s3);border:1px solid var(--b1);border-radius:9px;padding:11px}

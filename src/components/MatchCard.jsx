@@ -22,9 +22,9 @@ export default function MatchCard({ m, fmt, rat, index = 0 }) {
   const tag = m.tag === 'top' ? 'b-top' : m.tag === 'upset' ? 'b-upset' : 'b-info';
 
   return (
-    <motion.div layout className={'mc' + (open ? ' open' : '')} onClick={() => setOpen(o => !o)}
-      initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3), ease: [0.16, 1, 0.3, 1] }}>
+    <motion.div className={'mc' + (open ? ' open' : '')} onClick={() => setOpen(o => !o)}
+      initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-30px' }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.04, 0.25), ease: 'easeOut' }}>
       <div className="mc-head">
         <div className="mc-r1">
           <div>
@@ -50,24 +50,19 @@ export default function MatchCard({ m, fmt, rat, index = 0 }) {
         {open && (
           <motion.div className="mc-body" onClick={e => e.stopPropagation()}
             initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.26, ease: 'easeOut' }}
             style={{ overflow: 'hidden' }}>
             <div className="tabs">
               {TABS.map(t => (
                 <button key={t.id} className={'tab-btn' + (tab === t.id ? ' active' : '')}
                   onClick={() => setTab(t.id)}>
                   {t.label}
-                  {tab === t.id && <motion.span layoutId={'ul_' + m.id} className="tab-underline" />}
                 </button>
               ))}
             </div>
-            <AnimatePresence mode="wait">
-              <motion.div key={tab}
-                initial={{ opacity: 0, x: 8 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -8 }}
-                transition={{ duration: 0.18 }}>
-                <Pane tab={tab} m={m} fmt={fmt} rat={rat} />
-              </motion.div>
-            </AnimatePresence>
+            <motion.div key={tab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.16 }}>
+              <Pane tab={tab} m={m} fmt={fmt} rat={rat} />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
