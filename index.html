@@ -19,10 +19,20 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes bk{0%,80%,100%{opacity:.2}40%{opacity:1}}
 .topbar{background:var(--s1);border-bottom:1px solid var(--b1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:300;gap:10px}
-.logo{font-size:15px;font-weight:800;letter-spacing:.12em;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.logo{font-size:15px;font-weight:800;letter-spacing:.08em;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.topbar{gap:8px}
+@media(max-width:460px){
+  .logo{font-size:13px;letter-spacing:.03em}
+  .of-lbl{display:none}
+  .nav-fixtures-btn{padding:4px 10px;margin-left:0}
+  .of-btn{padding:4px 8px}
+  .topbar{padding:0 12px}
+}
 .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pp 2s infinite}
-.pills{display:flex;gap:5px;flex-wrap:wrap}
-.pill{font-size:10px;font-weight:600;font-family:var(--mono);padding:3px 9px;border-radius:4px;border:1px solid;white-space:nowrap}
+.topbar-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.statbar{display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;background:var(--s1);border-bottom:1px solid var(--b1);padding:7px 14px}
+.statbar::-webkit-scrollbar{display:none}
+.pill{font-size:10px;font-weight:600;font-family:var(--mono);padding:4px 10px;border-radius:5px;border:1px solid;white-space:nowrap;flex-shrink:0;letter-spacing:.02em}
 .pg{background:rgba(45,200,160,.08);border-color:rgba(45,200,160,.3);color:var(--ac)}
 .pa{background:rgba(246,178,63,.08);border-color:rgba(246,178,63,.3);color:var(--amb)}
 .pr{background:rgba(239,109,109,.08);border-color:rgba(239,109,109,.3);color:var(--red)}
@@ -43,22 +53,22 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .page{max-width:980px;margin:0 auto;padding:16px}
 .day-title{font-size:19px;font-weight:700;color:var(--tx);margin-bottom:2px}
 .day-sub{font-size:11px;color:var(--mu);margin-top:3px;font-family:var(--mono);margin-bottom:14px}
-.matches{display:flex;flex-direction:column;gap:10px}
+.matches{display:flex;flex-direction:column;gap:12px}
 /* MATCH CARD */
 .mc{background:var(--s1);border:1px solid var(--b1);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .15s}
 .mc:hover{border-color:var(--b1)}
 .mc.open{border-color:rgba(45,200,160,.5)}
-.mc-head{padding:12px 15px}
+.mc-head{padding:14px 16px}
 .mc-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:9px;flex-wrap:wrap}
-.mc-teams{font-size:14px;font-weight:700;color:var(--tx)}
-.mc-meta{font-size:10px;font-family:var(--mono);color:var(--mu);margin-top:3px}
-.mc-r2{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.mc-teams{font-size:15px;font-weight:700;color:var(--tx);letter-spacing:-.01em}
+.mc-meta{font-size:10.5px;font-family:var(--mono);color:var(--mu);margin-top:4px;line-height:1.4}
+.mc-r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .badge{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
 .b-top{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac)}
 .b-upset{background:rgba(251,140,67,.1);border:1px solid rgba(251,140,67,.3);color:var(--ac3)}
 .b-info{background:rgba(91,150,239,.1);border:1px solid rgba(91,150,239,.25);color:var(--ac2)}
 .odds-row{display:flex;gap:4px}
-.odd{background:var(--s3);border-radius:6px;padding:5px 9px;text-align:center;min-width:56px}
+.odd{background:var(--s3);border-radius:7px;padding:7px 10px;text-align:center;min-width:58px}
 .odd-l{font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu)}
 .odd-v{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--tx);margin-top:1px}
 .odd-v.hi{color:var(--ac)}
@@ -72,9 +82,9 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .mc-body{display:none;border-top:1px solid var(--b1);padding:10px 15px 15px}
 .mc.open .mc-body{display:block}
 /* TABS */
-.tabs{display:flex;gap:2px;margin-bottom:12px;border-bottom:1px solid var(--b1);overflow-x:auto;scrollbar-width:none}
+.tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b1);overflow-x:auto;scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
-.tab-btn{font-size:11px;font-weight:500;padding:5px 12px;border:none;background:none;font-family:var(--sans);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .1s}
+.tab-btn{font-size:11.5px;font-weight:600;padding:8px 13px;border:none;background:none;font-family:var(--sans);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .1s}
 .tab-btn.active{border-bottom-color:var(--ac);color:var(--ac)}
 .tab-pane{display:none}.tab-pane.active{display:block}
 /* RESULT */
@@ -119,17 +129,17 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .dn-d{background:rgba(239,109,109,.2);border:1px solid rgba(239,109,109,.45);color:var(--red)}
 .db{background:rgba(91,150,239,.2);border:1px solid rgba(91,150,239,.45);color:#60a5fa}
 .dp{background:rgba(176,121,239,.2);border:1px solid rgba(176,121,239,.45);color:#c084fc}
-.bet-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:5px;padding:5px 8px;margin-bottom:3px;border:1px solid var(--b1);flex-wrap:wrap;gap:4px}
-.br-l{font-size:10px;font-weight:600;color:var(--tx)}
+.bet-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:7px;padding:8px 11px;margin-bottom:6px;border:1px solid var(--b1);flex-wrap:wrap;gap:6px}
+.br-l{font-size:11px;font-weight:600;color:var(--tx)}
 .br-os{display:flex;gap:3px;flex-wrap:wrap}
 .br-o{font-family:var(--mono);font-size:9px;padding:2px 5px;border-radius:4px;border:1px solid var(--b1);background:var(--s2);color:var(--tx)}
 .fp-note{font-size:10px;color:var(--mu);line-height:1.6;margin-top:6px;padding-top:5px;border-top:1px solid var(--b1)}
 /* EASY BETS */
-.ebet{background:var(--s1);border:1px solid var(--b1);border-radius:7px;padding:6px 9px;margin-bottom:4px;display:flex;align-items:center;justify-content:space-between;gap:7px;flex-wrap:wrap}
+.ebet{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:10px 12px;margin-bottom:7px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .ebet.star{border-color:rgba(45,200,160,.3);background:rgba(45,200,160,.04)}
 .eb-l{flex:1;min-width:0}
 .eb-cat{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:2px}
-.eb-pick{font-size:11px;font-weight:600;color:var(--tx)}
+.eb-pick{font-size:12px;font-weight:600;color:var(--tx);line-height:1.4}
 .eb-odds{font-family:var(--mono);font-size:10px;color:var(--mu);margin-top:1px}
 .eb-cf{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px}
 .ec-hi{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac)}
@@ -137,7 +147,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 /* PARLAY */
 .parlay{background:rgba(45,200,160,.05);border:1px solid rgba(45,200,160,.2);border-radius:9px;padding:11px 13px;margin-bottom:8px}
 .pl-hd{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
-.pl-leg{display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid rgba(45,200,160,.08);font-size:10px;color:var(--mu)}
+.pl-leg{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid rgba(45,200,160,.08);font-size:11px;color:var(--mu)}
 .pl-n{width:15px;height:15px;border-radius:50%;background:rgba(45,200,160,.15);color:var(--ac);font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pl-pk{color:var(--tx);font-weight:600}
 .pl-od{font-family:var(--mono);font-size:9px;color:var(--mu);margin-left:auto;white-space:nowrap}
@@ -186,7 +196,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .copyable:active{transform:scale(.975);filter:brightness(1.2)}
 .copy-ico{font-size:11px;color:var(--mu);opacity:.55;margin-left:6px;flex-shrink:0;transition:opacity .12s,color .12s}
 .copyable:hover .copy-ico{opacity:1;color:var(--ac)}
-.copy-hint{font-size:10px;color:var(--mu);font-family:var(--mono);margin:-8px 0 12px;display:flex;align-items:center;gap:5px}
+.copy-hint{font-size:10px;color:var(--mu);font-family:var(--mono);margin:2px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .copy-hint b{color:var(--ac);font-weight:700}
 .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(24px);background:var(--s3);border:1px solid var(--ac);color:var(--tx);font-size:12px;font-weight:600;padding:9px 16px;border-radius:9px;box-shadow:0 8px 28px rgba(0,0,0,.55);z-index:600;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;max-width:90vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -202,12 +212,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 <body>
 <div class="topbar">
   <div class="logo"><div class="logo-dot"></div>WC26 EDGE</div>
-  <div class="pills">
-    <span class="pill pg" id="pillGoals" title="Real World Cup average — openfootball, 964 matches, last 3 tournaments">Goals/g 2.59</span>
-    <span class="pill pg" id="pillO25" title="Over 2.5 goals hit rate — openfootball, last 3 World Cups">O2.5 49%</span>
-    <span class="pill pa" title="Curated estimate — not present in the open dataset">Fouls/g 24.4</span>
-    <span class="pill pa" title="Curated estimate — not present in the open dataset">Corners/g 10.6</span>
-    <span class="pill pr">Foul props 91%</span>
+  <div class="topbar-actions">
     <button class="nav-fixtures-btn" id="fixBtn" onclick="toggleFixtures()">📅 Fixtures</button>
     <span class="odds-toggle" id="oddsToggle">
       <span class="of-lbl">Odds</span>
@@ -215,9 +220,16 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
       <button class="of-btn" data-fmt="dec" onclick="setOddsFmt('dec')">Dec</button>
       <button class="of-btn" data-fmt="am" onclick="setOddsFmt('am')">Am</button>
     </span>
-</div>
+  </div>
 </div>
 <nav class="date-nav" id="dateNav"></nav>
+<div class="statbar" id="statbar">
+  <span class="pill pg" id="pillGoals" title="Real World Cup average — openfootball, 964 matches, last 3 tournaments">Goals/g 2.59</span>
+  <span class="pill pg" id="pillO25" title="Over 2.5 goals hit rate — openfootball, last 3 World Cups">O2.5 49%</span>
+  <span class="pill pa" title="Curated estimate — not present in the open dataset">Fouls/g 24.4</span>
+  <span class="pill pa" title="Curated estimate — not present in the open dataset">Corners/g 10.6</span>
+  <span class="pill pr">Foul props 91%</span>
+</div>
 
 
 <div id="fixturesOverlay">
