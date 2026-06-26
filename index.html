@@ -10,7 +10,7 @@
 <title>WC26 EDGE · Prediction Hub</title>
 <!-- Installable app (Add to Home Screen) -->
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#0f141b">
+<meta name="theme-color" content="#000000">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,21 +20,18 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0f141b;--s1:#171d27;--s2:#1d2532;--s3:#26303f;--b1:#303d4f;--b2:#3b4a5e;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--disp:'Oswald','Inter',sans-serif}
+:root{--bg:#000000;--s1:#0e1117;--s2:#141922;--s3:#1c232e;--b1:#2a333f;--b2:#374251;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--disp:'Oswald','Inter',sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh}
 /* World Cup 2026 backdrop — original gold trophy illustration + wordmark, fixed & faint */
 body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--bg);
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f7df8c'/%3E%3Cstop offset='0.5' stop-color='%23cda53e'/%3E%3Cstop offset='1' stop-color='%238a6a1f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23g)' fill-opacity='0.26' stroke='%23f4d27a' stroke-opacity='0.22' stroke-width='1.3' stroke-linejoin='round'%3E%3Cpath d='M72 70 L228 70 C223 152 178 188 150 188 C122 188 77 152 72 70 Z'/%3E%3Cpath d='M74 80 C33 86 33 138 82 151 C61 139 58 99 88 95 Z'/%3E%3Cpath d='M226 80 C267 86 267 138 218 151 C239 139 242 99 212 95 Z'/%3E%3Cpath d='M138 188 L162 188 L158 250 L142 250 Z'/%3E%3Cpath d='M116 250 L184 250 L190 268 L110 268 Z'/%3E%3Cpath d='M102 270 L198 270 L206 293 L94 293 Z'/%3E%3Crect x='92' y='293' width='116' height='11' rx='2'/%3E%3C/g%3E%3Cpath d='M96 78 C92 120 108 150 120 168' fill='none' stroke='%23fff3c4' stroke-opacity='0.18' stroke-width='3' stroke-linecap='round'/%3E%3Ctext x='150' y='346' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='15' letter-spacing='6' fill='%23f4d27a' fill-opacity='0.24'%3EWORLD CUP%3C/text%3E%3Ctext x='150' y='384' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='32' letter-spacing='3' fill='%23f4d27a' fill-opacity='0.22'%3E2026%3C/text%3E%3C/svg%3E"),
-    repeating-conic-gradient(from 0deg at 50% 28%, rgba(247,212,122,.055) 0deg 2deg, transparent 2deg 8deg),
-    radial-gradient(52% 42% at 50% 28%, rgba(247,212,122,.17), rgba(247,212,122,.04) 45%, transparent 66%),
-    radial-gradient(120% 70% at 50% -16%, rgba(45,200,160,.08), transparent 58%),
-    radial-gradient(130% 112% at 50% 34%, transparent 48%, rgba(0,0,0,.55)),
-    repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0 2px, transparent 2px 80px);
-  background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,no-repeat,repeat;
-  background-position:center 30%,center 28%,center 28%,center,center,center;
-  background-size:min(360px,74vw) auto,cover,cover,cover,cover,auto;}
+    repeating-conic-gradient(from 0deg at 50% 28%, rgba(247,212,122,.05) 0deg 2deg, transparent 2deg 8deg),
+    radial-gradient(50% 40% at 50% 28%, rgba(247,212,122,.16), rgba(247,212,122,.03) 45%, transparent 64%);
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-position:center 30%,center 28%,center 28%;
+  background-size:min(360px,74vw) auto,cover,cover;}
 ::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
 @keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(45,200,160,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(45,200,160,0)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
