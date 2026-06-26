@@ -1,50 +1,41 @@
-// Auto-remove completed matches. A match's kickoff is its ET clock time
-// (m.time) on the day's ET date (DATES[].etNote); June ET = EDT = UTC-4. A match
-// is "completed" ~135 min after kickoff. Completed matches drop from the day
-// list, and any date whose matches are ALL completed drops from the picker.
-import { DATES, DAYS } from '../data.js';
+// Auto-remove completed fixture blocks. Each FIXTURES block is dated in IST
+// (e.g. "Fri 26 Jun (IST)"); a block is "completed" ~135 min after its last
+// kickoff (latest IST time among its matches). IST = UTC+5:30.
+import { FIXTURES } from '../data.js';
 
 const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
 const COMPLETE_MS = 135 * 60 * 1000;
+const IST_OFFSET_MS = (5 * 60 + 30) * 60 * 1000;
 
-function matchKickoff(key, mt) {
-  const de = DATES.find(x => x.key === key);
-  const dm = de && de.etNote && de.etNote.match(/(\d{1,2})\s+([A-Za-z]{3})/);
-  const tm = (mt.time || '').match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*ET/i);
-  if (!dm || !tm) return null;
-  let hr = (+tm[1]) % 12; if (/pm/i.test(tm[3])) hr += 12;
-  return Date.UTC(2026, MONTHS[dm[2].toLowerCase()], +dm[1], hr + 4, tm[2] ? +tm[2] : 0);
+// Last "<day> <mon>" in the block label (handles "Sat 4 & Sun 5 Jul").
+function lastDate(dateStr) {
+  let mo = null, day = null, m;
+  const re = /(\d{1,2})\s+([A-Za-z]{3})/g;
+  while ((m = re.exec(dateStr))) { day = +m[1]; mo = MONTHS[m[2].toLowerCase()]; }
+  return (mo == null || day == null) ? null : { mo, day };
 }
 
-export function isCompleted(key, mt, now = Date.now()) {
-  if (mt.live) return false;
-  if (mt.done) return true;            // explicit override
-  const ko = matchKickoff(key, mt);
-  return ko != null && now > ko + COMPLETE_MS;
+// Latest kickoff time-of-day (minutes) across a block's matches.
+function maxTimeMin(matches) {
+  let mx = -1;
+  for (const mt of matches || []) {
+    const t = (mt.ist || '').match(/(\d{1,2}):(\d{2})\s*(am|pm)/i);
+    if (!t) continue;
+    let h = (+t[1]) % 12; if (/pm/i.test(t[3])) h += 12;
+    const min = h * 60 + (+t[2]);
+    if (min > mx) mx = min;
+  }
+  return mx;
 }
 
-export function shownMatches(key, showDone, now = Date.now()) {
-  const day = DAYS[key]; if (!day) return [];
-  return showDone ? day.matches : day.matches.filter(mt => !isCompleted(key, mt, now));
+export function blockCompleted(block, now = Date.now()) {
+  const d = lastDate(block.date);
+  const mm = maxTimeMin(block.matches);
+  if (!d || mm < 0) return false;            // can't date it → keep it
+  const kickoffUTC = Date.UTC(2026, d.mo, d.day, 0, 0) + mm * 60000 - IST_OFFSET_MS;
+  return now > kickoffUTC + COMPLETE_MS;
 }
 
-export function doneCount(key, now = Date.now()) {
-  const day = DAYS[key]; if (!day) return 0;
-  return day.matches.filter(mt => isCompleted(key, mt, now)).length;
-}
-
-// Keep a date in the picker if it has no detail data yet (future) or still has
-// at least one non-completed match.
-export function dateActive(key, now = Date.now()) {
-  const day = DAYS[key]; if (!day) return true;
-  return day.matches.some(mt => !isCompleted(key, mt, now));
-}
-
-export function activeDates(now = Date.now()) {
-  return DATES.filter(d => dateActive(d.key, now));
-}
-
-export function firstActiveKey(now = Date.now()) {
-  const d = DATES.find(x => dateActive(x.key, now));
-  return d ? d.key : (DATES[0] && DATES[0].key);
+export function upcomingBlocks(now = Date.now()) {
+  return FIXTURES.filter(b => !blockCompleted(b, now));
 }

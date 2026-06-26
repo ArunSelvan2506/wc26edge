@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { DAYS, FIXTURES } from '../data.js';
+import { DAYS } from '../data.js';
 import { norm } from '../lib/model.js';
+import { upcomingBlocks } from '../lib/completion.js';
 import MatchCard from './MatchCard.jsx';
 
 // Map a fixture's "A vs B" to the detailed match in DAYS (order-independent).
@@ -26,17 +27,23 @@ const FILTERS = ['All', 'Group', 'R32', 'R16', 'QF', 'SF', 'Final'];
 
 export default function Fixtures({ fmt, rat }) {
   const detail = useMemo(buildDetailIndex, []);
+  // Completed date-blocks drop off; recomputed once per mount.
+  const upcoming = useMemo(() => upcomingBlocks(Date.now()), []);
   const [filter, setFilter] = useState('All');
-  const blocks = FIXTURES.filter(b => filter === 'All' || stageCat(b.stage) === filter);
+  const blocks = upcoming.filter(b => filter === 'All' || stageCat(b.stage) === filter);
 
   return (
     <div>
-      <div className="section-h">All fixtures · World Cup 2026</div>
+      <div className="section-h">Upcoming fixtures · World Cup 2026</div>
       <div className="chips">
         {FILTERS.map(f => (
           <button key={f} className={'chip' + (filter === f ? ' active' : '')} onClick={() => setFilter(f)}>{f}</button>
         ))}
       </div>
+
+      {blocks.length === 0 && (
+        <div className="no-matches">No upcoming fixtures in this stage. Completed games drop off automatically — check the Standings tab for results.</div>
+      )}
 
       {blocks.map((b, bi) => {
         const cat = stageCat(b.stage);
