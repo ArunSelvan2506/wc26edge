@@ -1,0 +1,204 @@
+{
+  "source": "openfootball/worldcup.json (public domain / CC0)",
+  "generated": "2026-06-26",
+  "tournaments": 22,
+  "allTime": {
+    "matches": 964,
+    "goalsPerGame": 2.75,
+    "over25Pct": 50,
+    "bttsPct": 50,
+    "drawPct": 25
+  },
+  "modernEra": {
+    "fromYear": 1998,
+    "goalsPerGame": 2.48,
+    "over25Pct": 46,
+    "bttsPct": 47,
+    "drawPct": 25
+  },
+  "baseline": {
+    "basis": "mean of 2014, 2018, 2022",
+    "goalsPerGame": 2.59,
+    "over25Pct": 49,
+    "bttsPct": 49,
+    "drawPct": 20
+  },
+  "perTournament": [
+    {
+      "year": 1930,
+      "matches": 18,
+      "goalsPerGame": 3.89,
+      "over25Pct": 78,
+      "bttsPct": 44,
+      "drawPct": 0
+    },
+    {
+      "year": 1934,
+      "matches": 17,
+      "goalsPerGame": 3.88,
+      "over25Pct": 71,
+      "bttsPct": 88,
+      "drawPct": null
+    },
+    {
+      "year": 1938,
+      "matches": 18,
+      "goalsPerGame": 4.17,
+      "over25Pct": 72,
+      "bttsPct": 78,
+      "drawPct": null
+    },
+    {
+      "year": 1950,
+      "matches": 22,
+      "goalsPerGame": 4,
+      "over25Pct": 73,
+      "bttsPct": 59,
+      "drawPct": 13
+    },
+    {
+      "year": 1954,
+      "matches": 26,
+      "goalsPerGame": 5.23,
+      "over25Pct": 77,
+      "bttsPct": 62,
+      "drawPct": 11
+    },
+    {
+      "year": 1958,
+      "matches": 35,
+      "goalsPerGame": 3.57,
+      "over25Pct": 63,
+      "bttsPct": 63,
+      "drawPct": 41
+    },
+    {
+      "year": 1962,
+      "matches": 32,
+      "goalsPerGame": 2.78,
+      "over25Pct": 56,
+      "bttsPct": 50,
+      "drawPct": 21
+    },
+    {
+      "year": 1966,
+      "matches": 32,
+      "goalsPerGame": 2.72,
+      "over25Pct": 59,
+      "bttsPct": 53,
+      "drawPct": 21
+    },
+    {
+      "year": 1970,
+      "matches": 32,
+      "goalsPerGame": 2.75,
+      "over25Pct": 50,
+      "bttsPct": 50,
+      "drawPct": 21
+    },
+    {
+      "year": 1974,
+      "matches": 38,
+      "goalsPerGame": 2.55,
+      "over25Pct": 42,
+      "bttsPct": 39,
+      "drawPct": 28
+    },
+    {
+      "year": 1978,
+      "matches": 38,
+      "goalsPerGame": 2.63,
+      "over25Pct": 55,
+      "bttsPct": 53,
+      "drawPct": 25
+    },
+    {
+      "year": 1982,
+      "matches": 52,
+      "goalsPerGame": 2.73,
+      "over25Pct": 46,
+      "bttsPct": 56,
+      "drawPct": 33
+    },
+    {
+      "year": 1986,
+      "matches": 52,
+      "goalsPerGame": 2.44,
+      "over25Pct": 40,
+      "bttsPct": 44,
+      "drawPct": 31
+    },
+    {
+      "year": 1990,
+      "matches": 52,
+      "goalsPerGame": 2.1,
+      "over25Pct": 33,
+      "bttsPct": 46,
+      "drawPct": 22
+    },
+    {
+      "year": 1994,
+      "matches": 52,
+      "goalsPerGame": 2.65,
+      "over25Pct": 52,
+      "bttsPct": 54,
+      "drawPct": 22
+    },
+    {
+      "year": 1998,
+      "matches": 64,
+      "goalsPerGame": 2.66,
+      "over25Pct": 56,
+      "bttsPct": 55,
+      "drawPct": 33
+    },
+    {
+      "year": 2002,
+      "matches": 64,
+      "goalsPerGame": 2.47,
+      "over25Pct": 38,
+      "bttsPct": 47,
+      "drawPct": 29
+    },
+    {
+      "year": 2006,
+      "matches": 64,
+      "goalsPerGame": 2.25,
+      "over25Pct": 39,
+      "bttsPct": 36,
+      "drawPct": 23
+    },
+    {
+      "year": 2010,
+      "matches": 64,
+      "goalsPerGame": 2.23,
+      "over25Pct": 41,
+      "bttsPct": 44,
+      "drawPct": 29
+    },
+    {
+      "year": 2014,
+      "matches": 64,
+      "goalsPerGame": 2.55,
+      "over25Pct": 55,
+      "bttsPct": 50,
+      "drawPct": 19
+    },
+    {
+      "year": 2018,
+      "matches": 64,
+      "goalsPerGame": 2.59,
+      "over25Pct": 45,
+      "bttsPct": 50,
+      "drawPct": 19
+    },
+    {
+      "year": 2022,
+      "matches": 64,
+      "goalsPerGame": 2.63,
+      "over25Pct": 47,
+      "bttsPct": 47,
+      "drawPct": 21
+    }
+  ]
+}
