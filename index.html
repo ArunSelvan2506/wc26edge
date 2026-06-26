@@ -767,27 +767,55 @@ function buildParlay(m){
       (m.ref?'<div class="ref-box">'+m.ref+'</div>':'')+
     '</div>'+
     '<div class="ai-blk">'+
-      '<div class="ai-row"><span class="ai-lbl">\ud83e\udd16 AI analysis</span>'+
+      '<div class="ai-row"><span class="ai-lbl">\ud83d\udcca Smart analysis</span>'+
       '<button class="ai-btn" onclick="event.stopPropagation();runAI(\''+m.id+'\')">Analyse \u2197</button></div>'+
-      '<div class="ai-out" id="aio_'+m.id+'">Click Analyse for foul + SOT + corners + throw-ins + live trigger</div>'+
+      '<div class="ai-out" id="aio_'+m.id+'">Tap Analyse for the pick, foul + SOT props, goals edge vs baseline, corners, throw-ins, safe parlay & risk</div>'+
     '</div>'+
   '</div>';
 }
 
-async function runAI(id){
-  const el=document.getElementById('aio_'+id);
-  if(!el)return;
-  el.innerHTML='<div class="ld"><span></span><span></span><span></span></div> Analysing\u2026';
+// Find a match by id across every day.
+function findMatch(id){
+  for(const k of Object.keys(DAYS)){const m=(DAYS[k].matches||[]).find(x=>x.id===id); if(m)return m;}
+  return null;
+}
+/* Local analysis engine \u2014 builds the bullet read-out from this match's model
+   data + openfootball baselines + the parlay/edge logic. Runs entirely in the
+   browser (no API key, no external call), so it works on the static site. */
+function localAnalysis(m){
+  const b=OG_STATS.baseline, R=[];
+  const bull=(ic,lbl,txt)=>R.push('<div style="margin-bottom:6px;line-height:1.55"><b style="color:var(--ac)">'+ic+' '+lbl+':</b> '+txt+'</div>');
+  const wOdds=m.winner===m.hT?m.odds.h:m.winner===m.aT?m.odds.a:m.odds.d;
+  bull('\u25b6','PICK', m.winner+' @ '+wOdds+' \u00b7 '+m.conf+'% model confidence.');
+  if(m.fouls&&m.fouls.length){
+    const f=m.fouls.slice().sort((a,b)=>b.conf-a.conf)[0]; const bet=f.bets&&f.bets[0];
+    bull('\u26bd','FOUL PROP',(bet?bet.l:f.nm+' 1+ fouls')+' \u2014 '+f.conf+'% ('+f.htl+')'+(bet&&bet.o?' @ '+bet.o.join(' / '):''));
+  }
+  if(m.shots&&m.shots.length){
+    const s=m.shots.slice().sort((a,b)=>b.sotH-a.sotH)[0]; const bet=s.bets&&s.bets[0];
+    bull('\ud83c\udfaf','SOT PROP',(bet?bet.l:s.nm+' 1+ SOT')+' \u2014 SOT '+s.sotH+'% / shot '+s.sH+'%'+(bet&&bet.o?' @ '+bet.o.join(' / '):''));
+  }
+  const o=matchOver25(m);
+  if(o!=null){const d=o-b.over25Pct; const lean=d>=8?'lean OVER 2.5':d<=-8?'lean UNDER 2.5':'in line with baseline \u2014 no edge';
+    bull('\ud83e\udd45','GOALS','model Over 2.5 '+o+'% vs '+b.over25Pct+'% WC baseline \u2192 '+(d>=0?'+':'')+d+' edge \u00b7 '+lean+'.');
+  } else bull('\ud83e\udd45','GOALS','WC baseline \u2014 Over 2.5 '+b.over25Pct+'%, BTTS '+b.bttsPct+'%, '+b.goalsPerGame+' goals/g (last 3 WCs).');
+  const corner=(m.easy||[]).find(e=>/corner/i.test(e.c+' '+e.p)); if(corner) bull('\ud83d\udea9','CORNERS',corner.p+' @ '+corner.o+' \u2014 '+corner.cf+'%.');
+  const thr=(m.easy||[]).find(e=>/throw/i.test(e.c+' '+e.p)); if(thr) bull('\u21a9','THROW-INS',thr.p+' @ '+thr.o+' \u2014 '+thr.cf+'%.');
+  const sp=safeParlay(m);
+  if(sp&&sp.length>=2){const sm=parlayMetrics(sp);
+    bull('\ud83d\udfe2','SAFE PARLAY',sp.map(l=>l.p).join(' + ')+' \u2014 ~'+Math.round(sm.prob*100)+'% combined hit'+(sm.dec?', +'+sm.dec.toFixed(2)+'x':'')+'.');
+  }
+  bull('\u26a0','RISK', m.upsetNote || ((m.upset||'?')+'% upset risk.'));
+  R.push('<div style="font-size:9px;color:var(--dm);margin-top:7px;padding-top:6px;border-top:1px solid var(--b1)">Generated from this match\u2019s model data + openfootball baselines ('+OG_STATS.allTime.matches+' WC matches). Runs locally \u2014 no external API.</div>');
+  return R.join('');
+}
+function runAI(id){
+  const el=document.getElementById('aio_'+id); if(!el)return;
+  const m=findMatch(id);
   el.classList.add('on');
-  const ctx=DAYS['25']&&DAYS['25'].matches.find(m=>m.id===id)||DAYS['26']&&DAYS['26'].matches.find(m=>m.id===id)||DAYS['27']&&DAYS['27'].matches.find(m=>m.id===id);
-  const ai=ctx?ctx.ai:'WC 2026 match';
-  const b=OG_STATS.baseline;
-  const p='WC 2026 betting analyst. Real World Cup baselines (openfootball, '+OG_STATS.allTime.matches+' matches, '+b.basis+'): '+b.goalsPerGame+' goals/game, Over 2.5 lands '+b.over25Pct+'%, BTTS '+b.bttsPct+'%, group-stage draw '+b.drawPct+'%. Curated estimates (not in open data): 24.4 fouls/game, 10.6 corners/game, 46 throw-ins/game.\n\nContext: '+ai+'\n\nBullet format:\n\u2022 FOUL PROP: player, bet, confidence %, reason\n\u2022 SOT PROP: player, bet, confidence %, reason\n\u2022 CORNER BET: prop, confidence %\n\u2022 THROW-IN BET: prop, confidence %\n\u2022 LIVE TRIGGER: first 20 mins\n\u2022 RISK: biggest upset factor\n\nMax 150 words. No disclaimers.';
-  try{
-    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:400,messages:[{role:'user',content:p}]})});
-    const d=await r.json();
-    el.innerHTML=(d.content?.find(b=>b.type==='text')?.text||'Unable to generate.').replace(/\n/g,'<br>');
-  }catch(e){el.innerHTML='Analysis unavailable.';}
+  if(!m){el.innerHTML='No data for this match.';return;}
+  el.innerHTML='<div class="ld"><span></span><span></span><span></span></div> Crunching the numbers\u2026';
+  setTimeout(()=>{ el.innerHTML=localAnalysis(m); }, 280);
 }
 
 
