@@ -480,6 +480,68 @@ function baselineBlock(m){
     '</div>'+edge+'</div>';
 }
 
+/* ── Parlay logic: build "easy to hit" parlays from the highest-confidence legs ──
+   Each leg's hit probability comes from the curated model confidence (easy bets /
+   confidence bars); odds drive the payout. We grow a parlay from the safest legs
+   while the combined hit rate stays >=50%, so the headline slip is built to LAND,
+   and keep the curated combo as a clearly-marked higher-risk "value" option. */
+function amToDec(am){
+  const n=parseFloat(String(am).replace(/[^\-+0-9.]/g,''));
+  if(!isFinite(n)||n===0) return null;
+  return n>0 ? 1+n/100 : 1+100/Math.abs(n);
+}
+function amToProb(am){const d=amToDec(am);return d?1/d:null;}
+// Map a curated pick back to its model confidence; fall back to implied odds.
+function legProb(m,pick,odds){
+  const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  const np=norm(pick); if(!np) return amToProb(odds)||0.5;
+  const e=(m.easy||[]).find(x=>{const n=norm(x.p);return n&&(np.includes(n)||n.includes(np));});
+  if(e&&e.cf!=null) return e.cf/100;
+  const c=(m.cbars||[]).find(x=>{const n=norm(x.l);return n&&(np.includes(n)||n.includes(np));});
+  if(c&&c.p!=null) return c.p/100;
+  const ip=amToProb(odds); return ip!=null?ip:0.5;
+}
+function parlayMetrics(legs){
+  let prob=1, dec=1, ok=true;
+  legs.forEach(l=>{prob*=l.prob; const d=amToDec(l.o); if(d)dec*=d; else ok=false;});
+  return {prob, dec:ok?dec:null};
+}
+function gradeOf(prob){
+  return prob>=0.55?{lbl:'SAFE',col:'var(--ac)',bg:'rgba(45,200,160,.12)',bd:'rgba(45,200,160,.4)'}
+       : prob>=0.35?{lbl:'BALANCED',col:'var(--amb)',bg:'rgba(246,178,63,.12)',bd:'rgba(246,178,63,.4)'}
+       : {lbl:'RISKY',col:'var(--red)',bg:'rgba(239,109,109,.12)',bd:'rgba(239,109,109,.4)'};
+}
+// Greedy: take highest-confidence legs, grow while combined hit stays >=50%.
+function safeParlay(m){
+  const pool=(m.easy||[]).filter(e=>e.cf!=null && amToDec(e.o)!=null)
+    .map(e=>({p:e.p,o:e.o,prob:e.cf/100})).sort((a,b)=>b.prob-a.prob);
+  if(pool.length<2) return pool;
+  let legs=pool.slice(0,2), prob=legs[0].prob*legs[1].prob;
+  for(let i=2;i<pool.length && legs.length<4;i++){
+    const np=prob*pool[i].prob; if(np<0.60) break; // keep the safe slip genuinely safe
+    legs.push(pool[i]); prob=np;
+  }
+  return legs;
+}
+function parlayCard(title,sub,legs,metrics,g){
+  const hit=Math.round(metrics.prob*100);
+  const ret=metrics.dec? '+'+metrics.dec.toFixed(2)+'x · $10→$'+(metrics.dec*10).toFixed(0) : '—';
+  const copy=title.replace(/[^\x20-\x7e]/g,'').trim()+'\n'+legs.map((l,i)=>(i+1)+'. '+l.p+' @ '+l.o).join('\n')+'\nEst. hit ~'+hit+'% · return '+ret;
+  const legsHtml=legs.map((l,i)=>'<div class="pl-leg copyable" data-copy="'+esc(l.p+' @ '+l.o)+'" onclick="copyBet(event,this)"><span class="pl-n">'+(i+1)+'</span><span class="pl-pk">'+l.p+'</span><span class="pl-od">'+l.o+'</span><span class="copy-ico">⧉</span></div>').join('');
+  return '<div class="parlay">'+
+    '<div class="pl-hd" style="display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">'+
+      '<span>'+title+'</span>'+
+      '<span style="display:flex;gap:5px;align-items:center">'+
+        '<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.03em;background:'+g.bg+';border:1px solid '+g.bd+';color:'+g.col+'">'+g.lbl+' '+hit+'% hit</span>'+
+        '<span class="copyable" data-copy="'+esc(copy)+'" onclick="copyBet(event,this)" title="Copy parlay" style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(45,200,160,.12);border:1px solid rgba(45,200,160,.35);color:var(--ac)">⧉</span>'+
+      '</span>'+
+    '</div>'+
+    (sub?'<div style="font-size:9px;color:var(--mu);margin:-2px 0 7px;letter-spacing:0;text-transform:none;font-weight:400">'+sub+'</div>':'')+
+    legsHtml+
+    '<div class="pl-ret">Est. combined hit <span style="color:'+g.col+'">~'+hit+'%</span> · return <span>'+ret+'</span></div>'+
+  '</div>';
+}
+
 function buildNav(){
   const nav=document.getElementById('dateNav');
   nav.innerHTML=DATES.map(d=>`
@@ -623,14 +685,22 @@ function buildEasy(m){
 }
 
 function buildParlay(m){
-  const legs=m.parlay.map((p,i)=>'<div class="pl-leg copyable" data-copy="'+esc(p.p+' @ '+p.o)+'" onclick="copyBet(event,this)"><span class="pl-n">'+(i+1)+'</span><span class="pl-pk">'+p.p+'</span><span class="pl-od">'+p.o+'</span><span class="copy-ico">\u29c9</span></div>').join('');
-  const fullParlay=m.parlay.map((p,i)=>(i+1)+'. '+p.p+' @ '+p.o).join('\n')+'\nEst. return: '+m.pret;
+  // 1) SAFE parlay \u2014 built to hit from the highest-confidence legs.
+  const safe=safeParlay(m);
+  let safeHtml='';
+  if(safe&&safe.length>=2){
+    const sm=parlayMetrics(safe);
+    safeHtml=parlayCard('\ud83d\udfe2 Safe parlay \u2014 built to hit','Highest-confidence legs only \xb7 lower payout, higher strike rate',safe,sm,gradeOf(sm.prob));
+  }
+  // 2) VALUE parlay \u2014 the curated combo, now with computed hit% + risk grade.
+  const vlegs=m.parlay.map(p=>({p:p.p,o:p.o,prob:legProb(m,p.p,p.o)}));
+  const vm=parlayMetrics(vlegs);
+  const valueHtml=parlayCard('\u26a1 Value parlay \u2014 higher risk / reward','Curated combo \xb7 bigger payout, lower strike rate \xb7 book est. '+m.pret,vlegs,vm,gradeOf(vm.prob));
   return '<div class="pred-grid">'+
     '<div>'+
-      '<div class="parlay"><div class="pl-hd" style="display:flex;align-items:center;justify-content:space-between;gap:8px">\u26a1 Parlay builder'+
-        '<span class="copyable" data-copy="'+esc(fullParlay)+'" onclick="copyBet(event,this)" style="font-size:9px;font-weight:700;padding:3px 8px;border-radius:5px;background:rgba(45,200,160,.12);border:1px solid rgba(45,200,160,.35);color:var(--ac);letter-spacing:.04em">Copy all \u29c9</span>'+
-      '</div>'+legs+
-      '<div class="pl-ret">Est. return: <span>'+m.pret+'</span></div></div>'+
+      safeHtml+
+      valueHtml+
+      '<div style="font-size:9px;color:var(--dm);line-height:1.5;margin-bottom:6px">Combined hit % multiplies each leg\u2019s model confidence (assumes legs are independent \u2014 correlated legs like win + over may vary). Higher hit % = safer, lower payout.</div>'+
       (m.upset?'<div class="upset-box">\u26a0 '+m.upset+'</div>':'')+
       (m.ref?'<div class="ref-box">'+m.ref+'</div>':'')+
     '</div>'+
