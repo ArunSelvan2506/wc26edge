@@ -1,173 +1,135 @@
-// ─── WC26 EDGE · App.jsx ──────────────────────────────────────
-// Vite + React entry point.
-// Run:  npm create vite@latest . --template react
-//       npm install && npm run dev
-// ─────────────────────────────────────────────────────────────
-import { useState } from 'react';
-import { DATES, DAYS, TICKER } from './data';
-import MatchCard from './MatchCard';
-import { C } from './components';
+import { useEffect, useMemo, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { DATES, DAYS, WC_TABLE, OG_STATS } from './data.js';
+import { fitFromTable } from './lib/model.js';
+import { OddsToggle, Toast } from './components/Bits.jsx';
+import MatchCard from './components/MatchCard.jsx';
+import Standings from './components/Standings.jsx';
 
-// ── Global CSS (injected once) ────────────────────────────────
-const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: ${C.bg}; color: ${C.tx}; font-family: 'Inter', sans-serif; font-size: 13px; min-height: 100vh; }
-  ::-webkit-scrollbar { width: 4px; height: 4px; }
-  ::-webkit-scrollbar-track { background: ${C.bg}; }
-  ::-webkit-scrollbar-thumb { background: ${C.b1}; border-radius: 2px; }
-  @keyframes pulse { 0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,200,150,.5)} 70%{opacity:.7;box-shadow:0 0 0 8px rgba(0,200,150,0)} }
-  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.4} }
-`;
+const VIEWS = [
+  { id: 'matches', label: 'Matches' },
+  { id: 'standings', label: 'Standings' },
+  { id: 'about', label: 'About' },
+];
 
-// ── TopBar ────────────────────────────────────────────────────
-function TopBar({ liveCount }) {
-  return (
-    <div style={{
-      background: C.s1, borderBottom: `1px solid ${C.b1}`,
-      padding: '0 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      height: 52, position: 'sticky', top: 0, zIndex: 300, gap: 12,
-    }}>
-      <div style={{ fontSize: 16, fontWeight: 800, letterSpacing: '.12em', color: C.ac, display: 'flex', alignItems: 'center', gap: 8, whiteSpace: 'nowrap' }}>
-        <div style={{ width: 8, height: 8, borderRadius: '50%', background: C.ac, animation: 'pulse 2s infinite' }} />
-        WC26 EDGE
-      </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
-        {[
-          { label: 'Goals/g 3.14',   c: C.ac },
-          { label: 'Fouls/g 24.4',   c: C.ac },
-          { label: 'Corners/g 10.6', c: C.ac },
-          { label: 'Upsets 46%',     c: C.amb },
-          { label: 'Foul props 91%', c: C.red },
-        ].map(({ label, c }, i) => (
-          <span key={i} style={{
-            fontSize: 10, fontWeight: 600, fontFamily: 'JetBrains Mono, monospace',
-            padding: '3px 9px', borderRadius: 4, border: '1px solid', whiteSpace: 'nowrap',
-            background: `${c}10`, borderColor: `${c}40`, color: c,
-          }}>{label}</span>
-        ))}
-        {liveCount > 0 && (
-          <span style={{
-            fontSize: 10, fontWeight: 600, fontFamily: 'JetBrains Mono, monospace',
-            padding: '3px 9px', borderRadius: 4, border: '1px solid', whiteSpace: 'nowrap',
-            background: `${C.red}10`, borderColor: `${C.red}40`, color: C.red,
-            animation: 'blink 1.4s infinite',
-          }}>● {liveCount} LIVE</span>
-        )}
-      </div>
-    </div>
-  );
-}
-
-// ── DateNav ───────────────────────────────────────────────────
-function DateNav({ active, onSelect }) {
-  return (
-    <nav style={{
-      background: C.s1, borderBottom: `2px solid ${C.b1}`,
-      padding: '0 12px', display: 'flex', alignItems: 'stretch', gap: 2,
-      overflowX: 'auto', position: 'sticky', top: 52, zIndex: 200,
-      scrollbarWidth: 'none',
-    }}>
-      {DATES.map(date => (
-        <button
-          key={date.k}
-          onClick={() => onSelect(date.k)}
-          style={{
-            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-            minWidth: 64, padding: '8px 12px', cursor: 'pointer', border: 'none', background: 'none',
-            fontFamily: 'Inter, sans-serif', flexShrink: 0, gap: 1, position: 'relative',
-            borderBottom: `3px solid ${active === date.k ? C.ac : 'transparent'}`,
-          }}
-        >
-          {date.hot && (
-            <span style={{ position: 'absolute', top: 6, right: 8, width: 5, height: 5, borderRadius: '50%', background: C.ac3 }} />
-          )}
-          <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: active === date.k ? C.ac : C.mu }}>
-            {date.d}
-          </span>
-          <span style={{ fontSize: 19, fontWeight: 800, color: active === date.k ? C.ac : C.dm }}>
-            {date.n}
-          </span>
-          <span style={{ fontSize: 9, fontFamily: 'JetBrains Mono, monospace', color: active === date.k ? C.ac : C.dm }}>
-            {date.r32 ? 'R32 begins' : date.today ? `TODAY · ${date.c}` : `${date.c} matches`}
-          </span>
-        </button>
-      ))}
-    </nav>
-  );
-}
-
-// ── Ticker ────────────────────────────────────────────────────
-function Ticker() {
-  return (
-    <div style={{
-      background: C.s1, borderBottom: `1px solid ${C.b1}`,
-      padding: '6px 16px', display: 'flex', alignItems: 'center', gap: 14,
-      overflowX: 'auto', scrollbarWidth: 'none',
-    }}>
-      {TICKER.map(({ label, value, color }, i) => (
-        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, whiteSpace: 'nowrap', flexShrink: 0 }}>
-          <span style={{ fontSize: 9, fontWeight: 600, letterSpacing: '.07em', textTransform: 'uppercase', color: C.mu }}>
-            {label}
-          </span>
-          <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 12, fontWeight: 600, color }}>
-            {value}
-          </span>
-          {i < TICKER.length - 1 && (
-            <div style={{ width: 1, height: 18, background: C.b1, marginLeft: 8 }} />
-          )}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// ── App ───────────────────────────────────────────────────────
 export default function App() {
-  const [activeDay, setActiveDay] = useState('24');
+  const firstKey = (DATES.find(d => DAYS[d.key]) || DATES[0]).key;
+  const [view, setView] = useState('matches');
+  const [dayKey, setDayKey] = useState(firstKey);
+  const [fmt, setFmt] = useState(() => {
+    try { return localStorage.getItem('wc_oddsfmt') || 'frac'; } catch { return 'frac'; }
+  });
+  const rat = useMemo(() => fitFromTable(WC_TABLE), []);
 
-  const day = DAYS[activeDay];
-  const liveCount = Object.values(DAYS).flatMap(d => d.matches).filter(m => m.live).length;
+  const changeFmt = f => { setFmt(f); try { localStorage.setItem('wc_oddsfmt', f); } catch { /* ignore */ } };
+
+  useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      addEventListener('load', () => navigator.serviceWorker.register(import.meta.env.BASE_URL + 'sw.js').catch(() => {}));
+    }
+  }, []);
 
   return (
     <>
-      <style>{GLOBAL_CSS}</style>
+      <div className="backdrop" />
+      <div className="backdrop-glow" />
 
-      <TopBar liveCount={liveCount} />
-      <DateNav active={activeDay} onSelect={setActiveDay} />
-      <Ticker />
+      <header className="topbar">
+        <div className="logo">
+          <Trophy />
+          <span className="logo-dot" />
+          WC26 EDGE
+        </div>
+        <div className="topbar-actions">
+          <OddsToggle fmt={fmt} onChange={changeFmt} />
+          <nav style={{ display: 'flex', gap: 5 }}>
+            {VIEWS.map(v => (
+              <button key={v.id} className={'nav-btn' + (view === v.id ? ' active' : '')} onClick={() => setView(v.id)}>{v.label}</button>
+            ))}
+          </nav>
+        </div>
+      </header>
 
-      <main style={{ maxWidth: 980, margin: '0 auto', padding: 16 }}>
-        {day ? (
-          <>
-            <div style={{ marginBottom: 14 }}>
-              <div style={{ fontSize: 19, fontWeight: 700, color: C.tx }}>{day.title}</div>
-              <div style={{ fontSize: 11, color: C.mu, marginTop: 3, fontFamily: 'JetBrains Mono, monospace' }}>
-                {day.sub}
-              </div>
-              <div style={{ fontSize: 10, color: C.mu, marginTop: 6, fontFamily: 'JetBrains Mono, monospace', display: 'flex', alignItems: 'center', gap: 5 }}>
-                ⧉ <b style={{ color: C.ac, fontWeight: 700 }}>Tip:</b> open a match and tap any pick or odds to copy it
-              </div>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
-              {day.matches.map(m => <MatchCard key={m.id} match={m} />)}
-            </div>
-          </>
-        ) : (
-          <div style={{ textAlign: 'center', padding: '60px 20px', color: C.mu }}>
-            <div style={{ fontSize: 36, opacity: .3, marginBottom: 12 }}>📅</div>
-            <p>Predictions loading for this date — check back soon</p>
-          </div>
-        )}
+      {view === 'matches' && (
+        <nav className="date-nav">
+          {DATES.map(d => (
+            <button key={d.key} className={'dn-btn' + (d.key === dayKey ? ' active' : '')} onClick={() => setDayKey(d.key)}>
+              {d.hot && <span className="hot-dot" />}
+              <span className="dn-day">{d.day}</span>
+              <span className="dn-num">{d.num}</span>
+              <span className="dn-cnt">{d.r32 ? 'R32' : d.cnt + ' gm'}</span>
+            </button>
+          ))}
+        </nav>
+      )}
+
+      <main className="page">
+        <AnimatePresence mode="wait">
+          <motion.div key={view}
+            initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
+            {view === 'matches' && <MatchesView dayKey={dayKey} fmt={fmt} rat={rat} />}
+            {view === 'standings' && <Standings />}
+            {view === 'about' && <About />}
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="disc">
+          WC26 EDGE · a private prediction hub for entertainment. Odds are estimates/illustrative; 2026 results use the openfootball seed dataset and are not official. Model outputs are calibrated estimates, not guarantees. Bet responsibly.
+        </div>
       </main>
 
-      <footer style={{
-        fontSize: 9, color: C.dm, textAlign: 'center',
-        padding: '14px 16px', borderTop: `1px solid ${C.b1}`, marginTop: 16, lineHeight: 1.6,
-      }}>
-        WC26 EDGE · React Edition · 18+ Gamble responsibly · Odds are estimates — always verify before placing ·{' '}
-        <a href="https://www.begambleaware.org" style={{ color: C.ac2 }}>BeGambleAware.org</a>
-      </footer>
+      <Toast />
     </>
+  );
+}
+
+function MatchesView({ dayKey, fmt, rat }) {
+  const day = DAYS[dayKey];
+  if (!day) {
+    const d = DATES.find(x => x.key === dayKey);
+    return (
+      <div className="no-matches">
+        <div style={{ fontFamily: 'var(--disp)', fontSize: 20, color: 'var(--mu)' }}>{d?.r32 ? 'Round of 32' : 'Fixtures'}</div>
+        <p style={{ marginTop: 8 }}>Fixtures are set once the group stage completes.</p>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <h1 className="day-title">{day.title}</h1>
+      <div className="day-sub">{day.sub}</div>
+      <div className="matches">
+        {day.matches.map((m, i) => <MatchCard key={m.id} m={m} fmt={fmt} rat={rat} index={i} />)}
+      </div>
+    </div>
+  );
+}
+
+function About() {
+  const b = OG_STATS.baseline;
+  return (
+    <div className="about">
+      <h3>What this is</h3>
+      <p><b>WC26 EDGE</b> is a private World Cup 2026 prediction hub — match results, player foul &amp; shot props, easy bets, value parlays, and a probability model, all in one place. Built mobile-first as an installable web app.</p>
+      <h3>The model</h3>
+      <p>The 📊 Model tab runs an <b>opponent-adjusted Poisson / Dixon-Coles</b> engine: it fits attack/defense strengths from tournament results, regularised toward the historical World Cup baseline (<code>{b.goalsPerGame} goals/game</code>), then derives 1X2 / Over 2.5 / BTTS probabilities. It de-vigs the market to a fair price and flags <b>value</b> with expected-value and quarter-Kelly staking.</p>
+      <p>A leave-one-out backtest (Brier / log-loss / reliability) keeps it honest: on the current seed data it beats base rates on BTTS and is roughly baseline on 1X2 / Over — so goals-market “value” is shown with caution. Real edge needs deeper match history, which live data unlocks.</p>
+      <h3>Data</h3>
+      <p>Historical baselines and 2026 group standings come from the <b>openfootball</b> dataset (CC0). The 2026 scores are <b>seed/placeholder</b> data — illustrative, not official results. Player props are hand-curated to current World Cup starters; live per-player form can be wired via an API-Football proxy.</p>
+      <h3>Using it</h3>
+      <p>Tap any pick or odds to copy it. Switch odds between fractional, decimal and American up top. Install to your home screen for a full-screen app. <b>For entertainment only — bet responsibly.</b></p>
+    </div>
+  );
+}
+
+function Trophy() {
+  return (
+    <svg className="logo-mark" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M6 4h12v3c0 4-3 6-6 6S6 11 6 7V4Z" fill="#2dc8a0" fillOpacity="0.85" />
+      <path d="M6 5C3.5 5.3 3.5 9 7 10M18 5c2.5.3 2.5 4-1 5" stroke="#2dc8a0" strokeWidth="1.3" fill="none" strokeLinecap="round" />
+      <path d="M10.5 13h3l-.4 4h-2.2l-.4-4Z" fill="#2dc8a0" fillOpacity="0.85" />
+      <rect x="8" y="18" width="8" height="2" rx="0.6" fill="#2dc8a0" />
+    </svg>
   );
 }

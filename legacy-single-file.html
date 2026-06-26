@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- Build: 2026-06-26b WC-starter foul props + odds toggle + rebuild -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<title>WC26 EDGE · Prediction Hub</title>
+<!-- Installable app (Add to Home Screen) -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WC26 EDGE">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link rel="icon" type="image/png" href="icon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000000;--s1:#0e1117;--s2:#141922;--s3:#1c232e;--b1:#2a333f;--b2:#374251;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--disp:'Oswald','Inter',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh}
+/* World Cup 2026 backdrop — original gold trophy illustration + wordmark, fixed & faint */
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f7df8c'/%3E%3Cstop offset='0.5' stop-color='%23cda53e'/%3E%3Cstop offset='1' stop-color='%238a6a1f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23g)' fill-opacity='0.26' stroke='%23f4d27a' stroke-opacity='0.22' stroke-width='1.3' stroke-linejoin='round'%3E%3Cpath d='M72 70 L228 70 C223 152 178 188 150 188 C122 188 77 152 72 70 Z'/%3E%3Cpath d='M74 80 C33 86 33 138 82 151 C61 139 58 99 88 95 Z'/%3E%3Cpath d='M226 80 C267 86 267 138 218 151 C239 139 242 99 212 95 Z'/%3E%3Cpath d='M138 188 L162 188 L158 250 L142 250 Z'/%3E%3Cpath d='M116 250 L184 250 L190 268 L110 268 Z'/%3E%3Cpath d='M102 270 L198 270 L206 293 L94 293 Z'/%3E%3Crect x='92' y='293' width='116' height='11' rx='2'/%3E%3C/g%3E%3Cpath d='M96 78 C92 120 108 150 120 168' fill='none' stroke='%23fff3c4' stroke-opacity='0.18' stroke-width='3' stroke-linecap='round'/%3E%3Ctext x='150' y='346' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='15' letter-spacing='6' fill='%23f4d27a' fill-opacity='0.24'%3EWORLD CUP%3C/text%3E%3Ctext x='150' y='384' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='32' letter-spacing='3' fill='%23f4d27a' fill-opacity='0.22'%3E2026%3C/text%3E%3C/svg%3E"),
+    repeating-conic-gradient(from 0deg at 50% 28%, rgba(247,212,122,.05) 0deg 2deg, transparent 2deg 8deg),
+    radial-gradient(50% 40% at 50% 28%, rgba(247,212,122,.16), rgba(247,212,122,.03) 45%, transparent 64%);
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-position:center 30%,center 28%,center 28%;
+  background-size:min(360px,74vw) auto,cover,cover;}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
+@keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(45,200,160,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(45,200,160,0)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes bk{0%,80%,100%{opacity:.2}40%{opacity:1}}
+.topbar{background:var(--s1);border-bottom:1px solid var(--b1);padding:env(safe-area-inset-top,0px) 16px 0;display:flex;align-items:center;justify-content:space-between;height:calc(52px + env(safe-area-inset-top,0px));position:sticky;top:0;z-index:300;gap:10px}
+.logo{font-family:var(--disp);font-size:17px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
+.topbar{gap:8px}
+@media(max-width:460px){
+  .logo{font-size:13px;letter-spacing:.03em}
+  .of-lbl{display:none}
+  .nav-fixtures-btn{padding:4px 10px;margin-left:0}
+  .of-btn{padding:4px 8px}
+  .topbar{padding:0 12px}
+}
+.logo-dot{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pp 2s infinite}
+.topbar-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.date-nav{background:var(--s1);border-bottom:2px solid var(--b1);padding:0 10px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none;position:sticky;top:calc(52px + env(safe-area-inset-top,0px));z-index:200}
+.date-nav::-webkit-scrollbar{display:none}
+.dn-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:62px;padding:7px 10px;cursor:pointer;border:none;background:none;font-family:var(--sans);flex-shrink:0;gap:1px;position:relative;border-bottom:3px solid transparent;transition:all .13s}
+.dn-day{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+.dn-num{font-family:var(--disp);font-size:21px;font-weight:700;color:var(--dm)}
+.dn-cnt{font-size:9px;font-family:var(--mono);color:var(--dm)}
+.dn-btn.active{border-bottom-color:var(--ac)}
+.dn-btn.active .dn-num,.dn-btn.active .dn-day,.dn-btn.active .dn-cnt{color:var(--ac)}
+.hot-dot{position:absolute;top:6px;right:8px;width:5px;height:5px;border-radius:50%;background:var(--ac3)}
+
+
+
+
+
+.page{max-width:980px;margin:0 auto;padding:16px}
+.day-title{font-family:var(--disp);font-size:23px;font-weight:700;letter-spacing:.01em;color:var(--tx);margin-bottom:2px}
+.day-sub{font-size:11px;color:var(--mu);margin-top:3px;font-family:var(--mono);margin-bottom:14px}
+.matches{display:flex;flex-direction:column;gap:12px}
+/* MATCH CARD */
+.mc{background:var(--s1);border:1px solid var(--b1);border-radius:12px;overflow:hidden;cursor:pointer;transition:border-color .15s}
+.mc:hover{border-color:var(--b1)}
+.mc.open{border-color:rgba(45,200,160,.5)}
+.mc-head{padding:14px 16px}
+.mc-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:9px;flex-wrap:wrap}
+.mc-teams{font-family:var(--disp);font-size:16px;font-weight:600;color:var(--tx);letter-spacing:.01em}
+.mc-meta{font-size:10.5px;font-family:var(--mono);color:var(--mu);margin-top:4px;line-height:1.4}
+.mc-r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.badge{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
+.b-top{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac)}
+.b-upset{background:rgba(251,140,67,.1);border:1px solid rgba(251,140,67,.3);color:var(--ac3)}
+.b-info{background:rgba(91,150,239,.1);border:1px solid rgba(91,150,239,.25);color:var(--ac2)}
+.odds-row{display:flex;gap:4px}
+.odd{background:var(--s3);border-radius:7px;padding:7px 10px;text-align:center;min-width:58px}
+.odd-l{font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu)}
+.odd-v{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--tx);margin-top:1px}
+.odd-v.hi{color:var(--ac)}
+.conf-pill{font-family:var(--mono);font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;border:1px solid}
+.cp-hi{background:rgba(45,200,160,.1);border-color:rgba(45,200,160,.35);color:var(--ac)}
+.cp-md{background:rgba(246,178,63,.1);border-color:rgba(246,178,63,.35);color:var(--amb)}
+.cp-lo{background:rgba(239,109,109,.1);border-color:rgba(239,109,109,.35);color:var(--red)}
+.up-pill{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px;background:rgba(251,140,67,.08);border:1px solid rgba(251,140,67,.25);color:var(--ac3)}
+.tog{font-size:13px;color:var(--mu);margin-left:auto;flex-shrink:0;transition:transform .2s}
+.mc.open .tog{transform:rotate(180deg)}
+.mc-body{display:none;border-top:1px solid var(--b1);padding:10px 15px 15px}
+.mc.open .mc-body{display:block}
+/* TABS */
+.tabs{display:flex;gap:4px;margin-bottom:14px;border-bottom:1px solid var(--b1);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab-btn{font-size:13px;font-weight:600;letter-spacing:.02em;padding:8px 13px;border:none;background:none;font-family:var(--disp);cursor:pointer;white-space:nowrap;flex-shrink:0;border-bottom:2px solid transparent;color:var(--mu);margin-bottom:-1px;transition:color .1s}
+.tab-btn.active{border-bottom-color:var(--ac);color:var(--ac)}
+.tab-pane{display:none}.tab-pane.active{display:block}
+/* RESULT */
+.pred-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.psec{background:var(--s3);border:1px solid var(--b1);border-radius:9px;padding:11px}
+.psec-t{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
+.rboxes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:7px}
+.rbox{background:var(--s1);border:1px solid var(--b1);border-radius:7px;padding:7px 4px;text-align:center}
+.rbox.win{border-color:rgba(45,200,160,.45);background:rgba(45,200,160,.05)}
+.rb-t{font-size:9px;font-weight:600;color:var(--tx);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rb-o{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ac);margin:3px 0}
+.rb-p{font-size:9px;color:var(--mu)}
+.win-lbl{font-size:10px;font-weight:600;color:var(--ac);text-align:center;padding:4px;background:rgba(45,200,160,.06);border-radius:5px;border:1px solid rgba(45,200,160,.2);margin-bottom:8px}
+.cbar{margin-bottom:5px}
+.cb-hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:2px}
+.cb-lb{font-size:10px;color:var(--mu)}
+.cb-pc{font-family:var(--mono);font-size:10px;font-weight:700}
+.cb-tr{height:6px;background:var(--s1);border-radius:3px;overflow:hidden;border:1px solid var(--b1)}
+.cb-fi{height:100%;border-radius:3px;transition:width .5s}
+.f-hi{background:linear-gradient(90deg,#2dc8a050,#2dc8a0)}
+.f-md{background:linear-gradient(90deg,#f6b23f50,#f6b23f)}
+.f-lo{background:linear-gradient(90deg,#ef6d6d50,#ef6d6d)}
+.f-bl{background:linear-gradient(90deg,#5b96ef50,#5b96ef)}
+.f-pu{background:linear-gradient(90deg,#b079ef50,#b079ef)}
+/* PLAYER CARDS */
+.fpl{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:10px;margin-bottom:7px}
+.fpl.hot{border-color:rgba(45,200,160,.35)}
+.fp-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:7px;gap:5px;flex-wrap:wrap}
+.fp-nm{font-size:12px;font-weight:700;color:var(--tx)}
+.fp-cl{font-size:9px;color:var(--mu);margin-top:1px}
+.htag{font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.h100{background:rgba(60,203,115,.1);border:1px solid rgba(60,203,115,.3);color:var(--grn)}
+.h90{background:rgba(60,203,115,.07);border:1px solid rgba(60,203,115,.2);color:var(--grn)}
+.h80{background:rgba(246,178,63,.1);border:1px solid rgba(246,178,63,.3);color:var(--amb)}
+.fp-sts{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:7px}
+.fst{background:var(--bg);border-radius:5px;padding:4px 6px;border:1px solid var(--b1)}
+.fst-l{font-size:8px;color:var(--mu);text-transform:uppercase;letter-spacing:.03em}
+.fst-v{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--tx)}
+.dots{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:5px}
+.dot{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:700;flex-shrink:0}
+.dy{background:rgba(60,203,115,.2);border:1px solid rgba(60,203,115,.45);color:var(--grn)}
+.dn-d{background:rgba(239,109,109,.2);border:1px solid rgba(239,109,109,.45);color:var(--red)}
+.db{background:rgba(91,150,239,.2);border:1px solid rgba(91,150,239,.45);color:#60a5fa}
+.dp{background:rgba(176,121,239,.2);border:1px solid rgba(176,121,239,.45);color:#c084fc}
+.bet-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg);border-radius:7px;padding:8px 11px;margin-bottom:6px;border:1px solid var(--b1);flex-wrap:wrap;gap:6px}
+.br-l{font-size:11px;font-weight:600;color:var(--tx)}
+.br-os{display:flex;gap:3px;flex-wrap:wrap}
+.br-o{font-family:var(--mono);font-size:9px;padding:2px 5px;border-radius:4px;border:1px solid var(--b1);background:var(--s2);color:var(--tx)}
+.fp-note{font-size:10px;color:var(--mu);line-height:1.6;margin-top:6px;padding-top:5px;border-top:1px solid var(--b1)}
+/* EASY BETS */
+.ebet{background:var(--s1);border:1px solid var(--b1);border-radius:8px;padding:10px 12px;margin-bottom:7px;display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.ebet.star{border-color:rgba(45,200,160,.3);background:rgba(45,200,160,.04)}
+.eb-l{flex:1;min-width:0}
+.eb-cat{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin-bottom:2px}
+.eb-pick{font-size:12px;font-weight:600;color:var(--tx);line-height:1.4}
+.eb-odds{font-family:var(--mono);font-size:10px;color:var(--mu);margin-top:1px}
+.eb-cf{font-family:var(--mono);font-size:10px;font-weight:700;padding:2px 6px;border-radius:3px}
+.ec-hi{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac)}
+.ec-md{background:rgba(246,178,63,.1);border:1px solid rgba(246,178,63,.3);color:var(--amb)}
+/* PARLAY */
+.parlay{background:rgba(45,200,160,.05);border:1px solid rgba(45,200,160,.2);border-radius:9px;padding:11px 13px;margin-bottom:8px}
+.pl-hd{font-size:10px;font-weight:700;color:var(--ac);letter-spacing:.07em;text-transform:uppercase;margin-bottom:7px}
+.pl-leg{display:flex;align-items:center;gap:8px;padding:8px 2px;border-bottom:1px solid rgba(45,200,160,.08);font-size:11px;color:var(--mu)}
+.pl-n{width:15px;height:15px;border-radius:50%;background:rgba(45,200,160,.15);color:var(--ac);font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pl-pk{color:var(--tx);font-weight:600}
+.pl-od{font-family:var(--mono);font-size:9px;color:var(--mu);margin-left:auto;white-space:nowrap}
+.pl-ret{font-size:10px;color:var(--mu);border-top:1px solid rgba(45,200,160,.12);padding-top:4px;margin-top:4px}
+.pl-ret span{color:var(--ac);font-family:var(--mono);font-weight:700}
+.upset-box{background:rgba(251,140,67,.06);border:1px solid rgba(251,140,67,.2);border-radius:7px;padding:7px 10px;font-size:10px;color:#fb923c;line-height:1.6;margin-bottom:6px}
+.ref-box{background:rgba(91,150,239,.06);border:1px solid rgba(91,150,239,.15);border-radius:7px;padding:7px 10px;font-size:10px;color:#60a5fa;line-height:1.5;margin-bottom:6px}
+.no-matches{text-align:center;padding:60px 20px;color:var(--mu)}
+.disc{font-size:9px;color:var(--dm);text-align:center;padding:14px;border-top:1px solid var(--b1);margin-top:16px;line-height:1.6}
+@media(max-width:640px){.pred-grid{grid-template-columns:1fr}.odds-row{gap:3px}.odd{min-width:48px;padding:4px 6px}}
+
+/* FIXTURES TAB */
+.nav-fixtures-btn{font-size:11px;font-weight:700;padding:4px 14px;border-radius:5px;border:1px solid rgba(45,200,160,.4);background:rgba(45,200,160,.08);color:var(--ac);cursor:pointer;font-family:var(--sans);white-space:nowrap;transition:all .12s;margin-left:8px}
+.nav-fixtures-btn:hover{background:rgba(45,200,160,.18)}
+.nav-fixtures-btn.active{background:rgba(45,200,160,.2);border-color:var(--ac)}
+#fixturesOverlay,#standingsOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);z-index:500;overflow-y:auto}
+#fixturesOverlay.open,#standingsOverlay.open{display:block}
+.fix-panel{max-width:860px;margin:0 auto;padding:16px;padding-top:env(safe-area-inset-top,0px)}
+.fix-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;position:sticky;top:0;background:rgba(0,0,0,.97);padding:12px 0;border-bottom:1px solid var(--b1);z-index:10}
+/* Standings table */
+.stbl{width:100%;border-collapse:collapse;margin-bottom:8px}
+.stbl th{font-family:var(--disp);font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);text-align:center;padding:5px 4px;border-bottom:1px solid var(--b1)}
+.stbl th.tm,.stbl td.tm{text-align:left}
+.stbl td{font-family:var(--mono);font-size:12px;color:var(--tx);text-align:center;padding:7px 4px;border-bottom:1px solid var(--b1)}
+.stbl td.tm{font-family:var(--sans);font-weight:600}
+.stbl td.pts{color:var(--ac);font-weight:700}
+.stbl tr.q td{background:rgba(45,200,160,.06)}
+.stbl .pos{color:var(--mu)}
+.st-res{font-size:10px;color:var(--mu);font-family:var(--mono);line-height:1.7;margin:2px 0 4px}
+.st-res b{color:var(--tx)}
+.fix-title{font-family:var(--disp);font-size:19px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:8px}
+.fix-close{font-size:22px;color:var(--mu);cursor:pointer;background:none;border:none;font-family:var(--sans);line-height:1;padding:4px 8px}
+.fix-close:hover{color:var(--tx)}
+.fix-day{margin-bottom:18px}
+.fix-day-hdr{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mu);padding:6px 10px;background:var(--s1);border-radius:6px;margin-bottom:8px;border-left:3px solid var(--ac)}
+.fix-row{display:grid;grid-template-columns:90px 1fr 1fr 1fr;align-items:center;gap:8px;padding:8px 10px;background:var(--s1);border:1px solid var(--b1);border-radius:8px;margin-bottom:5px;cursor:pointer;transition:border-color .12s}
+.fix-row:hover{border-color:rgba(45,200,160,.4)}
+.fix-row.done{opacity:.5}
+.fix-time{font-family:var(--mono);font-size:11px;font-weight:600}
+.fix-ist{font-size:9px;color:var(--mu);margin-top:1px}
+.fix-teams{font-size:12px;font-weight:600;color:var(--tx)}
+.fix-grp{font-size:9px;color:var(--mu);margin-top:1px}
+.fix-venue{font-size:10px;color:var(--mu)}
+.fix-result{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ac);text-align:right}
+.fix-result.done{color:var(--mu)}
+.fix-live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--red);margin-right:4px;animation:blink 1.4s infinite}
+.fix-stage{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.fs-gs{background:rgba(91,150,239,.1);border:1px solid rgba(91,150,239,.25);color:var(--ac2)}
+.fs-r32{background:rgba(251,140,67,.1);border:1px solid rgba(251,140,67,.25);color:var(--ac3)}
+.fs-r16{background:rgba(176,121,239,.1);border:1px solid rgba(176,121,239,.25);color:var(--pur)}
+.fs-qf{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.25);color:var(--ac)}
+@media(max-width:600px){.fix-row{grid-template-columns:75px 1fr;}.fix-venue,.fix-result{display:none}}
+
+/* CLICKABLE ACTIONS — tap any pick/odds to copy */
+.copyable{cursor:pointer;position:relative;-webkit-tap-highlight-color:transparent;transition:transform .08s ease,filter .12s ease,border-color .12s ease}
+.copyable:hover{filter:brightness(1.08);border-color:var(--ac)}
+.copyable:active{transform:scale(.975);filter:brightness(1.2)}
+.copy-ico{font-size:11px;color:var(--mu);opacity:.55;margin-left:6px;flex-shrink:0;transition:opacity .12s,color .12s}
+.copyable:hover .copy-ico{opacity:1;color:var(--ac)}
+.copy-hint{font-size:10px;color:var(--mu);font-family:var(--mono);margin:2px 0 14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.copy-hint b{color:var(--ac);font-weight:700}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(24px);background:var(--s3);border:1px solid var(--ac);color:var(--tx);font-size:12px;font-weight:600;padding:9px 16px;border-radius:9px;box-shadow:0 8px 28px rgba(0,0,0,.55);z-index:600;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;max-width:90vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ODDS FORMAT TOGGLE */
+.odds-toggle{display:inline-flex;align-items:center;border:1px solid var(--b1);border-radius:6px;overflow:hidden;margin-left:8px}
+.of-lbl{font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);padding:0 7px 0 8px;white-space:nowrap}
+.of-btn{font-family:var(--sans);font-size:10px;font-weight:700;padding:4px 9px;background:none;border:none;border-left:1px solid var(--b1);color:var(--mu);cursor:pointer;transition:background .1s,color .1s}
+.of-btn:hover{color:var(--tx)}
+.of-btn.active{background:rgba(45,200,160,.16);color:var(--ac)}
+
+/* LOGO MARK */
+.logo-mark{flex-shrink:0;filter:drop-shadow(0 0 5px rgba(45,200,160,.45));animation:pp 3s infinite}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="logo"><svg class="logo-mark" width="21" height="21" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#0f141b" stroke="#2dc8a0" stroke-width="2"/><polygon points="16,9 21.7,13.1 19.5,19.8 12.5,19.8 10.3,13.1" fill="#2dc8a0"/><g stroke="#2dc8a0" stroke-width="1.3" stroke-linecap="round"><line x1="16" y1="9" x2="16" y2="3"/><line x1="21.7" y1="13.1" x2="27.5" y2="11"/><line x1="19.5" y1="19.8" x2="23.5" y2="25.5"/><line x1="12.5" y1="19.8" x2="8.5" y2="25.5"/><line x1="10.3" y1="13.1" x2="4.5" y2="11"/></g></svg>WC26 EDGE</div>
+  <div class="topbar-actions">
+    <button class="nav-fixtures-btn" id="fixBtn" onclick="toggleFixtures()">📅 Fixtures</button>
+    <button class="nav-fixtures-btn" id="tblBtn" onclick="toggleStandings()">📊 Table</button>
+    <span class="odds-toggle" id="oddsToggle">
+      <span class="of-lbl">Odds</span>
+      <button class="of-btn active" data-fmt="frac" onclick="setOddsFmt('frac')">Frac</button>
+      <button class="of-btn" data-fmt="dec" onclick="setOddsFmt('dec')">Dec</button>
+      <button class="of-btn" data-fmt="am" onclick="setOddsFmt('am')">Am</button>
+    </span>
+  </div>
+</div>
+<nav class="date-nav" id="dateNav"></nav>
+
+
+<div id="fixturesOverlay">
+  <div class="fix-panel">
+    <div class="fix-header">
+      <div class="fix-title"><span style="font-size:18px">📅</span> WC 2026 Full Fixtures <span style="font-size:11px;color:var(--mu);font-family:var(--mono);font-weight:400">· All times IST</span></div>
+      <button class="fix-close" onclick="toggleFixtures()">✕</button>
+    </div>
+    <div id="fixturesContent"></div>
+  </div>
+</div>
+<div id="standingsOverlay">
+  <div class="fix-panel">
+    <div class="fix-header">
+      <div class="fix-title"><span style="font-size:18px">📊</span> Group Standings <span style="font-size:11px;color:var(--mu);font-family:var(--mono);font-weight:400">· openfootball</span></div>
+      <button class="fix-close" onclick="toggleStandings()">✕</button>
+    </div>
+    <div id="standingsContent"></div>
+  </div>
+</div>
+<div class="page"><div id="pg"></div></div>
+<div id="toast" class="toast"></div>
+<div class="disc">WC26 EDGE · Private prediction hub · 18+ Gamble responsibly · Odds are estimates, always verify · BeGambleAware.org</div>
+<script>
+/* ── Prediction model (Poisson / Dixon-Coles). AUTO-GENERATED from
+   scripts/wc-model.cjs by scripts/build-model.cjs — do not edit between the
+   markers; edit the source file and re-run the build so the page and the
+   calibration backtest never drift. ── */
+/*WCMODEL:START*/
+/* ───────────────────────────────────────────────────────────────────────────
+   WC26 EDGE · Prediction model (single source of truth)
+   ───────────────────────────────────────────────────────────────────────────
+   Opponent-adjusted Poisson ("attack/defense strength") ratings fit from the
+   tournament results, regularised toward a historical baseline so the 2-3 game
+   sample doesn't overfit, plus the Dixon-Coles low-score correction. Produces
+   match-outcome markets (1X2, Over/Under 2.5, BTTS) and value/Kelly numbers.
+
+   This file is the ONE place the math lives. It is:
+     • required by scripts/backtest-model.mjs  (calibration)
+     • injected verbatim into index.html        (runtime) by build-model.cjs
+   so the page and the backtest can never drift.
+
+   IMPORTANT: this is a model over openfootball seed/historical data, not a
+   guarantee. Football is high-variance; treat outputs as calibrated estimates.
+   ─────────────────────────────────────────────────────────────────────────── */
+(function (root) {
+  'use strict';
+
+  // ── Team-name normalisation (match-card hT/aT ↔ standings table names) ──
+  const ALIAS = {
+    'cabo verde': 'cape verde', 'capeverde': 'cape verde',
+    'usa': 'usa', 'united states': 'usa', 'united states of america': 'usa',
+    'south korea': 'south korea', 'korea republic': 'south korea',
+    'bosnia herzegovina': 'bosnia herzegovina', 'bosnia and herzegovina': 'bosnia herzegovina',
+    'ivory coast': 'ivory coast', "cote d ivoire": 'ivory coast',
+    'czechia': 'czech republic',
+  };
+  function norm(name) {
+    let s = String(name || '').toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')   // strip accents
+      .replace(/[^a-z0-9]+/g, ' ').replace(/\b(and|the)\b/g, ' ')
+      .replace(/\s+/g, ' ').trim();
+    return ALIAS[s] || s;
+  }
+
+  // ── Fit opponent-adjusted attack/defense strengths ──
+  // results: [{t1,t2,s1,s2}]  (t1 nominal "home"/first, t2 second)
+  // opts.priorGoals: league goals-per-team-per-game prior (historical baseline)
+  // opts.k: shrinkage strength (games needed to half-trust the data)
+  // opts.hfa: home-field multiplier (1.0 = neutral, correct for a World Cup)
+  function fitRatings(results, opts) {
+    opts = opts || {};
+    const k = opts.k != null ? opts.k : 2.5;
+    const hfa = opts.hfa != null ? opts.hfa : 1.0;
+    const priorGPG = opts.priorGoals != null ? opts.priorGoals : 1.30; // per team per game
+
+    const teams = new Set();
+    let totGoals = 0, totTeamGames = 0;
+    for (const r of results) {
+      teams.add(norm(r.t1)); teams.add(norm(r.t2));
+      totGoals += r.s1 + r.s2; totTeamGames += 2;
+    }
+    // league average goals per team per game, blended with the prior
+    const league = totTeamGames ? (totGoals + priorGPG * 4) / (totTeamGames + 4) : priorGPG;
+
+    // per-team raw aggregates
+    const agg = {};
+    for (const t of teams) agg[t] = { gf: 0, ga: 0, g: 0 };
+    for (const r of results) {
+      const a = norm(r.t1), b = norm(r.t2);
+      agg[a].gf += r.s1; agg[a].ga += r.s2; agg[a].g++;
+      agg[b].gf += r.s2; agg[b].ga += r.s1; agg[b].g++;
+    }
+
+    // iterative opponent-adjusted update (Dixon-Coles style, no time weighting)
+    const atk = {}, def = {};
+    for (const t of teams) { atk[t] = 1; def[t] = 1; }
+    for (let iter = 0; iter < 60; iter++) {
+      const nAtk = {}, nDef = {};
+      for (const t of teams) {
+        let scoredExp = 0, concededExp = 0;
+        for (const r of results) {
+          const a = norm(r.t1), b = norm(r.t2);
+          if (a === t) { scoredExp += league * def[b] * hfa; concededExp += league * atk[b] * hfa; }
+          else if (b === t) { scoredExp += league * def[a]; concededExp += league * atk[a]; }
+        }
+        // Bayesian shrinkage: with few games, regress the ratio toward 1.0
+        const g = agg[t].g;
+        const rawAtk = scoredExp > 0 ? agg[t].gf / scoredExp : 1;
+        const rawDef = concededExp > 0 ? agg[t].ga / concededExp : 1;
+        const w = g / (g + k);
+        nAtk[t] = Math.exp(w * Math.log(rawAtk || 1));   // shrink in log-space toward 1
+        nDef[t] = Math.exp(w * Math.log(rawDef || 1));
+      }
+      // normalise so the mean attack & mean defense are 1 (identifiability)
+      const mA = mean(Object.values(nAtk)), mD = mean(Object.values(nDef));
+      for (const t of teams) { atk[t] = nAtk[t] / mA; def[t] = nDef[t] / mD; }
+    }
+    return { league, hfa, atk, def, teams: [...teams],
+             rho: opts.rho != null ? opts.rho : -0.06,
+             maxGoals: opts.maxGoals != null ? opts.maxGoals : 10,
+             has(name) { return this.atk[norm(name)] != null; } };
+  }
+
+  function mean(a) { return a.length ? a.reduce((s, x) => s + x, 0) / a.length : 1; }
+
+  // ── Expected goals for a fixture ──
+  function expected(rat, home, away) {
+    const h = norm(home), a = norm(away);
+    const ah = rat.atk[h] != null ? rat.atk[h] : 1, dh = rat.def[h] != null ? rat.def[h] : 1;
+    const aa = rat.atk[a] != null ? rat.atk[a] : 1, da = rat.def[a] != null ? rat.def[a] : 1;
+    return { lh: rat.league * ah * da * rat.hfa, la: rat.league * aa * dh / rat.hfa };
+  }
+
+  function pois(lam, k) { return Math.exp(-lam) * Math.pow(lam, k) / fact(k); }
+  const _f = [1]; function fact(n) { for (let i = _f.length; i <= n; i++) _f[i] = _f[i - 1] * i; return _f[n]; }
+
+  // Dixon-Coles low-score dependence correction
+  function tau(i, j, lh, la, rho) {
+    if (i === 0 && j === 0) return 1 - lh * la * rho;
+    if (i === 0 && j === 1) return 1 + lh * rho;
+    if (i === 1 && j === 0) return 1 + la * rho;
+    if (i === 1 && j === 1) return 1 - rho;
+    return 1;
+  }
+
+  // ── Scoreline matrix → market probabilities ──
+  function markets(rat, home, away) {
+    const { lh, la } = expected(rat, home, away);
+    const N = rat.maxGoals, rho = rat.rho;
+    let pHome = 0, pDraw = 0, pAway = 0, pOver = 0, pBtts = 0, Z = 0;
+    const m = [];
+    for (let i = 0; i <= N; i++) {
+      m[i] = [];
+      for (let j = 0; j <= N; j++) {
+        const p = pois(lh, i) * pois(la, j) * tau(i, j, lh, la, rho);
+        m[i][j] = p; Z += p;
+      }
+    }
+    for (let i = 0; i <= N; i++) for (let j = 0; j <= N; j++) {
+      const p = m[i][j] / Z;
+      if (i > j) pHome += p; else if (i === j) pDraw += p; else pAway += p;
+      if (i + j >= 3) pOver += p;
+      if (i >= 1 && j >= 1) pBtts += p;
+    }
+    return { lh, la, home: pHome, draw: pDraw, away: pAway,
+             over25: pOver, under25: 1 - pOver, btts: pBtts, noBtts: 1 - pBtts };
+  }
+
+  // ── Odds / value helpers ──
+  function amToDec(am) {
+    const n = parseFloat(String(am).replace(/[^\-+0-9.]/g, ''));
+    if (!isFinite(n) || n === 0) return null;
+    return n > 0 ? 1 + n / 100 : 1 + 100 / Math.abs(n);
+  }
+  // remove the bookmaker margin from a set of implied probabilities → fair probs
+  function devig(decimals) {
+    const imp = decimals.map(d => (d ? 1 / d : 0));
+    const s = imp.reduce((a, b) => a + b, 0);
+    return s > 0 ? imp.map(x => x / s) : imp;
+  }
+  // expected value per 1 unit staked at decimal odds, given true win prob
+  function ev(prob, dec) { return dec ? prob * (dec - 1) - (1 - prob) : null; }
+  // full-Kelly fraction of bankroll (clamped to [0,1]); caller may scale (e.g. ×0.25)
+  function kelly(prob, dec) {
+    if (!dec || dec <= 1) return 0;
+    const b = dec - 1, q = 1 - prob;
+    const f = (b * prob - q) / b;
+    return f > 0 ? Math.min(f, 1) : 0;
+  }
+
+  const M = { norm, fitRatings, expected, markets, amToDec, devig, ev, kelly, pois, tau };
+  if (typeof module !== 'undefined' && module.exports) module.exports = M;
+  else root.WCModel = M;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+/*WCMODEL:END*/
+/* Lazy-fit team ratings once, from the embedded standings results (WC_TABLE). */
+let WCRAT;
+function getRAT(){
+  if(WCRAT!==undefined) return WCRAT;
+  try{
+    let res=[]; for(const g in WC_TABLE) res=res.concat(WC_TABLE[g].results||[]);
+    WCRAT=(res.length && typeof WCModel!=='undefined') ? WCModel.fitRatings(res,{priorGoals:1.30}) : null;
+  }catch(e){ WCRAT=null; }
+  return WCRAT;
+}
+
+const DATES=[
+  {day:'FRI',num:26,key:'25',cnt:6,hot:true,today:true,etNote:'Thu 25 Jun ET'},
+  {day:'SAT',num:27,key:'26',cnt:6,hot:true,etNote:'Fri 26 Jun ET'},
+  {day:'SUN',num:28,key:'27',cnt:6,hot:true,etNote:'Sat 27 Jun ET'},
+  {day:'MON',num:29,key:'28',cnt:8,hot:true,r32:true,etNote:'Sun 28 Jun ET'},
+];
+const F=(nm,cl,hot,ht,htl,sts,dots,conf,bets,note)=>({nm,cl,hot,ht,htl,sts,dots,conf,bets,note});
+const S=(nm,cl,hot,ht,htl,sts,sd,sd2,sH,sotH,bets)=>({nm,cl,hot,ht,htl,sts,sd,sd2,sH,sotH,bets});
+const E=(c,p,o,cf,star)=>({c,p,o,cf,star});
+const PL=(p,o)=>({p,o});
+const DAYS={
+'25':{title:'Friday 26 June 2026 (IST)',sub:'TODAY \xb7 MD3 \xb7 Groups D E F \xb7 6 matches \xb7 Thu 25 Jun ET \xb7 kickoffs 1:30am / 4:30am / 7:30am IST',matches:[
+  {id:'ecu_ger',live:false,teams:'\ud83c\uddea\ud83c\udde8 Ecuador vs Germany \ud83c\udde9\ud83c\uddea',group:'Group E',venue:'New Jersey \xb7 MetLife Stadium',time:'1:30am IST (next day) · 4pm ET',tag:'upset',tl:'\u26a0 64% Germany \xb7 Ecuador desperate',conf:64,upset:36,odds:{h:'+380',d:'+290',a:'-175',ou:'2.5'},hT:'Ecuador',aT:'Germany',winner:'Germany',wP:19,dP:22,aP:59,
+  cbars:[{l:'Germany win',p:64,f:'f-md'},{l:'Over 2.5 goals (Ecuador must attack)',p:71,f:'f-hi'},{l:'BTTS both score',p:66,f:'f-md'},{l:'Musiala 1+ SOT',p:73,f:'f-bl'}],
+  fouls:[],
+  shots:[S('Jamal Musiala','Bayern Munich \xb7 Germany \xb7 AM',true,'h90','90% last 10',[['Shots/90 BL','2.8'],['SOT/game','1.4'],['Goals 25/26','18']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,0,1,1,1],83,73,[{l:'Musiala 1+ SOT',o:['-140 est.']}]),S('Enner Valencia','Ecuador \xb7 ST \xb7 veteran captain',false,'h80','80% last 10',[['WC22 goals','3 in 4 games'],['Must win game','Yes'],['Motivation','Maximum']],[1,1,1,1,0,1,1,0,1,1],[1,0,1,1,0,1,1,0,1,1],74,60,[{l:'Valencia 1+ SOT',o:['-115 est.']}])],
+  easy:[E('Goals \u2605','Over 2.5 goals (Ecuador desperate)','+105 est.',71,true),E('BTTS','Both teams score','+110 est.',66,true),E('SOT prop','Musiala 1+ SOT','-140 est.',73,true),E('Cards','Over 3.5 cards','+140 est.',62,false),E('Throw-ins','Over 44 total throw-ins','-110 est.',76,true)],
+  parlay:[PL('Musiala 1+ SOT','-140'),PL('Over 2.5 goals','+105'),PL('BTTS','+110')],pret:'+175\u2013210',
+  upsetNote:'Ecuador must win \u2014 0pts, lost MD1 0-1 CIV, drew MD2 0-0 Curacao. Over 2.5 and BTTS are the plays.',
+  ai:'Ecuador (must win, 0pts) vs Germany (6pts, already qualified). Musiala: 2.8 shots/90. Over 2.5 goals 71%, BTTS 66%.'},
+
+  {id:'cur_civ',live:false,teams:'\ud83c\udde8\ud83c\uddfc Curacao vs Ivory Coast \ud83c\udde8\ud83c\uddee',group:'Group E',venue:'Philadelphia \xb7 Lincoln Financial Field',time:'1:30am IST (next day) · 4pm ET',tag:'info',tl:'82% Ivory Coast',conf:82,upset:18,odds:{h:'+900',d:'+700',a:'-450',ou:'2.5'},hT:'Curacao',aT:'Ivory Coast',winner:'Ivory Coast',wP:8,dP:10,aP:82,
+  cbars:[{l:'Ivory Coast win',p:82,f:'f-hi'},{l:'Over 2.5 goals',p:78,f:'f-hi'},{l:'Ivory Coast 7+ corners',p:74,f:'f-pu'},{l:'Amad Diallo 1+ SOT',p:74,f:'f-bl'}],
+  fouls:[],
+  shots:[S('Amad Diallo','Man Utd \xb7 Ivory Coast \xb7 RW',true,'h90','in-form',[['Shots/90 PL','2.0'],['AFCON 3 starts','3 goals'],['Form','star of attack']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],80,68,[{l:'Amad Diallo 1+ SOT',o:['-120 est.']}])],
+  easy:[E('Goals','Over 2.5 goals','-120 est.',78,true),E('SOT prop ★','Amad Diallo 1+ SOT','-120 est.',68,true),E('Throw-ins','Over 38 total throw-ins','-110 est.',73,true),E('Corners','Ivory Coast 7+ corners','-130 est.',74,true)],
+  parlay:[PL('Amad Diallo 1+ SOT','-120'),PL('Over 2.5 goals','-120')],pret:'+120\u2013145',
+  upsetNote:'Curacao drew 0-0 Ecuador MD2 (historic point). CIV won MD2 2-1 Germany. 18% upset.',
+  ai:'Ivory Coast (-450, 6pts) vs Curacao (+900, 1pt). Amad Diallo in-form: 3 goals in 3 AFCON starts. Haller dropped from the 26-man squad.'},
+
+  {id:'ned_tun',live:false,teams:'\ud83c\uddf3\ud83c\uddf1 Netherlands vs Tunisia \ud83c\uddf9\ud83c\uddf3',group:'Group F',venue:'Kansas City \xb7 Arrowhead Stadium',time:'4:30am IST (next day) · 7pm ET',tag:'top',tl:'\u2605 85% Netherlands',conf:85,upset:8,odds:{h:'-500',d:'+600',a:'+1200',ou:'2.5'},hT:'Netherlands',aT:'Tunisia',winner:'Netherlands',wP:85,dP:10,aP:5,
+  cbars:[{l:'Netherlands win',p:85,f:'f-hi'},{l:'Depay 1+ SOT',p:80,f:'f-bl'},{l:'Gravenberch 1+ fouls (100%)',p:96,f:'f-hi'},{l:'De Jong 1+ fouls (100%)',p:88,f:'f-hi'},{l:'Netherlands 8+ corners',p:82,f:'f-pu'},{l:'Over 44 throw-ins',p:86,f:'f-bl'}],
+  fouls:[F('Ryan Gravenberch','Liverpool \xb7 Netherlands \xb7 DM',true,'h100','100% last 10',[['Fouls/90 PL','1.4'],['MD2 vs Sweden','MOT 5-1'],['Rating avg','7.4 Sofascore']],[1,1,1,1,1,1,1,1,1,1],96,[{l:'Gravenberch 1+ fouls',o:['-175 bet365','-165 FanDuel']}],'100% last 10. Netherlands dominant. Fouls every game to control midfield.'),F('Frenkie de Jong','Barcelona \xb7 Netherlands \xb7 CM',true,'h100','100% last 10',[['Fouls/90 LL','0.61'],['Fouls won/g','1.1'],['YC 25 LL games','6']],[1,1,1,1,1,1,1,1,1,1],88,[{l:'De Jong 1+ fouls',o:['-155 bet365','-145 FanDuel']},{l:'De Jong booked',o:['+185 Paddy']}],'100% last 10. 6 bookings in 25 La Liga games. Card at +185 outstanding value.')],
+  shots:[S('Memphis Depay','Corinthians \xb7 Netherlands \xb7 ST',true,'h100','100% last 10',[['Shots/90','3.2'],['SOT/game','1.6'],['WC26 MD1','Scored in 5-1 win']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,80,[{l:'Depay 1+ SOT',o:['-150 est.']},{l:'Depay anytime scorer',o:['+120 est.']}])],
+  easy:[E('Goals','Over 2.5 goals','-140 est.',78,true),E('Fouls \u2605','Gravenberch 1+ fouls','-175 bet365',96,true),E('SOT prop','Depay 1+ SOT','-150 est.',80,true),E('Corners','Netherlands 8+ corners','-130 est.',82,true),E('Throw-ins','Over 44 total throw-ins','-115 est.',86,true),E('Cards','De Jong booked','+185 Paddy',62,false)],
+  parlay:[PL('Gravenberch 1+ fouls','-175'),PL('De Jong 1+ fouls','-155'),PL('Depay 1+ SOT','-150'),PL('Over 2.5 goals','-140')],pret:'+205\u2013250',
+  upsetNote:'Tunisia lost 0-5 Sweden MD1, 0-4 Japan MD2. Eliminated. Only 8% upset.',
+  ref:'\ud83d\udccb Tunisia defensively fragile. NED avg 9+ corners in dominant wins.',
+  ai:'Netherlands (-500, won both MD1+MD2) vs Tunisia (eliminated, 0pts). Depay: 3.2 shots/90. Gravenberch: 100% fouls L10.'},
+
+  {id:'jap_swe',live:false,teams:'\ud83c\uddef\ud83c\uddf5 Japan vs Sweden \ud83c\uddf8\ud83c\uddea',group:'Group F',venue:'Dallas \xb7 AT&T Stadium',time:'4:30am IST (next day) · 7pm ET',tag:'upset',tl:'\u26a0 Sweden 58% \xb7 Japan 42%',conf:58,upset:42,odds:{h:'+230',d:'+240',a:'-150',ou:'2.5'},hT:'Japan',aT:'Sweden',winner:'Sweden',wP:42,dP:27,aP:58,
+  cbars:[{l:'Sweden win',p:58,f:'f-md'},{l:'Isak 1+ SOT',p:74,f:'f-bl'},{l:'Gyokeres 1+ fouls (100%)',p:91,f:'f-hi'},{l:'Endo 1+ fouls (Japan DM)',p:82,f:'f-hi'},{l:'Japan upset risk (beat Germany WC22!)',p:42,f:'f-lo'}],
+  fouls:[F('Viktor Gyokeres','Arsenal \xb7 Sweden \xb7 ST',true,'h100','100% last 10',[['Fouls/90 PL','1.41'],['Fouls drawn/season','31'],['YC PL 25/26','5']],[1,1,1,1,1,1,1,1,1,1],91,[{l:'Gyokeres 1+ fouls',o:['-165 est. bet365']}],'Physical Arsenal striker. 100% last 10.'),F('Wataru Endo','Liverpool \xb7 Japan \xb7 DM \xb7 Captain',true,'h90','90% last 10',[['Fouls/90 PL','1.3'],['Role','Anchor DM'],['YC PL','6']],[1,1,1,1,1,1,1,1,1,0],82,[{l:'Endo 1+ fouls',o:['-145 est. bet365']}],'Japan captain breaks Swedish transitions. 82% last 10.')],
+  shots:[S('Alexander Isak','Liverpool \xb7 Sweden \xb7 ST',true,'h100','100% last 10',[['Shots/90 PL','3.1'],['SOT/game','1.5'],['PL goals 25/26','24']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],96,74,[{l:'Isak 1+ SOT',o:['-135 est.']},{l:'Isak anytime scorer',o:['+130 est.']}]),S('Takefusa Kubo','Real Sociedad \xb7 Japan \xb7 RW \xb7 Mitoma OUT',false,'h80','80% last 10',[['Shots/90 LL','2.3'],['SOT/game','1.1'],['Mitoma status','INJURED OUT']],[1,1,1,0,1,1,1,0,1,1],[1,1,0,1,1,0,1,1,0,1],76,64,[{l:'Kubo 1+ SOT',o:['-120 est.']}])],
+  easy:[E('SOT prop \u2605','Isak 1+ SOT','-135 est.',74,true),E('Fouls','Gyokeres 1+ fouls (100%)','-165 est.',91,true),E('BTTS','Both teams score','+105 est.',65,false),E('Throw-ins','Over 44 throw-ins','-110 est.',78,true)],
+  parlay:[PL('Gyokeres 1+ fouls','-165'),PL('Endo 1+ fouls','-145'),PL('Isak 1+ SOT','-135')],pret:'+185\u2013215',
+  upsetNote:'Japan beat Germany WC22. Mitoma INJURED OUT full tournament. 42% upset.',
+  ai:'Japan (Mitoma OUT, beat Tunisia 4-0 MD2) vs Sweden (lost 0-5 Netherlands MD1). Isak: 3.1 shots/90. Gyokeres: 100% fouls L10.'},
+
+  {id:'usa_tur',live:false,teams:'\ud83c\uddfa\ud83c\uddf8 USA vs Turkey \ud83c\uddf9\ud83c\uddf7',group:'Group D',venue:'Los Angeles \xb7 SoFi Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'upset',tl:'\u26a0 USA 61% \xb7 Turkey revenge',conf:61,upset:39,odds:{h:'-135',d:'+280',a:'+340',ou:'2.5'},hT:'USA',aT:'Turkey',winner:'USA',wP:61,dP:25,aP:39,
+  cbars:[{l:'USA win (already qualified)',p:61,f:'f-md'},{l:'Turkey upset (lost MD1+MD2)',p:39,f:'f-lo'},{l:'Yuksek 1+ fouls (100% L10)',p:93,f:'f-hi'},{l:'Guler 1+ SOT',p:70,f:'f-bl'}],
+  fouls:[F('Ismail Yuksek','Fenerbahce \xb7 Turkey \xb7 DM',true,'h100','100% last 10',[['Fouls/90 qual','2.0'],['Europa League','1.1/g'],['YC qualifying','3 in 6']],[1,1,1,1,1,1,1,1,1,1],93,[{l:'Yuksek 1+ fouls',o:['-175 bet365','-160 FanDuel']},{l:'Yuksek booked',o:['+165 Paddy']}],'2.0 fouls/90 in WC qualifying, 100% last 10. Elimination game elevates aggression.')],
+  shots:[S('Arda Guler','Real Madrid \xb7 Turkey \xb7 AM',false,'h80','80% last 10',[['Shots/90 LL','2.2'],['Fouls drawn/g','2.4'],['Must win','Career moment']],[1,1,1,1,0,1,1,0,1,1],[1,1,0,1,1,0,1,1,1,1],76,70,[{l:'Guler 1+ SOT',o:['-140 est.']}]),S('Christian Pulisic','AC Milan \xb7 USA \xb7 CAM',false,'h90','90% last 10',[['Shots/90 SA','2.4'],['MD1+MD2','3 goal involvements'],['Calf injury','Doubtful']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,68,[{l:'Pulisic 1+ SOT',o:['-130 est.']}])],
+  easy:[E('Fouls \u2605','Yuksek 1+ fouls (100% L10)','-175 bet365',93,true),E('Goals','Over 2.5 goals','+110 est.',62,false),E('Cards','Over 3.5 total cards','+140 est.',63,false),E('Throw-ins','Over 42 throw-ins','-110 est.',74,true)],
+  parlay:[PL('Yuksek 1+ fouls','-175'),PL('Guler 1+ SOT','-140'),PL('Over 3.5 cards','+140')],pret:'+175\u2013210',
+  upsetNote:'Turkey lost both MD1+MD2, 0 goals scored. Nothing to lose \u2014 39% upset.',
+  ai:'USA (-135, already qualified Group D winners) vs Turkey (+340, lost MD1+MD2, elimination). Yuksek: 2.0 fouls/90, 100% L10.'},
+
+  {id:'aus_par',live:false,teams:'\ud83c\udde6\ud83c\uddfa Australia vs Paraguay \ud83c\uddf5\ud83c\uddfe',group:'Group D',venue:'Santa Clara \xb7 Levis Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'info',tl:'55% Australia',conf:55,upset:45,odds:{h:'-145',d:'+290',a:'+400',ou:'2.5'},hT:'Australia',aT:'Paraguay',winner:'Australia',wP:55,dP:24,aP:21,
+  cbars:[{l:'Australia win',p:55,f:'f-md'},{l:'BTTS both score',p:62,f:'f-md'},{l:'Over 2.5 goals',p:60,f:'f-md'}],
+  fouls:[],shots:[],
+  easy:[E('Goals','Over 2.5 goals','+115 est.',60,false),E('BTTS','Both teams score','+110 est.',62,false),E('Throw-ins','Over 40 total throw-ins','-110 est.',70,true)],
+  parlay:[PL('BTTS','+110'),PL('Over 2.5 goals','+115')],pret:'+115\u2013135',
+  upsetNote:'Paraguay beat Turkey 1-0 in MD2. Australia won MD1 2-0 Turkey. Both need a win \u2014 45% Paraguay upset.',
+  ai:'Australia (-145, won MD1 2-0 Turkey) vs Paraguay (+400, won MD2 1-0 Turkey). Both need points.'},
+]},
+
+'26':{title:'Saturday 27 June 2026 (IST)',sub:'MD3 \xb7 Groups G H I \xb7 6 matches \xb7 Fri 26 Jun ET \xb7 kickoffs 12:30am / 5:30am / 8:30am IST',matches:[
+  {id:'nor_fra',live:false,teams:'\ud83c\uddf3\ud83c\uddf4 Norway vs France \ud83c\uddeb\ud83c\uddf7',group:'Group I',venue:'Boston \xb7 Gillette Stadium',time:'12:30am IST (next day) · 3pm ET',tag:'top',tl:'\u2605 Haaland vs Mbappe',conf:62,upset:38,odds:{h:'+127',d:'+225',a:'-333',ou:'2.5'},hT:'Norway',aT:'France',winner:'France',wP:38,dP:20,aP:42,
+  cbars:[{l:'France win vs Norway',p:62,f:'f-md'},{l:'Haaland 1+ SOT (safe regardless)',p:90,f:'f-bl'},{l:'Mbappe 1+ SOT',p:88,f:'f-bl'},{l:'Tchouameni 1+ fouls (100% L10)',p:94,f:'f-hi'}],
+  fouls:[F('Erling Haaland','Man City \xb7 Norway \xb7 ST',true,'h80','draws fouls',[['Drawn/90','~1.6'],['Role','Target striker'],['XI','starter']],[1,1,1,1,0,1,1,1,1,1],80,[{l:'Erling Haaland 1+ fouls drawn',o:['-150 est.']}],'Physical target man fouled regularly by centre-backs. Norway starter.'),F('Aurelien Tchouameni','Real Madrid \xb7 France \xb7 DM',true,'h100','100% last 10',[['Fouls/90 LL','1.6'],['Intl fouls (NL)','1.4/g'],['YC season','5+']],[1,1,1,1,1,1,1,1,1,1],94,[{l:'Tchouameni 1+ fouls',o:['-165 bet365','-155 FanDuel']}],'100% last 10 La Liga + Nations League. France anchor DM commits fouls structurally.')],
+  shots:[S('Erling Haaland','Man City \xb7 Norway \xb7 ST',true,'h100','100% last 10',[['SOT/game PL','2.2'],['WC26 goals','4 (Iraq+Senegal)'],['Qualifying','Top scorer']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,0,1,1,1],97,90,[{l:'Haaland 1+ SOT',o:['-160 est.']},{l:'Haaland anytime scorer',o:['-175 est.']}]),S('Kylian Mbappe','Real Madrid \xb7 France \xb7 ST',true,'h100','100% last 10',[['Shots/90 LL','3.79'],['WC26 goals','4 (Senegal+Iraq)'],['Golden Boot','Leading']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],97,88,[{l:'Mbappe 1+ SOT',o:['-145 est.']},{l:'Mbappe anytime scorer',o:['-140 est.']}])],
+  easy:[E('Fouls drawn','Erling Haaland 1+ fouls drawn','-150 est.',80,true),E('SOT duel \u2605','Haaland 1+ SOT (safe regardless)','-160 est.',90,true),E('SOT prop','Mbappe 1+ SOT','-145 est.',88,true),E('Fouls \u2605','Tchouameni 1+ fouls','-165 bet365',94,true),E('Goals','Norway vs France over 2.5','+105 est.',65,false)],
+  parlay:[PL('Haaland 1+ SOT','-160'),PL('Mbappe 1+ SOT','-145'),PL('Tchouameni 1+ fouls','-165')],pret:'+195\u2013230',
+  upsetNote:'Norway are +127 \u2014 near evens vs France. 38% upset. Back SOT props over the result.',
+  ai:'Norway (+127, 6pts, Haaland 4 WC goals) vs France (-333, 6pts, Mbappe 4 WC goals). Haaland: 2.2 SOT/game. Mbappe: 3.79 shots/90. Tchouameni: 100% fouls L10.'},
+
+  {id:'sen_irq',live:false,teams:'\ud83c\uddf8\ud83c\uddf3 Senegal vs Iraq \ud83c\uddee\ud83c\uddf6',group:'Group I',venue:'Toronto \xb7 BMO Field',time:'12:30am IST (next day) · 3pm ET',tag:'info',tl:'72% Senegal',conf:72,upset:28,odds:{h:'-230',d:'+330',a:'+650',ou:'2.5'},hT:'Senegal',aT:'Iraq',winner:'Senegal',wP:72,dP:19,aP:9,
+  cbars:[{l:'Senegal win',p:72,f:'f-hi'},{l:'Gueye 1+ fouls (100% L10)',p:88,f:'f-hi'},{l:'Mane 1+ SOT',p:78,f:'f-bl'}],
+  fouls:[F('Sadio Mane','Al-Nassr \xb7 Senegal \xb7 FW',false,'h80','draws fouls',[['Role','Forward'],['Drawn','frequent'],['XI','starter']],[1,1,0,1,1,1,0,1,1,1],76,[{l:'Sadio Mane 1+ fouls drawn',o:['-135 est.']}],'Senegal forward dribbles into contact and draws fouls. Starter.'),F('Idrissa Gueye','Everton \xb7 Senegal \xb7 DM',true,'h100','100% last 10',[['Fouls/90 PL','1.5'],['YC/season','7'],['Role','Break Iraq press']],[1,1,1,1,1,1,1,1,1,1],88,[{l:'Gueye 1+ fouls',o:['-150 bet365','-140 FanDuel']}],'Senegal anchor DM. 100% last 10. Physical presence vs Iraq.')],
+  shots:[S('Sadio Mane','Al-Nassr \xb7 Senegal \xb7 FW',false,'h90','90% last 10',[['Shots/90 career avg','2.6'],['SOT/game','1.3'],['MD1','Lost 1-3 France']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],82,78,[{l:'Mane 1+ SOT',o:['-135 est.']}])],
+  easy:[E('Fouls drawn','Sadio Mane 1+ fouls drawn','-135 est.',76,true),E('Fouls','Gueye 1+ fouls (100% L10)','-150 bet365',88,true),E('Goals','Over 2.5 goals','+115 est.',66,false),E('SOT prop','Mane 1+ SOT','-135 est.',78,true),E('Throw-ins','Over 42 total throw-ins','-110 est.',73,true)],
+  parlay:[PL('Gueye 1+ fouls','-150'),PL('Mane 1+ SOT','-135'),PL('Over 2.5 goals','+115')],pret:'+170\u2013200',
+  upsetNote:'Senegal lost MD1+MD2. Iraq lost MD1+MD2. 28% Iraq upset.',
+  ai:'Senegal (-230) vs Iraq (+650). Gueye: 1.5 fouls/90, 100% last 10. Mane: 2.6 shots/90.'},
+
+  {id:'uru_esp',live:false,teams:'\ud83c\uddfa\ud83c\uddfe Uruguay vs Spain \ud83c\uddea\ud83c\uddf8',group:'Group H',venue:'Guadalajara \xb7 Estadio Akron',time:'5:30am IST (next day) · 8pm ET',tag:'top',tl:'\u2605 Spain in top form',conf:72,upset:20,odds:{h:'+700',d:'+390',a:'-270',ou:'2.5'},hT:'Uruguay',aT:'Spain',winner:'Spain',wP:9,dP:19,aP:72,
+  cbars:[{l:'Spain win (won MD2 4-0 Saudi)',p:72,f:'f-hi'},{l:'Lamine Yamal 1+ SOT',p:84,f:'f-bl'},{l:'Spain 8+ corners',p:76,f:'f-pu'},{l:'Spain over 1.5 goals',p:78,f:'f-hi'}],
+  fouls:[F('Lamine Yamal','Barcelona \xb7 Spain \xb7 RW',true,'h90','draws fouls',[['Drawn/90','2.6'],['Role','Dribbler'],['Fouled','top of LL']],[1,1,1,1,1,1,1,1,0,1],86,[{l:'Lamine Yamal 1+ fouls drawn',o:['-200 est.']}],'Among the most-fouled players in La Liga. Defenders chop him down. Spain starter.'),F('Manuel Ugarte','Man Utd \xb7 Uruguay \xb7 DM \xb7 starter',true,'h90','starter \xb7 2.44 fouls/90',[['Fouls/90 PL','2.44'],['Role','Ball-winner'],['Discipline','weak, fouls often']],[1,1,1,1,1,1,1,1,1,1],88,[{l:'Manuel Ugarte 1+ fouls',o:['-180 est.']}],'Uruguay nailed DM. 2.44 fouls/90 in the PL with a weak discipline rating. Near-lock for 1+ fouls.')],
+  shots:[S('Lamine Yamal','Barcelona \xb7 Spain \xb7 RW \xb7 18yrs',true,'h90','90% last 10',[['Shots/90 LL','2.9'],['SOT/game','1.4'],['LL goals 25/26','18']],[1,1,1,1,1,1,0,1,1,1],[1,1,1,0,1,1,1,1,0,1],86,84,[{l:'Yamal 1+ SOT',o:['-140 est.']},{l:'Yamal anytime scorer',o:['+200 est.']}])],
+  easy:[E('Fouls drawn','Lamine Yamal 1+ fouls drawn','-200 est.',86,true),E('Fouls ★','Manuel Ugarte 1+ fouls (starter)','-180 est.',88,true),E('Goals','Spain over 1.5 goals','-160 est.',78,true),E('SOT prop \u2605','Yamal 1+ SOT','-140 est.',84,true),E('Corners','Spain 8+ corners','-130 est.',76,true),E('Throw-ins','Over 44 throw-ins','-110 est.',79,true)],
+  parlay:[PL('Yamal 1+ SOT','-140'),PL('Spain win','-270'),PL('Spain 8+ corners','-130')],pret:'+165\u2013195',
+  upsetNote:'Spain drew 0-0 Cabo Verde MD1 but bounced back 4-0 Saudi MD2. 20% upset.',
+  ref:'\ud83d\udccb Live bet: Spain next goal if 0-0 at 25 mins.',
+  ai:'Spain (-270, won MD2 4-0 Saudi) vs Uruguay (+700). Yamal: 2.9 shots/90, 18 LL goals.'},
+
+  {id:'cvd_ksa',live:false,teams:'\ud83c\udde8\ud83c\uddfb Cabo Verde vs Saudi Arabia \ud83c\uddf8\ud83c\udde6',group:'Group H',venue:'Houston \xb7 NRG Stadium',time:'5:30am IST (next day) · 8pm ET',tag:'info',tl:'55% Cabo Verde',conf:55,upset:45,odds:{h:'-140',d:'+280',a:'+380',ou:'2.5'},hT:'Cabo Verde',aT:'Saudi Arabia',winner:'Cabo Verde',wP:55,dP:26,aP:19,
+  cbars:[{l:'Cabo Verde win or draw',p:55,f:'f-md'},{l:'Under 2.5 goals',p:62,f:'f-md'}],
+  fouls:[F('Salem Al-Dawsari','Al-Hilal \xb7 Saudi Arabia \xb7 LW',false,'h80','draws fouls',[['Role','Dribbling winger'],['XI','nailed starter'],['Drawn','frequent']],[1,1,0,1,1,1,0,1,1,1],74,[{l:'Salem Al-Dawsari 1+ fouls drawn',o:['-130 est.']}],'Saudi talisman and starter, dribbles into contact and draws fouls.'),F('Logan Costa','Villarreal \xb7 Cabo Verde \xb7 CB \xb7 starter',true,'h80','nailed starter',[['Role','Starting CB'],['Duels','aerial + ground'],['XI','starts every game']],[1,1,1,0,1,1,1,1,0,1],76,[{l:'Logan Costa 1+ fouls',o:['-130 est.']}],'Cabo Verde only top-5-league player, anchors the defence and starts every match. Commits fouls defending.')],shots:[],
+  easy:[E('Fouls drawn','Salem Al-Dawsari 1+ fouls drawn','-130 est.',74,true),E('Fouls ★','Logan Costa 1+ fouls (starter)','-130 est.',76,true),E('Goals','Under 2.5 goals','-115 est.',62,false),E('Throw-ins','Over 38 total throw-ins','-110 est.',69,true)],
+  parlay:[PL('Under 2.5 goals','-115'),PL('Cabo Verde win/draw','-140')],pret:'+110\u2013135',
+  upsetNote:'Low-pressure match for both. Under 2.5 goals likely.',
+  ai:'Cabo Verde vs Saudi Arabia. Both without top-2 pressure. Under 2.5 goals likely.'},
+
+  {id:'egy_iri',live:false,teams:'\ud83c\uddea\ud83c\uddec Egypt vs Iran \ud83c\uddee\ud83c\uddf7',group:'Group G',venue:'Seattle \xb7 Lumen Field',time:'8:30am IST (next day) · 11pm ET',tag:'top',tl:'\u2605 64% Egypt \xb7 Salah',conf:64,upset:36,odds:{h:'-150',d:'+280',a:'+400',ou:'2.5'},hT:'Egypt',aT:'Iran',winner:'Egypt',wP:64,dP:24,aP:12,
+  cbars:[{l:'Egypt win',p:64,f:'f-md'},{l:'Salah 1+ SOT',p:84,f:'f-bl'},{l:'Fathy 1+ fouls (100% L10)',p:93,f:'f-hi'}],
+  fouls:[F('Mohamed Salah','Liverpool \xb7 Egypt \xb7 RW \xb7 captain',true,'h90','draws fouls',[['Drawn/90','~1.8'],['Role','Captain dribbler'],['Fouled','every game']],[1,1,1,1,1,1,1,0,1,1],84,[{l:'Mohamed Salah 1+ fouls drawn',o:['-180 est.']}],'Egypt captain dribbles inside and is fouled constantly. Nailed starter.'),F('Hamdi Fathy','Egypt \xb7 Defensive Midfielder',true,'h100','100% last 10',[['AFCON fouls/g','2.1'],['YC AFCON','3 in 7'],['Role','Break transitions']],[1,1,1,1,1,1,1,1,1,1],93,[{l:'Fathy 1+ fouls',o:['-165 bet365','-155 FanDuel']},{l:'Fathy booked',o:['+175 bet365']}],'Egypt midfield enforcer. 2.1 fouls/game AFCON. 100% last 10. Yellow at +175 great value.')],
+  shots:[S('Mohamed Salah','Liverpool \xb7 Egypt \xb7 RW \xb7 Captain',true,'h90','90% last 10',[['Shots/90 PL','2.85'],['SOT/game','1.3'],['Egypt goals','67']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,84,[{l:'Salah 1+ SOT',o:['-145 est.']},{l:'Salah anytime scorer',o:['+130 est.']}])],
+  easy:[E('Fouls drawn','Mohamed Salah 1+ fouls drawn','-180 est.',84,true),E('SOT prop','Salah 1+ SOT','-145 est.',84,true),E('Fouls \u2605','Fathy 1+ fouls (100% L10)','-165 bet365',93,true),E('Goals','Under 2.5 goals','-120 est.',60,false),E('Throw-ins','Over 40 throw-ins','-110 est.',72,true)],
+  parlay:[PL('Fathy 1+ fouls','-165'),PL('Salah 1+ SOT','-145'),PL('Under 2.5 goals','-120')],pret:'+175\u2013205',
+  upsetNote:'Belgium drew 0-0 Iran MD2. Egypt won MD2 3-1 NZ. 36% Iran upset.',
+  ai:'Egypt (64%, won MD2 3-1 NZ) vs Iran (drew MD2 0-0 Belgium). Salah: 2.85 shots/90. Fathy: 2.1 fouls/game, 100% last 10.'},
+
+  {id:'nz_bel',live:false,teams:'\ud83c\uddf3\ud83c\uddff New Zealand vs Belgium \ud83c\udde7\ud83c\uddea',group:'Group G',venue:'Vancouver \xb7 BC Place',time:'8:30am IST (next day) · 11pm ET',tag:'upset',tl:'\u26a0 Belgium 62% \xb7 NZ shock threat',conf:62,upset:38,odds:{h:'+500',d:'+290',a:'-200',ou:'2.5'},hT:'New Zealand',aT:'Belgium',winner:'Belgium',wP:12,dP:26,aP:62,
+  cbars:[{l:'Belgium win',p:62,f:'f-md'},{l:'Stamenic 1+ fouls (100% L10)',p:91,f:'f-hi'},{l:'Belgium over 1.5 goals',p:68,f:'f-hi'}],
+  fouls:[F('Kevin De Bruyne','Napoli \xb7 Belgium \xb7 AM',true,'h80','draws fouls',[['Role','Playmaker'],['Drawn','fouled in transition'],['XI','starter']],[1,1,0,1,1,1,1,0,1,1],76,[{l:'Kevin De Bruyne 1+ fouls drawn',o:['-135 est.']}],'Belgium playmaker fouled to stop transitions. Starter.'),F('Marko Stamenic','Swansea \xb7 New Zealand \xb7 CM',true,'h100','100% last 10',[['Fouls/game Champ.','1.7'],['YC this season','6'],['Role vs Belgium','Disrupt and press']],[1,1,1,1,1,1,1,1,1,1],91,[{l:'Stamenic 1+ fouls',o:['-160 bet365','-150 FanDuel']},{l:'Stamenic booked',o:['+165 Paddy']}],'NZ midfield enforcer. 1.7 fouls/game, 6 yellows. 100% last 10. Yellow at +165 outstanding value.')],
+  shots:[S('Kevin De Bruyne','Napoli \xb7 Belgium \xb7 AM',false,'h90','90% last 10',[['Shots/90 PL','2.1'],['SOT/game','1.0'],['Key passes/g','3.1']],[1,1,1,1,1,0,1,1,1,1],[1,1,0,1,1,1,1,0,1,1],80,75,[{l:'De Bruyne 1+ SOT',o:['-130 est.']}])],
+  easy:[E('Fouls drawn','Kevin De Bruyne 1+ fouls drawn','-135 est.',76,true),E('Fouls \u2605','Stamenic 1+ fouls (100% L10)','-160 bet365',91,true),E('Goals','Belgium over 1.5 goals','-155 est.',68,true),E('SOT prop','De Bruyne 1+ SOT','-130 est.',75,false),E('Throw-ins','Over 40 throw-ins','-110 est.',72,true)],
+  parlay:[PL('Stamenic 1+ fouls','-160'),PL('Belgium win','-200'),PL('De Bruyne 1+ SOT','-130')],pret:'+160\u2013190',
+  upsetNote:'NZ drew 1-1 Portugal MD1. Belgium drew 0-0 Iran MD2. 38% NZ upset.',
+  ai:'NZ (+500) vs Belgium (-200, drew 0-0 Iran MD2). Stamenic: 1.7 fouls/game, 100% last 10. De Bruyne: 2.1 shots/90.'},
+]},
+
+'27':{title:'Sunday 28 June 2026 (IST)',sub:'MD3 \xb7 Groups J K L \xb7 6 matches \xb7 Sat 27 Jun ET \xb7 kickoffs 2:30am / 5:00am / 7:30am IST',matches:[
+  {id:'jor_arg',live:false,teams:'\ud83c\uddef\ud83c\uddf4 Jordan vs Argentina \ud83c\udde6\ud83c\uddf7',group:'Group J',venue:'Dallas \xb7 AT&T Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'top',tl:'\u2605 88% Argentina \xb7 Messi hat-trick',conf:88,upset:9,odds:{h:'+900',d:'+700',a:'-800',ou:'2.5'},hT:'Jordan',aT:'Argentina',winner:'Argentina',wP:5,dP:7,aP:88,
+  cbars:[{l:'Argentina win',p:88,f:'f-hi'},{l:'Messi 1+ SOT',p:90,f:'f-bl'},{l:'Romero 1+ fouls',p:84,f:'f-hi'},{l:'Argentina over 2.5 goals',p:79,f:'f-hi'}],
+  fouls:[F('Lionel Messi','Inter Miami \xb7 Argentina \xb7 AM',true,'h90','draws fouls',[['Drawn/90','~2.0'],['Role','Most-fouled'],['vs Jordan','low block']],[1,1,1,1,1,1,1,1,0,1],85,[{l:'Lionel Messi 1+ fouls drawn',o:['-190 est.']}],'Perennially among the most-fouled players. Jordan will foul to stop him. Argentina starter.'),F('Cristian Romero','Tottenham \xb7 Argentina \xb7 CB',true,'h90','90% last 10',[['Fouls/90 PL','1.7'],['YC PL 25/26','8'],['Role','CB vs Jordan pace']],[1,1,1,1,1,0,1,1,1,1],84,[{l:'Romero 1+ fouls',o:['-150 bet365','-145 FanDuel']}],'One of most foul-prone CBs in PL. Jordan pace forwards test him constantly. 90% last 10.')],
+  shots:[S('Lionel Messi','Inter Miami \xb7 Argentina \xb7 AM',true,'h100','100% last 10',[['Shots/90 MLS','2.8'],['SOT/game','1.5'],['MD1 hat-trick','3 goals vs Algeria']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,0,1,1,1,1],95,90,[{l:'Messi 1+ SOT',o:['-145 est.']},{l:'Messi anytime scorer',o:['+120 est.']}])],
+  easy:[E('Fouls drawn','Lionel Messi 1+ fouls drawn','-190 est.',85,true),E('SOT prop \u2605','Messi 1+ SOT','-145 est.',90,true),E('Fouls','Romero 1+ fouls','-150 bet365',84,true),E('Goals','Over 2.5 goals','-130 est.',79,true),E('Corners','Argentina 7+ corners','-135 est.',75,true)],
+  parlay:[PL('Romero 1+ fouls','-150'),PL('Messi 1+ SOT','-145'),PL('Over 2.5 goals','-130')],pret:'+195\u2013225',
+  upsetNote:'Jordan won MD2 1-0 Algeria upset. Argentina won both MD1+MD2. Only 9% upset.',
+  ai:'Argentina (-800, Messi hat-trick MD1) vs Jordan (+900). Messi: 2.8 shots/90. Romero: 1.7 fouls/90, 90% last 10.'},
+
+  {id:'alg_aut',live:false,teams:'\ud83c\udde9\ud83c\uddff Algeria vs Austria \ud83c\udde6\ud83c\uddf9',group:'Group J',venue:'Kansas City \xb7 Arrowhead Stadium',time:'7:30am IST (next day) · 10pm ET',tag:'info',tl:'60% Austria',conf:60,upset:40,odds:{h:'+350',d:'+280',a:'-185',ou:'2.5'},hT:'Algeria',aT:'Austria',winner:'Austria',wP:15,dP:25,aP:60,
+  cbars:[{l:'Austria win',p:60,f:'f-md'},{l:'BTTS both score',p:58,f:'f-md'},{l:'Over 2.5 goals',p:62,f:'f-md'}],
+  fouls:[F('Riyad Mahrez','Al-Ahli \xb7 Algeria \xb7 RW \xb7 captain',true,'h80','draws fouls',[['Role','Captain dribbler'],['Drawn','frequent'],['XI','nailed starter']],[1,1,1,0,1,1,0,1,1,1],78,[{l:'Riyad Mahrez 1+ fouls drawn',o:['-140 est.']}],'Algeria captain and dribbler, cut down by fullbacks. Starter.'),F('Konrad Laimer','Bayern \xb7 Austria \xb7 RM/DM \xb7 starter',true,'h90','starter \xb7 9 yellow cards',[['Fouls/90 BL','1.31'],['Yellow cards','9'],['Role','Combative presser']],[1,1,1,1,1,1,1,1,1,0],84,[{l:'Konrad Laimer 1+ fouls',o:['-150 est.']}],'Bayern relentless presser and nailed Austria starter. 1.31 fouls/90 and 9 bookings this season.')],shots:[],
+  easy:[E('Fouls drawn','Riyad Mahrez 1+ fouls drawn','-140 est.',78,true),E('Fouls ★','Konrad Laimer 1+ fouls (starter)','-150 est.',84,true),E('Goals','Over 2.5 goals','+105 est.',62,false),E('BTTS','Both teams score','+110 est.',58,false),E('Throw-ins','Over 40 throw-ins','-110 est.',70,true)],
+  parlay:[PL('Over 2.5 goals','+105'),PL('BTTS','+110')],pret:'+120\u2013145',
+  upsetNote:'Algeria won MD2 2-1 Jordan upset. Austria won MD1 3-1 Jordan. 40% Algeria upset.',
+  ai:'Austria (-185, won MD1 3-1 Jordan) vs Algeria (+350, won MD2 2-1 Jordan). Both need win.'},
+
+  {id:'por_col',live:false,teams:'\ud83c\uddf5\ud83c\uddf9 Portugal vs Colombia \ud83c\udde8\ud83c\uddf4',group:'Group K',venue:'Miami \xb7 Hard Rock Stadium',time:'5:00am IST (next day) · 7:30pm ET',tag:'top',tl:'\u2605 70% Portugal \xb7 Ronaldo brace',conf:70,upset:25,odds:{h:'-210',d:'+330',a:'+600',ou:'2.5'},hT:'Portugal',aT:'Colombia',winner:'Portugal',wP:70,dP:20,aP:10,
+  cbars:[{l:'Portugal win',p:70,f:'f-hi'},{l:'Ronaldo 1+ SOT',p:88,f:'f-bl'},{l:'Joao Neves 1+ fouls (starter)',p:85,f:'f-hi'},{l:'Over 2.5 goals',p:66,f:'f-md'}],
+  fouls:[F('Luis Diaz','Bayern Munich \xb7 Colombia \xb7 LW',true,'h90','draws fouls',[['Drawn/90','~2.0'],['Role','Dribbler'],['Fouled','top of BL']],[1,1,1,1,1,1,1,0,1,1],84,[{l:'Luis Diaz 1+ fouls drawn',o:['-180 est.']}],'Among the most-fouled in the Bundesliga, dribbles into contact. Colombia starter.'),F('Joao Neves','PSG \xb7 Portugal \xb7 DM \xb7 starter',true,'h90','nailed starter',[['Fouls/90','~1.4'],['Role','Deep-lying DM'],['XI','starts w/ Vitinha']],[1,1,1,1,1,1,1,1,1,0],85,[{l:'Joao Neves 1+ fouls',o:['-150 est.']}],'Starts alongside Vitinha in Portugal\u2019s midfield, screens the defence and commits fouls every game. (Ruben Neves is not in the starting XI.)')],
+  shots:[S('Cristiano Ronaldo','Al-Nassr \xb7 Portugal \xb7 ST \xb7 brace MD2',true,'h100','100% last 10',[['Shots/90','4.2'],['SOT/game','2.1'],['MD2 vs Uzbekistan','BRACE (5-0)']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,0,1,1],95,88,[{l:'Ronaldo 1+ SOT',o:['-150 bet365']},{l:'Ronaldo anytime scorer',o:['+130 FanDuel']}]),S('Luis Diaz','Bayern Munich \xb7 Colombia \xb7 LW',true,'h90','90% last 10',[['Shots/90 PL','2.8'],['SOT/game','1.3'],['PL goals 25/26','17']],[1,1,1,1,1,1,0,1,1,1],[1,1,0,1,1,1,1,0,1,1],83,80,[{l:'Diaz 1+ SOT',o:['-130 est.']}])],
+  easy:[E('Fouls drawn','Luis Diaz 1+ fouls drawn','-180 est.',84,true),E('Fouls \u2605','Joao Neves 1+ fouls (starter)','-150 est.',85,true),E('SOT prop','Ronaldo 1+ SOT','-150 bet365',88,true),E('Goals','Over 2.5 goals','+110 est.',66,false),E('Corners','Portugal 7+ corners','-135 est.',74,true)],
+  parlay:[PL('Joao Neves 1+ fouls','-150'),PL('Ronaldo 1+ SOT','-150'),PL('Portugal win','-210')],pret:'+185\u2013215',
+  upsetNote:'Portugal won MD2 5-0 Uzbekistan Ronaldo brace. Colombia drew MD2 1-1. 25% upset.',
+  ai:'Portugal (-210, won MD2 5-0 Ronaldo brace) vs Colombia (+600). Ronaldo: 4.2 shots/90. Joao Neves (DM) starts and fouls; Ruben Neves is not in the XI.'},
+
+  {id:'uzb_drc',live:false,teams:'\ud83c\uddfa\ud83c\uddff Uzbekistan vs DR Congo \ud83c\udde8\ud83c\udde9',group:'Group K',venue:'Atlanta \xb7 Mercedes-Benz Stadium',time:'5:00am IST (next day) · 7:30pm ET',tag:'info',tl:'58% DR Congo',conf:58,upset:42,odds:{h:'+350',d:'+280',a:'-185',ou:'2.5'},hT:'Uzbekistan',aT:'DR Congo',winner:'DR Congo',wP:14,dP:28,aP:58,
+  cbars:[{l:'DR Congo win',p:58,f:'f-md'},{l:'Under 2.5 goals',p:60,f:'f-md'}],
+  fouls:[F('Abdukodir Khusanov','Man City \xb7 Uzbekistan \xb7 CB \xb7 starter',true,'h80','commits fouls',[['Role','Aggressive CB'],['XI','nailed starter'],['Style','physical']],[1,1,1,0,1,1,1,1,0,1],74,[{l:'Abdukodir Khusanov 1+ fouls',o:['-130 est.']}],'Uzbekistan young CB at Man City, aggressive in the challenge. Starter.'),F('Chancel Mbemba','Lille \xb7 DR Congo \xb7 CB \xb7 captain',true,'h90','captain \xb7 nailed starter',[['Caps','107'],['Role','Captain CB'],['Style','physical defender']],[1,1,1,1,1,0,1,1,1,1],82,[{l:'Chancel Mbemba 1+ fouls',o:['-145 est.']}],'DR Congo captain and record cap-holder. Plays every minute at CB as a physical defender. Reliable 1+ fouls.')],shots:[],
+  easy:[E('Fouls','Abdukodir Khusanov 1+ fouls','-130 est.',74,true),E('Fouls ★','Chancel Mbemba 1+ fouls (captain)','-145 est.',82,true),E('Goals','Under 2.5 goals','-110 est.',60,false),E('Throw-ins','Over 38 throw-ins','-110 est.',68,true)],
+  parlay:[PL('Under 2.5 goals','-110'),PL('DR Congo win/draw','-185')],pret:'+105\u2013125',
+  upsetNote:'Uzbekistan lost MD2 0-5. DR Congo lost MD2 0-1. Both desperate. 42% Uzbekistan upset.',
+  ai:'Uzbekistan vs DR Congo. Both eliminated from top 2. Low-pressure match.'},
+
+  {id:'eng_pan',live:false,teams:'\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f England vs Panama \ud83c\uddf5\ud83c\udde6',group:'Group L',venue:'New Jersey \xb7 MetLife Stadium',time:'2:30am IST (next day) · 5pm ET',tag:'top',tl:'\u2605 85% England',conf:85,upset:10,odds:{h:'-600',d:'+650',a:'+1400',ou:'2.5'},hT:'England',aT:'Panama',winner:'England',wP:85,dP:9,aP:6,
+  cbars:[{l:'England win',p:85,f:'f-hi'},{l:'Kane 1+ SOT',p:90,f:'f-bl'},{l:'Rice 1+ fouls (100% L10)',p:96,f:'f-hi'},{l:'England over 3 goals',p:74,f:'f-hi'},{l:'England 8+ corners',p:79,f:'f-pu'}],
+  fouls:[F('Bukayo Saka','Arsenal \xb7 England \xb7 RW',true,'h80','draws fouls',[['Drawn/90','~1.9'],['Role','Dribbler'],['Fouled','top of PL']],[1,1,1,1,1,1,0,1,1,1],83,[{l:'Bukayo Saka 1+ fouls drawn',o:['-170 est.']}],'One of the most-fouled players in the Premier League. England starter.'),F('Declan Rice','Arsenal \xb7 England \xb7 DM',true,'h100','100% last 10',[['Fouls/90 PL','1.8'],['YC PL+UCL','9'],['vs Panama','Near certainty']],[1,1,1,1,1,1,1,1,1,1],96,[{l:'Rice 1+ fouls committed',o:['-165 bet365','-155 FanDuel']},{l:'Rice to be booked',o:['+195 bet365']}],'1.8 fouls/90 in PL. 10/10 last matches. England DM vs Panama = near certainty.')],
+  shots:[S('Harry Kane','Bayern Munich \xb7 England \xb7 ST',true,'h100','100% last 10',[['Shots/90 BL','4.5'],['SOT/game','2.16'],['BL goals 25/26','36']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,1,1,1,1,0,1],96,90,[{l:'Kane 1+ SOT',o:['-145 bet365']},{l:'Kane anytime scorer',o:['EV FanDuel']}])],
+  easy:[E('Fouls drawn','Bukayo Saka 1+ fouls drawn','-170 est.',83,true),E('Fouls \u2605','Rice 1+ fouls (100% L10)','-165 bet365',96,true),E('SOT prop','Kane 1+ SOT','-145 bet365',90,true),E('Goals','England over 3 goals','+115 est.',74,true),E('Corners','England 8+ corners','-130 est.',79,true),E('Throw-ins','Over 44 total throw-ins','-115 est.',80,true)],
+  parlay:[PL('Rice 1+ fouls','-165'),PL('Kane 1+ SOT','-145'),PL('England over 3 goals','+115'),PL('England 8+ corners','-130')],pret:'+200\u2013240',
+  upsetNote:'Panama lost both MD1+MD2. England won both. 10% upset \u2014 best Saturday banker.',
+  ai:'England (-600, won MD1+MD2) vs Panama (lost both). Kane: 4.5 shots/90. Rice: 1.8 fouls/90, 100% last 10.'},
+
+  {id:'cro_gha',live:false,teams:'\ud83c\udded\ud83c\uddf7 Croatia vs Ghana \ud83c\uddec\ud83c\udded',group:'Group L',venue:'Philadelphia \xb7 Lincoln Financial Field',time:'2:30am IST (next day) · 5pm ET',tag:'upset',tl:'\u26a0 Croatia 65% \xb7 Ghana threat',conf:65,upset:35,odds:{h:'-200',d:'+320',a:'+600',ou:'2.5'},hT:'Croatia',aT:'Ghana',winner:'Croatia',wP:65,dP:21,aP:14,
+  cbars:[{l:'Croatia win',p:65,f:'f-md'},{l:'Modric 1+ fouls drawn (100%)',p:82,f:'f-hi'},{l:'Musa 1+ SOT',p:81,f:'f-bl'}],
+  fouls:[F('Mohammed Kudus','Tottenham \xb7 Ghana \xb7 RW/AM',true,'h80','draws fouls',[['Role','Dribbler'],['Drawn','frequent'],['XI','starter']],[1,1,1,0,1,1,1,0,1,1],80,[{l:'Mohammed Kudus 1+ fouls drawn',o:['-150 est.']}],'Ghana dribbler fouled often when driving at defenders. Starter.'),F('Luka Modric','AC Milan \xb7 Croatia \xb7 CM \xb7 40yrs',false,'h100','100% fouls drawn L10',[['Fouls drawn/g','1.2'],['Age','40 yrs'],['WC career','2018 final']],[1,1,1,1,1,1,1,1,1,1],82,[{l:'Modric 1+ fouls drawn',o:['-140 FanDuel','-135 bet365']}],'At 40 Modric draws fouls through ball retention. Ghana will hack him constantly.')],
+  shots:[S('Petar Musa','FC Dallas \xb7 Croatia \xb7 ST',true,'h100','100% last 10',[['Shots/90','4.1'],['SOT/game','2.0'],['Goals 25/26','16']],[1,1,1,1,1,1,1,1,1,1],[1,1,1,1,0,1,1,1,1,1],93,81,[{l:'Musa 1+ SOT',o:['-130 est.']},{l:'Musa anytime scorer',o:['+165 est.']}])],
+  easy:[E('Fouls drawn','Mohammed Kudus 1+ fouls drawn','-150 est.',80,true),E('SOT prop \u2605','Musa 1+ SOT','-130 est.',81,true),E('Fouls drawn','Modric 1+ fouls drawn','-140 FanDuel',82,true),E('Throw-ins','Over 40 total throw-ins','-110 est.',71,true)],
+  parlay:[PL('Musa 1+ SOT','-130'),PL('Modric 1+ fouls drawn','-140')],pret:'+145\u2013175',
+  upsetNote:'Ghana won MD1 1-0 Panama. Croatia won MD2 1-0 Panama. 35% Ghana upset.',
+  ai:'Croatia (-200, won MD2 1-0 Panama) vs Ghana (won MD1 1-0 Panama). Musa: 4.1 shots/90. Modric fouls drawn 100% last 10.'},
+]},
+};
+
+function cc(p){return p>=75?'var(--ac)':p>=55?'var(--amb)':'var(--red)'}
+function cpill(p){return p>=75?'cp-hi':p>=55?'cp-md':'cp-lo'}
+function cfill(p){return p>=75?'f-hi':p>=55?'f-md':'f-lo'}
+
+/* ── Clickable actions: tap any pick/odds to copy it ── */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function showToast(msg){
+  const el=document.getElementById('toast');
+  if(!el)return;
+  el.textContent=msg;
+  el.classList.add('show');
+  clearTimeout(window.__toastT);
+  window.__toastT=setTimeout(()=>el.classList.remove('show'),1700);
+}
+function copyBet(ev,el){
+  ev.stopPropagation();
+  const text=(el.getAttribute('data-copy')||el.textContent||'').replace(/\s+/g,' ').trim();
+  const done=()=>showToast('✓ Copied — '+text);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done).catch(()=>fallbackCopy(text,done));
+  }else{fallbackCopy(text,done);}
+}
+function fallbackCopy(text,done){
+  try{
+    const ta=document.createElement('textarea');
+    ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    document.execCommand('copy');document.body.removeChild(ta);
+  }catch(e){}
+  done();
+}
+
+/* ── Real World Cup baselines, computed from openfootball public-domain data ──
+   Source: github.com/openfootball/worldcup.json (CC0) · 964 matches, 1930–2022.
+   Regenerate with: node scripts/build-stats.mjs  (writes data/worldcup-stats.json)
+   These real historical rates feed the prediction-confidence logic below;
+   fouls/corners/throw-ins are NOT in the open dataset, so they stay curated. */
+const OG_STATS={
+  source:'openfootball/worldcup.json · CC0 · 964 matches 1930–2022',
+  baseline:{basis:'last 3 World Cups (2014–2022)',goalsPerGame:2.59,over25Pct:49,bttsPct:49,drawPct:20},
+  allTime:{matches:964,goalsPerGame:2.75,over25Pct:50,bttsPct:50,drawPct:25},
+  modernEra:{fromYear:1998,goalsPerGame:2.48,over25Pct:46,bttsPct:47,drawPct:25},
+  trend:[[2002,2.47],[2006,2.25],[2010,2.23],[2014,2.55],[2018,2.59],[2022,2.63]],
+};
+
+// Pull the match's own Over-2.5 lean (from cbars or easy bets) if present.
+function matchOver25(m){
+  const c=(m.cbars||[]).find(r=>/over\s*2\.5/i.test(r.l||''));
+  if(c) return c.p;
+  const e=(m.easy||[]).find(x=>/over\s*2\.5/i.test(x.p||''));
+  if(e) return e.cf;
+  return null;
+}
+// Data-driven baseline strip: historical priors + this match's edge vs baseline.
+function baselineBlock(m){
+  const b=OG_STATS.baseline;
+  const o=matchOver25(m);
+  let edge='';
+  if(o!=null){
+    const d=o-b.over25Pct;
+    const col=d>=8?'var(--ac)':d<=-8?'var(--red)':'var(--mu)';
+    const lean=d>=8?'lean OVER':d<=-8?'lean UNDER':'in line';
+    edge='<div style="font-size:10px;color:var(--mu);margin-top:7px;padding-top:6px;border-top:1px solid var(--b1)">'+
+      'This match — model Over 2.5: <b style="color:var(--tx)">'+o+'%</b> vs '+b.over25Pct+'% WC baseline → '+
+      '<b style="color:'+col+'">'+(d>=0?'+':'')+d+' edge · '+lean+'</b></div>';
+  }
+  const cell=(lbl,val)=>'<div style="text-align:center"><div style="font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:var(--mu)">'+lbl+'</div>'+
+    '<div style="font-family:var(--mono);font-size:13px;font-weight:700;color:var(--ac2);margin-top:2px">'+val+'</div></div>';
+  return '<div style="grid-column:1/-1;background:var(--s3);border:1px solid var(--b1);border-radius:9px;padding:11px">'+
+    '<div style="font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mu);margin-bottom:9px">'+
+      '📊 WC historical baseline <span style="color:var(--dm);font-weight:400;text-transform:none;letter-spacing:0">· openfootball · '+OG_STATS.allTime.matches+' matches \xb7 '+b.basis+'</span></div>'+
+    '<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">'+
+      cell('Goals/g',b.goalsPerGame)+cell('Over 2.5',b.over25Pct+'%')+cell('BTTS',b.bttsPct+'%')+cell('GS Draw',b.drawPct+'%')+
+    '</div>'+edge+'</div>';
+}
+
+/* ── Parlay logic: build "easy to hit" parlays from the highest-confidence legs ──
+   Each leg's hit probability comes from the curated model confidence (easy bets /
+   confidence bars); odds drive the payout. We grow a parlay from the safest legs
+   while the combined hit rate stays >=50%, so the headline slip is built to LAND,
+   and keep the curated combo as a clearly-marked higher-risk "value" option. */
+function amToDec(am){
+  const n=parseFloat(String(am).replace(/[^\-+0-9.]/g,''));
+  if(!isFinite(n)||n===0) return null;
+  return n>0 ? 1+n/100 : 1+100/Math.abs(n);
+}
+function amToProb(am){const d=amToDec(am);return d?1/d:null;}
+/* Odds display format — viewer-selectable (Fractional / Decimal / American).
+   Data stays American (canonical) so all probability/payout math is unchanged;
+   we only convert at render time. Any trailing book/suffix is kept
+   (e.g. "-155 bet365"); non-numeric values (e.g. "live odds") pass through.
+   The chosen format persists in localStorage. */
+let ODDS_FMT='frac';
+try{const _s=localStorage.getItem('wc_oddsfmt'); if(_s)ODDS_FMT=_s;}catch(e){}
+const FRAC_LADDER=[[1,10],[1,8],[1,7],[1,6],[1,5],[2,9],[1,4],[2,7],[3,10],[1,3],[2,5],[4,9],[1,2],[8,15],[4,7],[8,13],[2,3],[8,11],[4,5],[5,6],[10,11],[1,1],[11,10],[6,5],[5,4],[11,8],[7,5],[3,2],[8,5],[13,8],[7,4],[15,8],[2,1],[9,4],[5,2],[11,4],[3,1],[10,3],[7,2],[4,1],[9,2],[5,1],[11,2],[6,1],[13,2],[7,1],[15,2],[8,1],[9,1],[10,1],[12,1],[14,1],[16,1],[18,1],[20,1],[25,1],[33,1],[40,1],[50,1]];
+function fmtOdds(odds){
+  if(odds==null) return odds;
+  const s=String(odds).trim();
+  const mm=s.match(/^([+\-]?\d+(?:\.\d+)?)\s*(.*)$/);
+  if(!mm) return s;
+  const n=parseFloat(mm[1]); const suf=mm[2]?' '+mm[2]:'';
+  if(!isFinite(n)||n===0) return s;
+  if(ODDS_FMT==='am') return s;                       // American (raw, canonical)
+  const dec=n>0 ? 1+n/100 : 1+100/Math.abs(n);
+  if(ODDS_FMT==='dec') return dec.toFixed(2)+suf;     // Decimal
+  const v=dec-1;                                      // Fractional (UK ladder)
+  let best=FRAC_LADDER[0], err=Infinity;
+  for(const f of FRAC_LADDER){const e=Math.abs(v-f[0]/f[1]); if(e<err){err=e;best=f;}}
+  return best[0]+'/'+best[1]+suf;
+}
+function setOddsFmt(f){
+  ODDS_FMT=f;
+  try{localStorage.setItem('wc_oddsfmt',f);}catch(e){}
+  document.querySelectorAll('#oddsToggle .of-btn').forEach(b=>b.classList.toggle('active',b.dataset.fmt===f));
+  reloadAll();
+}
+// Map a curated pick back to its model confidence; fall back to implied odds.
+function legProb(m,pick,odds){
+  const norm=s=>String(s||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  const np=norm(pick); if(!np) return amToProb(odds)||0.5;
+  const e=(m.easy||[]).find(x=>{const n=norm(x.p);return n&&(np.includes(n)||n.includes(np));});
+  if(e&&e.cf!=null) return e.cf/100;
+  const c=(m.cbars||[]).find(x=>{const n=norm(x.l);return n&&(np.includes(n)||n.includes(np));});
+  if(c&&c.p!=null) return c.p/100;
+  const ip=amToProb(odds); return ip!=null?ip:0.5;
+}
+function parlayMetrics(legs){
+  let prob=1, dec=1, ok=true;
+  legs.forEach(l=>{prob*=l.prob; const d=amToDec(l.o); if(d)dec*=d; else ok=false;});
+  return {prob, dec:ok?dec:null};
+}
+function gradeOf(prob){
+  return prob>=0.55?{lbl:'SAFE',col:'var(--ac)',bg:'rgba(45,200,160,.12)',bd:'rgba(45,200,160,.4)'}
+       : prob>=0.35?{lbl:'BALANCED',col:'var(--amb)',bg:'rgba(246,178,63,.12)',bd:'rgba(246,178,63,.4)'}
+       : {lbl:'RISKY',col:'var(--red)',bg:'rgba(239,109,109,.12)',bd:'rgba(239,109,109,.4)'};
+}
+// Greedy: take highest-confidence legs, grow while combined hit stays >=50%.
+function safeParlay(m){
+  const pool=(m.easy||[]).filter(e=>e.cf!=null && amToDec(e.o)!=null)
+    .map(e=>({p:e.p,o:e.o,prob:e.cf/100})).sort((a,b)=>b.prob-a.prob);
+  if(pool.length<2) return pool;
+  let legs=pool.slice(0,2), prob=legs[0].prob*legs[1].prob;
+  for(let i=2;i<pool.length && legs.length<4;i++){
+    const np=prob*pool[i].prob; if(np<0.60) break; // keep the safe slip genuinely safe
+    legs.push(pool[i]); prob=np;
+  }
+  return legs;
+}
+function parlayCard(title,sub,legs,metrics,g){
+  const hit=Math.round(metrics.prob*100);
+  const ret=metrics.dec? '+'+metrics.dec.toFixed(2)+'x · $10→$'+(metrics.dec*10).toFixed(0) : '—';
+  const copy=title.replace(/[^\x20-\x7e]/g,'').trim()+'\n'+legs.map((l,i)=>(i+1)+'. '+l.p+' @ '+fmtOdds(l.o)).join('\n')+'\nEst. hit ~'+hit+'% · return '+ret;
+  const legsHtml=legs.map((l,i)=>'<div class="pl-leg copyable" data-copy="'+esc(l.p+' @ '+fmtOdds(l.o))+'" onclick="copyBet(event,this)"><span class="pl-n">'+(i+1)+'</span><span class="pl-pk">'+l.p+'</span><span class="pl-od">'+fmtOdds(l.o)+'</span><span class="copy-ico">⧉</span></div>').join('');
+  return '<div class="parlay">'+
+    '<div class="pl-hd" style="display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap">'+
+      '<span>'+title+'</span>'+
+      '<span style="display:flex;gap:5px;align-items:center">'+
+        '<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;letter-spacing:.03em;background:'+g.bg+';border:1px solid '+g.bd+';color:'+g.col+'">'+g.lbl+' '+hit+'% hit</span>'+
+        '<span class="copyable" data-copy="'+esc(copy)+'" onclick="copyBet(event,this)" title="Copy parlay" style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(45,200,160,.12);border:1px solid rgba(45,200,160,.35);color:var(--ac)">⧉</span>'+
+      '</span>'+
+    '</div>'+
+    (sub?'<div style="font-size:9px;color:var(--mu);margin:-2px 0 7px;letter-spacing:0;text-transform:none;font-weight:400">'+sub+'</div>':'')+
+    legsHtml+
+    '<div class="pl-ret">Est. combined hit <span style="color:'+g.col+'">~'+hit+'%</span> · return <span>'+ret+'</span></div>'+
+  '</div>';
+}
+
+/* ── Auto-remove completed matches from the date picker & day view ──
+   Kickoff = each match's ET clock time (mt.time) on the day's ET date
+   (DATES[].etNote), with June ET = EDT = UTC-4. A match is "completed"
+   ~135 min after kickoff. Completed matches drop out of the day list, and
+   any date whose matches are ALL completed disappears from the picker.
+   A per-day "Show completed" toggle brings them back. */
+let SHOW_DONE=false;
+const MONTHS={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+const COMPLETE_MS=135*60*1000;
+function matchKickoff(key,mt){
+  const de=DATES.find(x=>x.key===key);
+  const dm=de&&de.etNote&&de.etNote.match(/(\d{1,2})\s+([A-Za-z]{3})/);
+  const tm=(mt.time||'').match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*ET/i);
+  if(!dm||!tm) return null;
+  let hr=(+tm[1])%12; if(/pm/i.test(tm[3])) hr+=12;
+  return Date.UTC(2026, MONTHS[dm[2].toLowerCase()], +dm[1], hr+4, tm[2]?+tm[2]:0); // ET(EDT)=UTC-4
+}
+function isCompleted(key,mt){
+  if(mt.live) return false;
+  const ko=matchKickoff(key,mt);
+  return ko!=null && Date.now() > ko+COMPLETE_MS;
+}
+function shownMatches(key){
+  const day=DAYS[key]; if(!day) return [];
+  return SHOW_DONE? day.matches : day.matches.filter(mt=>!isCompleted(key,mt));
+}
+function doneCount(key){
+  const day=DAYS[key]; if(!day) return 0;
+  return day.matches.filter(mt=>isCompleted(key,mt)).length;
+}
+// Keep a date in the picker if it has no detail data yet (future) or still
+// has at least one non-completed match.
+function dateActive(key){
+  const day=DAYS[key]; if(!day) return true;
+  return day.matches.some(mt=>!isCompleted(key,mt));
+}
+function firstActiveKey(){
+  const d=DATES.find(x=>dateActive(x.key)); return d?d.key:(DATES[0]&&DATES[0].key);
+}
+function reloadAll(){
+  const cur=document.querySelector('.dn-btn.active');
+  const want=cur&&cur.dataset.key;
+  buildNav();
+  const key=(want&&(SHOW_DONE||dateActive(want)))?want:firstActiveKey();
+  loadDay(key,document.querySelector('.dn-btn[data-key="'+key+'"]'));
+}
+
+function buildNav(){
+  const nav=document.getElementById('dateNav');
+  const dates=SHOW_DONE?DATES:DATES.filter(d=>dateActive(d.key));
+  const todayKey=firstActiveKey();
+  nav.innerHTML=dates.map(d=>{
+    const rem=DAYS[d.key]?DAYS[d.key].matches.filter(mt=>!isCompleted(d.key,mt)).length:d.cnt;
+    const cnt=d.r32?'R32 begins':(d.key===todayKey?'TODAY \xb7 '+rem:rem+' matches');
+    return `<button class="dn-btn" data-key="${d.key}" onclick="loadDay('${d.key}',this)">
+      ${d.hot?'<span class="hot-dot"></span>':''}
+      <span class="dn-day">${d.day}</span>
+      <span class="dn-num">${d.num}</span>
+      <span class="dn-cnt">${cnt}</span>
+      ${d.etNote?'<span class="dn-et" style="font-size:8px;color:var(--mu);font-family:var(--mono);margin-top:1px">'+d.etNote+'</span>':''}
+    </button>`;}).join('');
+}
+
+function loadDay(key,btn){
+  document.querySelectorAll('.dn-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  else{const b2=document.querySelector('.dn-btn[data-key="'+key+'"]'); if(b2)b2.classList.add('active');}
+  const day=DAYS[key];
+  const pg=document.getElementById('pg');
+  if(!day){pg.innerHTML='<div class="no-matches"><p>Predictions loading for this date</p></div>';return;}
+  const shown=shownMatches(key), done=doneCount(key);
+  const allDone=DATES.reduce((n,d)=>n+doneCount(d.key),0);
+  const toggle=allDone?'<button onclick="SHOW_DONE=!SHOW_DONE;reloadAll()" style="margin-left:auto;font-family:var(--sans);font-size:9px;font-weight:600;cursor:pointer;background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.35);color:var(--ac);border-radius:5px;padding:3px 9px">'+(SHOW_DONE?'Hide completed':'Show completed ('+allDone+')')+'</button>':'';
+  const cards=shown.length?shown.map(buildCard).join(''):'<div class="no-matches" style="padding:34px 20px"><p>✓ All matches for this date are completed</p></div>';
+  pg.innerHTML='<div class="day-title">'+day.title+'</div>'+
+    '<div class="day-sub">'+day.sub+(done&&!SHOW_DONE?' \xb7 <span style="color:var(--ac)">'+done+' completed removed</span>':'')+'</div>'+
+    '<div class="copy-hint" style="justify-content:flex-start">⧉ <b>Tip:</b> tap any pick or odds to copy it'+toggle+'</div>'+
+    '<div class="matches">'+cards+'</div>';
+}
+
+function toggleMC(id){
+  const el=document.getElementById('mc_'+id);
+  el.classList.toggle('open');
+  if(el.classList.contains('open')) enrichInForm(id);   // live in-form (no-op unless STATS_PROXY set)
+}
+
+/* ── Live in-form engine (optional) ───────────────────────────────────────────
+   Set STATS_PROXY to your deployed proxy URL (see stats-proxy/README.md) to pull
+   real recent form from API-Football and surface the current in-form, in-squad
+   players for the shot & foul markets. Empty by default = no network, site
+   unchanged. Everything fails safe to the curated data. */
+const STATS_PROXY = '';                 // e.g. 'https://wc26-stats.you.workers.dev'
+const SEASON = 2025;
+const _af = {};
+async function afGet(path){ const r=await fetch(STATS_PROXY+'/af/'+path); if(!r.ok) throw new Error(r.status); return (await r.json()).response; }
+async function afTeam(name){
+  const k='t:'+name; if(k in _af) return _af[k];
+  try{ const c=localStorage.getItem('wc_t_'+name); if(c){ _af[k]=+c; return +c; } }catch(e){}
+  try{ const res=await afGet('teams?search='+encodeURIComponent(name)); const id=(res&&res[0]&&res[0].team&&res[0].team.id)||null;
+    _af[k]=id; try{ if(id) localStorage.setItem('wc_t_'+name, id); }catch(e){} return id;
+  }catch(e){ return null; }
+}
+async function afSquad(name){
+  const id=await afTeam(name); if(!id) return null;
+  const k='s:'+id; if(k in _af) return _af[k];
+  try{ const res=await afGet('players?team='+id+'&season='+SEASON);
+    const ps=res.map(p=>{ const s=(p.statistics&&p.statistics[0])||{};
+      return { name:p.player.name,
+               pos:(s.games&&s.games.position)||'',
+               ap:(s.games&&s.games.appearences)||0,
+               starts:(s.games&&s.games.lineups)||0,     // times in the STARTING XI
+               shots:(s.shots&&s.shots.total)||0, sot:(s.shots&&s.shots.on)||0,
+               fouls:(s.fouls&&s.fouls.committed)||0, drawn:(s.fouls&&s.fouls.drawn)||0 }; })
+      .filter(p=>p.ap>=3);
+    _af[k]=ps; return ps;
+  }catch(e){ return null; }
+}
+// ── World Cup / international STARTERS, from the national team's recent lineups ──
+// We read the country's last fixtures' starting XIs (not club form) so a player
+// who starts for his club but rides the bench for his country (e.g. Ruben Neves)
+// is excluded. Heavier on API calls, so results are cached per team.
+async function afFixtureIds(id){
+  try{ const res=await afGet('fixtures?team='+id+'&last=6');
+    return (res||[]).map(f=>f.fixture&&f.fixture.id).filter(Boolean);
+  }catch(e){ return []; }
+}
+async function afNatStarters(id){
+  const k='xi:'+id; if(k in _af) return _af[k];
+  const fids=await afFixtureIds(id); if(!fids.length){ _af[k]=null; return null; }
+  const counts={};
+  await Promise.all(fids.map(async fid=>{
+    try{ const res=await afGet('fixtures/lineups?fixture='+fid+'&team='+id);
+      const xi=(res&&res[0]&&res[0].startXI)||[];
+      xi.forEach(e=>{ const n=e.player&&e.player.name; if(n) counts[n]=(counts[n]||0)+1; });
+    }catch(e){}
+  }));
+  const set=new Set(Object.keys(counts).filter(n=>counts[n]>=2)); // started >=2 of last 6
+  const out=set.size?set:null; _af[k]=out; return out;
+}
+const _sur=n=>String(n||'').toLowerCase().replace(/[^a-z\s]/g,'').trim().split(/\s+/).pop();
+function _inXI(name,set){ if(!set) return false; if(set.has(name)) return true;
+  const s=_sur(name); for(const x of set){ if(_sur(x)===s) return true; } return false; }
+// Club-form fallback when a national XI can't be resolved.
+function _starters(ps){
+  const reg=ps.filter(p=>p.starts>=3 && p.starts>=p.ap*0.5);
+  return reg.length ? reg : ps;
+}
+// Resolve a team's in-form pool: prefer actual national-team starters; fall back
+// to club starters. Returns players with their club-season shot/foul stats.
+async function teamInForm(name){
+  const id=await afTeam(name); if(!id) return null;
+  const [squad,xi]=await Promise.all([afSquad(name), afNatStarters(id)]);
+  if(!squad||!squad.length) return null;
+  if(xi){ const f=squad.filter(p=>_inXI(p.name,xi)); if(f.length) return f; }
+  return _starters(squad);
+}
+const _byF=(ps,f,n)=>ps.filter(p=>f(p)>0).sort((a,b)=>f(b)-f(a)).slice(0,n);
+function _liveCard(team,p,kind){
+  const cell=(l,v)=>'<div class="fst"><div class="fst-l">'+l+'</div><div class="fst-v">'+v+'</div></div>';
+  let stat, bet, badge;
+  if(kind==='shots'){ stat=cell('Shots',p.shots)+cell('On target',p.sot)+cell('Starts',p.starts+'/'+p.ap); bet=p.name+' 1+ SOT'; badge=''; }
+  else if(kind==='drawn'){ stat=cell('Fouls drawn',p.drawn)+cell('Per game',(p.drawn/Math.max(1,p.ap)).toFixed(1))+cell('Starts',p.starts+'/'+p.ap); bet=p.name+' 1+ fouls drawn'; badge=' <span style="font-size:8px;font-weight:700;padding:1px 6px;border-radius:4px;background:rgba(91,150,239,.15);color:var(--ac2)">DRAWS FOULS</span>'; }
+  else { stat=cell('Fouls',p.fouls)+cell('Per game',(p.fouls/Math.max(1,p.ap)).toFixed(1))+cell('Starts',p.starts+'/'+p.ap); bet=p.name+' 1+ fouls'; badge=' <span style="font-size:8px;font-weight:700;padding:1px 6px;border-radius:4px;background:rgba(246,178,63,.15);color:var(--amb)">COMMITS FOULS</span>'; }
+  return '<div class="fpl hot">'+
+    '<div class="fp-top"><div><div class="fp-nm">'+p.name+badge+'</div><div class="fp-cl">'+team+(p.pos?' \xb7 '+p.pos:'')+' \xb7 regular starter</div></div>'+
+    '<span class="htag h90">in-form</span></div>'+
+    '<div class="fp-sts">'+stat+'</div>'+
+    '<div class="bet-row copyable" data-copy="'+esc(bet)+'" onclick="copyBet(event,this)"><span class="br-l">'+bet+'</span><div class="br-os"><span class="copy-ico">⧉</span></div></div>'+
+  '</div>';
+}
+const _liveHead='<div style="font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ac);margin-bottom:9px">🔥 Live in-form starters <span style="color:var(--dm);font-weight:400;text-transform:none;letter-spacing:0">· starting XIs + recent form · API-Football</span></div>';
+async function enrichInForm(id){
+  if(!STATS_PROXY) return;
+  let m=null; for(const k of Object.keys(DAYS)){ const f=(DAYS[k].matches||[]).find(x=>x.id===id); if(f){m=f;break;} }
+  if(!m) return;
+  const sp=document.getElementById('tp_shots_'+id), fp=document.getElementById('tp_fouls_'+id);
+  if(sp&&sp.dataset.live){ return; }                 // already enriched this card
+  try{
+    const [h,a]=await Promise.all([teamInForm(m.hT), teamInForm(m.aT)]);
+    if(!h&&!a) return;
+    let shotCards='', foulCards='';
+    [[m.hT,h],[m.aT,a]].forEach(([team,pool])=>{ if(!pool||!pool.length)return;
+      // Shot market: top starter by shots-on-target (then shots).
+      _byF(pool,p=>p.sot||p.shots,1).forEach(p=>shotCards+=_liveCard(team,p,'shots'));
+      // Foul markets — per side: top committer AND top fouls-drawer (so each
+      // team contributes both a "commits fouls" and a "draws fouls" option).
+      let comm=_byF(pool,p=>p.fouls,1);
+      if(!comm.length){ // GUARANTEE one committer: most-used central starter
+        const mid=pool.filter(p=>/Mid|Def/i.test(p.pos));
+        comm=(mid.length?mid:pool).slice().sort((a,b)=>b.ap-a.ap).slice(0,1);
+      }
+      comm.forEach(p=>foulCards+=_liveCard(team,p,'fouls'));
+      _byF(pool,p=>p.drawn,1).forEach(p=>foulCards+=_liveCard(team,p,'drawn'));
+    });
+    if(sp && shotCards){ sp.dataset.live='1'; sp.innerHTML=_liveHead+shotCards; }
+    if(fp && foulCards){ fp.dataset.live='1'; fp.innerHTML=_liveHead+foulCards; }
+  }catch(e){ /* fail safe: keep curated data */ }
+}
+
+function switchTab(id,tab,btn){
+  ['result','fouls','shots','easy','model','parlay'].forEach(t=>{
+    const el=document.getElementById('tp_'+t+'_'+id);
+    if(el)el.className='tab-pane'+(t===tab?' active':'');
+  });
+  const tabs=document.getElementById('tabs_'+id);
+  if(tabs)tabs.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+}
+
+function buildCard(m){
+  const tag=m.tag==='top'?'b-top':m.tag==='upset'?'b-upset':'b-info';
+  return '<div class="mc" id="mc_'+m.id+'" onclick="toggleMC(\''+m.id+'\')">'+
+  '<div class="mc-head">'+
+    '<div class="mc-r1">'+
+      '<div>'+
+        '<div class="mc-teams">'+m.teams+(m.live?' <span style="font-size:10px;color:var(--red);font-family:var(--mono)"> LIVE</span>':'')+'</div>'+
+        '<div class="mc-meta">'+m.group+' \xb7 '+m.venue+' \xb7 '+m.time+'</div>'+
+      '</div>'+
+      '<span class="badge '+tag+'">'+m.tl+'</span>'+
+    '</div>'+
+    '<div class="mc-r2">'+
+      '<div class="odds-row">'+
+        '<div class="odd"><div class="odd-l">Home</div><div class="odd-v hi">'+fmtOdds(m.odds.h)+'</div></div>'+
+        '<div class="odd"><div class="odd-l">Draw</div><div class="odd-v">'+fmtOdds(m.odds.d)+'</div></div>'+
+        '<div class="odd"><div class="odd-l">Away</div><div class="odd-v">'+fmtOdds(m.odds.a)+'</div></div>'+
+        '<div class="odd"><div class="odd-l">O/U</div><div class="odd-v">'+m.odds.ou+'</div></div>'+
+      '</div>'+
+      '<span class="conf-pill '+cpill(m.conf)+'">'+m.conf+'% conf</span>'+
+      '<span class="up-pill">\u26a1 '+m.upset+'% upset</span>'+
+      '<span class="tog">\u25be</span>'+
+    '</div>'+
+  '</div>'+
+  '<div class="mc-body">'+
+    buildTabs(m)+
+  '</div>'+
+  '</div>';
+}
+
+function buildTabs(m){
+  const tabs=[
+    {id:'result',label:'Result'},
+    {id:'fouls', label:'Fouls ('+m.fouls.length+')'},
+    {id:'shots', label:'Shots ('+m.shots.length+')'},
+    {id:'easy',  label:'Easy bets'},
+    {id:'model', label:'📊 Model'},
+    {id:'parlay',label:'⚡ Parlay'},
+  ];
+  const tabBar='<div class="tabs" id="tabs_'+m.id+'">'+
+    tabs.map((t,i)=>'<button class="tab-btn'+(i===0?' active':'')+'" onclick="event.stopPropagation();switchTab(\''+m.id+'\',\''+t.id+'\',this)">'+t.label+'</button>').join('')+
+    '</div>';
+  const panes=tabs.map(t=>'<div class="tab-pane'+(t.id==='result'?' active':'')+'" id="tp_'+t.id+'_'+m.id+'">'+buildPane(m,t.id)+'</div>').join('');
+  return tabBar+panes;
+}
+
+function buildPane(m,tab){
+  if(tab==='result') return buildResult(m);
+  if(tab==='fouls')  return buildFouls(m);
+  if(tab==='shots')  return buildShots(m);
+  if(tab==='easy')   return buildEasy(m);
+  if(tab==='model')  return buildModel(m);
+  if(tab==='parlay') return buildParlay(m);
+  return '';
+}
+
+function buildResult(m){
+  const cbarsHtml=m.cbars.map(r=>'<div class="cbar"><div class="cb-hd"><span class="cb-lb">'+r.l+'</span><span class="cb-pc" style="color:'+cc(r.p)+'">'+r.p+'%</span></div><div class="cb-tr"><div class="cb-fi '+r.f+'" style="width:'+r.p+'%"></div></div></div>').join('');
+  return '<div class="pred-grid">'+
+    '<div class="psec"><div class="psec-t">Result prediction</div>'+
+      '<div class="rboxes">'+
+        '<div class="rbox copyable'+(m.winner===m.hT?' win':'')+'" data-copy="'+esc(m.hT+' to win @ '+fmtOdds(m.odds.h))+'" onclick="copyBet(event,this)"><div class="rb-t">'+m.hT+'</div><div class="rb-o">'+fmtOdds(m.odds.h)+'</div><div class="rb-p">'+m.wP+'%</div></div>'+
+        '<div class="rbox copyable" data-copy="'+esc(m.hT+' vs '+m.aT+' \u2014 Draw @ '+fmtOdds(m.odds.d))+'" onclick="copyBet(event,this)"><div class="rb-t">Draw</div><div class="rb-o">'+fmtOdds(m.odds.d)+'</div><div class="rb-p">'+m.dP+'%</div></div>'+
+        '<div class="rbox copyable'+(m.winner===m.aT?' win':'')+'" data-copy="'+esc(m.aT+' to win @ '+fmtOdds(m.odds.a))+'" onclick="copyBet(event,this)"><div class="rb-t">'+m.aT+'</div><div class="rb-o">'+fmtOdds(m.odds.a)+'</div><div class="rb-p">'+m.aP+'%</div></div>'+
+      '</div>'+
+      '<div class="win-lbl copyable" data-copy="'+esc(m.winner+' to win @ '+fmtOdds(m.winner===m.hT?m.odds.h:m.winner===m.aT?m.odds.a:m.odds.d)+' ('+m.conf+'% confidence)')+'" onclick="copyBet(event,this)">\u25b6 '+m.winner+' \xb7 '+m.conf+'% confidence</div>'+
+    '</div>'+
+    '<div class="psec"><div class="psec-t">Confidence breakdown</div>'+cbarsHtml+'</div>'+
+    baselineBlock(m)+
+  '</div>';
+}
+
+/* 📊 Model tab — opponent-adjusted Poisson/Dixon-Coles probabilities for the
+   markets the model covers (1X2, Over 2.5, BTTS), shown against the market and
+   annotated with edge / EV / quarter-Kelly. Player props (fouls/SOT) stay on
+   their curated tabs until live per-player data is wired in. */
+function buildModel(m){
+  if(typeof WCModel==='undefined') return '<p style="font-size:11px;color:var(--mu);padding:8px 0">Model unavailable.</p>';
+  const rat=getRAT();
+  if(!rat) return '<p style="font-size:11px;color:var(--mu);padding:8px 0">Model needs completed results to fit ratings.</p>';
+  const mk=WCModel.markets(rat,m.hT,m.aT);
+  const dH=WCModel.amToDec(m.odds.h),dD=WCModel.amToDec(m.odds.d),dA=WCModel.amToDec(m.odds.a);
+  const fair=WCModel.devig([dH,dD,dA]);
+  const rated=rat.has(m.hT)||rat.has(m.aT);
+  const pc=x=>Math.round(x*100);
+  const sgn=x=>(x>=0?'+':'')+x;
+  const chip='<span style="font-size:8px;font-weight:800;letter-spacing:.05em;padding:1px 6px;border-radius:4px;background:rgba(45,200,160,.18);color:var(--ac);margin-left:5px">VALUE</span>';
+  function isVal(p,dec,ref){ if(!dec)return false; const ev=WCModel.ev(p,dec); return ev>0 && ref!=null && (p-ref)>0.04; }
+  function meta(p,dec,ref){
+    const bits=[]; if(ref!=null) bits.push('mkt '+pc(ref)+'%');
+    if(dec){ const ev=WCModel.ev(p,dec), kel=WCModel.kelly(p,dec)*0.25;
+      bits.push('EV '+sgn(Math.round(ev*100))+'%');
+      if(kel>0) bits.push('¼-Kelly '+(kel*100).toFixed(1)+'%'); }
+    return bits.join(' \xb7 ');
+  }
+  function row(label,p,dec,ref,fill){
+    return '<div class="cbar">'+
+      '<div class="cb-hd"><span class="cb-lb">'+label+(isVal(p,dec,ref)?chip:'')+'</span>'+
+      '<span class="cb-pc" style="color:'+cc(pc(p))+'">'+pc(p)+'%</span></div>'+
+      '<div class="cb-tr"><div class="cb-fi '+(fill||cfill(pc(p)))+'" style="width:'+pc(p)+'%"></div></div>'+
+      '<div style="font-size:9px;color:var(--mu);margin-top:3px">'+meta(p,dec,ref)+'</div>'+
+    '</div>';
+  }
+  const findO=re=>{ const e=(m.easy||[]).find(x=>re.test(x.p||'')); return e?WCModel.amToDec(e.o):null; };
+  const dOver=findO(/\bover\s*2\.5\b/i), dBtts=findO(/btts|both teams/i);
+  const result='<div class="psec"><div class="psec-t">Match result — model vs market</div>'+
+    row(m.hT+' win',mk.home,dH,fair[0],'f-hi')+row('Draw',mk.draw,dD,fair[1],'f-md')+row(m.aT+' win',mk.away,dA,fair[2],'f-hi')+
+    '</div>';
+  const goals='<div class="psec"><div class="psec-t">Goals — model</div>'+
+    row('Over 2.5 goals',mk.over25,dOver,dOver?1/dOver:null,'f-bl')+
+    row('Both teams score',mk.btts,dBtts,dBtts?1/dBtts:null,'f-pu')+
+    '<div style="font-size:10px;color:var(--mu);margin-top:5px">Projected goals: <b style="color:var(--tx)">'+m.hT+' '+mk.lh.toFixed(2)+'</b> — <b style="color:var(--tx)">'+mk.la.toFixed(2)+' '+m.aT+'</b></div>'+
+    '</div>';
+  const disc='<div class="ref-box" style="margin-top:8px">Model = opponent-adjusted Poisson (Dixon-Coles) fit to tournament results, regularised toward the historical baseline. For 1X2, “mkt” is the de-vigged fair price; for Over/BTTS it is the single-side implied price (still carries the book margin). EV &amp; ¼-Kelly use the offered odds. <b style="color:var(--tx)">Calibration (leave-one-out backtest):</b> the model beats base rates on BTTS and is roughly baseline on 1X2/Over 2.5 on this small seed sample — so treat goals-market “value” flags with caution and stake conservatively. Estimates over openfootball seed data — not guarantees. Real edge needs the deeper history that live data unlocks.'+(rated?'':' ⚠ Limited rating data for these teams; treated near league-average.')+'</div>';
+  return '<div class="pred-grid">'+result+goals+disc+'</div>';
+}
+
+function buildFouls(m){
+  if(!m.fouls.length) return '<p style="font-size:11px;color:var(--mu);padding:8px 0">No featured foul props</p>';
+  return m.fouls.map(f=>{
+    const drawn=/drawn|won|fouled/i.test((f.bets&&f.bets[0]&&f.bets[0].l)||'');
+    const mkt=drawn?'DRAWS FOULS':'COMMITS FOULS';
+    const dotLbl=drawn?'Last 10 \u2014 drew 1+ foul (was fouled)':'Last 10 \u2014 committed 1+ foul';
+    const cbLbl=drawn?'Fouls drawn confidence':'Fouls committed confidence';
+    return '<div class="fpl'+(f.hot?' hot':'')+'">'+
+    '<div class="fp-top"><div><div class="fp-nm">'+f.nm+' <span style="font-size:8px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:4px;background:'+(drawn?'rgba(91,150,239,.15);color:var(--ac2)':'rgba(246,178,63,.15);color:var(--amb)')+'">'+mkt+'</span></div><div class="fp-cl">'+f.cl+'</div></div>'+
+    '<span class="htag '+f.ht+'">'+f.htl+'</span></div>'+
+    '<div class="fp-sts">'+f.sts.map(s=>'<div class="fst"><div class="fst-l">'+s[0]+'</div><div class="fst-v">'+s[1]+'</div></div>').join('')+'</div>'+
+    '<div style="font-size:9px;color:var(--mu);margin-bottom:3px">'+dotLbl+'</div>'+
+    '<div class="dots">'+f.dots.map(d=>'<div class="dot '+(d?'dy':'dn-d')+'">'+(d?'\u2713':'\u2717')+'</div>').join('')+'</div>'+
+    '<div class="cbar"><div class="cb-hd"><span class="cb-lb">'+cbLbl+'</span><span class="cb-pc" style="color:'+cc(f.conf)+'">'+f.conf+'%</span></div><div class="cb-tr"><div class="cb-fi '+cfill(f.conf)+'" style="width:'+f.conf+'%"></div></div></div>'+
+    f.bets.map(b=>'<div class="bet-row copyable" data-copy="'+esc(b.l+' @ '+b.o.map(fmtOdds).join(' / '))+'" onclick="copyBet(event,this)"><span class="br-l">'+b.l+'</span><div class="br-os">'+b.o.map(o=>'<span class="br-o">'+fmtOdds(o)+'</span>').join('')+'<span class="copy-ico">⧉</span></div></div>').join('')+
+    (f.note?'<div class="fp-note">'+f.note+'</div>':'')+
+  '</div>';}).join('');
+}
+
+function buildShots(m){
+  if(!m.shots.length) return '<p style="font-size:11px;color:var(--mu);padding:8px 0">No featured shot props</p>';
+  return m.shots.map(s=>'<div class="fpl'+(s.hot?' hot':'')+'">'+
+    '<div class="fp-top"><div><div class="fp-nm">'+s.nm+'</div><div class="fp-cl">'+s.cl+'</div></div>'+
+    '<span class="htag '+s.ht+'">'+s.htl+'</span></div>'+
+    '<div class="fp-sts">'+s.sts.map(st=>'<div class="fst"><div class="fst-l">'+st[0]+'</div><div class="fst-v">'+st[1]+'</div></div>').join('')+'</div>'+
+    '<div class="cbar"><div class="cb-hd"><span class="cb-lb">Had a shot</span><span class="cb-pc" style="color:var(--ac2)">'+s.sH+'%</span></div><div class="cb-tr"><div class="cb-fi f-bl" style="width:'+s.sH+'%"></div></div></div>'+
+    '<div class="cbar"><div class="cb-hd"><span class="cb-lb">Shot on target</span><span class="cb-pc" style="color:var(--pur)">'+s.sotH+'%</span></div><div class="cb-tr"><div class="cb-fi f-pu" style="width:'+s.sotH+'%"></div></div></div>'+
+    '<div style="font-size:9px;color:var(--mu);margin-bottom:2px">Last 10 shots (blue) / SOT (purple)</div>'+
+    '<div class="dots" style="margin-bottom:3px">'+s.sd.map(d=>'<div class="dot db">'+(d?'\u2713':'\u2013')+'</div>').join('')+'</div>'+
+    '<div class="dots" style="margin-bottom:6px">'+s.sd2.map(d=>'<div class="dot dp">'+(d?'\u2713':'\u2013')+'</div>').join('')+'</div>'+
+    s.bets.map(b=>'<div class="bet-row copyable" data-copy="'+esc(b.l+' @ '+b.o.map(fmtOdds).join(' / '))+'" onclick="copyBet(event,this)"><span class="br-l">'+b.l+'</span><div class="br-os">'+b.o.map(o=>'<span class="br-o">'+fmtOdds(o)+'</span>').join('')+'<span class="copy-ico">⧉</span></div></div>').join('')+
+  '</div>').join('');
+}
+
+function buildEasy(m){
+  return m.easy.map(e=>'<div class="ebet copyable'+(e.star?' star':'')+'" data-copy="'+esc(e.p+' @ '+fmtOdds(e.o))+'" onclick="copyBet(event,this)">'+
+    '<div class="eb-l"><div class="eb-cat">'+e.c+'</div><div class="eb-pick">'+e.p+' <span class="copy-ico">⧉</span></div><div class="eb-odds">'+fmtOdds(e.o)+'</div></div>'+
+    '<div><span class="eb-cf '+(e.cf>=75?'ec-hi':'ec-md')+'">'+e.cf+'%</span>'+
+    '<div class="cb-tr" style="width:80px;margin-top:4px"><div class="cb-fi '+cfill(e.cf)+'" style="width:'+e.cf+'%"></div></div></div>'+
+  '</div>').join('');
+}
+
+function buildParlay(m){
+  // 1) SAFE parlay \u2014 built to hit from the highest-confidence legs.
+  const safe=safeParlay(m);
+  let safeHtml='';
+  if(safe&&safe.length>=2){
+    const sm=parlayMetrics(safe);
+    safeHtml=parlayCard('\ud83d\udfe2 Safe parlay \u2014 built to hit','Highest-confidence legs only \xb7 lower payout, higher strike rate',safe,sm,gradeOf(sm.prob));
+  }
+  // 2) VALUE parlay \u2014 must stay DISTINCT from the safe slip (no duplicate legs).
+  // Normalise: drop parenthetical notes ("(safe regardless)") so the same bet
+  // written two ways is still recognised as one leg.
+  const _nk=s=>String(s||'').toLowerCase().replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
+  // Two legs are the "same bet" if one normalised key contains the other
+  // (e.g. "haaland 1 sot" \u2286 "haaland 1 sot safe regardless"). Guard against
+  // trivially-short keys so we don't collapse genuinely different bets.
+  const _same=(a,b)=>{ if(!a||!b) return false; if(a===b) return true; const sh=a.length<=b.length?a:b, lo=a.length<=b.length?b:a; return sh.length>=6 && lo.includes(sh); };
+  const _safeKeys=(safe||[]).map(l=>_nk(l.p));
+  const _dupOfSafe=k=>_safeKeys.some(sk=>_same(sk,k));
+  let vlegs=m.parlay.map(p=>({p:p.p,o:p.o,prob:legProb(m,p.p,p.o),_k:_nk(p.p)})).filter(l=>!_dupOfSafe(l._k));
+  if(vlegs.length<2){
+    const _have=vlegs.map(l=>l._k);
+    (m.easy||[]).filter(e=>e.cf!=null&&amToDec(e.o)!=null)
+      .map(e=>({p:e.p,o:e.o,prob:e.cf/100,_k:_nk(e.p)}))
+      .filter(l=>!_dupOfSafe(l._k)&&!_have.some(h=>_same(h,l._k)))
+      .sort((a,b)=>amToDec(b.o)-amToDec(a.o))      // longest odds first = bigger payout
+      .forEach(l=>{ if(vlegs.length<3){ vlegs.push(l); _have.push(l._k); } });
+  }
+  let valueHtml='';
+  if(vlegs.length>=2){ const vm=parlayMetrics(vlegs);
+    valueHtml=parlayCard('\u26a1 Value parlay \u2014 higher risk / reward','Bigger payout, lower strike rate \xb7 distinct from the safe slip',vlegs,vm,gradeOf(vm.prob)); }
+  return '<div>'+
+      safeHtml+
+      valueHtml+
+      '<div style="font-size:9px;color:var(--dm);line-height:1.5;margin-bottom:6px">Combined hit % multiplies each leg\u2019s model confidence (assumes legs are independent \u2014 correlated legs like win + over may vary). Higher hit % = safer, lower payout.</div>'+
+      (m.upsetNote?'<div class="upset-box">\u26a0 '+m.upsetNote+'</div>':'')+
+      (m.ref?'<div class="ref-box">'+m.ref+'</div>':'')+
+  '</div>';
+}
+
+
+const FIXTURES=[
+  /* ─── GROUP STAGE MD3 ─── */
+  {date:'Fri 26 Jun (IST)',grpLabel:'IST dates — Thu 25 Jun ET games',stage:'Group Stage \xb7 MD3 \xb7 Groups D E F',matches:[
+    {ist:'1:30am',teams:'Ecuador vs Germany',grp:'Group E \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'1:30am',teams:'Curacao vs Ivory Coast',grp:'Group E \xb7 Lincoln Financial, Philadelphia',done:false},
+    {ist:'4:30am',teams:'Japan vs Sweden',grp:'Group F \xb7 AT&T Stadium, Dallas',done:false},
+    {ist:'4:30am',teams:'Tunisia vs Netherlands',grp:'Group F \xb7 Arrowhead Stadium, Kansas City',done:false},
+    {ist:'7:30am',teams:'Turkey vs USA',grp:'Group D \xb7 SoFi Stadium, Los Angeles',done:false},
+    {ist:'7:30am',teams:'Paraguay vs Australia',grp:'Group D \xb7 Levis Stadium, Santa Clara',done:false},
+  ]},
+  {date:'Sat 27 Jun (IST)',grpLabel:'IST dates — Fri 26 Jun ET games',stage:'Group Stage \xb7 MD3 \xb7 Groups G H I',matches:[
+    {ist:'12:30am',teams:'Norway vs France',grp:'Group I \xb7 Gillette Stadium, Boston',done:false},
+    {ist:'12:30am',teams:'Senegal vs Iraq',grp:'Group I \xb7 BMO Field, Toronto',done:false},
+    {ist:'5:30am',teams:'Uruguay vs Spain',grp:'Group H \xb7 Estadio Akron, Guadalajara',done:false},
+    {ist:'5:30am',teams:'Cabo Verde vs Saudi Arabia',grp:'Group H \xb7 NRG Stadium, Houston',done:false},
+    {ist:'8:30am',teams:'Egypt vs Iran',grp:'Group G \xb7 Lumen Field, Seattle',done:false},
+    {ist:'8:30am',teams:'New Zealand vs Belgium',grp:'Group G \xb7 BC Place, Vancouver',done:false},
+  ]},
+  {date:'Sun 28 Jun (IST)',grpLabel:'IST dates — Sat 27 Jun ET games',stage:'Group Stage \xb7 MD3 \xb7 Groups J K L',matches:[
+    {ist:'2:30am',teams:'Panama vs England',grp:'Group L \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'2:30am',teams:'Croatia vs Ghana',grp:'Group L \xb7 Lincoln Financial, Philadelphia',done:false},
+    {ist:'5:00am',teams:'Colombia vs Portugal',grp:'Group K \xb7 Hard Rock Stadium, Miami',done:false},
+    {ist:'5:00am',teams:'DR Congo vs Uzbekistan',grp:'Group K \xb7 Mercedes-Benz Stadium, Atlanta',done:false},
+    {ist:'7:30am',teams:'Algeria vs Austria',grp:'Group J \xb7 Arrowhead Stadium, Kansas City',done:false},
+    {ist:'7:30am',teams:'Jordan vs Argentina',grp:'Group J \xb7 AT&T Stadium, Dallas',done:false},
+  ]},
+  /* ─── ROUND OF 32 ─── */
+  {date:'Mon 29 Jun (IST)',grpLabel:'Sun 28 Jun ET',stage:'Round of 32',matches:[
+    {ist:'12:30am',teams:'Canada vs South Africa',grp:'R32 M85 \xb7 SoFi Stadium, Los Angeles',done:false},
+  ]},
+  {date:'Tue 30 Jun (IST)',grpLabel:'Mon 29 Jun ET',stage:'Round of 32',matches:[
+    {ist:'10:30am',teams:'Winners C vs Runners-up F',grp:'R32 M86 \xb7 NRG Stadium, Houston',done:false},
+    {ist:'2:00pm',teams:'Winners E vs Best 3rd (A/B/C/D/F)',grp:'R32 M87 \xb7 Gillette Stadium, Boston',done:false},
+    {ist:'6:30pm',teams:'Winners F vs Runners-up C',grp:'R32 M88 \xb7 Estadio BBVA, Monterrey',done:false},
+  ]},
+  {date:'Wed 1 Jul (IST)',grpLabel:'Tue 30 Jun ET',stage:'Round of 32',matches:[
+    {ist:'10:30am',teams:'Runners-up E vs Runners-up I',grp:'R32 M89 \xb7 AT&T Stadium, Dallas',done:false},
+    {ist:'2:30pm',teams:'Winners I vs Best 3rd (C/D/F/G/H)',grp:'R32 M90 \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'6:30pm',teams:'Mexico vs Best 3rd (C/E/F/H/I)',grp:'R32 M91 \xb7 Estadio Azteca, Mexico City',done:false},
+  ]},
+  {date:'Thu 2 Jul (IST)',grpLabel:'Wed 1 Jul ET',stage:'Round of 32',matches:[
+    {ist:'9:30am',teams:'Winners L vs Best 3rd (E/H/I/J/K)',grp:'R32 M80 \xb7 Mercedes-Benz Stadium, Atlanta',done:false},
+    {ist:'1:30am',teams:'Winners G vs Best 3rd (A/E/H/I/J)',grp:'R32 M82 \xb7 Lumen Field, Seattle',done:false},
+    {ist:'5:30am',teams:'USA vs Best 3rd (B/E/F/I/J)',grp:'R32 M81 \xb7 Levis Stadium, Santa Clara',done:false},
+  ]},
+  {date:'Fri 3 Jul (IST)',grpLabel:'Thu 2 Jul ET',stage:'Round of 32',matches:[
+    {ist:'12:30am',teams:'Winners H vs Runners-up J',grp:'R32 M93 \xb7 SoFi Stadium, Los Angeles',done:false},
+    {ist:'4:30am',teams:'Runners-up K vs Runners-up L',grp:'R32 M94 \xb7 BMO Field, Toronto',done:false},
+    {ist:'8:30am',teams:'Winners B vs Best 3rd (E/F/G/I/J)',grp:'R32 M95 \xb7 BC Place, Vancouver',done:false},
+  ]},
+  {date:'Sat 4 Jul (IST)',grpLabel:'Fri 3 Jul ET',stage:'Round of 32',matches:[
+    {ist:'11:30pm',teams:'Runners-up D vs Runners-up G',grp:'R32 M96 \xb7 AT&T Stadium, Dallas',done:false},
+    {ist:'3:30am',teams:'Winners J vs Runners-up H',grp:'R32 M97 \xb7 Hard Rock Stadium, Miami',done:false},
+    {ist:'7:00am',teams:'Winners K vs Best 3rd (D/E/I/J/L)',grp:'R32 M98 \xb7 Arrowhead Stadium, Kansas City',done:false},
+  ]},
+  {date:'Sat 4 & Sun 5 Jul (IST)',grpLabel:'Sat 4 & Sun 5 Jul ET',stage:'Round of 32 \xb7 Final 4 matches',matches:[
+    {ist:'Sat 11:30pm',teams:'R32 Match TBD',grp:'R32 M99 \xb7 NRG Stadium, Houston',done:false},
+    {ist:'Sun 3:30am',teams:'R32 Match TBD',grp:'R32 M100 \xb7 MetLife Stadium, New Jersey',done:false},
+    {ist:'Sun 1:30am',teams:'R32 Match TBD',grp:'R32 M101 \xb7 Gillette Stadium, Boston',done:false},
+    {ist:'Sun 5:30am',teams:'R32 Match TBD',grp:'R32 M102 \xb7 Estadio Azteca, Mexico City',done:false},
+  ]},
+  /* ─── ROUND OF 16 ─── */
+  {date:'Sat 4 Jul (IST)',grpLabel:'Fri 4 Jul ET — R16 begins',stage:'Round of 16',matches:[
+    {ist:'8:30pm',teams:'Winners M83 vs Winners M84',grp:'R16 M103 \xb7 AT&T Stadium, Dallas',done:false},
+  ]},
+  {date:'Sun 5 Jul (IST)',grpLabel:'Sat 5 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M81 vs Winners M82',grp:'R16 M104 \xb7 Lumen Field, Seattle',done:false},
+    {ist:'8:00pm',teams:'Winners M79 vs Winners M80',grp:'R16 M105 \xb7 Mercedes-Benz Stadium, Atlanta',done:false},
+  ]},
+  {date:'Mon 6 Jul (IST)',grpLabel:'Sun 6 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M77 vs Winners M78',grp:'R16 M106 \xb7 BC Place, Vancouver',done:false},
+    {ist:'8:30pm',teams:'Winners M89 vs Winners M90',grp:'R16 M107 \xb7 SoFi Stadium, Los Angeles',done:false},
+  ]},
+  {date:'Tue 7 Jul (IST)',grpLabel:'Mon 6 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M91 vs Winners M92',grp:'R16 M108 \xb7 BMO Field, Toronto',done:false},
+    {ist:'8:30pm',teams:'Winners M85 vs Winners M86',grp:'R16 M109 \xb7 Hard Rock Stadium, Miami',done:false},
+  ]},
+  {date:'Wed 8 Jul (IST)',grpLabel:'Tue 7 Jul ET',stage:'Round of 16',matches:[
+    {ist:'12:30am',teams:'Winners M87 vs Winners M88',grp:'R16 M110 \xb7 Arrowhead Stadium, Kansas City',done:false},
+  ]},
+  /* ─── QUARTER-FINALS (4 matches) ─── */
+  {date:'Fri 10 Jul (IST)',grpLabel:'Thu 9 Jul ET',stage:'Quarter-Finals \xb7 QF 1 of 4',matches:[
+    {ist:'6:30am',teams:'QF1: W103 vs W104',grp:'QF M97 \xb7 Gillette Stadium, Boston \xb7 9pm ET',done:false},
+  ]},
+  {date:'Sat 11 Jul (IST)',grpLabel:'Fri 10 Jul ET',stage:'Quarter-Finals \xb7 QF 2 of 4',matches:[
+    {ist:'5:30am',teams:'QF2: W107 vs W108',grp:'QF M98 \xb7 SoFi Stadium, Los Angeles \xb7 8pm ET',done:false},
+  ]},
+  {date:'Sun 12 Jul (IST)',grpLabel:'Sat 11 Jul ET',stage:'Quarter-Finals \xb7 QF 3 & 4 of 4',matches:[
+    {ist:'2:30am',teams:'QF3: W105 vs W106',grp:'QF M99 \xb7 Hard Rock Stadium, Miami \xb7 5pm ET',done:false},
+    {ist:'6:30am',teams:'QF4: W109 vs W110',grp:'QF M100 \xb7 Arrowhead Stadium, Kansas City \xb7 9pm ET',done:false},
+  ]},
+  /* ─── SEMI-FINALS ─── */
+  {date:'Wed 15 Jul (IST)',grpLabel:'Tue 14 Jul ET',stage:'Semi-Finals',matches:[
+    {ist:'12:30am',teams:'SF1: QF1 winner vs QF2 winner',grp:'SF M101 \xb7 AT&T Stadium, Dallas \xb7 3pm ET',done:false},
+  ]},
+  {date:'Thu 16 Jul (IST)',grpLabel:'Wed 15 Jul ET',stage:'Semi-Finals',matches:[
+    {ist:'12:30am',teams:'SF2: QF3 winner vs QF4 winner',grp:'SF M102 \xb7 Mercedes-Benz Stadium, Atlanta \xb7 3pm ET',done:false},
+  ]},
+  /* ─── BRONZE FINAL ─── */
+  {date:'Sun 19 Jul (IST)',grpLabel:'Sat 18 Jul ET',stage:'Third Place Play-off',matches:[
+    {ist:'2:30am',teams:'Third Place Play-off',grp:'M103 \xb7 Hard Rock Stadium, Miami \xb7 5pm ET',done:false},
+  ]},
+  /* ─── FINAL ─── */
+  {date:'Mon 20 Jul (IST)',grpLabel:'Sun 19 Jul ET',stage:'\ud83c\udfc6 WORLD CUP FINAL',matches:[
+    {ist:'12:30am',teams:'\ud83c\udfc6 WORLD CUP FINAL',grp:'MetLife Stadium, New Jersey \xb7 3pm ET',done:false},
+  ]},
+];;
+
+function toggleFixtures(){
+  const ov=document.getElementById('fixturesOverlay');
+  const btn=document.getElementById('fixBtn');
+  var _st=document.getElementById('standingsOverlay');if(_st)_st.classList.remove('open');var _sb=document.getElementById('tblBtn');if(_sb)_sb.classList.remove('active');const isOpen=ov.classList.toggle('open');
+  btn.classList.toggle('active',isOpen);
+  if(isOpen && !document.getElementById('fixturesContent').innerHTML){
+    renderFixtures();
+  }
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+function renderFixtures(){
+  const stageTag={
+    'Group Stage \xb7 MD3 \xb7 Groups D E F':'fs-gs',
+    'Group Stage \xb7 MD3 \xb7 Groups G H I':'fs-gs',
+    'Group Stage \xb7 MD3 \xb7 Groups J K L':'fs-gs',
+    'Round of 32':'fs-r32',
+    'Round of 32 \xb7 Final 4 matches':'fs-r32',
+    'Round of 16':'fs-r16',
+    'Quarter-Finals \xb7 QF 1 of 4':'fs-qf',
+    'Quarter-Finals \xb7 QF 2 of 4':'fs-qf',
+    'Quarter-Finals \xb7 QF 3 & 4 of 4':'fs-qf',
+    'Semi-Finals':'fs-r16',
+    'Third Place Play-off':'fs-r16',
+    '\ud83c\udfc6 WORLD CUP FINAL':'fs-qf',
+  };
+  const content=FIXTURES.map(day=>{
+    const sc=stageTag[day.stage]||'fs-gs';
+    const stageShort=day.stage.split('\xb7')[0].trim();
+    const rows=day.matches.map(m=>
+      '<div class="fix-row'+(m.done?' done':'')+'">'+
+        '<div><div class="fix-time" style="color:'+(m.done?'var(--mu)':'var(--ac)')+'">'+m.ist+'</div><div class="fix-ist" style="font-size:9px;color:var(--mu)">IST</div></div>'+
+        '<div><div class="fix-teams">'+m.teams+'</div><div class="fix-grp">'+m.grp+'</div></div>'+
+        '<div style="text-align:right;flex-shrink:0"><span class="fix-stage '+sc+'">'+stageShort+'</span></div>'+
+      '</div>'
+    ).join('');
+    return '<div class="fix-day">'+
+      '<div class="fix-day-hdr">'+
+        day.date+
+        (day.grpLabel?'<span style="color:var(--mu);font-size:9px;font-weight:400;margin-left:6px">('+day.grpLabel+' ET)</span>':'')+
+        '<span style="color:var(--ac2);font-family:var(--mono);font-size:9px;margin-left:8px">'+day.stage+'</span>'+
+      '</div>'+
+      rows+
+    '</div>';
+  }).join('');
+  document.getElementById('fixturesContent').innerHTML=content;
+}
+function toggleFixtures(){
+  const ov=document.getElementById('fixturesOverlay');
+  const btn=document.getElementById('fixBtn');
+  var _st=document.getElementById('standingsOverlay');if(_st)_st.classList.remove('open');var _sb=document.getElementById('tblBtn');if(_sb)_sb.classList.remove('active');const isOpen=ov.classList.toggle('open');
+  btn.classList.toggle('active',isOpen);
+  if(isOpen && !document.getElementById('fixturesContent').innerHTML){
+    renderFixtures();
+  }
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+
+function renderFixtures(){
+  const stageColors={'Group Stage \xb7 MD3':'fs-gs','Round of 32 \xb7 R32 begins':'fs-r32','Round of 32':'fs-r32','Quarter-Finals':'fs-qf','Semi-Finals':'fs-r16','Third Place Play-off':'fs-r16','FINAL':'fs-qf'};
+  const html=FIXTURES.map(day=>{
+    const rows=day.matches.map(m=>{
+      const stageClass=stageColors[day.stage]||'fs-gs';
+      return '<div class="fix-row'+(m.done?' done':'')+'" onclick="this.querySelector(\'.fix-stage\')&&void(0)">'+
+        '<div><div class="fix-time" style="color:'+(m.done?'var(--mu)':'var(--ac)')+'">'+m.ist+'</div></div>'+
+        '<div><div class="fix-teams">'+m.teams+'</div><div class="fix-grp">'+m.grp+'</div></div>'+
+        '<div class="fix-venue">'+m.venue+'</div>'+
+        '<div style="text-align:right"><span class="fix-stage '+stageClass+'">'+day.stage.split('\xb7')[0].trim()+'</span>'+
+        (m.result?'<div class="fix-result done" style="margin-top:3px">'+m.result+'</div>':'')+'</div>'+
+      '</div>';
+    }).join('');
+    return '<div class="fix-day">'+
+      '<div class="fix-day-hdr">'+day.date+' <span style="color:var(--ac2);font-family:var(--mono);font-size:9px;margin-left:4px">'+day.stage+'</span></div>'+
+      rows+'</div>';
+  }).join('');
+  document.getElementById('fixturesContent').innerHTML=html;
+}
+
+const WC_TABLE={"A":{"table":[{"team":"Mexico","p":3,"w":3,"d":0,"l":0,"gf":6,"ga":0,"gd":6,"pts":9},{"team":"South Africa","p":3,"w":1,"d":1,"l":1,"gf":2,"ga":3,"gd":-1,"pts":4},{"team":"South Korea","p":3,"w":1,"d":0,"l":2,"gf":2,"ga":3,"gd":-1,"pts":3},{"team":"Czech Republic","p":3,"w":0,"d":1,"l":2,"gf":2,"ga":6,"gd":-4,"pts":1}],"results":[{"date":"2026-06-11","t1":"Mexico","t2":"South Africa","s1":2,"s2":0},{"date":"2026-06-11","t1":"South Korea","t2":"Czech Republic","s1":2,"s2":1},{"date":"2026-06-18","t1":"Czech Republic","t2":"South Africa","s1":1,"s2":1},{"date":"2026-06-18","t1":"Mexico","t2":"South Korea","s1":1,"s2":0},{"date":"2026-06-24","t1":"Czech Republic","t2":"Mexico","s1":0,"s2":3},{"date":"2026-06-24","t1":"South Africa","t2":"South Korea","s1":1,"s2":0}]},"B":{"table":[{"team":"Switzerland","p":3,"w":2,"d":1,"l":0,"gf":7,"ga":3,"gd":4,"pts":7},{"team":"Canada","p":3,"w":1,"d":1,"l":1,"gf":8,"ga":3,"gd":5,"pts":4},{"team":"Bosnia & Herzegovina","p":3,"w":1,"d":1,"l":1,"gf":5,"ga":6,"gd":-1,"pts":4},{"team":"Qatar","p":3,"w":0,"d":1,"l":2,"gf":2,"ga":10,"gd":-8,"pts":1}],"results":[{"date":"2026-06-12","t1":"Canada","t2":"Bosnia & Herzegovina","s1":1,"s2":1},{"date":"2026-06-13","t1":"Qatar","t2":"Switzerland","s1":1,"s2":1},{"date":"2026-06-18","t1":"Switzerland","t2":"Bosnia & Herzegovina","s1":4,"s2":1},{"date":"2026-06-18","t1":"Canada","t2":"Qatar","s1":6,"s2":0},{"date":"2026-06-24","t1":"Switzerland","t2":"Canada","s1":2,"s2":1},{"date":"2026-06-24","t1":"Bosnia & Herzegovina","t2":"Qatar","s1":3,"s2":1}]},"C":{"table":[{"team":"Brazil","p":3,"w":2,"d":1,"l":0,"gf":7,"ga":1,"gd":6,"pts":7},{"team":"Morocco","p":3,"w":2,"d":1,"l":0,"gf":6,"ga":3,"gd":3,"pts":7},{"team":"Scotland","p":3,"w":1,"d":0,"l":2,"gf":1,"ga":4,"gd":-3,"pts":3},{"team":"Haiti","p":3,"w":0,"d":0,"l":3,"gf":2,"ga":8,"gd":-6,"pts":0}],"results":[{"date":"2026-06-13","t1":"Brazil","t2":"Morocco","s1":1,"s2":1},{"date":"2026-06-13","t1":"Haiti","t2":"Scotland","s1":0,"s2":1},{"date":"2026-06-19","t1":"Scotland","t2":"Morocco","s1":0,"s2":1},{"date":"2026-06-19","t1":"Brazil","t2":"Haiti","s1":3,"s2":0},{"date":"2026-06-24","t1":"Scotland","t2":"Brazil","s1":0,"s2":3},{"date":"2026-06-24","t1":"Morocco","t2":"Haiti","s1":4,"s2":2}]},"D":{"table":[{"team":"USA","p":3,"w":2,"d":0,"l":1,"gf":8,"ga":4,"gd":4,"pts":6},{"team":"Australia","p":3,"w":1,"d":1,"l":1,"gf":2,"ga":2,"gd":0,"pts":4},{"team":"Paraguay","p":3,"w":1,"d":1,"l":1,"gf":2,"ga":4,"gd":-2,"pts":4},{"team":"Turkey","p":3,"w":1,"d":0,"l":2,"gf":3,"ga":5,"gd":-2,"pts":3}],"results":[{"date":"2026-06-12","t1":"USA","t2":"Paraguay","s1":4,"s2":1},{"date":"2026-06-13","t1":"Australia","t2":"Turkey","s1":2,"s2":0},{"date":"2026-06-19","t1":"USA","t2":"Australia","s1":2,"s2":0},{"date":"2026-06-19","t1":"Turkey","t2":"Paraguay","s1":0,"s2":1},{"date":"2026-06-25","t1":"Turkey","t2":"USA","s1":3,"s2":2},{"date":"2026-06-25","t1":"Paraguay","t2":"Australia","s1":0,"s2":0}]},"E":{"table":[{"team":"Germany","p":3,"w":2,"d":0,"l":1,"gf":10,"ga":4,"gd":6,"pts":6},{"team":"Ivory Coast","p":3,"w":2,"d":0,"l":1,"gf":4,"ga":2,"gd":2,"pts":6},{"team":"Ecuador","p":3,"w":1,"d":1,"l":1,"gf":2,"ga":2,"gd":0,"pts":4},{"team":"Curaçao","p":3,"w":0,"d":1,"l":2,"gf":1,"ga":9,"gd":-8,"pts":1}],"results":[{"date":"2026-06-14","t1":"Germany","t2":"Curaçao","s1":7,"s2":1},{"date":"2026-06-14","t1":"Ivory Coast","t2":"Ecuador","s1":1,"s2":0},{"date":"2026-06-20","t1":"Germany","t2":"Ivory Coast","s1":2,"s2":1},{"date":"2026-06-20","t1":"Ecuador","t2":"Curaçao","s1":0,"s2":0},{"date":"2026-06-25","t1":"Curaçao","t2":"Ivory Coast","s1":0,"s2":2},{"date":"2026-06-25","t1":"Ecuador","t2":"Germany","s1":2,"s2":1}]},"F":{"table":[{"team":"Netherlands","p":3,"w":2,"d":1,"l":0,"gf":10,"ga":4,"gd":6,"pts":7},{"team":"Japan","p":3,"w":1,"d":2,"l":0,"gf":7,"ga":3,"gd":4,"pts":5},{"team":"Sweden","p":3,"w":1,"d":1,"l":1,"gf":7,"ga":7,"gd":0,"pts":4},{"team":"Tunisia","p":3,"w":0,"d":0,"l":3,"gf":2,"ga":12,"gd":-10,"pts":0}],"results":[{"date":"2026-06-14","t1":"Netherlands","t2":"Japan","s1":2,"s2":2},{"date":"2026-06-14","t1":"Sweden","t2":"Tunisia","s1":5,"s2":1},{"date":"2026-06-20","t1":"Netherlands","t2":"Sweden","s1":5,"s2":1},{"date":"2026-06-20","t1":"Tunisia","t2":"Japan","s1":0,"s2":4},{"date":"2026-06-25","t1":"Japan","t2":"Sweden","s1":1,"s2":1},{"date":"2026-06-25","t1":"Tunisia","t2":"Netherlands","s1":1,"s2":3}]},"G":{"table":[{"team":"Egypt","p":2,"w":1,"d":1,"l":0,"gf":4,"ga":2,"gd":2,"pts":4},{"team":"Iran","p":2,"w":0,"d":2,"l":0,"gf":2,"ga":2,"gd":0,"pts":2},{"team":"Belgium","p":2,"w":0,"d":2,"l":0,"gf":1,"ga":1,"gd":0,"pts":2},{"team":"New Zealand","p":2,"w":0,"d":1,"l":1,"gf":3,"ga":5,"gd":-2,"pts":1}],"results":[{"date":"2026-06-15","t1":"Belgium","t2":"Egypt","s1":1,"s2":1},{"date":"2026-06-15","t1":"Iran","t2":"New Zealand","s1":2,"s2":2},{"date":"2026-06-21","t1":"Belgium","t2":"Iran","s1":0,"s2":0},{"date":"2026-06-21","t1":"New Zealand","t2":"Egypt","s1":1,"s2":3}]},"H":{"table":[{"team":"Spain","p":2,"w":1,"d":1,"l":0,"gf":4,"ga":0,"gd":4,"pts":4},{"team":"Uruguay","p":2,"w":0,"d":2,"l":0,"gf":3,"ga":3,"gd":0,"pts":2},{"team":"Cape Verde","p":2,"w":0,"d":2,"l":0,"gf":2,"ga":2,"gd":0,"pts":2},{"team":"Saudi Arabia","p":2,"w":0,"d":1,"l":1,"gf":1,"ga":5,"gd":-4,"pts":1}],"results":[{"date":"2026-06-15","t1":"Spain","t2":"Cape Verde","s1":0,"s2":0},{"date":"2026-06-15","t1":"Saudi Arabia","t2":"Uruguay","s1":1,"s2":1},{"date":"2026-06-21","t1":"Spain","t2":"Saudi Arabia","s1":4,"s2":0},{"date":"2026-06-21","t1":"Uruguay","t2":"Cape Verde","s1":2,"s2":2}]},"I":{"table":[{"team":"France","p":2,"w":2,"d":0,"l":0,"gf":6,"ga":1,"gd":5,"pts":6},{"team":"Norway","p":2,"w":2,"d":0,"l":0,"gf":7,"ga":3,"gd":4,"pts":6},{"team":"Senegal","p":2,"w":0,"d":0,"l":2,"gf":3,"ga":6,"gd":-3,"pts":0},{"team":"Iraq","p":2,"w":0,"d":0,"l":2,"gf":1,"ga":7,"gd":-6,"pts":0}],"results":[{"date":"2026-06-16","t1":"France","t2":"Senegal","s1":3,"s2":1},{"date":"2026-06-16","t1":"Iraq","t2":"Norway","s1":1,"s2":4},{"date":"2026-06-22","t1":"France","t2":"Iraq","s1":3,"s2":0},{"date":"2026-06-22","t1":"Norway","t2":"Senegal","s1":3,"s2":2}]},"J":{"table":[{"team":"Argentina","p":2,"w":2,"d":0,"l":0,"gf":5,"ga":0,"gd":5,"pts":6},{"team":"Austria","p":2,"w":1,"d":0,"l":1,"gf":3,"ga":3,"gd":0,"pts":3},{"team":"Algeria","p":2,"w":1,"d":0,"l":1,"gf":2,"ga":4,"gd":-2,"pts":3},{"team":"Jordan","p":2,"w":0,"d":0,"l":2,"gf":2,"ga":5,"gd":-3,"pts":0}],"results":[{"date":"2026-06-16","t1":"Argentina","t2":"Algeria","s1":3,"s2":0},{"date":"2026-06-16","t1":"Austria","t2":"Jordan","s1":3,"s2":1},{"date":"2026-06-22","t1":"Argentina","t2":"Austria","s1":2,"s2":0},{"date":"2026-06-22","t1":"Jordan","t2":"Algeria","s1":1,"s2":2}]},"K":{"table":[{"team":"Colombia","p":2,"w":2,"d":0,"l":0,"gf":4,"ga":1,"gd":3,"pts":6},{"team":"Portugal","p":2,"w":1,"d":1,"l":0,"gf":6,"ga":1,"gd":5,"pts":4},{"team":"DR Congo","p":2,"w":0,"d":1,"l":1,"gf":1,"ga":2,"gd":-1,"pts":1},{"team":"Uzbekistan","p":2,"w":0,"d":0,"l":2,"gf":1,"ga":8,"gd":-7,"pts":0}],"results":[{"date":"2026-06-17","t1":"Portugal","t2":"DR Congo","s1":1,"s2":1},{"date":"2026-06-17","t1":"Uzbekistan","t2":"Colombia","s1":1,"s2":3},{"date":"2026-06-23","t1":"Portugal","t2":"Uzbekistan","s1":5,"s2":0},{"date":"2026-06-23","t1":"Colombia","t2":"DR Congo","s1":1,"s2":0}]},"L":{"table":[{"team":"England","p":2,"w":1,"d":1,"l":0,"gf":4,"ga":2,"gd":2,"pts":4},{"team":"Ghana","p":2,"w":1,"d":1,"l":0,"gf":1,"ga":0,"gd":1,"pts":4},{"team":"Croatia","p":2,"w":1,"d":0,"l":1,"gf":3,"ga":4,"gd":-1,"pts":3},{"team":"Panama","p":2,"w":0,"d":0,"l":2,"gf":0,"ga":2,"gd":-2,"pts":0}],"results":[{"date":"2026-06-17","t1":"England","t2":"Croatia","s1":4,"s2":2},{"date":"2026-06-17","t1":"Ghana","t2":"Panama","s1":1,"s2":0},{"date":"2026-06-23","t1":"England","t2":"Ghana","s1":0,"s2":0},{"date":"2026-06-23","t1":"Panama","t2":"Croatia","s1":0,"s2":1}]}};
+function toggleStandings(){
+  var ov=document.getElementById('standingsOverlay'),btn=document.getElementById('tblBtn');
+  var fx=document.getElementById('fixturesOverlay'); if(fx)fx.classList.remove('open');
+  var fb=document.getElementById('fixBtn'); if(fb)fb.classList.remove('active');
+  var open=ov.classList.toggle('open'); if(btn)btn.classList.toggle('active',open);
+  if(open && !document.getElementById('standingsContent').innerHTML) renderStandings();
+  document.body.style.overflow=open?'hidden':'';
+}
+function renderStandings(){
+  var html=Object.keys(WC_TABLE).sort().map(function(g){
+    var t=WC_TABLE[g];
+    var rows=t.table.map(function(r,i){return '<tr class="'+(i<2?'q':'')+'"><td class="pos">'+(i+1)+'</td><td class="tm">'+r.team+'</td><td>'+r.p+'</td><td>'+r.w+'</td><td>'+r.d+'</td><td>'+r.l+'</td><td>'+(r.gd>0?'+':'')+r.gd+'</td><td class="pts">'+r.pts+'</td></tr>';}).join('');
+    var res=(t.results||[]).map(function(m){return '<div class="st-res"><b>'+m.t1+'</b> '+m.s1+'-'+m.s2+' <b>'+m.t2+'</b></div>';}).join('');
+    return '<div class="fix-day"><div class="fix-day-hdr">Group '+g+'</div><table class="stbl"><tr><th class="pos">#</th><th class="tm">Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr>'+rows+'</table>'+(res?'<div style="font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mu);margin:6px 0 2px">Results</div>'+res:'')+'</div>';
+  }).join('');
+  document.getElementById('standingsContent').innerHTML='<div style="font-size:10px;color:var(--dm);margin-bottom:12px;line-height:1.5">Top 2 of each group (highlighted) advance. Scores via openfootball - 2026 figures are seed data, not official results.</div>'+html;
+}
+
+
+// Reflect any saved odds-format choice on the toggle.
+(function(){
+  document.querySelectorAll('#oddsToggle .of-btn').forEach(b=>b.classList.toggle('active',b.dataset.fmt===ODDS_FMT));
+})();
+
+buildNav();
+(function(){
+  const key=firstActiveKey();
+  const btn=document.querySelector('.dn-btn[data-key="'+key+'"]');
+  if(btn)btn.classList.add('active');
+  loadDay(key,btn);
+})();
+
+/* Register service worker so the installed app works offline */
+if('serviceWorker' in navigator){ addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
+</script>
+</body>
+</html>
