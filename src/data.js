@@ -10,14 +10,14 @@ export const DATES = [
 ];
 
 export const TICKER = [
-  { label: 'Goals/g',      value: '3.14', color: '#00c896' },
-  { label: 'Fouls/g',      value: '24.4', color: '#e2e8f4' },
-  { label: 'Corners/g',    value: '10.6', color: '#3b82f6' },
-  { label: 'Throw-ins/g',  value: '46',   color: '#3b82f6' },
-  { label: 'Fav win rate', value: '54%',  color: '#f59e0b' },
-  { label: 'Foul props',   value: '91%',  color: '#00c896' },
-  { label: 'SOT props',    value: '82%',  color: '#00c896' },
-  { label: 'Upsets',       value: '46%',  color: '#f59e0b' },
+  { label: 'Goals/g',      value: '3.14', color: '#2dc8a0' },
+  { label: 'Fouls/g',      value: '24.4', color: '#e6ecf5' },
+  { label: 'Corners/g',    value: '10.6', color: '#5b96ef' },
+  { label: 'Throw-ins/g',  value: '46',   color: '#5b96ef' },
+  { label: 'Fav win rate', value: '54%',  color: '#f6b23f' },
+  { label: 'Foul props',   value: '91%',  color: '#2dc8a0' },
+  { label: 'SOT props',    value: '82%',  color: '#2dc8a0' },
+  { label: 'Upsets',       value: '46%',  color: '#f6b23f' },
 ];
 
 const F = (name,club,hot,hitClass,hitLabel,stats,dots,conf,bets,note) =>
@@ -40,10 +40,10 @@ export const DAYS = {
     odds:{h:'-160',d:'+300',a:'+420',ou:'2.5'}, homeTeam:'Switzerland', awayTeam:'Canada', winner:'Switzerland',
     wP:56, dP:25, aP:19,
     cbars:[
-      {l:'Switzerland win',p:56,color:'#f59e0b'},
-      {l:'Canada upset (won 6-0 MD2)',p:44,color:'#ef4444'},
-      {l:'Xhaka 1+ fouls (100% L10)',p:89,color:'#00c896'},
-      {l:'Over 2.5 goals',p:68,color:'#f59e0b'},
+      {l:'Switzerland win',p:56,color:'#f6b23f'},
+      {l:'Canada upset (won 6-0 MD2)',p:44,color:'#ef6d6d'},
+      {l:'Xhaka 1+ fouls (100% L10)',p:89,color:'#2dc8a0'},
+      {l:'Over 2.5 goals',p:68,color:'#f6b23f'},
     ],
     fouls:[
       F('Granit Xhaka','Leverkusen · Switzerland · CM',true,'h100','100% last 10',
@@ -76,9 +76,9 @@ export const DAYS = {
     odds:{h:'-270',d:'+420',a:'+650',ou:'2.5'}, homeTeam:'Bosnia & Herz.', awayTeam:'Qatar', winner:'Bosnia & Herz.',
     wP:65, dP:21, aP:14,
     cbars:[
-      {l:'Bosnia & Herz. win',p:65,color:'#f59e0b'},
-      {l:'Qatar eliminated already',p:95,color:'#00c896'},
-      {l:'Over 2.5 goals',p:62,color:'#f59e0b'},
+      {l:'Bosnia & Herz. win',p:65,color:'#f6b23f'},
+      {l:'Qatar eliminated already',p:95,color:'#2dc8a0'},
+      {l:'Over 2.5 goals',p:62,color:'#f6b23f'},
     ],
     fouls:[
       F('Amar Dedić','RB Salzburg · Bosnia · RB',false,'h90','90% last 10',
@@ -109,11 +109,11 @@ export const DAYS = {
     odds:{h:'+1600',d:'+750',a:'-600',ou:'2.5'}, homeTeam:'Scotland', awayTeam:'Brazil', winner:'Brazil',
     wP:4, dP:7, aP:89,
     cbars:[
-      {l:'Brazil win',p:89,color:'#00c896'},
-      {l:'Brazil over 2.5 goals',p:84,color:'#00c896'},
-      {l:'Vinicius Jr 2+ SOT',p:82,color:'#3b82f6'},
-      {l:'Casemiro 1+ fouls (100% L10)',p:91,color:'#00c896'},
-      {l:'Brazil 8+ corners',p:82,color:'#a855f7'},
+      {l:'Brazil win',p:89,color:'#2dc8a0'},
+      {l:'Brazil over 2.5 goals',p:84,color:'#2dc8a0'},
+      {l:'Vinicius Jr 2+ SOT',p:82,color:'#5b96ef'},
+      {l:'Casemiro 1+ fouls (100% L10)',p:91,color:'#2dc8a0'},
+      {l:'Brazil 8+ corners',p:82,color:'#b079ef'},
     ],
     fouls:[
       F('Casemiro','Man Utd · Brazil · DM',true,'h100','100% last 10',
@@ -148,10 +148,10 @@ export const DAYS = {
     odds:{h:'-700',d:'+800',a:'+1800',ou:'2.5'}, homeTeam:'Morocco', awayTeam:'Haiti', winner:'Morocco',
     wP:87, dP:9, aP:4,
     cbars:[
-      {l:'Morocco win',p:87,color:'#00c896'},
-      {l:'Morocco over 2.5 goals',p:81,color:'#00c896'},
-      {l:'Amrabat 1+ fouls (100% L10)',p:90,color:'#00c896'},
-      {l:'Morocco 8+ corners',p:78,color:'#a855f7'},
+      {l:'Morocco win',p:87,color:'#2dc8a0'},
+      {l:'Morocco over 2.5 goals',p:81,color:'#2dc8a0'},
+      {l:'Amrabat 1+ fouls (100% L10)',p:90,color:'#2dc8a0'},
+      {l:'Morocco 8+ corners',p:78,color:'#b079ef'},
     ],
     fouls:[
       F('Sofyan Amrabat','Fiorentina · Morocco · DM',true,'h100','100% last 10',
@@ -184,9 +184,9 @@ export const DAYS = {
     odds:{h:'+380',d:'+280',a:'-150',ou:'2.5'}, homeTeam:'Czechia', awayTeam:'Mexico', winner:'Mexico',
     wP:16, dP:28, aP:56,
     cbars:[
-      {l:'Mexico win at Azteca',p:56,color:'#f59e0b'},
-      {l:'Schick 1+ SOT',p:67,color:'#3b82f6'},
-      {l:'BTTS both score',p:63,color:'#f59e0b'},
+      {l:'Mexico win at Azteca',p:56,color:'#f6b23f'},
+      {l:'Schick 1+ SOT',p:67,color:'#5b96ef'},
+      {l:'BTTS both score',p:63,color:'#f6b23f'},
     ],
     fouls:[],
     shots:[
@@ -212,9 +212,9 @@ export const DAYS = {
     odds:{h:'+380',d:'+270',a:'-165',ou:'2.5'}, homeTeam:'South Africa', awayTeam:'South Korea', winner:'South Korea',
     wP:18, dP:22, aP:60,
     cbars:[
-      {l:'South Korea win',p:60,color:'#f59e0b'},
-      {l:'Son Heung-min 1+ SOT',p:65,color:'#3b82f6'},
-      {l:'Under 2.5 goals',p:58,color:'#f59e0b'},
+      {l:'South Korea win',p:60,color:'#f6b23f'},
+      {l:'Son Heung-min 1+ SOT',p:65,color:'#5b96ef'},
+      {l:'Under 2.5 goals',p:58,color:'#f6b23f'},
     ],
     fouls:[
       F('Lee Jae-sung','Mainz · South Korea · CM',false,'h90','90% last 10',
@@ -252,11 +252,11 @@ export const DAYS = {
     odds:{h:'-400',d:'+500',a:'+750',ou:'2.5'}, homeTeam:'Netherlands', awayTeam:'Tunisia', winner:'Netherlands',
     wP:76, dP:15, aP:9,
     cbars:[
-      {l:'Netherlands win',p:76,color:'#00c896'},
-      {l:'Depay 2+ SOT (hat-trick MD2)',p:77,color:'#3b82f6'},
-      {l:'Gravenberch 1+ fouls (100%)',p:96,color:'#00c896'},
-      {l:'De Jong 1+ fouls (100%)',p:88,color:'#00c896'},
-      {l:'Netherlands 8+ corners',p:79,color:'#a855f7'},
+      {l:'Netherlands win',p:76,color:'#2dc8a0'},
+      {l:'Depay 2+ SOT (hat-trick MD2)',p:77,color:'#5b96ef'},
+      {l:'Gravenberch 1+ fouls (100%)',p:96,color:'#2dc8a0'},
+      {l:'De Jong 1+ fouls (100%)',p:88,color:'#2dc8a0'},
+      {l:'Netherlands 8+ corners',p:79,color:'#b079ef'},
     ],
     fouls:[
       F('Ryan Gravenberch','Liverpool · Netherlands · DM',true,'h100','100% last 10',
@@ -302,10 +302,10 @@ export const DAYS = {
     odds:{h:'+127',d:'+225',a:'-333',ou:'2.5'}, homeTeam:'Norway', awayTeam:'France', winner:'France',
     wP:38, dP:20, aP:42,
     cbars:[
-      {l:'France win',p:62,color:'#f59e0b'},
-      {l:'Haaland 2+ SOT (safe regardless)',p:80,color:'#3b82f6'},
-      {l:'Mbappé 2+ SOT',p:78,color:'#3b82f6'},
-      {l:'Tchouaméni 1+ fouls (100% L10)',p:94,color:'#00c896'},
+      {l:'France win',p:62,color:'#f6b23f'},
+      {l:'Haaland 2+ SOT (safe regardless)',p:80,color:'#5b96ef'},
+      {l:'Mbappé 2+ SOT',p:78,color:'#5b96ef'},
+      {l:'Tchouaméni 1+ fouls (100% L10)',p:94,color:'#2dc8a0'},
     ],
     fouls:[
       F('Aurélien Tchouaméni','Real Madrid · France · DM',true,'h100','100% last 10',
@@ -348,11 +348,11 @@ export const DAYS = {
     odds:{h:'-600',d:'+650',a:'+1400',ou:'2.5'}, homeTeam:'England', awayTeam:'Panama', winner:'England',
     wP:85, dP:9, aP:6,
     cbars:[
-      {l:'England win',p:85,color:'#00c896'},
-      {l:'Kane 2+ SOT',p:80,color:'#3b82f6'},
-      {l:'Rice 1+ fouls (100% L10)',p:96,color:'#00c896'},
-      {l:'England over 3 goals',p:74,color:'#00c896'},
-      {l:'England 8+ corners',p:79,color:'#a855f7'},
+      {l:'England win',p:85,color:'#2dc8a0'},
+      {l:'Kane 2+ SOT',p:80,color:'#5b96ef'},
+      {l:'Rice 1+ fouls (100% L10)',p:96,color:'#2dc8a0'},
+      {l:'England over 3 goals',p:74,color:'#2dc8a0'},
+      {l:'England 8+ corners',p:79,color:'#b079ef'},
     ],
     fouls:[
       F('Declan Rice','Arsenal · England · DM',true,'h100','100% last 10',

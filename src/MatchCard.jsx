@@ -1,6 +1,6 @@
 // ─── WC26 EDGE · MatchCard ─────────────────────────────────────
 import { useState } from 'react';
-import { C, confColor, confClass, ConfBar, FoulCard, ShotCard, AIBlock } from './components';
+import { C, confColor, confClass, ConfBar, FoulCard, ShotCard, AIBlock, copySelection, copyableStyle } from './components';
 
 // ── Tab strip ─────────────────────────────────────────────────
 function Tabs({ tabs, active, onSwitch }) {
@@ -42,11 +42,14 @@ function ResultTab({ match }) {
             { team: 'Draw',         odds: match.odds.d, pct: match.dP, win: false },
             { team: match.awayTeam, odds: match.odds.a, pct: match.aP, win: match.winner === match.awayTeam },
           ].map((item, i) => (
-            <div key={i} style={{
-              background: item.win ? `${C.ac}08` : C.s1,
-              border: `1px solid ${item.win ? C.ac + '50' : C.b1}`,
-              borderRadius: 7, padding: '8px 5px', textAlign: 'center',
-            }}>
+            <div key={i}
+              onClick={(e) => copySelection(e, `${item.team === 'Draw' ? `${match.homeTeam} vs ${match.awayTeam} — Draw` : `${item.team} to win`} @ ${item.odds}`)}
+              title="Tap to copy"
+              style={{
+                background: item.win ? `${C.ac}08` : C.s1,
+                border: `1px solid ${item.win ? C.ac + '50' : C.b1}`,
+                borderRadius: 7, padding: '8px 5px', textAlign: 'center', ...copyableStyle,
+              }}>
               <div style={{ fontSize: 9, fontWeight: 600, color: C.tx, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                 {item.team}
               </div>
@@ -83,17 +86,21 @@ function EasyTab({ easy }) {
   return (
     <div>
       {easy.map((e, i) => (
-        <div key={i} style={{
-          background: e.star ? `${C.ac}05` : C.s1,
-          border: `1px solid ${e.star ? C.ac + '30' : C.b1}`,
-          borderRadius: 8, padding: '7px 10px', marginBottom: 5,
-          display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap',
-        }}>
+        <div key={i}
+          onClick={(ev) => copySelection(ev, `${e.pick} @ ${e.odds}`)}
+          title="Tap to copy"
+          style={{
+            background: e.star ? `${C.ac}05` : C.s1,
+            border: `1px solid ${e.star ? C.ac + '30' : C.b1}`,
+            borderRadius: 8, padding: '7px 10px', marginBottom: 5,
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap',
+            ...copyableStyle,
+          }}>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ fontSize: 8, fontWeight: 700, letterSpacing: '.07em', textTransform: 'uppercase', color: C.mu, marginBottom: 2 }}>
               {e.cat}
             </div>
-            <div style={{ fontSize: 11, fontWeight: 600, color: C.tx }}>{e.pick}</div>
+            <div style={{ fontSize: 11, fontWeight: 600, color: C.tx }}>{e.pick} <span style={{ fontSize: 10, color: C.mu, opacity: .6 }}>⧉</span></div>
             <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 10, color: C.mu, marginTop: 1 }}>{e.odds}</div>
           </div>
           <div style={{ textAlign: 'right' }}>
@@ -118,20 +125,33 @@ function ParlayTab({ match }) {
       <div>
         {/* Parlay */}
         <div style={{ background: `${C.ac}07`, border: `1px solid ${C.ac}25`, borderRadius: 9, padding: '11px 13px', marginBottom: 8 }}>
-          <div style={{ fontSize: 10, fontWeight: 700, color: C.ac, letterSpacing: '.07em', textTransform: 'uppercase', marginBottom: 8 }}>
-            ⚡ Parlay builder
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 8 }}>
+            <span style={{ fontSize: 10, fontWeight: 700, color: C.ac, letterSpacing: '.07em', textTransform: 'uppercase' }}>
+              ⚡ Parlay builder
+            </span>
+            <span
+              onClick={(e) => copySelection(e, match.parlay.map((p, i) => `${i + 1}. ${p.pick} @ ${p.odds}`).join('\n') + `\nEst. return: ${match.parlayRet}`)}
+              title="Copy full parlay"
+              style={{
+                fontSize: 9, fontWeight: 700, padding: '3px 8px', borderRadius: 5, letterSpacing: '.04em',
+                background: `${C.ac}1f`, border: `1px solid ${C.ac}55`, color: C.ac, ...copyableStyle,
+              }}>Copy all ⧉</span>
           </div>
           {match.parlay.map((p, i) => (
-            <div key={i} style={{
-              display: 'flex', alignItems: 'center', gap: 7, padding: '3px 0',
-              borderBottom: `1px solid ${C.ac}12`, fontSize: 10, color: C.mu,
-            }}>
+            <div key={i}
+              onClick={(e) => copySelection(e, `${p.pick} @ ${p.odds}`)}
+              title="Tap to copy"
+              style={{
+                display: 'flex', alignItems: 'center', gap: 7, padding: '3px 0',
+                borderBottom: `1px solid ${C.ac}12`, fontSize: 10, color: C.mu, ...copyableStyle,
+              }}>
               <span style={{
                 width: 16, height: 16, borderRadius: '50%', background: `${C.ac}18`, color: C.ac,
                 fontSize: 8, fontWeight: 700, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
               }}>{i + 1}</span>
               <span style={{ color: C.tx, fontWeight: 600 }}>{p.pick}</span>
               <span style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 9, color: C.mu, marginLeft: 'auto' }}>{p.odds}</span>
+              <span style={{ fontSize: 10, color: C.mu, opacity: .6 }}>⧉</span>
             </div>
           ))}
           <div style={{ fontSize: 10, color: C.mu, borderTop: `1px solid ${C.ac}15`, paddingTop: 5, marginTop: 4 }}>

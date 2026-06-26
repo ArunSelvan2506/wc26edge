@@ -145,6 +145,9 @@ export default function App() {
               <div style={{ fontSize: 11, color: C.mu, marginTop: 3, fontFamily: 'JetBrains Mono, monospace' }}>
                 {day.sub}
               </div>
+              <div style={{ fontSize: 10, color: C.mu, marginTop: 6, fontFamily: 'JetBrains Mono, monospace', display: 'flex', alignItems: 'center', gap: 5 }}>
+                ⧉ <b style={{ color: C.ac, fontWeight: 700 }}>Tip:</b> open a match and tap any pick or odds to copy it
+              </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               {day.matches.map(m => <MatchCard key={m.id} match={m} />)}

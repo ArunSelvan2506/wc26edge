@@ -3,12 +3,47 @@ import { useState } from 'react';
 
 // ── Design tokens ──────────────────────────────────────────────
 export const C = {
-  bg:   '#07090d', s1: '#0d1117', s2: '#111827', s3: '#1a2336',
-  b1:   '#1e2d42', b2: '#253550',
-  tx:   '#e2e8f4', mu: '#5a6a82', dm: '#2e4060',
-  ac:   '#00c896', ac2: '#3b82f6', ac3: '#f97316',
-  red:  '#ef4444', grn: '#22c55e', amb: '#f59e0b', pur: '#a855f7',
+  bg:   '#0f141b', s1: '#171d27', s2: '#1d2532', s3: '#26303f',
+  b1:   '#303d4f', b2: '#3b4a5e',
+  tx:   '#e6ecf5', mu: '#90a0b8', dm: '#52647e',
+  ac:   '#2dc8a0', ac2: '#5b96ef', ac3: '#fb8c43',
+  red:  '#ef6d6d', grn: '#3ccb73', amb: '#f6b23f', pur: '#b079ef',
 };
+
+// Copy a bet/pick selection to the clipboard + lightweight toast feedback.
+export function copySelection(e, text) {
+  if (e) e.stopPropagation();
+  const t = String(text).replace(/\s+/g, ' ').trim();
+  const done = () => showToast('✓ Copied — ' + t);
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(t).then(done).catch(done);
+  } else { done(); }
+}
+
+let toastTimer;
+export function showToast(msg) {
+  let el = document.getElementById('wc-toast');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'wc-toast';
+    el.style.cssText = `position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(24px);
+      background:${C.s3};border:1px solid ${C.ac};color:${C.tx};font-size:12px;font-weight:600;
+      font-family:'Inter',sans-serif;padding:9px 16px;border-radius:9px;box-shadow:0 8px 28px rgba(0,0,0,.55);
+      z-index:600;opacity:0;pointer-events:none;transition:opacity .22s,transform .22s;
+      max-width:90vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis`;
+    document.body.appendChild(el);
+  }
+  el.textContent = msg;
+  requestAnimationFrame(() => { el.style.opacity = '1'; el.style.transform = 'translateX(-50%) translateY(0)'; });
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(-50%) translateY(24px)';
+  }, 1700);
+}
+
+// Shared style for any tap-to-copy element.
+export const copyableStyle = { cursor: 'pointer', WebkitTapHighlightColor: 'transparent' };
 
 export const confColor = (p) => p >= 75 ? C.ac : p >= 55 ? C.amb : C.red;
 export const confClass = (p) => p >= 75 ? 'cp-hi' : p >= 55 ? 'cp-md' : 'cp-lo';
@@ -65,19 +100,24 @@ export function DotRow({ dots, color, label }) {
 // ── BetRow ─────────────────────────────────────────────────────
 export function BetRow({ label, odds }) {
   return (
-    <div style={{
-      display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-      background: C.bg, borderRadius: 5, padding: '4px 8px', marginBottom: 3,
-      border: `1px solid ${C.b1}`, flexWrap: 'wrap', gap: 4,
-    }}>
+    <div
+      onClick={(e) => copySelection(e, `${label} @ ${odds.join(' / ')}`)}
+      title="Tap to copy"
+      style={{
+        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        background: C.bg, borderRadius: 5, padding: '4px 8px', marginBottom: 3,
+        border: `1px solid ${C.b1}`, flexWrap: 'wrap', gap: 4, ...copyableStyle,
+      }}
+    >
       <span style={{ fontSize: 10, fontWeight: 600, color: C.tx }}>{label}</span>
-      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: 3, flexWrap: 'wrap', alignItems: 'center' }}>
         {odds.map((o, i) => (
           <span key={i} style={{
             fontFamily: 'JetBrains Mono, monospace', fontSize: 9, padding: '2px 5px',
             borderRadius: 4, border: `1px solid ${C.b1}`, background: C.s2, color: C.tx,
           }}>{o}</span>
         ))}
+        <span style={{ fontSize: 10, color: C.mu, opacity: .6 }}>⧉</span>
       </div>
     </div>
   );
