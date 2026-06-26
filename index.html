@@ -947,10 +947,28 @@ function buildParlay(m){
     const sm=parlayMetrics(safe);
     safeHtml=parlayCard('\ud83d\udfe2 Safe parlay \u2014 built to hit','Highest-confidence legs only \xb7 lower payout, higher strike rate',safe,sm,gradeOf(sm.prob));
   }
-  // 2) VALUE parlay \u2014 the curated combo, now with computed hit% + risk grade.
-  const vlegs=m.parlay.map(p=>({p:p.p,o:p.o,prob:legProb(m,p.p,p.o)}));
-  const vm=parlayMetrics(vlegs);
-  const valueHtml=parlayCard('\u26a1 Value parlay \u2014 higher risk / reward','Curated combo \xb7 bigger payout, lower strike rate',vlegs,vm,gradeOf(vm.prob));
+  // 2) VALUE parlay \u2014 must stay DISTINCT from the safe slip (no duplicate legs).
+  // Normalise: drop parenthetical notes ("(safe regardless)") so the same bet
+  // written two ways is still recognised as one leg.
+  const _nk=s=>String(s||'').toLowerCase().replace(/\([^)]*\)/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
+  // Two legs are the "same bet" if one normalised key contains the other
+  // (e.g. "haaland 1 sot" \u2286 "haaland 1 sot safe regardless"). Guard against
+  // trivially-short keys so we don't collapse genuinely different bets.
+  const _same=(a,b)=>{ if(!a||!b) return false; if(a===b) return true; const sh=a.length<=b.length?a:b, lo=a.length<=b.length?b:a; return sh.length>=6 && lo.includes(sh); };
+  const _safeKeys=(safe||[]).map(l=>_nk(l.p));
+  const _dupOfSafe=k=>_safeKeys.some(sk=>_same(sk,k));
+  let vlegs=m.parlay.map(p=>({p:p.p,o:p.o,prob:legProb(m,p.p,p.o),_k:_nk(p.p)})).filter(l=>!_dupOfSafe(l._k));
+  if(vlegs.length<2){
+    const _have=vlegs.map(l=>l._k);
+    (m.easy||[]).filter(e=>e.cf!=null&&amToDec(e.o)!=null)
+      .map(e=>({p:e.p,o:e.o,prob:e.cf/100,_k:_nk(e.p)}))
+      .filter(l=>!_dupOfSafe(l._k)&&!_have.some(h=>_same(h,l._k)))
+      .sort((a,b)=>amToDec(b.o)-amToDec(a.o))      // longest odds first = bigger payout
+      .forEach(l=>{ if(vlegs.length<3){ vlegs.push(l); _have.push(l._k); } });
+  }
+  let valueHtml='';
+  if(vlegs.length>=2){ const vm=parlayMetrics(vlegs);
+    valueHtml=parlayCard('\u26a1 Value parlay \u2014 higher risk / reward','Bigger payout, lower strike rate \xb7 distinct from the safe slip',vlegs,vm,gradeOf(vm.prob)); }
   return '<div>'+
       safeHtml+
       valueHtml+
