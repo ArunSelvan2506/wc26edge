@@ -545,25 +545,84 @@ function parlayCard(title,sub,legs,metrics,g){
   '</div>';
 }
 
+/* ── Auto-remove completed matches from the date picker & day view ──
+   Kickoff = each match's ET clock time (mt.time) on the day's ET date
+   (DATES[].etNote), with June ET = EDT = UTC-4. A match is "completed"
+   ~135 min after kickoff. Completed matches drop out of the day list, and
+   any date whose matches are ALL completed disappears from the picker.
+   A per-day "Show completed" toggle brings them back. */
+let SHOW_DONE=false;
+const MONTHS={jan:0,feb:1,mar:2,apr:3,may:4,jun:5,jul:6,aug:7,sep:8,oct:9,nov:10,dec:11};
+const COMPLETE_MS=135*60*1000;
+function matchKickoff(key,mt){
+  const de=DATES.find(x=>x.key===key);
+  const dm=de&&de.etNote&&de.etNote.match(/(\d{1,2})\s+([A-Za-z]{3})/);
+  const tm=(mt.time||'').match(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)\s*ET/i);
+  if(!dm||!tm) return null;
+  let hr=(+tm[1])%12; if(/pm/i.test(tm[3])) hr+=12;
+  return Date.UTC(2026, MONTHS[dm[2].toLowerCase()], +dm[1], hr+4, tm[2]?+tm[2]:0); // ET(EDT)=UTC-4
+}
+function isCompleted(key,mt){
+  if(mt.live) return false;
+  const ko=matchKickoff(key,mt);
+  return ko!=null && Date.now() > ko+COMPLETE_MS;
+}
+function shownMatches(key){
+  const day=DAYS[key]; if(!day) return [];
+  return SHOW_DONE? day.matches : day.matches.filter(mt=>!isCompleted(key,mt));
+}
+function doneCount(key){
+  const day=DAYS[key]; if(!day) return 0;
+  return day.matches.filter(mt=>isCompleted(key,mt)).length;
+}
+// Keep a date in the picker if it has no detail data yet (future) or still
+// has at least one non-completed match.
+function dateActive(key){
+  const day=DAYS[key]; if(!day) return true;
+  return day.matches.some(mt=>!isCompleted(key,mt));
+}
+function firstActiveKey(){
+  const d=DATES.find(x=>dateActive(x.key)); return d?d.key:(DATES[0]&&DATES[0].key);
+}
+function reloadAll(){
+  const cur=document.querySelector('.dn-btn.active');
+  const want=cur&&cur.dataset.key;
+  buildNav();
+  const key=(want&&(SHOW_DONE||dateActive(want)))?want:firstActiveKey();
+  loadDay(key,document.querySelector('.dn-btn[data-key="'+key+'"]'));
+}
+
 function buildNav(){
   const nav=document.getElementById('dateNav');
-  nav.innerHTML=DATES.map(d=>`
-    <button class="dn-btn" data-key="${d.key}" onclick="loadDay('${d.key}',this)">
+  const dates=SHOW_DONE?DATES:DATES.filter(d=>dateActive(d.key));
+  const todayKey=firstActiveKey();
+  nav.innerHTML=dates.map(d=>{
+    const rem=DAYS[d.key]?DAYS[d.key].matches.filter(mt=>!isCompleted(d.key,mt)).length:d.cnt;
+    const cnt=d.r32?'R32 begins':(d.key===todayKey?'TODAY \xb7 '+rem:rem+' matches');
+    return `<button class="dn-btn" data-key="${d.key}" onclick="loadDay('${d.key}',this)">
       ${d.hot?'<span class="hot-dot"></span>':''}
       <span class="dn-day">${d.day}</span>
       <span class="dn-num">${d.num}</span>
-      <span class="dn-cnt">${d.r32?'R32 begins':d.today?'TODAY \xb7 '+d.cnt:d.cnt+' matches'}</span>
+      <span class="dn-cnt">${cnt}</span>
       ${d.etNote?'<span class="dn-et" style="font-size:8px;color:var(--mu);font-family:var(--mono);margin-top:1px">'+d.etNote+'</span>':''}
-    </button>`).join('');
+    </button>`;}).join('');
 }
 
 function loadDay(key,btn){
   document.querySelectorAll('.dn-btn').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
+  else{const b2=document.querySelector('.dn-btn[data-key="'+key+'"]'); if(b2)b2.classList.add('active');}
   const day=DAYS[key];
   const pg=document.getElementById('pg');
   if(!day){pg.innerHTML='<div class="no-matches"><p>Predictions loading for this date</p></div>';return;}
-  pg.innerHTML='<div class="day-title">'+day.title+'</div><div class="day-sub">'+day.sub+'</div><div class="copy-hint">⧉ <b>Tip:</b> open a match and tap any pick or odds to copy it to your clipboard</div><div class="matches">'+day.matches.map(buildCard).join('')+'</div>';
+  const shown=shownMatches(key), done=doneCount(key);
+  const allDone=DATES.reduce((n,d)=>n+doneCount(d.key),0);
+  const toggle=allDone?'<button onclick="SHOW_DONE=!SHOW_DONE;reloadAll()" style="margin-left:auto;font-family:var(--sans);font-size:9px;font-weight:600;cursor:pointer;background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.35);color:var(--ac);border-radius:5px;padding:3px 9px">'+(SHOW_DONE?'Hide completed':'Show completed ('+allDone+')')+'</button>':'';
+  const cards=shown.length?shown.map(buildCard).join(''):'<div class="no-matches" style="padding:34px 20px"><p>✓ All matches for this date are completed</p></div>';
+  pg.innerHTML='<div class="day-title">'+day.title+'</div>'+
+    '<div class="day-sub">'+day.sub+(done&&!SHOW_DONE?' \xb7 <span style="color:var(--ac)">'+done+' completed removed</span>':'')+'</div>'+
+    '<div class="copy-hint" style="justify-content:flex-start">⧉ <b>Tip:</b> tap any pick or odds to copy it'+toggle+'</div>'+
+    '<div class="matches">'+cards+'</div>';
 }
 
 function toggleMC(id){
@@ -925,8 +984,12 @@ function renderFixtures(){
 })();
 
 buildNav();
-const todayBtn=document.querySelector('[data-key="25"]');
-if(todayBtn){todayBtn.classList.add('active');loadDay('25',null);}
+(function(){
+  const key=firstActiveKey();
+  const btn=document.querySelector('.dn-btn[data-key="'+key+'"]');
+  if(btn)btn.classList.add('active');
+  loadDay(key,btn);
+})();
 </script>
 </body>
 </html>
