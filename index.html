@@ -6,8 +6,17 @@
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 <title>WC26 EDGE · Prediction Hub</title>
+<!-- Installable app (Add to Home Screen) -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f141b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WC26 EDGE">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link rel="icon" type="image/png" href="icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -29,7 +38,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 @keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(45,200,160,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(45,200,160,0)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes bk{0%,80%,100%{opacity:.2}40%{opacity:1}}
-.topbar{background:var(--s1);border-bottom:1px solid var(--b1);padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:52px;position:sticky;top:0;z-index:300;gap:10px}
+.topbar{background:var(--s1);border-bottom:1px solid var(--b1);padding:env(safe-area-inset-top,0px) 16px 0;display:flex;align-items:center;justify-content:space-between;height:calc(52px + env(safe-area-inset-top,0px));position:sticky;top:0;z-index:300;gap:10px}
 .logo{font-family:var(--disp);font-size:17px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);display:flex;align-items:center;gap:7px;white-space:nowrap}
 .topbar{gap:8px}
 @media(max-width:460px){
@@ -41,7 +50,7 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 }
 .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--ac);animation:pp 2s infinite}
 .topbar-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.date-nav{background:var(--s1);border-bottom:2px solid var(--b1);padding:0 10px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none;position:sticky;top:52px;z-index:200}
+.date-nav{background:var(--s1);border-bottom:2px solid var(--b1);padding:0 10px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none;position:sticky;top:calc(52px + env(safe-area-inset-top,0px));z-index:200}
 .date-nav::-webkit-scrollbar{display:none}
 .dn-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:62px;padding:7px 10px;cursor:pointer;border:none;background:none;font-family:var(--sans);flex-shrink:0;gap:1px;position:relative;border-bottom:3px solid transparent;transition:all .13s}
 .dn-day{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
@@ -1131,6 +1140,9 @@ buildNav();
   if(btn)btn.classList.add('active');
   loadDay(key,btn);
 })();
+
+/* Register service worker so the installed app works offline */
+if('serviceWorker' in navigator){ addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{})); }
 </script>
 </body>
 </html>
