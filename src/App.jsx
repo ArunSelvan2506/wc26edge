@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DATES, DAYS, WC_TABLE, OG_STATS } from './data.js';
 import { fitFromTable } from './lib/model.js';
+import { activeDates, firstActiveKey, shownMatches, doneCount } from './lib/completion.js';
 import { OddsToggle, Toast } from './components/Bits.jsx';
 import MatchCard from './components/MatchCard.jsx';
 import Standings from './components/Standings.jsx';
@@ -13,9 +14,12 @@ const VIEWS = [
 ];
 
 export default function App() {
-  const firstKey = (DATES.find(d => DAYS[d.key]) || DATES[0]).key;
+  // Recompute "now" once per mount so completed matches/days drop out.
+  const now = useMemo(() => Date.now(), []);
+  const dates = useMemo(() => activeDates(now), [now]);
   const [view, setView] = useState('matches');
-  const [dayKey, setDayKey] = useState(firstKey);
+  const [dayKey, setDayKey] = useState(() => firstActiveKey(now));
+  const [showDone, setShowDone] = useState(false);
   const [fmt, setFmt] = useState(() => {
     try { return localStorage.getItem('wc_oddsfmt') || 'frac'; } catch { return 'frac'; }
   });
@@ -52,7 +56,7 @@ export default function App() {
 
       {view === 'matches' && (
         <nav className="date-nav">
-          {DATES.map(d => (
+          {dates.map(d => (
             <button key={d.key} className={'dn-btn' + (d.key === dayKey ? ' active' : '')} onClick={() => setDayKey(d.key)}>
               {d.hot && <span className="hot-dot" />}
               <span className="dn-day">{d.day}</span>
@@ -68,7 +72,7 @@ export default function App() {
           <motion.div key={view}
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
-            {view === 'matches' && <MatchesView dayKey={dayKey} fmt={fmt} rat={rat} />}
+            {view === 'matches' && <MatchesView dayKey={dayKey} fmt={fmt} rat={rat} now={now} showDone={showDone} setShowDone={setShowDone} />}
             {view === 'standings' && <Standings />}
             {view === 'about' && <About />}
           </motion.div>
@@ -84,7 +88,7 @@ export default function App() {
   );
 }
 
-function MatchesView({ dayKey, fmt, rat }) {
+function MatchesView({ dayKey, fmt, rat, now, showDone, setShowDone }) {
   const day = DAYS[dayKey];
   if (!day) {
     const d = DATES.find(x => x.key === dayKey);
@@ -95,12 +99,25 @@ function MatchesView({ dayKey, fmt, rat }) {
       </div>
     );
   }
+  const matches = shownMatches(dayKey, showDone, now);
+  const done = doneCount(dayKey, now);
   return (
     <div>
-      <h1 className="day-title">{day.title}</h1>
-      <div className="day-sub">{day.sub}</div>
+      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap' }}>
+        <div>
+          <h1 className="day-title">{day.title}</h1>
+          <div className="day-sub">{day.sub}</div>
+        </div>
+        {done > 0 && (
+          <button className="nav-btn" style={{ marginBottom: 14 }} onClick={() => setShowDone(s => !s)}>
+            {showDone ? 'Hide completed' : `Show completed (${done})`}
+          </button>
+        )}
+      </div>
       <div className="matches">
-        {day.matches.map((m, i) => <MatchCard key={m.id} m={m} fmt={fmt} rat={rat} index={i} />)}
+        {matches.length
+          ? matches.map((m, i) => <MatchCard key={m.id} m={m} fmt={fmt} rat={rat} index={i} />)
+          : <div className="no-matches">All matches for this day are completed. <button className="nav-btn" onClick={() => setShowDone(true)} style={{ marginTop: 10 }}>Show completed</button></div>}
       </div>
     </div>
   );
