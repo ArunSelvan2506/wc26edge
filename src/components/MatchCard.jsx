@@ -80,7 +80,7 @@ function Pane({ tab, m, fmt, rat }) {
   if (tab === 'shots') return <ShotsTab m={m} fmt={fmt} />;
   if (tab === 'easy') return <EasyTab m={m} fmt={fmt} />;
   if (tab === 'model') return <ModelTab m={m} fmt={fmt} rat={rat} />;
-  if (tab === 'parlay') return <ParlayTab m={m} fmt={fmt} />;
+  if (tab === 'parlay') return <ParlayTab m={m} fmt={fmt} rat={rat} />;
   return null;
 }
 
@@ -253,8 +253,8 @@ function ModelTab({ m, fmt, rat }) {
 }
 
 /* ── ⚡ Parlay ── */
-function ParlayTab({ m, fmt }) {
-  const { safe, value } = buildParlay(m);
+function ParlayTab({ m, fmt, rat }) {
+  const { safe, value } = buildParlay(m, rat);
   return (
     <div>
       {safe && <ParlayCard title="🟢 Safe parlay — built to hit" sub="Highest-confidence legs only · lower payout, higher strike rate" slip={safe} fmt={fmt} />}
