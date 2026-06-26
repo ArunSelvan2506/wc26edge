@@ -1,0 +1,15 @@
+{
+  "name": "WC26 EDGE",
+  "short_name": "WC26 EDGE",
+  "description": "World Cup 2026 prediction hub — results, fouls, shots, parlays.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f141b",
+  "theme_color": "#0f141b",
+  "icons": [
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
