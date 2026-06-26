@@ -14,6 +14,16 @@
 :root{--bg:#0f141b;--s1:#171d27;--s2:#1d2532;--s3:#26303f;--b1:#303d4f;--b2:#3b4a5e;--tx:#e6ecf5;--mu:#90a0b8;--dm:#52647e;--ac:#2dc8a0;--ac2:#5b96ef;--ac3:#fb8c43;--red:#ef6d6d;--grn:#3ccb73;--amb:#f6b23f;--pur:#b079ef;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh}
+/* World Cup pitch backdrop — fixed, faint, behind all content */
+body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;background-color:var(--bg);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 360 520'%3E%3Cg fill='none' stroke='%232dc8a0' stroke-opacity='0.13' stroke-width='1.6'%3E%3Crect x='8' y='8' width='344' height='504' rx='4'/%3E%3Cline x1='8' y1='260' x2='352' y2='260'/%3E%3Ccircle cx='180' cy='260' r='54'/%3E%3Ccircle cx='180' cy='260' r='2.6' fill='%232dc8a0' fill-opacity='0.2' stroke='none'/%3E%3Crect x='96' y='8' width='168' height='66'/%3E%3Crect x='140' y='8' width='80' height='26'/%3E%3Crect x='96' y='446' width='168' height='66'/%3E%3Crect x='140' y='486' width='80' height='26'/%3E%3C/g%3E%3C/svg%3E"),
+    radial-gradient(120% 80% at 50% -15%, rgba(45,200,160,.13), transparent 60%),
+    radial-gradient(90% 60% at 50% 116%, rgba(91,150,239,.08), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.016) 0 2px, transparent 2px 72px);
+  background-repeat:no-repeat,no-repeat,no-repeat,repeat;
+  background-position:center 42%,center,center,center;
+  background-size:min(620px,116vw) auto,cover,cover,auto;}
 ::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--b1);border-radius:2px}
 @keyframes pp{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(45,200,160,.5)}70%{opacity:.7;box-shadow:0 0 0 8px rgba(45,200,160,0)}}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
