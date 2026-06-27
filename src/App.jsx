@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <>
-      <div className="backdrop" />
+      <div className={'backdrop' + (sport === 'football' ? '' : ' plain')} />
       <div className="backdrop-glow" />
 
       <header className="topbar">
