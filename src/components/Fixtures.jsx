@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { DAYS, UPDATED, SOURCE } from '../data.js';
+import { DAYS, UPDATED } from '../data.js';
 import { norm } from '../lib/model.js';
 import { upcomingFixtures } from '../lib/completion.js';
 import MatchCard from './MatchCard.jsx';
@@ -44,8 +44,7 @@ export default function Fixtures({ fmt, rat }) {
     <div>
       <div className="section-h">Upcoming fixtures · World Cup 2026</div>
       <div className="live-badge">
-        <span className="live-dot" /> LIVE · auto-updates hourly
-        <span className="live-meta">· {SOURCE} · refreshed {freshLabel(UPDATED)}</span>
+        <span className="live-dot" /> Updated {freshLabel(UPDATED)}
       </div>
       <div className="chips">
         {FILTERS.map(f => (

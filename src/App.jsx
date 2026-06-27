@@ -79,7 +79,7 @@ function About() {
       <p>The 📊 Model tab runs an <b>opponent-adjusted Poisson / Dixon-Coles</b> engine: it fits attack/defense strengths from tournament results, regularised toward the historical World Cup baseline (<code>{b.goalsPerGame} goals/game</code>), then derives 1X2 / Over 2.5 / BTTS probabilities. It de-vigs the market to a fair price and flags <b>value</b> with expected-value and quarter-Kelly staking.</p>
       <p>A leave-one-out backtest (Brier / log-loss / reliability) keeps it honest: on the current seed data it beats base rates on BTTS and is roughly baseline on 1X2 / Over — so goals-market “value” is shown with caution. Real edge needs deeper match history, which live data unlocks.</p>
       <h3>Data</h3>
-      <p>Historical baselines and 2026 group standings come from the <b>openfootball</b> dataset (CC0). The 2026 scores are <b>seed/placeholder</b> data — illustrative, not official results. Player props are hand-curated to current World Cup starters; live per-player form can be wired via an API-Football proxy.</p>
+      <p>Historical baselines and 2026 group standings come from the <b>openfootball</b> dataset (CC0). The 2026 scores are <b>seed/placeholder</b> data — illustrative, not official results. Player props are hand-curated to current World Cup starters.</p>
       <h3>Using it</h3>
       <p>Tap any pick or odds to copy it. Switch odds between fractional, decimal and American up top. Install to your home screen for a full-screen app. <b>For entertainment only — bet responsibly.</b></p>
     </div>
