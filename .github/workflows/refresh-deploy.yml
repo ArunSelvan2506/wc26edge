@@ -1,0 +1,54 @@
+name: Refresh live data & deploy
+
+# Pulls the latest openfootball World Cup 2026 results (no API key), rebuilds
+# the app, and publishes to gh-pages. Runs on a schedule + on demand.
+#
+# NOTE: GitHub only fires `schedule` for workflows on the DEFAULT branch (main).
+# This job checks out the app source branch explicitly, so it builds the right
+# code wherever the workflow file lives.
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'      # every 3 hours
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-deploy
+  cancel-in-progress: true
+
+env:
+  SOURCE_BRANCH: claude/mobile-ui-colors-actions-ktdtz3
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout app source
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.SOURCE_BRANCH }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Refresh live data (openfootball)
+        run: npm run refresh
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
