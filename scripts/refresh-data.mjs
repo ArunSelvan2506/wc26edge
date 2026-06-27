@@ -90,7 +90,7 @@ function buildTable(matches) {
 const AF_KEY = process.env.API_FOOTBALL_KEY || '';
 const AF_BASE = 'https://v3.football.api-sports.io';
 const AF_BUDGET = Number(process.env.AF_BUDGET || 40);
-const SEASON = Number(process.env.AF_SEASON || 2025);   // club-season form (per-player fouls/shots)
+const SEASON = Number(process.env.AF_SEASON || 2024);   // form proxy; free tier allows 2022–2024 only
 const SQUAD_TTL_MS = 20 * 3600 * 1000;
 const CACHE = new URL('../data/af-cache.json', import.meta.url);
 const MON3 = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
