@@ -37,21 +37,21 @@ export function buildParlays(legs) {
   };
 }
 
-// Recommended ₹ stake (India), tiered by model confidence on a ₹1000 bankroll.
-export function stakeINR(prob) {
-  if (prob >= 0.72) return 500;
-  if (prob >= 0.62) return 300;
-  if (prob >= 0.52) return 200;
-  return 100;
+// Recommended stake in units, tiered by model confidence (10-unit bankroll).
+export function stakeUnits(prob) {
+  if (prob >= 0.72) return 5;
+  if (prob >= 0.62) return 3;
+  if (prob >= 0.52) return 2;
+  return 1;
 }
 
-// Top single "hits" to recommend, ranked by confidence, with a ₹ stake each.
+// Top single "hits" to recommend, ranked by confidence, with a unit stake each.
 export function recommendedHits(legs, n = 4) {
   return [...legs]
     .filter(l => l.prob >= 0.58 && l.dec >= 1.2)
     .sort((a, b) => b.prob - a.prob)
     .slice(0, n)
-    .map(l => ({ ...l, stake: stakeINR(l.prob) }));
+    .map(l => ({ ...l, stake: stakeUnits(l.prob) }));
 }
 
 /* ── Head-to-head (Tennis / Basketball) ── */
