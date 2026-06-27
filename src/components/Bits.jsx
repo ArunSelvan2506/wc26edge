@@ -39,9 +39,9 @@ export function ConfBar({ label, p, fill, color, sub, delay = 0 }) {
   );
 }
 
-// Frac / Dec / American odds-format switch.
+// Frac / Dec odds-format switch.
 export function OddsToggle({ fmt, onChange }) {
-  const opts = [['frac', 'Frac'], ['dec', 'Dec'], ['am', 'Am']];
+  const opts = [['frac', 'Frac'], ['dec', 'Dec']];
   return (
     <div className="odds-toggle">
       <span className="of-lbl">Odds</span>

@@ -14,7 +14,7 @@ const VIEWS = [
 export default function App() {
   const [view, setView] = useState('fixtures');
   const [fmt, setFmt] = useState(() => {
-    try { return localStorage.getItem('wc_oddsfmt') || 'frac'; } catch { return 'frac'; }
+    try { const f = localStorage.getItem('wc_oddsfmt'); return f === 'dec' ? 'dec' : 'frac'; } catch { return 'frac'; }
   });
   const rat = useMemo(() => fitFromTable(WC_TABLE), []);
 
