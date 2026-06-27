@@ -2,6 +2,9 @@
 // from curated, format-specific strength ratings (approx ICC ranking points,
 // hand-seeded — illustrative, not official) run through a logistic, then turned
 // into fair odds. Tests carry a draw outcome; limited-overs are two-way.
+// Also: recent form, a score predictor with an over/under runs line, plus
+// easy-bet and value-parlay helpers — same easy/value theme as the football side.
+import { amToDec } from './odds.js';
 
 // Strength ratings (approx ICC ranking points, hand-seeded — illustrative,
 // not official), split by gender and format.
@@ -102,4 +105,94 @@ export function probToAmerican(p) {
   if (!p || p <= 0 || p >= 1) return null;
   const dec = 1 / p;
   return dec >= 2 ? '+' + Math.round((dec - 1) * 100) : '-' + Math.round(100 / (dec - 1));
+}
+
+/* ── Recent form (curated last-5, newest first; W win / L loss / D draw / N no result) ── */
+export const CRICKET_FORM = {
+  men: {
+    India: ['W', 'W', 'L', 'W', 'W'], Australia: ['W', 'L', 'W', 'W', 'W'],
+    England: ['L', 'W', 'W', 'L', 'W'], 'South Africa': ['W', 'W', 'W', 'L', 'L'],
+    'New Zealand': ['W', 'L', 'W', 'L', 'W'], Pakistan: ['L', 'W', 'L', 'W', 'L'],
+    'Sri Lanka': ['W', 'L', 'L', 'W', 'L'], Afghanistan: ['W', 'W', 'L', 'L', 'W'],
+    Bangladesh: ['L', 'L', 'W', 'L', 'W'], 'West Indies': ['L', 'W', 'L', 'L', 'W'],
+  },
+  women: {
+    Australia: ['W', 'W', 'W', 'W', 'L'], England: ['W', 'L', 'W', 'W', 'L'],
+    India: ['W', 'W', 'L', 'W', 'L'], 'South Africa': ['L', 'W', 'W', 'L', 'W'],
+    'New Zealand': ['L', 'W', 'L', 'W', 'L'], 'West Indies': ['L', 'L', 'W', 'L', 'W'],
+  },
+};
+export function cricketForm(team, gender = 'men') {
+  const t = (CRICKET_FORM[gender] || CRICKET_FORM.men)[team];
+  if (t) return t;
+  const a = ALIAS[String(team).toLowerCase()];
+  return (a && (CRICKET_FORM[gender] || CRICKET_FORM.men)[a]) || null;
+}
+
+/* ── Score predictor + over/under (limited-overs only) ── */
+const PAR = { t20i: 165, odi: 260 };                 // per-innings batting par
+const TOT_SD = { t20i: 30, odi: 46 };                // SD of match total
+const MEAN_R = { men: { t20i: 215, odi: 88 }, women: { t20i: 230, odi: 100 } };
+const GAP_COEF = { t20i: 0.16, odi: 0.28 };          // runs per rating point (innings split)
+const QTILT = { t20i: 34, odi: 50 };                 // how much overall quality lifts totals
+
+function normCdf(z) {
+  const t = 1 / (1 + 0.2316419 * Math.abs(z));
+  const d = 0.3989423 * Math.exp(-z * z / 2);
+  const p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+  return z > 0 ? 1 - p : p;
+}
+
+// Returns { format, total1, total2, matchTotal, line, pOver, pUnder, oddsOver, oddsUnder }
+// or null for Tests (no runs O/U).
+export function projectScores(teamA, teamB, format, gender = 'men') {
+  const f = fmtKey(format);
+  if (f === 'test') return null;
+  const tables = RATINGS[gender] || RATINGS.men;
+  const table = tables[f] || tables.t20i;
+  const ra = rating(table, teamA), rb = rating(table, teamB);
+  const meanR = (MEAN_R[gender] || MEAN_R.men)[f];
+  const quality = (((ra + rb) / 2) - meanR) / SPREAD[f];          // matchup quality vs par
+  const matchTotal = 2 * PAR[f] + quality * QTILT[f];
+  const gapAdj = clamp((ra - rb) * GAP_COEF[f], -PAR[f] * 0.22, PAR[f] * 0.22);
+  const total1 = Math.round(matchTotal / 2 + gapAdj / 2);
+  const total2 = Math.round(matchTotal - total1);
+  const line = Math.round(2 * PAR[f]) + 0.5;                      // standard par line
+  const z = (line - matchTotal) / TOT_SD[f];
+  const pUnder = clamp(normCdf(z), 0.02, 0.98), pOver = 1 - pUnder;
+  return {
+    format: f, total1, total2, matchTotal: Math.round(matchTotal), line,
+    pOver, pUnder, oddsOver: probToAmerican(pOver), oddsUnder: probToAmerican(pUnder),
+  };
+}
+
+// Easy bets (high-confidence picks) + the model market + score for a fixture.
+export function cricketBets(m) {
+  const gender = m.gender === 'women' ? 'women' : 'men';
+  const mk = cricketMarket(m.t1, m.t2, m.format, gender);
+  const fav = mk.pA >= mk.pB ? { team: m.t1, p: mk.pA, o: mk.oddsA } : { team: m.t2, p: mk.pB, o: mk.oddsB };
+  const sc = projectScores(m.t1, m.t2, m.format, gender);
+  const easy = [{ c: 'Match winner', p: `${fav.team} to win`, cf: Math.round(fav.p * 100), o: fav.o, star: fav.p >= 0.65 }];
+  if (sc) {
+    const over = sc.pOver >= sc.pUnder;
+    easy.push({
+      c: 'Total runs', p: `${over ? 'Over' : 'Under'} ${sc.line} match runs`,
+      cf: Math.round((over ? sc.pOver : sc.pUnder) * 100), o: over ? sc.oddsOver : sc.oddsUnder,
+      star: Math.max(sc.pOver, sc.pUnder) >= 0.6,
+    });
+  }
+  return { mk, fav, sc, easy };
+}
+
+// Two-leg value parlay: match winner + total runs over/under.
+export function cricketParlay(m) {
+  const { fav, sc } = cricketBets(m);
+  const legs = [{ p: `${fav.team} to win`, o: fav.o, prob: fav.p }];
+  if (sc) {
+    const over = sc.pOver >= sc.pUnder;
+    legs.push({ p: `${over ? 'Over' : 'Under'} ${sc.line} runs`, o: over ? sc.oddsOver : sc.oddsUnder, prob: over ? sc.pOver : sc.pUnder });
+  }
+  const prob = legs.reduce((a, l) => a * l.prob, 1);
+  const dec = legs.reduce((a, l) => a * (amToDec(l.o) || 1), 1);
+  return { legs, prob, dec };
 }
