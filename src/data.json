@@ -5799,7 +5799,7 @@
   "blocks": [
    {
     "date": "Sat 27 Jun (IST)",
-    "series": "Bilateral series",
+    "series": "ICC Cricket World Cup · 50 overs",
     "matches": [
      {
       "teams": "India vs England",
@@ -5813,7 +5813,7 @@
       "teams": "Pakistan vs Sri Lanka",
       "t1": "Pakistan",
       "t2": "Sri Lanka",
-      "format": "T20I",
+      "format": "ODI",
       "venue": "Colombo",
       "ist": "7:30pm"
      },
@@ -5830,13 +5830,13 @@
    },
    {
     "date": "Sun 28 Jun (IST)",
-    "series": "Bilateral series",
+    "series": "ICC Cricket World Cup · 50 overs",
     "matches": [
      {
       "teams": "Australia vs South Africa",
       "t1": "Australia",
       "t2": "South Africa",
-      "format": "Test",
+      "format": "ODI",
       "venue": "MCG, Melbourne",
       "ist": "5:30am"
      },
@@ -5844,7 +5844,7 @@
       "teams": "New Zealand vs West Indies",
       "t1": "New Zealand",
       "t2": "West Indies",
-      "format": "T20I",
+      "format": "ODI",
       "venue": "Auckland",
       "ist": "11:30am"
      },
@@ -5852,7 +5852,7 @@
       "teams": "England vs South Africa",
       "t1": "England",
       "t2": "South Africa",
-      "format": "T20I",
+      "format": "ODI",
       "venue": "Birmingham",
       "ist": "8:00pm",
       "gender": "women"
@@ -5861,13 +5861,13 @@
    },
    {
     "date": "Mon 29 Jun (IST)",
-    "series": "Bilateral series",
+    "series": "ICC Cricket World Cup · 50 overs",
     "matches": [
      {
       "teams": "India vs England",
       "t1": "India",
       "t2": "England",
-      "format": "T20I",
+      "format": "ODI",
       "venue": "Old Trafford, Manchester",
       "ist": "9:30pm"
      },
@@ -5883,7 +5883,7 @@
       "teams": "Australia vs India",
       "t1": "Australia",
       "t2": "India",
-      "format": "T20I",
+      "format": "ODI",
       "venue": "Melbourne",
       "ist": "1:30pm",
       "gender": "women"
@@ -5901,13 +5901,13 @@
    },
    {
     "date": "Tue 30 Jun (IST)",
-    "series": "Bilateral series",
+    "series": "ICC Cricket World Cup · 50 overs",
     "matches": [
      {
       "teams": "South Africa vs Australia",
       "t1": "South Africa",
       "t2": "Australia",
-      "format": "Test",
+      "format": "ODI",
       "venue": "MCG, Melbourne",
       "ist": "5:30am"
      },
