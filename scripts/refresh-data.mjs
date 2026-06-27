@@ -131,27 +131,39 @@ function cricFormat(matchType) {
 async function buildCricket(now) {
   if (!CRIC_KEY) { console.log('Cricket · no CRICKET_API_KEY set (keeping curated seed)'); return null; }
   let matches = [];
+  // /cricScore returns a large single-call list (quota-friendly); supplement
+  // with a couple of /matches pages for any extra upcoming fixtures.
   try {
-    for (const offset of [0, 25, 50]) {
+    const r = await fetch(`https://api.cricapi.com/v1/cricScore?apikey=${CRIC_KEY}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
+    const j = await r.json();
+    if (j.status !== 'success') { console.log('Cricket API (cricScore):', j.status, j.reason || j.message || ''); }
+    else matches = (j.data || []).map(m => ({ id: m.id, teams: [m.t1, m.t2], matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.series || '' }));
+  } catch (e) { console.log('Cricket cricScore failed:', e.message); }
+  try {
+    for (const offset of [0, 25]) {
       const r = await fetch(`https://api.cricapi.com/v1/matches?apikey=${CRIC_KEY}&offset=${offset}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
       const j = await r.json();
-      if (j.status !== 'success') { console.log('Cricket API:', j.status, j.reason || j.message || ''); break; }
+      if (j.status !== 'success') break;
       const page = j.data || [];
-      matches.push(...page);
+      matches.push(...page.map(m => ({ id: m.id, teams: m.teams, matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.venue || '' })));
       if (page.length < 25) break;
     }
-  } catch (e) { console.log('Cricket API failed:', e.message); return null; }
+  } catch { /* matches supplement optional */ }
+  if (!matches.length) { console.log('Cricket · no matches from API (keeping seed)'); return null; }
+
+  // DIAGNOSTIC (temporary): confirm coverage of the Eng–Ind July fixture + women.
+  const ei = matches.filter(m => /england|india/i.test((m.teams || []).join(' '))).slice(0, 6);
+  for (const m of ei) console.log(`  CK England/India? ${JSON.stringify(m.teams)} | ${m.matchType} | ${m.dateTimeGMT}`);
 
   // Wide window: the full-member international calendar is often weeks out.
-  const lo = now - 2 * 24 * 3600e3, hi = now + 75 * 24 * 3600e3;
+  const lo = now - 2 * 24 * 3600e3, hi = now + 120 * 24 * 3600e3;
   const items = [], seen = new Set();
+  let women = 0;
   for (const m of matches) {
-    const names = m.teams && m.teams.length >= 2 ? m.teams : (m.teamInfo || []).map(t => t.name);
-    if (!names || names.length < 2) continue;
+    const names = m.teams && m.teams.length >= 2 ? m.teams : [];
+    if (names.length < 2 || !names[0] || !names[1]) continue;
     const a = cricTeam(names[0]), b = cricTeam(names[1]);
-    // Internationals only: both sides must be senior nations we rate (drops U19,
-    // associates and domestic franchises automatically).
-    if (/u19|u-19|under 19|\ba\b/i.test(names[0] + ' ' + names[1])) continue;
+    if (/u19|u-19|under 19|\ba\b/i.test(names[0] + ' ' + names[1])) continue;   // drop U19 / A teams
     if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
     const gmt = (m.dateTimeGMT || '').replace(' ', 'T');
     const ts = Date.parse(gmt + (gmt && !/[zZ]|[+-]\d\d:?\d\d$/.test(gmt) ? 'Z' : ''));
@@ -159,9 +171,10 @@ async function buildCricket(now) {
     const key = m.id || (a.nation + b.nation + gmt);
     if (seen.has(key)) continue; seen.add(key);
     const gender = a.women || b.women ? 'women' : 'men';
+    if (gender === 'women') women++;
     items.push({ ts, t1: a.nation, t2: b.nation, gender, format: cricFormat(m.matchType), venue: m.venue || '' });
   }
-  console.log(`Cricket · ${matches.length} fetched · ${items.length} upcoming internationals (rated nations, 75d window)`);
+  console.log(`Cricket · ${matches.length} fetched · ${items.length} internationals (${women} women's) in 120d window`);
   if (!items.length) return null;
   items.sort((a, b) => a.ts - b.ts);
   const blocks = [], idx = {};
