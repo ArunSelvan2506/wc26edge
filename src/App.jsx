@@ -9,7 +9,6 @@ import Standings from './components/Standings.jsx';
 const VIEWS = [
   { id: 'fixtures', label: 'Fixtures' },
   { id: 'standings', label: 'Standings' },
-  { id: 'about', label: 'About' },
 ];
 
 export default function App() {
