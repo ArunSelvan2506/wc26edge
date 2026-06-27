@@ -24,7 +24,7 @@ const SPORTS = [
 ];
 
 export default function App() {
-  const [sport, setSport] = useState('football');
+  const [sport, setSport] = useState(null);   // null = home / sport picker
   const [view, setView] = useState('fixtures');
   const [fmt, setFmt] = useState(() => {
     try { const f = localStorage.getItem('wc_oddsfmt'); return f === 'dec' ? 'dec' : 'frac'; } catch { return 'frac'; }
@@ -45,12 +45,12 @@ export default function App() {
       <div className="backdrop-glow" />
 
       <header className="topbar">
-        <button className="logo" onClick={() => { setSport('football'); setView('fixtures'); }} aria-label="Home" type="button">
+        <button className="logo" onClick={() => { setSport(null); setView('fixtures'); }} aria-label="Home" type="button">
           <Trophy />
           <span className="logo-dot" />
           PREDICTION HUB
         </button>
-        {sport !== 'about' && (
+        {sport && (
           <div className="topbar-actions">
             <OddsToggle fmt={fmt} onChange={changeFmt} />
             {sport === 'football' && (
@@ -64,29 +64,31 @@ export default function App() {
         )}
       </header>
 
-      <nav className="sport-nav">
-        {SPORTS.map(s => (
-          <button key={s.id} type="button"
-            className={'sport-btn' + (sport === s.id ? ' active' : '') + (s.live ? '' : ' soon')}
-            onClick={() => { setSport(s.id); setView('fixtures'); }}>
-            <span className="sport-ico">{s.icon}</span>
-            <span className="sport-lb">{s.label}</span>
-            {!s.live && <span className="sport-tag">Soon</span>}
-          </button>
-        ))}
-      </nav>
+      {sport && (
+        <nav className="sport-nav">
+          {SPORTS.map(s => (
+            <button key={s.id} type="button"
+              className={'sport-btn' + (sport === s.id ? ' active' : '') + (s.live ? '' : ' soon')}
+              onClick={() => { setSport(s.id); setView('fixtures'); }}>
+              <span className="sport-ico">{s.icon}</span>
+              <span className="sport-lb">{s.label}</span>
+              {!s.live && <span className="sport-tag">Soon</span>}
+            </button>
+          ))}
+        </nav>
+      )}
 
       <main className="page">
         <AnimatePresence mode="wait">
-          <motion.div key={sport + view}
+          <motion.div key={(sport || 'home') + view}
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
-            {sport === 'cricket'
-              ? <Cricket fmt={fmt} />
-              : (sport === 'tennis' || sport === 'basketball' || sport === 'f1')
-                ? <SportView sportId={sport} fmt={fmt} />
-                : sport !== 'football'
-                  ? <ComingSoon sport={SPORTS.find(s => s.id === sport)} />
+            {!sport
+              ? <SportPicker onPick={id => { setSport(id); setView('fixtures'); }} />
+              : sport === 'cricket'
+                ? <Cricket fmt={fmt} />
+                : (sport === 'tennis' || sport === 'basketball' || sport === 'f1')
+                  ? <SportView sportId={sport} fmt={fmt} />
                   : <>
                       {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} />}
                       {view === 'standings' && <Standings />}
@@ -102,6 +104,28 @@ export default function App() {
 
       <Toast />
     </>
+  );
+}
+
+function SportPicker({ onPick }) {
+  return (
+    <div className="picker">
+      <div className="picker-h">Pick a sport</div>
+      <div className="picker-sub">Model picks, odds, props &amp; value parlays — choose where to start.</div>
+      <div className="picker-grid">
+        {SPORTS.map((s, i) => (
+          <motion.button key={s.id} type="button" className="picker-card" onClick={() => onPick(s.id)}
+            initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3, delay: Math.min(i * 0.05, 0.3), ease: 'easeOut' }}
+            whileTap={{ scale: 0.97 }}>
+            <span className="picker-ico">{s.icon}</span>
+            <span className="picker-name">{s.label}</span>
+            <span className="picker-tag">{s.tag}</span>
+            <span className="picker-go">Open →</span>
+          </motion.button>
+        ))}
+      </div>
+    </div>
   );
 }
 

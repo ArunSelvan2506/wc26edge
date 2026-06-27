@@ -42,6 +42,17 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .sport-btn.soon{opacity:.7}
 .sport-btn.soon .sport-lb{color:inherit}
 .sport-tag{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ac3);border:1px solid rgba(251,140,67,.4);background:rgba(251,140,67,.12);padding:1px 5px;border-radius:4px}
+/* Home sport picker */
+.picker{padding:24px 4px 40px}
+.picker-h{font-family:var(--disp);font-size:24px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx);text-align:center}
+.picker-sub{text-align:center;color:var(--mu);font-size:12.5px;margin:6px 0 22px;line-height:1.5}
+.picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;max-width:720px;margin:0 auto}
+.picker-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:22px 14px 16px;background:var(--s1);border:1px solid var(--b1);border-radius:14px;cursor:pointer;font-family:var(--sans);transition:border-color .15s,background .15s,transform .12s}
+.picker-card:hover{border-color:var(--ac);background:rgba(45,200,160,.07)}
+.picker-ico{font-size:42px;line-height:1}
+.picker-name{font-family:var(--disp);font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx)}
+.picker-tag{font-size:10px;font-family:var(--mono);color:var(--mu)}
+.picker-go{margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ac)}
 .coming-soon{text-align:center;padding:54px 20px 60px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .coming-soon .cs-ico{font-size:52px;filter:grayscale(.2);animation:breathe 6s ease-in-out infinite}
 .coming-soon h3{font-family:var(--disp);font-size:20px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx)}
