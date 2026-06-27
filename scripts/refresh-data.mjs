@@ -108,11 +108,12 @@ async function buildLineups(now) {
   return out;
 }
 
-// ── Cricket internationals (TheSportsDB · free, self-discovering) ──────────
-// Finds international cricket leagues, pulls upcoming fixtures between known
-// nations, and groups them by date. Returns null on any failure / no coverage
-// so the curated seed in data.CRICKET is left in place.
+// ── Cricket internationals (CricketData.org · free tier, needs CRICKET_API_KEY) ──
+// Pulls upcoming matches, keeps the internationals (both sides are nations we
+// rate), and groups them by date. Returns null with no key / on failure so the
+// curated seed stays in place.
 const CRIC_NATIONS = new Set(CRICKET_NATIONS.map(s => s.toLowerCase()));
+const CRIC_KEY = process.env.CRICKET_API_KEY || '';
 // "India Women" / "Australia W" → { nation:'india', gender:'women' }; men otherwise.
 function cricTeam(name) {
   const raw = String(name || '').trim();
@@ -120,34 +121,43 @@ function cricTeam(name) {
   const nation = raw.replace(/\bwomen'?s?\b|\(w\)|\bw\b/ig, '').replace(/\s+/g, ' ').trim();
   return { nation, women };
 }
+function cricFormat(matchType) {
+  const t = String(matchType || '').toLowerCase();
+  if (t.includes('test')) return 'Test';
+  if (t.includes('odi')) return 'ODI';
+  return 'T20I';
+}
 
 async function buildCricket(now) {
-  let leagues = [];
+  if (!CRIC_KEY) { console.log('Cricket · no CRICKET_API_KEY set (keeping curated seed)'); return null; }
+  let matches = [];
   try {
-    const r = await tsdb('search_all_leagues.php?s=Cricket');
-    leagues = (r && (r.countries || r.leagues)) || [];
-  } catch (e) { console.log('Cricket · league lookup failed:', e.message); return null; }
-  const intl = leagues.filter(l => /international|\bODI\b|t20i|twenty20 international|test match|\bICC\b|world cup|champions trophy|tri.?series|bilateral/i.test(l.strLeague || ''));
-  console.log(`Cricket · ${leagues.length} cricket leagues [${leagues.map(l => l.strLeague).join(', ')}] · ${intl.length} international`);
-  const lo = now - 6 * 3600e3, hi = now + 12 * 24 * 3600e3;
+    for (const offset of [0, 25, 50]) {
+      const r = await fetch(`https://api.cricapi.com/v1/matches?apikey=${CRIC_KEY}&offset=${offset}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
+      const j = await r.json();
+      if (j.status !== 'success') { console.log('Cricket API:', j.status, j.reason || j.message || ''); break; }
+      const page = j.data || [];
+      matches.push(...page);
+      if (page.length < 25) break;
+    }
+  } catch (e) { console.log('Cricket API failed:', e.message); return null; }
+
+  const lo = now - 6 * 3600e3, hi = now + 14 * 24 * 3600e3;
   const items = [], seen = new Set();
-  for (const lg of intl.slice(0, 8)) {
-    try {
-      const r = await tsdb(`eventsnextleague.php?id=${lg.idLeague}`);
-      for (const e of (r && r.events) || []) {
-        const a = cricTeam(e.strHomeTeam), b = cricTeam(e.strAwayTeam);
-        if (!a.nation || !b.nation) continue;
-        if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
-        const ts = Date.parse(e.strTimestamp || e.dateEvent || '');
-        if (!isFinite(ts) || ts < lo || ts > hi) continue;
-        const gender = a.women || b.women ? 'women' : 'men';
-        const key = [a.nation, b.nation].sort().join('|') + gender + (e.dateEvent || '');
-        if (seen.has(key)) continue; seen.add(key);
-        items.push({ ts, t1: a.nation, t2: b.nation, gender, league: lg.strLeague, venue: e.strVenue || '' });
-      }
-    } catch { /* skip league */ }
+  for (const m of matches) {
+    const names = m.teams && m.teams.length >= 2 ? m.teams : (m.teamInfo || []).map(t => t.name);
+    if (!names || names.length < 2) continue;
+    const a = cricTeam(names[0]), b = cricTeam(names[1]);
+    if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
+    const gmt = (m.dateTimeGMT || '').replace(' ', 'T');
+    const ts = Date.parse(gmt + (gmt && !/[zZ]|[+-]\d\d:?\d\d$/.test(gmt) ? 'Z' : ''));
+    if (!isFinite(ts) || ts < lo || ts > hi) continue;
+    const key = m.id || (a.nation + b.nation + gmt);
+    if (seen.has(key)) continue; seen.add(key);
+    const gender = a.women || b.women ? 'women' : 'men';
+    items.push({ ts, t1: a.nation, t2: b.nation, gender, format: cricFormat(m.matchType), venue: m.venue || '' });
   }
-  console.log(`Cricket · ${items.length} international fixtures in window`);
+  console.log(`Cricket · ${matches.length} matches fetched · ${items.length} upcoming internationals in window`);
   if (!items.length) return null;
   items.sort((a, b) => a.ts - b.ts);
   const blocks = [], idx = {};
@@ -156,7 +166,7 @@ async function buildCricket(now) {
     if (!idx[date]) { idx[date] = { date, series: 'International', matches: [] }; blocks.push(idx[date]); }
     idx[date].matches.push({
       teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2, gender: x.gender,
-      format: FORMAT_LABEL[fmtKey(x.league)], venue: x.venue, ist: istTime(x.ts),
+      format: x.format, venue: x.venue, ist: istTime(x.ts),
     });
   }
   return blocks;
@@ -288,7 +298,7 @@ data.LIVE = live;
 try {
   const ckBlocks = await buildCricket(Date.now());
   if (ckBlocks && ckBlocks.length) {
-    data.CRICKET = { blocks: ckBlocks, updated: new Date().toISOString(), source: 'TheSportsDB (free)' };
+    data.CRICKET = { blocks: ckBlocks, updated: new Date().toISOString(), source: 'CricketData.org' };
     console.log(`Cricket · using live fixtures (${ckBlocks.reduce((n, b) => n + b.matches.length, 0)} matches)`);
   } else {
     console.log('Cricket · keeping curated seed (no live coverage)');
