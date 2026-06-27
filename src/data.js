@@ -11,4 +11,5 @@ export const FIXTURES = data.FIXTURES;
 export const MONTHS   = data.MONTHS;
 export const UPDATED  = data.updated || null;
 export const SOURCE   = data.source || 'openfootball (CC0 · free)';
+export const LIVE     = data.LIVE || {};
 export default data;

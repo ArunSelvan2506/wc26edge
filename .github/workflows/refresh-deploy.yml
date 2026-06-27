@@ -1,7 +1,8 @@
 name: Refresh live data & deploy
 
-# Pulls the latest openfootball World Cup 2026 results (no API key), rebuilds
-# the app, and publishes to gh-pages. Runs on a schedule + on demand.
+# Hourly: pull latest openfootball results (free, no key) + bake API-Football
+# foul/shot props server-side (only if the API_FOOTBALL_KEY secret is set),
+# rebuild, and publish to gh-pages. The browser makes NO API calls.
 #
 # NOTE: GitHub only fires `schedule` for workflows on the DEFAULT branch (main).
 # This job checks out the app source branch explicitly, so it builds the right
@@ -9,7 +10,7 @@ name: Refresh live data & deploy
 
 on:
   schedule:
-    - cron: '0 */3 * * *'      # every 3 hours
+    - cron: '0 * * * *'        # every hour (≤24 squad-fetch days; cached so most runs make 0 API calls)
   workflow_dispatch: {}
 
 permissions:
@@ -37,18 +38,28 @@ jobs:
           node-version: 20
           cache: npm
 
+      # Persist the API-Football squad cache across runs so each upcoming team
+      # is fetched ~once a day (most hourly runs then make ZERO API calls).
+      - name: Restore API-Football cache
+        uses: actions/cache@v4
+        with:
+          path: data/af-cache.json
+          key: af-cache-${{ github.run_id }}
+          restore-keys: af-cache-
+
       - name: Install deps
         run: npm ci
 
-      - name: Refresh live data (openfootball)
+      - name: Refresh live data (openfootball + API-Football)
         run: npm run refresh
+        env:
+          # Set the repo SECRET API_FOOTBALL_KEY (free tier) to activate live
+          # foul/shot props. Empty → curated props, zero API calls.
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+          AF_BUDGET: '40'          # hard cap on API calls per run (free tier = 100/day)
 
       - name: Build
         run: npm run build
-        env:
-          # Optional: set repo Variable VITE_STATS_PROXY to your Worker URL to
-          # activate live API-Football foul props. Empty → curated props.
-          VITE_STATS_PROXY: ${{ vars.VITE_STATS_PROXY }}
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4

@@ -1,12 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fmtOdds } from '../lib/odds.js';
 import { buildParlay } from '../lib/parlay.js';
-import { markets, amToDec, devig, ev, kelly } from '../lib/model.js';
-import { OG_STATS } from '../data.js';
+import { markets, amToDec, devig, ev, kelly, norm } from '../lib/model.js';
+import { OG_STATS, LIVE } from '../data.js';
 import { cc, cfill, cpill, ecls } from '../lib/ui.js';
-import { liveEnabled, liveFoulProps, liveShotProps } from '../lib/apiFootball.js';
 import { Copyable, ConfBar } from './Bits.jsx';
+
+// Pre-baked live props (fetched server-side hourly, see scripts/refresh-data.mjs)
+// — keyed by team pair so the browser makes NO API calls.
+const pairKey = (a, b) => [norm(a), norm(b)].sort().join('|');
+const liveFor = m => LIVE[pairKey(m.hT, m.aT)] || null;
 
 const TABS = [
   { id: 'result', label: 'Result' },
@@ -160,29 +164,18 @@ function BaselineBlock({ m }) {
   );
 }
 
-/* ── Fouls ── live (API-Football) when the proxy is set, else curated ── */
+/* ── Fouls ── live (baked from API-Football hourly) when available, else curated ── */
 function FoulsTab({ m, fmt }) {
-  const live = useLive(m, liveFoulProps);
-  const hasCurated = m.fouls && m.fouls.length;
-
-  if (live.state === 'ok') {
+  const live = liveFor(m);
+  if (live && live.fouls && live.fouls.length) {
     return (
       <div>
         <div className="live-head">🔥 LIVE in-form starters <span>· API-Football · fouls/appearance this season</span></div>
-        {live.props.map((p, i) => <LiveFoul key={i} p={p} fmt={fmt} />)}
+        {live.fouls.map((p, i) => <LiveFoul key={i} p={p} fmt={fmt} />)}
       </div>
     );
   }
-  if (live.state === 'loading') {
-    return (
-      <div>
-        <div className="live-head loading">⏳ Loading live in-form starters…</div>
-        {hasCurated ? m.fouls.map((f, i) => <CuratedFoul key={i} f={f} fmt={fmt} />) : null}
-      </div>
-    );
-  }
-  // off / empty → curated
-  if (!hasCurated) return <Empty>No featured foul props</Empty>;
+  if (!m.fouls || !m.fouls.length) return <Empty>No featured foul props</Empty>;
   return m.fouls.map((f, i) => <CuratedFoul key={i} f={f} fmt={fmt} />);
 }
 
@@ -233,42 +226,18 @@ function LiveFoul({ p, fmt }) {
   );
 }
 
-/* ── Shots ── live (API-Football) when the proxy is set, else curated ── */
-function useLive(m, fetcher) {
-  const [s, setS] = useState({ state: liveEnabled() ? 'loading' : 'off', props: null });
-  useEffect(() => {
-    if (!liveEnabled()) { setS({ state: 'off', props: null }); return; }
-    let alive = true;
-    setS({ state: 'loading', props: null });
-    fetcher(m)
-      .then(p => { if (alive) setS({ state: p && p.length ? 'ok' : 'empty', props: p }); })
-      .catch(() => { if (alive) setS({ state: 'empty', props: null }); });
-    return () => { alive = false; };
-  }, [m.id]);
-  return s;
-}
-
+/* ── Shots ── live (baked from API-Football hourly) when available, else curated ── */
 function ShotsTab({ m, fmt }) {
-  const live = useLive(m, liveShotProps);
-  const hasCurated = m.shots && m.shots.length;
-
-  if (live.state === 'ok') {
+  const live = liveFor(m);
+  if (live && live.shots && live.shots.length) {
     return (
       <div>
         <div className="live-head">🔥 LIVE in-form shooters <span>· API-Football · shots/SOT per appearance this season</span></div>
-        {live.props.map((p, i) => <LiveShot key={i} p={p} fmt={fmt} />)}
+        {live.shots.map((p, i) => <LiveShot key={i} p={p} fmt={fmt} />)}
       </div>
     );
   }
-  if (live.state === 'loading') {
-    return (
-      <div>
-        <div className="live-head loading">⏳ Loading live in-form shooters…</div>
-        {hasCurated ? m.shots.map((s, i) => <CuratedShot key={i} s={s} fmt={fmt} />) : null}
-      </div>
-    );
-  }
-  if (!hasCurated) return <Empty>No featured shot props</Empty>;
+  if (!m.shots || !m.shots.length) return <Empty>No featured shot props</Empty>;
   return m.shots.map((s, i) => <CuratedShot key={i} s={s} fmt={fmt} />);
 }
 
