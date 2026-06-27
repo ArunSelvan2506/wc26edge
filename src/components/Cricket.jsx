@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CRICKET } from '../data.js';
 import { fmtOdds } from '../lib/odds.js';
-import { cricketMarket, cricketBets, cricketParlay, cricketForm, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
+import { cricketMarket, cricketBets, cricketParlay, cricketForm, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
 import { cpill, cfill, ecls } from '../lib/ui.js';
 import { Copyable, ConfBar } from './Bits.jsx';
 
@@ -70,13 +70,14 @@ function CricketCard({ m, fmt, index = 0 }) {
   const mk = cricketMarket(m.t1, m.t2, m.format, gender);
   const f = mk.format;
   const pc = x => Math.round(x * 100);
-  const fav = mk.pA >= mk.pB ? m.t1 : m.t2;
+  const n1 = teamLabel(m.t1, gender), n2 = teamLabel(m.t2, gender);
+  const fav = mk.pA >= mk.pB ? n1 : n2;
   const conf = pc(Math.max(mk.pA, mk.pB));
 
   const outcomes = [
-    { label: m.t1, p: mk.pA, odds: mk.oddsA },
+    { label: n1, p: mk.pA, odds: mk.oddsA },
     ...(f === 'test' ? [{ label: 'Draw', p: mk.pDraw, odds: mk.oddsDraw }] : []),
-    { label: m.t2, p: mk.pB, odds: mk.oddsB },
+    { label: n2, p: mk.pB, odds: mk.oddsB },
   ];
 
   return (
@@ -85,7 +86,7 @@ function CricketCard({ m, fmt, index = 0 }) {
       transition={{ duration: 0.32, delay: Math.min(index * 0.04, 0.2), ease: 'easeOut' }}>
       <div className="ck-head">
         <div>
-          <div className="ck-teams">{m.teams}</div>
+          <div className="ck-teams">{n1} vs {n2}</div>
           <div className="ck-meta">
             <span className={'ck-fmt ' + (FMT_CLASS[f] || '')}>{FORMAT_LABEL[f]}</span>
             {women && <span className="ck-w">Women</span>}
@@ -122,7 +123,8 @@ function CricketCard({ m, fmt, index = 0 }) {
 
 function CricketEngine({ m, fmt, gender, mk, f }) {
   const pc = x => Math.round(x * 100);
-  const { fav, sc, easy } = cricketBets(m);
+  const n1 = teamLabel(m.t1, gender), n2 = teamLabel(m.t2, gender);
+  const { sc, easy } = cricketBets(m);
   const parlay = cricketParlay(m);
   const f1 = cricketForm(m.t1, gender), f2 = cricketForm(m.t2, gender);
 
@@ -130,23 +132,23 @@ function CricketEngine({ m, fmt, gender, mk, f }) {
     <div className="ck-eng">
       {(f1 || f2) && (
         <Section title="Recent form">
-          <FormRow team={m.t1} form={f1} />
-          <FormRow team={m.t2} form={f2} />
+          <FormRow team={n1} form={f1} />
+          <FormRow team={n2} form={f2} />
         </Section>
       )}
 
       <Section title="Chances of winning">
-        <ConfBar label={m.t1} p={pc(mk.pA)} fill="f-hi" />
+        <ConfBar label={n1} p={pc(mk.pA)} fill="f-hi" />
         {f === 'test' && <ConfBar label="Draw" p={pc(mk.pDraw)} fill="f-md" delay={0.05} />}
-        <ConfBar label={m.t2} p={pc(mk.pB)} fill="f-hi" delay={0.1} />
+        <ConfBar label={n2} p={pc(mk.pB)} fill="f-hi" delay={0.1} />
       </Section>
 
       {sc && (
         <Section title="Score predictor">
           <div className="ck-score">
-            <span><b>{m.t1}</b> {sc.total1}</span>
+            <span><b>{n1}</b> {sc.total1}</span>
             <span className="ck-score-sep">vs</span>
-            <span>{sc.total2} <b>{m.t2}</b></span>
+            <span>{sc.total2} <b>{n2}</b></span>
           </div>
           <div className="ck-score-meta">Projected match total ≈ <b>{sc.matchTotal}</b> runs · line {sc.line}</div>
           <div className="ck-ou">

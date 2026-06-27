@@ -61,6 +61,10 @@ const ALIAS = {
 const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
 const avg = obj => { const v = Object.values(obj); return v.reduce((s, x) => s + x, 0) / v.length; };
 
+// Display name: women's sides always show a " W" suffix (model lookups use the
+// bare nation name, so this is purely cosmetic).
+export const teamLabel = (name, gender) => (gender === 'women' ? `${name} W` : name);
+
 export function fmtKey(format) {
   const f = String(format || '').toLowerCase();
   if (f.includes('test')) return 'test';
@@ -171,8 +175,9 @@ export function cricketBets(m) {
   const gender = m.gender === 'women' ? 'women' : 'men';
   const mk = cricketMarket(m.t1, m.t2, m.format, gender);
   const fav = mk.pA >= mk.pB ? { team: m.t1, p: mk.pA, o: mk.oddsA } : { team: m.t2, p: mk.pB, o: mk.oddsB };
+  fav.label = teamLabel(fav.team, gender);
   const sc = projectScores(m.t1, m.t2, m.format, gender);
-  const easy = [{ c: 'Match winner', p: `${fav.team} to win`, cf: Math.round(fav.p * 100), o: fav.o, star: fav.p >= 0.65 }];
+  const easy = [{ c: 'Match winner', p: `${fav.label} to win`, cf: Math.round(fav.p * 100), o: fav.o, star: fav.p >= 0.65 }];
   if (sc) {
     const over = sc.pOver >= sc.pUnder;
     easy.push({
@@ -187,7 +192,7 @@ export function cricketBets(m) {
 // Two-leg value parlay: match winner + total runs over/under.
 export function cricketParlay(m) {
   const { fav, sc } = cricketBets(m);
-  const legs = [{ p: `${fav.team} to win`, o: fav.o, prob: fav.p }];
+  const legs = [{ p: `${fav.label} to win`, o: fav.o, prob: fav.p }];
   if (sc) {
     const over = sc.pOver >= sc.pUnder;
     legs.push({ p: `${over ? 'Over' : 'Under'} ${sc.line} runs`, o: over ? sc.oddsOver : sc.oddsUnder, prob: over ? sc.pOver : sc.pUnder });
