@@ -43,14 +43,14 @@ function stageCat(stage) {
   return 'Final'; // third place + final
 }
 const STAGE_CLASS = { Group: 'fs-group', R32: 'fs-r32', R16: 'fs-r16', QF: 'fs-qf', SF: 'fs-sf', Final: 'fs-final' };
-const FILTERS = ['All', 'Group', 'R32', 'R16', 'QF', 'SF', 'Final'];
+const FILTERS = ['Group', 'R32', 'R16', 'QF', 'SF', 'Final'];
 
 export default function Fixtures({ fmt, rat }) {
   const detail = useMemo(buildDetailIndex, []);
   // Completed date-blocks drop off; recomputed once per mount.
   const upcoming = useMemo(() => upcomingFixtures(Date.now()), []);
-  const [filter, setFilter] = useState('All');
-  const blocks = upcoming.filter(b => filter === 'All' || stageCat(b.stage) === filter);
+  const [filter, setFilter] = useState('Group');
+  const blocks = upcoming.filter(b => stageCat(b.stage) === filter);
 
   return (
     <div>
