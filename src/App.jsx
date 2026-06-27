@@ -32,11 +32,11 @@ export default function App() {
       <div className="backdrop-glow" />
 
       <header className="topbar">
-        <div className="logo">
+        <button className="logo" onClick={() => setView('fixtures')} aria-label="Home" type="button">
           <Trophy />
           <span className="logo-dot" />
-          WC26 EDGE
-        </div>
+          WORLDCUP 26
+        </button>
         <div className="topbar-actions">
           <OddsToggle fmt={fmt} onChange={changeFmt} />
           <nav style={{ display: 'flex', gap: 5 }}>
@@ -59,7 +59,7 @@ export default function App() {
         </AnimatePresence>
 
         <div className="disc">
-          WC26 EDGE · a private prediction hub for entertainment. Odds and model outputs are calibrated estimates, not guarantees. Bet responsibly.
+          WORLDCUP 26 · a private prediction hub for entertainment. Odds and model outputs are calibrated estimates, not guarantees. Bet responsibly.
         </div>
       </main>
 
