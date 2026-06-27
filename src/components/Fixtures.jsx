@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { DAYS, UPDATED } from '../data.js';
 import { norm } from '../lib/model.js';
@@ -11,6 +11,18 @@ function freshLabel(iso) {
   if (isNaN(d)) return 'free feed';
   const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()];
   return `${d.getUTCDate()} ${mon} ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`;
+}
+
+// Live countdown to the next hourly auto-update (cron fires at :00 UTC).
+function NextUpdate() {
+  const calc = () => 3600000 - (Date.now() % 3600000);
+  const [ms, setMs] = useState(calc);
+  useEffect(() => {
+    const t = setInterval(() => setMs(calc()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  const m = Math.floor(ms / 60000), s = Math.floor((ms % 60000) / 1000);
+  return <span className="live-meta">· next in {m}:{String(s).padStart(2, '0')}</span>;
 }
 
 // Map a fixture's "A vs B" to the detailed match in DAYS (order-independent).
@@ -45,6 +57,7 @@ export default function Fixtures({ fmt, rat }) {
       <div className="section-h">Upcoming fixtures · World Cup 2026</div>
       <div className="live-badge">
         <span className="live-dot" /> Updated {freshLabel(UPDATED)}
+        <NextUpdate />
       </div>
       <div className="chips">
         {FILTERS.map(f => (
