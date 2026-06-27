@@ -43,6 +43,8 @@ jobs:
 
       - name: Refresh live data (openfootball)
         run: npm run refresh
+        env:
+          CRICKET_API_KEY: ${{ secrets.CRICKET_API_KEY }}
 
       - name: Build
         run: npm run build
