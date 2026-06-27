@@ -174,10 +174,11 @@ async function jf1(path) {
 
 async function buildF1(now) {
   const season = new Date(now).getUTCFullYear();
-  let standings = [];
+  let standings = [], curRound = null;
   try {
-    const r = await jf1(`${season}/driverstandings/?format=json`);
-    standings = r?.MRData?.StandingsTable?.StandingsLists?.[0]?.DriverStandings || [];
+    const list = (await jf1(`${season}/driverstandings/?format=json`))?.MRData?.StandingsTable?.StandingsLists?.[0];
+    standings = list?.DriverStandings || [];
+    curRound = +list?.round || null;
   } catch (e) { console.log('F1 · standings fetch failed:', e.message); return null; }
   if (!standings.length) { console.log(`F1 · no ${season} standings yet (keeping curated)`); return null; }
 
@@ -187,13 +188,18 @@ async function buildF1(now) {
   const today = new Date(now).toISOString().slice(0, 10);
   const next = races.find(x => x.date >= today) || races[races.length - 1] || null;
 
-  // Recent finishing form (last 5 per driver) from this season's results.
+  // Recent finishing form: fetch the last up-to-5 COMPLETED rounds individually,
+  // newest first (Jolpica caps /results limit at 100 and returns oldest-first,
+  // so a bulk call would miss the latest races).
   const form = {};
-  try {
-    const rr = (await jf1(`${season}/results/?limit=400&format=json`))?.MRData?.RaceTable?.Races || [];
-    for (const race of rr) for (const res of race.Results || []) (form[res.Driver.familyName] ??= []).push(res.positionText);
-    for (const k in form) form[k] = form[k].slice(-5);
-  } catch { /* form optional */ }
+  if (curRound) {
+    for (let rnd = curRound; rnd >= Math.max(1, curRound - 4); rnd--) {
+      try {
+        const race = (await jf1(`${season}/${rnd}/results/?format=json`))?.MRData?.RaceTable?.Races?.[0];
+        for (const res of race?.Results || []) (form[res.Driver.familyName] ??= []).push(res.positionText);
+      } catch { /* skip round */ }
+    }
+  }
 
   const maxPts = Math.max(1, ...standings.map(s => +s.points || 0));
   const drivers = {};
