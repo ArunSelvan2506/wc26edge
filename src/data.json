@@ -5816,6 +5816,15 @@
       "format": "T20I",
       "venue": "Colombo",
       "ist": "7:30pm"
+     },
+     {
+      "teams": "Australia vs India",
+      "t1": "Australia",
+      "t2": "India",
+      "format": "ODI",
+      "venue": "Sydney",
+      "ist": "9:00am",
+      "gender": "women"
      }
     ]
    },
@@ -5838,6 +5847,15 @@
       "format": "T20I",
       "venue": "Auckland",
       "ist": "11:30am"
+     },
+     {
+      "teams": "England vs South Africa",
+      "t1": "England",
+      "t2": "South Africa",
+      "format": "T20I",
+      "venue": "Birmingham",
+      "ist": "8:00pm",
+      "gender": "women"
      }
     ]
    },
@@ -5860,6 +5878,24 @@
       "format": "ODI",
       "venue": "Dhaka",
       "ist": "1:30pm"
+     },
+     {
+      "teams": "Australia vs India",
+      "t1": "Australia",
+      "t2": "India",
+      "format": "T20I",
+      "venue": "Melbourne",
+      "ist": "1:30pm",
+      "gender": "women"
+     },
+     {
+      "teams": "New Zealand vs West Indies",
+      "t1": "New Zealand",
+      "t2": "West Indies",
+      "format": "ODI",
+      "venue": "Wellington",
+      "ist": "6:30am",
+      "gender": "women"
      }
     ]
    },
@@ -5882,6 +5918,15 @@
       "format": "ODI",
       "venue": "Colombo",
       "ist": "3:00pm"
+     },
+     {
+      "teams": "England vs South Africa",
+      "t1": "England",
+      "t2": "South Africa",
+      "format": "ODI",
+      "venue": "Lord’s, London",
+      "ist": "3:30pm",
+      "gender": "women"
      }
     ]
    }

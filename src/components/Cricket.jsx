@@ -7,22 +7,32 @@ import { cpill } from '../lib/ui.js';
 import { Copyable } from './Bits.jsx';
 
 const FORMATS = ['All', 'Test', 'ODI', 'T20I'];
+const GENDERS = [['all', 'All'], ['men', "Men's"], ['women', "Women's"]];
 const FMT_CLASS = { test: 'cf-test', odi: 'cf-odi', t20i: 'cf-t20' };
+const gOf = m => (m.gender === 'women' ? 'women' : 'men');
 
 export default function Cricket({ fmt }) {
   const blocks = CRICKET.blocks || [];
   const [filter, setFilter] = useState('All');
+  const [gender, setGender] = useState('all');
 
   const view = useMemo(() => blocks.map(b => ({
     ...b,
-    matches: b.matches.filter(m => filter === 'All' || FORMAT_LABEL[fmtKey(m.format)] === filter),
-  })).filter(b => b.matches.length), [blocks, filter]);
+    matches: b.matches.filter(m =>
+      (filter === 'All' || FORMAT_LABEL[fmtKey(m.format)] === filter) &&
+      (gender === 'all' || gOf(m) === gender)),
+  })).filter(b => b.matches.length), [blocks, filter, gender]);
 
   return (
     <div>
       <div className="section-h">International cricket · match-winner odds</div>
       <div className="live-badge">
         <span className="live-dot" /> Model-derived fair odds · whole win market
+      </div>
+      <div className="chips">
+        {GENDERS.map(([k, l]) => (
+          <button key={k} className={'chip' + (gender === k ? ' active' : '')} onClick={() => setGender(k)}>{l}</button>
+        ))}
       </div>
       <div className="chips">
         {FORMATS.map(f => (
@@ -54,7 +64,8 @@ export default function Cricket({ fmt }) {
 }
 
 function CricketCard({ m, fmt, index = 0 }) {
-  const mk = cricketMarket(m.t1, m.t2, m.format);
+  const women = gOf(m) === 'women';
+  const mk = cricketMarket(m.t1, m.t2, m.format, women ? 'women' : 'men');
   const f = mk.format;
   const pc = x => Math.round(x * 100);
   const fav = mk.pA >= mk.pB ? m.t1 : m.t2;
@@ -76,6 +87,7 @@ function CricketCard({ m, fmt, index = 0 }) {
           <div className="ck-teams">{m.teams}</div>
           <div className="ck-meta">
             <span className={'ck-fmt ' + (FMT_CLASS[f] || '')}>{FORMAT_LABEL[f]}</span>
+            {women && <span className="ck-w">Women</span>}
             {m.venue} · {m.ist}<small>IST</small>
           </div>
         </div>

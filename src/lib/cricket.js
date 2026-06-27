@@ -3,24 +3,48 @@
 // hand-seeded — illustrative, not official) run through a logistic, then turned
 // into fair odds. Tests carry a draw outcome; limited-overs are two-way.
 
-export const CRICKET_RATINGS = {
-  test: {
-    Australia: 124, India: 120, England: 113, 'South Africa': 105, 'New Zealand': 100,
-    'Sri Lanka': 95, Pakistan: 88, 'West Indies': 76, Bangladesh: 60, Afghanistan: 55,
-    Ireland: 35, Zimbabwe: 30,
+// Strength ratings (approx ICC ranking points, hand-seeded — illustrative,
+// not official), split by gender and format.
+const RATINGS = {
+  men: {
+    test: {
+      Australia: 124, India: 120, England: 113, 'South Africa': 105, 'New Zealand': 100,
+      'Sri Lanka': 95, Pakistan: 88, 'West Indies': 76, Bangladesh: 60, Afghanistan: 55,
+      Ireland: 35, Zimbabwe: 30,
+    },
+    odi: {
+      India: 122, Australia: 116, 'South Africa': 110, 'New Zealand': 104, Pakistan: 100,
+      England: 98, 'Sri Lanka': 92, Afghanistan: 88, Bangladesh: 82, 'West Indies': 78,
+      Ireland: 55, Zimbabwe: 50, Netherlands: 48, Scotland: 45, Nepal: 42,
+    },
+    t20i: {
+      India: 270, Australia: 258, England: 252, 'West Indies': 248, 'South Africa': 246,
+      Pakistan: 240, 'New Zealand': 235, Afghanistan: 228, 'Sri Lanka': 220, Bangladesh: 210,
+      Ireland: 190, Zimbabwe: 180, Netherlands: 175, Nepal: 170, Scotland: 165, USA: 150,
+      'United Arab Emirates': 145, Canada: 135, Namibia: 140, Oman: 138,
+    },
   },
-  odi: {
-    India: 122, Australia: 116, 'South Africa': 110, 'New Zealand': 104, Pakistan: 100,
-    England: 98, 'Sri Lanka': 92, Afghanistan: 88, Bangladesh: 82, 'West Indies': 78,
-    Ireland: 55, Zimbabwe: 50, Netherlands: 48, Scotland: 45, Nepal: 42,
-  },
-  t20i: {
-    India: 270, Australia: 258, England: 252, 'West Indies': 248, 'South Africa': 246,
-    Pakistan: 240, 'New Zealand': 235, Afghanistan: 228, 'Sri Lanka': 220, Bangladesh: 210,
-    Ireland: 190, Zimbabwe: 180, Netherlands: 175, Nepal: 170, Scotland: 165, USA: 150,
-    'United Arab Emirates': 145, Canada: 135, Namibia: 140, Oman: 138,
+  women: {
+    test: {
+      Australia: 130, England: 115, India: 110, 'South Africa': 95,
+    },
+    odi: {
+      Australia: 167, England: 130, India: 124, 'South Africa': 110, 'New Zealand': 105,
+      'West Indies': 95, Pakistan: 80, 'Sri Lanka': 86, Bangladesh: 70, Ireland: 50, Scotland: 40,
+    },
+    t20i: {
+      Australia: 290, England: 270, India: 258, 'South Africa': 250, 'New Zealand': 245,
+      'West Indies': 235, Pakistan: 220, 'Sri Lanka': 215, Bangladesh: 200, Ireland: 175,
+      Scotland: 160, 'United Arab Emirates': 150, Thailand: 145, Netherlands: 140,
+    },
   },
 };
+
+// Backward-compatible export (men's tables) + a flat list of every nation.
+export const CRICKET_RATINGS = RATINGS.men;
+export const CRICKET_NATIONS = [...new Set(
+  Object.values(RATINGS).flatMap(g => Object.values(g)).flatMap(o => Object.keys(o))
+)];
 
 const SPREAD = { test: 22, odi: 38, t20i: 48 };   // logistic scale per format
 // (tuned so a ~25-pt ICC gap ≈ 65% favourite; top-vs-minnow ≈ 90%)
@@ -52,9 +76,10 @@ function rating(table, team) {
 
 // Full match-winner market: { format, pA, pB, pDraw, oddsA, oddsB, oddsDraw }.
 // Probabilities sum to 1; odds are fair (no book margin), American canonical.
-export function cricketMarket(teamA, teamB, format) {
+export function cricketMarket(teamA, teamB, format, gender = 'men') {
   const f = fmtKey(format);
-  const table = CRICKET_RATINGS[f] || CRICKET_RATINGS.t20i;
+  const tables = RATINGS[gender] || RATINGS.men;
+  const table = tables[f] || tables.t20i;
   const ra = rating(table, teamA), rb = rating(table, teamB);
   const pAraw = 1 / (1 + Math.exp(-(ra - rb) / SPREAD[f]));   // P(A wins | no draw)
   let pA, pB, pDraw = 0;

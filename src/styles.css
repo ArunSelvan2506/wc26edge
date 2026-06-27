@@ -164,6 +164,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .ck-fmt.cf-test{color:#e0a84e;border-color:rgba(224,168,78,.4);background:rgba(224,168,78,.12)}
 .ck-fmt.cf-odi{color:var(--ac2);border-color:rgba(60,150,230,.4);background:rgba(60,150,230,.12)}
 .ck-fmt.cf-t20{color:var(--pur);border-color:rgba(168,120,240,.4);background:rgba(168,120,240,.12)}
+.ck-w{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;color:#ec6aa8;border:1px solid rgba(236,106,168,.4);background:rgba(236,106,168,.12)}
 .ck-mkt{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .ck-mkt.three{grid-template-columns:1fr 1fr 1fr}
 .ck-out{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 6px;background:var(--s3);border:1px solid var(--b1);border-radius:9px;cursor:pointer;transition:border-color .12s,background .12s}

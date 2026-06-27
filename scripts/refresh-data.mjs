@@ -9,7 +9,7 @@
 //
 // Usage: node scripts/refresh-data.mjs   (npm run refresh)
 import { readFileSync, writeFileSync } from 'fs';
-import { CRICKET_RATINGS, fmtKey, FORMAT_LABEL } from '../src/lib/cricket.js';
+import { CRICKET_NATIONS, fmtKey, FORMAT_LABEL } from '../src/lib/cricket.js';
 
 const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -112,9 +112,14 @@ async function buildLineups(now) {
 // Finds international cricket leagues, pulls upcoming fixtures between known
 // nations, and groups them by date. Returns null on any failure / no coverage
 // so the curated seed in data.CRICKET is left in place.
-const CRIC_NATIONS = new Set(
-  Object.values(CRICKET_RATINGS).flatMap(o => Object.keys(o)).map(s => s.toLowerCase())
-);
+const CRIC_NATIONS = new Set(CRICKET_NATIONS.map(s => s.toLowerCase()));
+// "India Women" / "Australia W" → { nation:'india', gender:'women' }; men otherwise.
+function cricTeam(name) {
+  const raw = String(name || '').trim();
+  const women = /\bwomen\b|\bw\b|\(w\)|women'?s/i.test(raw);
+  const nation = raw.replace(/\bwomen'?s?\b|\(w\)|\bw\b/ig, '').replace(/\s+/g, ' ').trim();
+  return { nation, women };
+}
 
 async function buildCricket(now) {
   let leagues = [];
@@ -130,14 +135,15 @@ async function buildCricket(now) {
     try {
       const r = await tsdb(`eventsnextleague.php?id=${lg.idLeague}`);
       for (const e of (r && r.events) || []) {
-        const t1 = e.strHomeTeam, t2 = e.strAwayTeam;
-        if (!t1 || !t2) continue;
-        if (!CRIC_NATIONS.has(t1.toLowerCase()) || !CRIC_NATIONS.has(t2.toLowerCase())) continue;
+        const a = cricTeam(e.strHomeTeam), b = cricTeam(e.strAwayTeam);
+        if (!a.nation || !b.nation) continue;
+        if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
         const ts = Date.parse(e.strTimestamp || e.dateEvent || '');
         if (!isFinite(ts) || ts < lo || ts > hi) continue;
-        const key = [t1, t2].sort().join('|') + (e.dateEvent || '');
+        const gender = a.women || b.women ? 'women' : 'men';
+        const key = [a.nation, b.nation].sort().join('|') + gender + (e.dateEvent || '');
         if (seen.has(key)) continue; seen.add(key);
-        items.push({ ts, t1, t2, league: lg.strLeague, venue: e.strVenue || '' });
+        items.push({ ts, t1: a.nation, t2: b.nation, gender, league: lg.strLeague, venue: e.strVenue || '' });
       }
     } catch { /* skip league */ }
   }
@@ -149,7 +155,7 @@ async function buildCricket(now) {
     const date = istDateLabel(x.ts);
     if (!idx[date]) { idx[date] = { date, series: 'International', matches: [] }; blocks.push(idx[date]); }
     idx[date].matches.push({
-      teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2,
+      teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2, gender: x.gender,
       format: FORMAT_LABEL[fmtKey(x.league)], venue: x.venue, ist: istTime(x.ts),
     });
   }
