@@ -139,7 +139,7 @@ function RaceCard({ cfg, ev, fmt }) {
           <Copyable key={d.name} className={'f1-row' + (i === 0 ? ' lead' : '')} icon={false}
             copy={`${d.name} to win @ ${fmtOdds(d.amWin, fmt)} (${pc(d.pWin)}%)`}>
             <span className="f1-pos">{i + 1}</span>
-            <span className="f1-name">{d.name}<small>{d.team}</small></span>
+            <span className="f1-name">{d.name}<small>{d.team}{d.pts != null ? ` · ${d.pts} pts` : ''}</small></span>
             <span className="f1-pct">{pc(d.pWin)}%<small>win</small></span>
             <span className="f1-pct">{pc(d.pPodium)}%<small>podium</small></span>
             <span className="f1-od">{fmtOdds(d.amWin, fmt)}</span>
@@ -169,15 +169,16 @@ function Section({ title, children }) {
   return <div className="ck-sec"><div className="ck-sec-t">{title}</div>{children}</div>;
 }
 function FormRow({ name, form, inj }) {
-  const isPos = v => /^\d+$/.test(v);
+  const cls = r => {
+    if (/^\d+$/.test(r)) return +r <= 3 ? 'f-w' : +r <= 8 ? 'f-d' : 'f-l';   // finish position
+    return /^[wldn]$/i.test(r) ? 'f-' + r.toLowerCase() : 'f-n';              // W/L/D/N or DNF
+  };
   return (
     <div className="ck-form">
       <span className="ck-form-t">{name}{inj && <span className="inj-flag sm">⚕ {inj}</span>}</span>
       <span className="ck-form-d">
         {form && form.length
-          ? form.map((r, i) => isPos(r)
-            ? <span key={i} className={'fdot ' + (+r <= 3 ? 'f-w' : +r <= 8 ? 'f-d' : 'f-l')}>{r}</span>
-            : <span key={i} className={'fdot f-' + r.toLowerCase()}>{r}</span>)
+          ? form.map((r, i) => <span key={i} className={'fdot ' + cls(r)}>{r}</span>)
           : <span className="ck-form-na">no recent data</span>}
       </span>
     </div>

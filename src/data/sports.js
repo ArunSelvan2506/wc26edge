@@ -72,7 +72,18 @@ export const NBA = {
   ],
 };
 
-export const F1 = {
+import { F1_LIVE } from '../data.js';
+
+// Curated driver props (finish/podium markets) keyed by full name — attached on
+// top of whichever grid (live or fallback) is in use.
+const F1_PROPS = {
+  'Max Verstappen': [{ m: 'finish', line: 'Top 6', last10: 10, am: '-600' }, { m: 'fastest lap', line: '', last10: 4, am: '+260' }],
+  'Lando Norris': [{ m: 'finish', line: 'Top 6', last10: 9, am: '-450' }],
+  'Oscar Piastri': [{ m: 'finish', line: 'Top 6', last10: 9, am: '-400' }],
+  'Charles Leclerc': [{ m: 'finish', line: 'Top 8', last10: 9, am: '-350' }],
+};
+
+const F1_FALLBACK = {
   id: 'f1', kind: 'race', label: 'Formula 1', tauWin: 6.5, tauPod: 12,
   drivers: {
     'Max Verstappen': { r: 97, team: 'Red Bull', form: ['1', '1', '2', '1', '3'], inj: null, props: [
@@ -98,4 +109,21 @@ export const F1 = {
   ],
 };
 
+// Prefer live current-season standings (Jolpica, baked hourly); fall back to the
+// curated grid. Curated props are attached to matching drivers either way.
+function buildF1() {
+  if (F1_LIVE && F1_LIVE.drivers && Object.keys(F1_LIVE.drivers).length && F1_LIVE.event?.field?.length) {
+    const drivers = {};
+    for (const [name, d] of Object.entries(F1_LIVE.drivers)) drivers[name] = { ...d, props: F1_PROPS[name] || [] };
+    return {
+      id: 'f1', kind: 'race', label: 'Formula 1', tauWin: 11, tauPod: 18,
+      live: true, season: F1_LIVE.season,
+      drivers,
+      events: [{ date: F1_LIVE.event.date, series: F1_LIVE.event.series, field: F1_LIVE.event.field }],
+    };
+  }
+  return F1_FALLBACK;
+}
+
+export const F1 = buildF1();
 export const SPORT_CFG = { tennis: TENNIS, basketball: NBA, f1: F1 };

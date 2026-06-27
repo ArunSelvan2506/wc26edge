@@ -162,6 +162,62 @@ async function buildCricket(now) {
   return blocks;
 }
 
+// ── Formula 1 (Jolpica-F1 · free Ergast successor, no key) ────────────────
+// Pulls the CURRENT season driver standings, the next race, and recent
+// finishing form. Returns null on any failure so the curated grid stands.
+const JF1 = process.env.JOLPICA || 'https://api.jolpi.ca/ergast/f1';
+async function jf1(path) {
+  const r = await fetch(`${JF1}/${path}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
+  if (!r.ok) throw new Error('jolpica ' + r.status);
+  return r.json();
+}
+
+async function buildF1(now) {
+  const season = new Date(now).getUTCFullYear();
+  let standings = [];
+  try {
+    const r = await jf1(`${season}/driverstandings/?format=json`);
+    standings = r?.MRData?.StandingsTable?.StandingsLists?.[0]?.DriverStandings || [];
+  } catch (e) { console.log('F1 · standings fetch failed:', e.message); return null; }
+  if (!standings.length) { console.log(`F1 · no ${season} standings yet (keeping curated)`); return null; }
+
+  // Next race from the schedule.
+  let races = [];
+  try { races = (await jf1(`${season}/?format=json`))?.MRData?.RaceTable?.Races || []; } catch { /* schedule optional */ }
+  const today = new Date(now).toISOString().slice(0, 10);
+  const next = races.find(x => x.date >= today) || races[races.length - 1] || null;
+
+  // Recent finishing form (last 5 per driver) from this season's results.
+  const form = {};
+  try {
+    const rr = (await jf1(`${season}/results/?limit=400&format=json`))?.MRData?.RaceTable?.Races || [];
+    for (const race of rr) for (const res of race.Results || []) (form[res.Driver.familyName] ??= []).push(res.positionText);
+    for (const k in form) form[k] = form[k].slice(-5);
+  } catch { /* form optional */ }
+
+  const maxPts = Math.max(1, ...standings.map(s => +s.points || 0));
+  const drivers = {};
+  for (const s of standings) {
+    const name = `${s.Driver.givenName} ${s.Driver.familyName}`;
+    drivers[name] = {
+      r: Math.round(50 + 50 * ((+s.points || 0) / maxPts)),
+      team: s.Constructors?.[0]?.name || '',
+      pts: +s.points || 0, pos: +s.position || null, wins: +s.wins || 0,
+      form: form[s.Driver.familyName] || null,
+    };
+  }
+  const field = standings.slice(0, 12).map(s => `${s.Driver.givenName} ${s.Driver.familyName}`);
+  const koMs = next ? Date.parse(`${next.date}T${next.time || '12:00:00Z'}`) : null;
+  const circuit = next?.Circuit?.Location?.locality || next?.Circuit?.circuitName || '';
+  const event = {
+    date: koMs && isFinite(koMs) ? istDateLabel(koMs) : '',
+    series: next ? `${next.raceName}${circuit ? ' · ' + circuit : ''}` : `${season} Championship`,
+    field,
+  };
+  console.log(`F1 · ${standings.length} drivers · leader ${standings[0]?.Driver?.familyName} ${standings[0]?.points}pts · next: ${event.series}`);
+  return { drivers, event, season, updated: new Date().toISOString() };
+}
+
 const SRC = process.env.WC_FEED ||
   'https://raw.githubusercontent.com/openfootball/world-cup.json/master/2026/worldcup.json';
 // Only games on/before "today" (UTC) count as completed — keeps standings
@@ -232,6 +288,18 @@ try {
     console.log('Cricket · keeping curated seed (no live coverage)');
   }
 } catch (e) { console.warn('cricket fetch skipped:', e.message); }
+
+// Formula 1 — current-season standings (best-effort, free). Keeps the curated
+// grid if the feed is unavailable.
+try {
+  const f1 = await buildF1(Date.now());
+  if (f1 && Object.keys(f1.drivers).length) {
+    data.F1 = f1;
+    console.log(`F1 · using live ${f1.season} standings (${Object.keys(f1.drivers).length} drivers)`);
+  } else {
+    console.log('F1 · keeping curated grid (no live standings)');
+  }
+} catch (e) { console.warn('F1 fetch skipped:', e.message); }
 
 // Freshness stamp shown in the UI so the live (free) pipeline is visible.
 data.updated = new Date().toISOString();
