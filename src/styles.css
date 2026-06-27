@@ -57,6 +57,9 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .mc-r1{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:9px;flex-wrap:wrap}
 .mc-teams{font-family:var(--disp);font-size:16px;font-weight:600;color:var(--tx);letter-spacing:.01em}
 .mc-meta{font-size:10.5px;font-family:var(--mono);color:var(--mu);margin-top:4px;line-height:1.4}
+.model-pick{font-size:10.5px;color:var(--mu);margin-top:5px;line-height:1.4}
+.model-pick b{color:var(--tx)}
+.mp-tag{font-size:8px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:1px 6px;border-radius:4px;background:rgba(45,200,160,.14);color:var(--ac);margin-right:3px}
 .mc-r2{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .badge{font-family:var(--disp);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap}
 .b-top{background:rgba(45,200,160,.1);border:1px solid rgba(45,200,160,.3);color:var(--ac)}

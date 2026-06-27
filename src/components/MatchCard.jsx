@@ -30,6 +30,7 @@ export default function MatchCard({ m, fmt, rat, index = 0 }) {
           <div>
             <div className="mc-teams" dangerouslySetInnerHTML={{ __html: m.teams + (m.live ? ' <span style="font-size:10px;color:var(--red);font-family:var(--mono)"> ● LIVE</span>' : '') }} />
             <div className="mc-meta">{m.group} · {m.venue} · {m.time}</div>
+            <ModelPick m={m} rat={rat} />
           </div>
           <span className={'badge ' + tag}>{m.tl}</span>
         </div>
@@ -72,6 +73,19 @@ export default function MatchCard({ m, fmt, rat, index = 0 }) {
 
 function Odd({ l, v, hi }) {
   return <div className="odd"><div className="odd-l">{l}</div><div className={'odd-v' + (hi ? ' hi' : '')}>{v}</div></div>;
+}
+
+// At-a-glance model prediction shown on the (collapsed) card.
+function ModelPick({ m, rat }) {
+  if (!rat || (!rat.has(m.hT) && !rat.has(m.aT))) return null;
+  const mk = markets(rat, m.hT, m.aT);
+  const pc = x => Math.round(x * 100);
+  const [pick, p] = [[m.hT, mk.home], ['Draw', mk.draw], [m.aT, mk.away]].sort((a, b) => b[1] - a[1])[0];
+  return (
+    <div className="model-pick">
+      <span className="mp-tag">📊 Model</span> <b>{pick}</b> {pc(p)}% · O2.5 {pc(mk.over25)}% · BTTS {pc(mk.btts)}%
+    </div>
+  );
 }
 
 function Pane({ tab, m, fmt, rat }) {

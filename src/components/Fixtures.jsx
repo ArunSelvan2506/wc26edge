@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { DAYS } from '../data.js';
 import { norm } from '../lib/model.js';
-import { upcomingBlocks } from '../lib/completion.js';
+import { upcomingFixtures } from '../lib/completion.js';
 import MatchCard from './MatchCard.jsx';
 
 // Map a fixture's "A vs B" to the detailed match in DAYS (order-independent).
@@ -28,7 +28,7 @@ const FILTERS = ['All', 'Group', 'R32', 'R16', 'QF', 'SF', 'Final'];
 export default function Fixtures({ fmt, rat }) {
   const detail = useMemo(buildDetailIndex, []);
   // Completed date-blocks drop off; recomputed once per mount.
-  const upcoming = useMemo(() => upcomingBlocks(Date.now()), []);
+  const upcoming = useMemo(() => upcomingFixtures(Date.now()), []);
   const [filter, setFilter] = useState('All');
   const blocks = upcoming.filter(b => filter === 'All' || stageCat(b.stage) === filter);
 
