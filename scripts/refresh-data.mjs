@@ -104,14 +104,19 @@ async function af(path) {
   afCalls++;
   try {
     const r = await fetch(AF_BASE + '/' + path, { headers: { 'x-apisports-key': AF_KEY } });
-    if (!r.ok) return null;
-    return (await r.json()).response;
-  } catch { return null; }
+    const j = await r.json().catch(() => null);
+    if (!r.ok) { console.error('  AF HTTP', r.status, path.split('?')[0]); return null; }
+    const errs = j && j.errors;
+    const hasErr = errs && (Array.isArray(errs) ? errs.length : Object.keys(errs).length);
+    if (hasErr) { console.error('  AF errors', path.split('?')[0], JSON.stringify(errs)); return null; }
+    return j ? j.response : null;
+  } catch (e) { console.error('  AF fetch failed', path.split('?')[0], e.message); return null; }
 }
 async function teamId(name) {
   if (afCache.teams[name] != null) return afCache.teams[name];
   const res = await af('teams?search=' + encodeURIComponent(name));
   const id = (res && res[0] && res[0].team && res[0].team.id) || null;
+  if (id == null) console.error('  no team id for', name, '(results:', (res ? res.length : 'null') + ')');
   if (id != null) afCache.teams[name] = id;
   return id;
 }
@@ -135,6 +140,8 @@ async function squad(name, now) {
     if (res.length < 20) break;
   }
   const filtered = players.filter(p => p.ap >= 3);
+  const withFouls = filtered.filter(p => p.fouls > 0 || p.drawn > 0).length;
+  console.error(`  squad ${name} (id ${id}): ${players.length} players, ${filtered.length} with 3+ apps, ${withFouls} with foul data`);
   if (filtered.length) { afCache.squads[id] = { ts: now, players: filtered }; return filtered; }
   return null;
 }
@@ -169,11 +176,14 @@ async function buildLive(data, now) {
   if (!AF_KEY) return data.LIVE || {};       // no key → leave whatever's baked
   const out = {};
   const dates = data.DATES || [];
+  let upcoming = 0;
   for (const k in (data.DAYS || {})) {
     for (const mt of data.DAYS[k].matches) {
       if (mt.done) continue;
       const ko = daysKickoffUTC(k, mt, dates);
       if (ko != null && now > ko + 135 * 60000) continue;        // completed → skip
+      upcoming++;
+      console.error(`upcoming: ${mt.hT} vs ${mt.aT}`);
       if (afCalls >= AF_BUDGET) break;
       const [h, a] = await Promise.all([squad(mt.hT, now), squad(mt.aT, now)]);
       const fouls = [], shots = [];
@@ -182,6 +192,7 @@ async function buildLive(data, now) {
       if (fouls.length || shots.length) out[pairKey(mt.hT, mt.aT)] = { fouls, shots, updated: new Date().toISOString() };
     }
   }
+  console.error(`buildLive: ${upcoming} upcoming matches, ${Object.keys(out).length} got live props`);
   return out;
 }
 
