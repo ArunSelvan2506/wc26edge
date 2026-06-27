@@ -122,8 +122,8 @@ async function buildCricket(now) {
     const r = await tsdb('search_all_leagues.php?s=Cricket');
     leagues = (r && (r.countries || r.leagues)) || [];
   } catch (e) { console.log('Cricket · league lookup failed:', e.message); return null; }
-  const intl = leagues.filter(l => /international|\bODI\b|t20i|twenty20 international|test match|\bICC\b/i.test(l.strLeague || ''));
-  console.log(`Cricket · ${leagues.length} cricket leagues · ${intl.length} international`);
+  const intl = leagues.filter(l => /international|\bODI\b|t20i|twenty20 international|test match|\bICC\b|world cup|champions trophy|tri.?series|bilateral/i.test(l.strLeague || ''));
+  console.log(`Cricket · ${leagues.length} cricket leagues [${leagues.map(l => l.strLeague).join(', ')}] · ${intl.length} international`);
   const lo = now - 6 * 3600e3, hi = now + 12 * 24 * 3600e3;
   const items = [], seen = new Set();
   for (const lg of intl.slice(0, 8)) {
