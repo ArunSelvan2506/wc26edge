@@ -29,7 +29,7 @@ export const TENNIS = {
     ] },
   },
   events: [
-    { date: 'Sat 28 Jun (IST)', series: 'Wimbledon · Round of 16', matches: [
+    { utc: '2026-06-28T13:00:00Z', date: 'Sun 28 Jun', series: 'Wimbledon · Round of 16', matches: [
       { a: 'Jannik Sinner', b: 'Daniil Medvedev', label: 'ATP' },
       { a: 'Carlos Alcaraz', b: 'Alexander Zverev', label: 'ATP' },
       { a: 'Iga Świątek', b: 'Aryna Sabalenka', label: 'WTA' },
@@ -64,7 +64,7 @@ export const NBA = {
     ] },
   },
   events: [
-    { date: 'Sat 28 Jun (IST)', series: 'NBA · Regular season', matches: [
+    { utc: '2026-06-28T13:00:00Z', date: 'Sun 28 Jun', series: 'NBA · Regular season', matches: [
       { a: 'Boston Celtics', b: 'New York Knicks', total: 218.5, totalProb: 0.56, totalAm: '-110' },
       { a: 'Denver Nuggets', b: 'Minnesota T-Wolves', total: 224.5, totalProb: 0.53, totalAm: '-110' },
       { a: 'OKC Thunder', b: 'Dallas Mavericks', total: 229.5, totalProb: 0.58, totalAm: '-108' },
@@ -104,7 +104,7 @@ const F1_FALLBACK = {
     'Fernando Alonso': { r: 80, team: 'Aston Martin', form: ['8', '6', '9', '7', '10'], inj: 'back niggle (fit)', props: [] },
   },
   events: [
-    { date: 'Sun 29 Jun (IST)', series: 'British GP · Silverstone',
+    { date: 'Mon 29 Jun (IST)', series: 'British GP · Silverstone',
       field: ['Max Verstappen', 'Lando Norris', 'Oscar Piastri', 'Charles Leclerc', 'Lewis Hamilton', 'George Russell', 'Carlos Sainz', 'Fernando Alonso'] },
   ],
 };

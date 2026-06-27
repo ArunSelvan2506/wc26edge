@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { CRICKET } from '../data.js';
 import { fmtOdds } from '../lib/odds.js';
 import { cricketMarket, cricketBets, cricketParlay, cricketForm, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
+import { timeIn, dayKeyIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { cpill, cfill, ecls } from '../lib/ui.js';
 import { Copyable, ConfBar } from './Bits.jsx';
 
@@ -11,17 +12,28 @@ const GENDERS = [['all', 'All'], ['men', "Men's"], ['women', "Women's"]];
 const FMT_CLASS = { test: 'cf-test', odi: 'cf-odi', t20i: 'cf-t20' };
 const gOf = m => (m.gender === 'women' ? 'women' : 'men');
 
-export default function Cricket({ fmt }) {
+export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
   const blocks = CRICKET.blocks || [];
   const [filter, setFilter] = useState('All');
   const [gender, setGender] = useState('all');
 
-  const view = useMemo(() => blocks.map(b => ({
-    ...b,
-    matches: b.matches.filter(m =>
-      (filter === 'All' || FORMAT_LABEL[fmtKey(m.format)] === filter) &&
-      (gender === 'all' || gOf(m) === gender)),
-  })).filter(b => b.matches.length), [blocks, filter, gender]);
+  // Flatten, then re-group by day in the chosen timezone (so day labels and the
+  // date filter follow the region picker).
+  const view = useMemo(() => {
+    const groups = [], idx = {};
+    for (const b of blocks) {
+      for (const m of b.matches) {
+        if (!(filter === 'All' || FORMAT_LABEL[fmtKey(m.format)] === filter)) continue;
+        if (!(gender === 'all' || gOf(m) === gender)) continue;
+        const key = m.utc != null ? dayKeyIn(m.utc, tz) : 'd:' + b.date;
+        if (dateSel !== 'all' && key !== dateSel) continue;
+        const label = m.utc != null ? dayLabelIn(m.utc, tz) : b.date.replace(/\s*\(IST\)/, '');
+        if (!idx[key]) { idx[key] = { key, label, series: b.series, matches: [] }; groups.push(idx[key]); }
+        idx[key].matches.push(m);
+      }
+    }
+    return groups;
+  }, [blocks, filter, gender, tz, dateSel]);
 
   return (
     <div>
@@ -45,14 +57,14 @@ export default function Cricket({ fmt }) {
       )}
 
       {view.map((b, bi) => (
-        <motion.div key={b.date + bi} className="fix-block"
+        <motion.div key={b.key} className="fix-block"
           initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-30px' }}
           transition={{ duration: 0.3, delay: Math.min(bi * 0.04, 0.2), ease: 'easeOut' }}>
           <div className="fix-block-hdr">
-            <div className="fix-date">{b.date}</div>
+            <div className="fix-date">{b.label}</div>
             {b.series && <span className="fix-stage fs-group">{b.series}</span>}
           </div>
-          {b.matches.map((m, mi) => <CricketCard key={m.teams + mi} m={m} fmt={fmt} index={mi} />)}
+          {b.matches.map((m, mi) => <CricketCard key={m.teams + mi} m={m} fmt={fmt} tz={tz} index={mi} />)}
         </motion.div>
       ))}
 
@@ -63,7 +75,7 @@ export default function Cricket({ fmt }) {
   );
 }
 
-function CricketCard({ m, fmt, index = 0 }) {
+function CricketCard({ m, fmt, tz = 'Asia/Kolkata', index = 0 }) {
   const [open, setOpen] = useState(false);
   const women = gOf(m) === 'women';
   const gender = women ? 'women' : 'men';
@@ -90,7 +102,7 @@ function CricketCard({ m, fmt, index = 0 }) {
           <div className="ck-meta">
             <span className={'ck-fmt ' + (FMT_CLASS[f] || '')}>{FORMAT_LABEL[f]}</span>
             {women && <span className="ck-w">Women</span>}
-            {m.venue} · {m.ist}<small>IST</small>
+            {m.venue} · {m.utc != null ? timeIn(m.utc, tz) : m.ist}<small>{m.utc != null ? zoneLabel(tz) : 'IST'}</small>
           </div>
         </div>
         <span className={'conf-pill ' + cpill(conf)}>{fav} {conf}%</span>

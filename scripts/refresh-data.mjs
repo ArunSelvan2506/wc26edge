@@ -187,7 +187,7 @@ async function buildCricket(now) {
     if (!idx[date]) { idx[date] = { date, series: 'International', matches: [] }; blocks.push(idx[date]); }
     idx[date].matches.push({
       teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2, gender: x.gender,
-      format: x.format, venue: x.venue, ist: istTime(x.ts),
+      format: x.format, venue: x.venue, ist: istTime(x.ts), utc: x.ts,
     });
   }
   return blocks;

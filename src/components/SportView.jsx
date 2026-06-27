@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { fmtOdds } from '../lib/odds.js';
 import { SPORT_CFG } from '../data/sports.js';
 import { h2hMarket, raceMarket, buildParlays, recommendedHits } from '../lib/sportEngine.js';
+import { dayKeyIn, dayLabelIn } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
 import { Copyable, ConfBar } from './Bits.jsx';
 
@@ -21,9 +22,13 @@ function buildAll(cfg) {
   return { events, hits: recommendedHits(allLegs), parlays: buildParlays(allLegs) };
 }
 
-export default function SportView({ sportId, fmt }) {
+export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
   const cfg = SPORT_CFG[sportId];
-  const { events, hits, parlays } = useMemo(() => buildAll(cfg), [cfg]);
+  const { events: allEvents, hits, parlays } = useMemo(() => buildAll(cfg), [cfg]);
+  // Race events ignore the date filter; H2H events filter by day in the chosen tz.
+  const events = allEvents.filter(ev =>
+    cfg.kind === 'race' || dateSel === 'all' ||
+    (ev.utc != null ? dayKeyIn(ev.utc, tz) === dateSel : 'd:' + ev.date === dateSel));
 
   return (
     <div>
@@ -59,7 +64,7 @@ export default function SportView({ sportId, fmt }) {
           initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-30px' }}
           transition={{ duration: 0.3, ease: 'easeOut' }}>
           <div className="fix-block-hdr">
-            <div className="fix-date">{ev.date}</div>
+            <div className="fix-date">{ev.utc != null ? dayLabelIn(ev.utc, tz) : ev.date}</div>
             <span className="fix-stage fs-group">{ev.series}</span>
           </div>
           {cfg.kind === 'race'

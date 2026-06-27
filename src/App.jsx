@@ -1,12 +1,26 @@
 import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { WC_TABLE, OG_STATS } from './data.js';
+import { WC_TABLE, OG_STATS, CRICKET } from './data.js';
 import { fitFromTable } from './lib/model.js';
+import { ZONES, dayKeyIn, dayLabelIn } from './lib/tz.js';
+import { SPORT_CFG } from './data/sports.js';
 import { OddsToggle, Toast } from './components/Bits.jsx';
 import Fixtures from './components/Fixtures.jsx';
 import Standings from './components/Standings.jsx';
 import Cricket from './components/Cricket.jsx';
 import SportView from './components/SportView.jsx';
+
+// Distinct fixture days for a sport, in the chosen timezone, for the date pill.
+function daysForSport(sport, tz) {
+  const out = new Map();
+  const add = (utc, fallback) => {
+    if (utc != null) { const k = dayKeyIn(utc, tz); if (k && !out.has(k)) out.set(k, dayLabelIn(utc, tz)); }
+    else if (fallback) { const k = 'd:' + fallback; if (!out.has(k)) out.set(k, fallback.replace(/\s*\(IST\)/, '')); }
+  };
+  if (sport === 'cricket') { for (const b of (CRICKET.blocks || [])) for (const m of b.matches) add(m.utc, b.date); }
+  else if (sport === 'tennis' || sport === 'basketball') { for (const ev of (SPORT_CFG[sport]?.events || [])) add(ev.utc, ev.date); }
+  return [...out.entries()].sort((a, b) => String(a[0]).localeCompare(String(b[0]))).map(([key, label]) => ({ key, label }));
+}
 
 const VIEWS = [
   { id: 'fixtures', label: 'Fixtures' },
@@ -29,9 +43,16 @@ export default function App() {
   const [fmt, setFmt] = useState(() => {
     try { const f = localStorage.getItem('wc_oddsfmt'); return f === 'dec' ? 'dec' : 'frac'; } catch { return 'frac'; }
   });
+  const [tz, setTz] = useState(() => {
+    try { return localStorage.getItem('wc_tz') || 'Asia/Kolkata'; } catch { return 'Asia/Kolkata'; }
+  });
+  const [dateSel, setDateSel] = useState('all');
   const rat = useMemo(() => fitFromTable(WC_TABLE), []);
 
   const changeFmt = f => { setFmt(f); try { localStorage.setItem('wc_oddsfmt', f); } catch { /* ignore */ } };
+  const changeTz = z => { setTz(z); try { localStorage.setItem('wc_tz', z); } catch { /* ignore */ } setDateSel('all'); };
+  const pick = id => { setSport(id); setView('fixtures'); setDateSel('all'); };
+  const days = sport ? daysForSport(sport, tz) : [];
 
   useEffect(() => {
     if ('serviceWorker' in navigator) {
@@ -52,6 +73,15 @@ export default function App() {
         </button>
         {sport && (
           <div className="topbar-actions">
+            {days.length > 1 && (
+              <select className="pill-sel" value={dateSel} onChange={e => setDateSel(e.target.value)} aria-label="Date">
+                <option value="all">All days</option>
+                {days.map(d => <option key={d.key} value={d.key}>{d.label}</option>)}
+              </select>
+            )}
+            <select className="pill-sel" value={tz} onChange={e => changeTz(e.target.value)} aria-label="Timezone">
+              {ZONES.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
+            </select>
             <OddsToggle fmt={fmt} onChange={changeFmt} />
             {sport === 'football' && (
               <nav style={{ display: 'flex', gap: 5 }}>
@@ -69,7 +99,7 @@ export default function App() {
           {SPORTS.map(s => (
             <button key={s.id} type="button"
               className={'sport-btn' + (sport === s.id ? ' active' : '') + (s.live ? '' : ' soon')}
-              onClick={() => { setSport(s.id); setView('fixtures'); }}>
+              onClick={() => pick(s.id)}>
               <span className="sport-ico">{s.icon}</span>
               <span className="sport-lb">{s.label}</span>
               {!s.live && <span className="sport-tag">Soon</span>}
@@ -84,11 +114,11 @@ export default function App() {
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
             {!sport
-              ? <SportPicker onPick={id => { setSport(id); setView('fixtures'); }} />
+              ? <SportPicker onPick={pick} />
               : sport === 'cricket'
-                ? <Cricket fmt={fmt} />
+                ? <Cricket fmt={fmt} tz={tz} dateSel={dateSel} />
                 : (sport === 'tennis' || sport === 'basketball' || sport === 'f1')
-                  ? <SportView sportId={sport} fmt={fmt} />
+                  ? <SportView sportId={sport} fmt={fmt} tz={tz} dateSel={dateSel} />
                   : <>
                       {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} />}
                       {view === 'standings' && <Standings />}
