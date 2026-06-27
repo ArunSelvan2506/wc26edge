@@ -1,8 +1,10 @@
 import { useMemo, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { DAYS, UPDATED } from '../data.js';
 import { norm } from '../lib/model.js';
 import { upcomingFixtures } from '../lib/completion.js';
+import { lineupFor } from '../lib/live.js';
+import { Lineups } from './Lineups.jsx';
 import MatchCard from './MatchCard.jsx';
 
 function freshLabel(iso) {
@@ -94,13 +96,29 @@ export default function Fixtures({ fmt, rat }) {
 }
 
 function FixtureRow({ mt }) {
+  const [a, b] = (mt.teams || '').split(/\s+vs\s+/i);
+  const lu = a && b ? lineupFor(a, b) : null;
+  const [open, setOpen] = useState(false);
   return (
-    <div className="fix-row">
-      <div className="fix-time">{mt.ist || 'TBD'}<small>IST</small></div>
-      <div>
-        <div className="fix-teams">{mt.teams}</div>
-        {mt.grp && <div className="fix-meta">{mt.grp}</div>}
+    <div className="fix-row-wrap">
+      <div className={'fix-row' + (lu ? ' tappable' : '')} onClick={() => lu && setOpen(o => !o)}>
+        <div className="fix-time">{mt.ist || 'TBD'}<small>IST</small></div>
+        <div>
+          <div className="fix-teams">{mt.teams}</div>
+          {mt.grp && <div className="fix-meta">{mt.grp}</div>}
+        </div>
+        {lu && <span className="lineup-tag">XI {open ? '▴' : '▾'}</span>}
       </div>
+      <AnimatePresence initial={false}>
+        {open && lu && (
+          <motion.div className="lineup-panel"
+            initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.24, ease: 'easeOut' }}
+            style={{ overflow: 'hidden' }}>
+            <Lineups lu={lu} teamA={a} teamB={b} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

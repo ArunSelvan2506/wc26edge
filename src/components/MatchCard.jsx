@@ -4,10 +4,12 @@ import { fmtOdds } from '../lib/odds.js';
 import { buildParlay } from '../lib/parlay.js';
 import { markets, amToDec, devig, ev, kelly } from '../lib/model.js';
 import { OG_STATS } from '../data.js';
+import { lineupFor } from '../lib/live.js';
 import { cc, cfill, cpill, ecls } from '../lib/ui.js';
 import { Copyable, ConfBar } from './Bits.jsx';
+import { Lineups } from './Lineups.jsx';
 
-const TABS = [
+const BASE_TABS = [
   { id: 'result', label: 'Result' },
   { id: 'fouls', label: 'Fouls' },
   { id: 'shots', label: 'Shots' },
@@ -20,6 +22,8 @@ export default function MatchCard({ m, fmt, rat, index = 0 }) {
   const [open, setOpen] = useState(false);
   const [tab, setTab] = useState('result');
   const tag = m.tag === 'top' ? 'b-top' : m.tag === 'upset' ? 'b-upset' : 'b-info';
+  const lu = lineupFor(m.hT, m.aT);
+  const TABS = lu ? [...BASE_TABS, { id: 'lineups', label: '👥 Lineups' }] : BASE_TABS;
 
   return (
     <motion.div className={'mc' + (open ? ' open' : '')} onClick={() => setOpen(o => !o)}
@@ -62,7 +66,7 @@ export default function MatchCard({ m, fmt, rat, index = 0 }) {
               ))}
             </div>
             <motion.div key={tab} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.16 }}>
-              <Pane tab={tab} m={m} fmt={fmt} rat={rat} />
+              <Pane tab={tab} m={m} fmt={fmt} rat={rat} lu={lu} />
             </motion.div>
           </motion.div>
         )}
@@ -88,13 +92,14 @@ function ModelPick({ m, rat }) {
   );
 }
 
-function Pane({ tab, m, fmt, rat }) {
+function Pane({ tab, m, fmt, rat, lu }) {
   if (tab === 'result') return <ResultTab m={m} fmt={fmt} />;
   if (tab === 'fouls') return <FoulsTab m={m} fmt={fmt} />;
   if (tab === 'shots') return <ShotsTab m={m} fmt={fmt} />;
   if (tab === 'easy') return <EasyTab m={m} fmt={fmt} />;
   if (tab === 'model') return <ModelTab m={m} fmt={fmt} rat={rat} />;
   if (tab === 'parlay') return <ParlayTab m={m} fmt={fmt} rat={rat} />;
+  if (tab === 'lineups') return lu ? <Lineups lu={lu} teamA={m.hT} teamB={m.aT} /> : null;
   return null;
 }
 

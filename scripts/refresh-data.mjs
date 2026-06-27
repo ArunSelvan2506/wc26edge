@@ -46,6 +46,67 @@ function buildKnockout(matches) {
   return blocks.sort((a, b) => a._ko - b._ko).map(({ _ko, ...b }) => b);
 }
 
+// ── Lineups (TheSportsDB · free key) ──────────────────────────────────────
+// Best-effort: confirmed XIs publish ~1h before kickoff and TheSportsDB's
+// free/community coverage is patchy, so this is wrapped so ANY failure leaves
+// lineups empty and the build proceeds untouched. Set TSDB_KEY to a Patreon
+// key for better limits/coverage; defaults to the public test key.
+const TSDB_KEY = process.env.TSDB_KEY || '3';
+const TSDB_LEAGUE = process.env.TSDB_LEAGUE || '4429';   // FIFA World Cup
+const TSDB_SEASON = process.env.TSDB_SEASON || '2026';
+
+function liveNorm(name) {
+  const s = String(name || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .replace(/[^a-z0-9]+/g, ' ').replace(/\b(and|the)\b/g, ' ').replace(/\s+/g, ' ').trim();
+  const A = { 'korea republic': 'south korea', 'united states': 'usa', 'cote d ivoire': 'ivory coast', 'czechia': 'czech republic', 'cabo verde': 'cape verde', 'bosnia and herzegovina': 'bosnia herzegovina' };
+  return A[s] || s;
+}
+const liveKey = (a, b) => [liveNorm(a), liveNorm(b)].sort().join('|');
+
+async function tsdb(path) {
+  const r = await fetch(`https://www.thesportsdb.com/api/v1/json/${TSDB_KEY}/${path}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
+  if (!r.ok) throw new Error('tsdb ' + r.status);
+  return r.json();
+}
+
+async function buildLineups(now) {
+  const out = {};
+  const season = await tsdb(`eventsseason.php?id=${TSDB_LEAGUE}&s=${TSDB_SEASON}`);
+  const events = (season && season.events) || [];
+  if (!events.length) { console.log('Lineups · no season events returned (skipping)'); return out; }
+  // Only matches from ~1 day ago to ~2 days ahead — lineups only exist near KO,
+  // and this keeps the request count low (free tier friendly).
+  const lo = now - 24 * 3600e3, hi = now + 48 * 3600e3;
+  const window = events.filter(e => {
+    const ts = Date.parse(e.strTimestamp || e.dateEvent || '');
+    return isFinite(ts) ? (ts >= lo && ts <= hi) : false;
+  }).slice(0, 24);
+  let baked = 0;
+  for (const e of window) {
+    try {
+      const r = await tsdb(`lookuplineup.php?id=${e.idEvent}`);
+      const rows = (r && r.lineup) || [];
+      if (!rows.length) continue;
+      const side = isHome => rows
+        .filter(p => p.strHome === (isHome ? 'Yes' : 'No'))
+        .map(p => ({ name: p.strPlayer, pos: p.strPosition || '', sub: p.strSubstitute === 'Yes' }))
+        .filter(p => p.name);
+      const home = side(true), away = side(false);
+      if (!home.length && !away.length) continue;
+      out[liveKey(e.strHomeTeam, e.strAwayTeam)] = {
+        teams: {
+          [liveNorm(e.strHomeTeam)]: { name: e.strHomeTeam, players: home, formation: e.strHomeFormation || '' },
+          [liveNorm(e.strAwayTeam)]: { name: e.strAwayTeam, players: away, formation: e.strAwayFormation || '' },
+        },
+        fetched: new Date().toISOString(),
+      };
+      baked++;
+    } catch { /* skip this event, keep going */ }
+  }
+  console.log(`Lineups · ${window.length} events in window · ${baked} with XIs (TheSportsDB free)`);
+  return out;
+}
+
 const SRC = process.env.WC_FEED ||
   'https://raw.githubusercontent.com/openfootball/world-cup.json/master/2026/worldcup.json';
 // Only games on/before "today" (UTC) count as completed — keeps standings
@@ -98,9 +159,12 @@ const groupBlocks = (data.FIXTURES || []).filter(b => /group/i.test(b.stage));
 const koBlocks = buildKnockout(matches);
 data.FIXTURES = [...groupBlocks, ...koBlocks];
 
-// Player foul/shot props are curated (the free API-Football tier blocks current
-// World Cup player data), so no live props are baked.
-data.LIVE = {};
+// Lineups (best-effort, free) — any failure leaves them empty; the site is
+// unaffected and simply shows no XI until coverage appears.
+let live = {};
+try { live = await buildLineups(Date.now()); }
+catch (e) { console.warn('lineup fetch skipped:', e.message); }
+data.LIVE = live;
 
 // Freshness stamp shown in the UI so the live (free) pipeline is visible.
 data.updated = new Date().toISOString();
