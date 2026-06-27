@@ -35,7 +35,7 @@ export default function App() {
         <button className="logo" onClick={() => setView('fixtures')} aria-label="Home" type="button">
           <Trophy />
           <span className="logo-dot" />
-          WORLDCUP 26
+          PREDICTION HUB
         </button>
         <div className="topbar-actions">
           <OddsToggle fmt={fmt} onChange={changeFmt} />
@@ -59,7 +59,7 @@ export default function App() {
         </AnimatePresence>
 
         <div className="disc">
-          WORLDCUP 26 · a private prediction hub for entertainment. Odds and model outputs are calibrated estimates, not guarantees. Bet responsibly.
+          Prediction Hub · a private hub for entertainment. Odds and model outputs are calibrated estimates, not guarantees. Bet responsibly.
         </div>
       </main>
 
