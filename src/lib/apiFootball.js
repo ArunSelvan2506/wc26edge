@@ -48,6 +48,8 @@ async function squad(name) {
         starts: (s.games && s.games.lineups) || 0,
         fouls: (s.fouls && s.fouls.committed) || 0,
         drawn: (s.fouls && s.fouls.drawn) || 0,
+        shots: (s.shots && s.shots.total) || 0,
+        sot: (s.shots && s.shots.on) || 0,
       });
     }
     if (res.length < 20) break;
@@ -84,6 +86,33 @@ export async function liveFoulProps(m) {
     const props = [];
     if (h && h.length) props.push(...pickFor(m.hT, h));
     if (a && a.length) props.push(...pickFor(m.aT, a));
+    return props.length ? props : null;
+  } catch { return null; }
+}
+
+// Top shooter per side, ranked by shots-on-target (then total shots).
+function shooterFor(team, pool) {
+  const starters = pool.filter(p => p.starts >= 3 && p.starts >= p.ap * 0.5);
+  const reg = starters.length ? starters : pool;
+  const s = reg.slice().sort((a, b) => (b.sot - a.sot) || (b.shots - a.shots))[0];
+  if (!s || (s.shots <= 0 && s.sot <= 0)) return null;
+  const ap = Math.max(1, s.ap);
+  const shotRate = s.shots / ap, sotRate = s.sot / ap;
+  return {
+    team, name: s.name, pos: s.pos, ap: s.ap, starts: s.starts,
+    shots: s.shots, sot: s.sot, shotPerGame: shotRate, sotPerGame: sotRate,
+    shotConf: confFromRate(shotRate), sotConf: confFromRate(sotRate),
+  };
+}
+
+// Live shot props (1+ SOT) for a match, or null if unavailable.
+export async function liveShotProps(m) {
+  if (!STATS_PROXY || !m || !m.hT || !m.aT) return null;
+  try {
+    const [h, a] = await Promise.all([squad(m.hT), squad(m.aT)]);
+    const props = [];
+    if (h && h.length) { const x = shooterFor(m.hT, h); if (x) props.push(x); }
+    if (a && a.length) { const x = shooterFor(m.aT, a); if (x) props.push(x); }
     return props.length ? props : null;
   } catch { return null; }
 }

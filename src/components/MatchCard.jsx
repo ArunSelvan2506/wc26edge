@@ -5,7 +5,7 @@ import { buildParlay } from '../lib/parlay.js';
 import { markets, amToDec, devig, ev, kelly } from '../lib/model.js';
 import { OG_STATS } from '../data.js';
 import { cc, cfill, cpill, ecls } from '../lib/ui.js';
-import { liveEnabled, liveFoulProps } from '../lib/apiFootball.js';
+import { liveEnabled, liveFoulProps, liveShotProps } from '../lib/apiFootball.js';
 import { Copyable, ConfBar } from './Bits.jsx';
 
 const TABS = [
@@ -161,22 +161,8 @@ function BaselineBlock({ m }) {
 }
 
 /* ── Fouls ── live (API-Football) when the proxy is set, else curated ── */
-function useLiveFouls(m) {
-  const [s, setS] = useState({ state: liveEnabled() ? 'loading' : 'off', props: null });
-  useEffect(() => {
-    if (!liveEnabled()) { setS({ state: 'off', props: null }); return; }
-    let alive = true;
-    setS({ state: 'loading', props: null });
-    liveFoulProps(m)
-      .then(p => { if (alive) setS({ state: p && p.length ? 'ok' : 'empty', props: p }); })
-      .catch(() => { if (alive) setS({ state: 'empty', props: null }); });
-    return () => { alive = false; };
-  }, [m.id]);
-  return s;
-}
-
 function FoulsTab({ m, fmt }) {
-  const live = useLiveFouls(m);
+  const live = useLive(m, liveFoulProps);
   const hasCurated = m.fouls && m.fouls.length;
 
   if (live.state === 'ok') {
@@ -247,11 +233,66 @@ function LiveFoul({ p, fmt }) {
   );
 }
 
-/* ── Shots ── */
+/* ── Shots ── live (API-Football) when the proxy is set, else curated ── */
+function useLive(m, fetcher) {
+  const [s, setS] = useState({ state: liveEnabled() ? 'loading' : 'off', props: null });
+  useEffect(() => {
+    if (!liveEnabled()) { setS({ state: 'off', props: null }); return; }
+    let alive = true;
+    setS({ state: 'loading', props: null });
+    fetcher(m)
+      .then(p => { if (alive) setS({ state: p && p.length ? 'ok' : 'empty', props: p }); })
+      .catch(() => { if (alive) setS({ state: 'empty', props: null }); });
+    return () => { alive = false; };
+  }, [m.id]);
+  return s;
+}
+
 function ShotsTab({ m, fmt }) {
-  if (!m.shots || !m.shots.length) return <Empty>No featured shot props</Empty>;
-  return m.shots.map((s, i) => (
-    <div key={i} className={'fpl' + (s.hot ? ' hot' : '')}>
+  const live = useLive(m, liveShotProps);
+  const hasCurated = m.shots && m.shots.length;
+
+  if (live.state === 'ok') {
+    return (
+      <div>
+        <div className="live-head">🔥 LIVE in-form shooters <span>· API-Football · shots/SOT per appearance this season</span></div>
+        {live.props.map((p, i) => <LiveShot key={i} p={p} fmt={fmt} />)}
+      </div>
+    );
+  }
+  if (live.state === 'loading') {
+    return (
+      <div>
+        <div className="live-head loading">⏳ Loading live in-form shooters…</div>
+        {hasCurated ? m.shots.map((s, i) => <CuratedShot key={i} s={s} fmt={fmt} />) : null}
+      </div>
+    );
+  }
+  if (!hasCurated) return <Empty>No featured shot props</Empty>;
+  return m.shots.map((s, i) => <CuratedShot key={i} s={s} fmt={fmt} />);
+}
+
+function LiveShot({ p, fmt }) {
+  return (
+    <div className="fpl hot">
+      <div className="fp-top">
+        <div>
+          <div className="fp-nm">{p.name} <span className="mkt-tag mkt-drawn">SHOTS</span></div>
+          <div className="fp-cl">{p.team}{p.pos ? ' · ' + p.pos : ''} · regular starter</div>
+        </div>
+        <span className="htag h90">in-form</span>
+      </div>
+      <Stats sts={[['Shots', String(p.shots)], ['On target', String(p.sot)], ['Starts', p.starts + '/' + p.ap]]} />
+      <ConfBar label="Had a shot" p={p.shotConf} fill="f-bl" color="var(--ac2)" />
+      <ConfBar label="Shot on target" p={p.sotConf} fill="f-pu" color="var(--pur)" delay={0.06} />
+      <BetRow l={`${p.name} 1+ SOT`} o={[fairAm(p.sotConf / 100)]} fmt={fmt} />
+    </div>
+  );
+}
+
+function CuratedShot({ s, fmt }) {
+  return (
+    <div className={'fpl' + (s.hot ? ' hot' : '')}>
       <div className="fp-top">
         <div><div className="fp-nm">{s.nm}</div><div className="fp-cl">{s.cl}</div></div>
         <span className={'htag ' + s.ht}>{s.htl}</span>
@@ -264,7 +305,7 @@ function ShotsTab({ m, fmt }) {
       <Dots dots={s.sd2} cls="dp" />
       <div style={{ marginTop: 6 }}>{s.bets.map((b, j) => <BetRow key={j} l={b.l} o={b.o} fmt={fmt} />)}</div>
     </div>
-  ));
+  );
 }
 
 /* ── Easy bets ── */
