@@ -30,7 +30,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .of-btn{font-family:var(--sans);font-size:10px;font-weight:700;padding:4px 9px;background:none;border:none;border-left:1px solid var(--b1);color:var(--mu);cursor:pointer;transition:background .1s,color .1s}
 .of-btn:hover{color:var(--tx)}
 .of-btn.active{background:rgba(45,200,160,.16);color:var(--ac)}
-@media(max-width:480px){.logo{font-size:13px;letter-spacing:.03em}.of-lbl{display:none}.topbar{padding:0 12px}.nav-btn{padding:5px 9px}}
+@media(max-width:480px){.logo{font-size:13px;letter-spacing:.03em}.of-lbl{display:none}.topbar{padding:env(safe-area-inset-top,0px) 12px 0}.nav-btn{padding:5px 9px}}
 
 .date-nav{background:rgba(14,17,23,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:2px solid var(--b1);padding:0 10px;display:flex;align-items:stretch;gap:2px;overflow-x:auto;scrollbar-width:none;position:sticky;top:calc(52px + env(safe-area-inset-top,0px));z-index:200}
 .date-nav::-webkit-scrollbar{display:none}
