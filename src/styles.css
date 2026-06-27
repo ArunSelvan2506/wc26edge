@@ -43,16 +43,21 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .sport-btn.soon .sport-lb{color:inherit}
 .sport-tag{font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ac3);border:1px solid rgba(251,140,67,.4);background:rgba(251,140,67,.12);padding:1px 5px;border-radius:4px}
 /* Home sport picker */
-.picker{padding:24px 4px 40px}
-.picker-h{font-family:var(--disp);font-size:24px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx);text-align:center}
-.picker-sub{text-align:center;color:var(--mu);font-size:12.5px;margin:6px 0 22px;line-height:1.5}
-.picker-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;max-width:720px;margin:0 auto}
-.picker-card{display:flex;flex-direction:column;align-items:center;gap:6px;padding:22px 14px 16px;background:var(--s1);border:1px solid var(--b1);border-radius:14px;cursor:pointer;font-family:var(--sans);transition:border-color .15s,background .15s,transform .12s}
+.picker{padding:18px 2px 30px}
+.picker-h{font-family:var(--disp);font-size:21px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx);text-align:center}
+.picker-sub{text-align:center;color:var(--mu);font-size:12px;margin:5px 0 16px;line-height:1.5}
+.picker-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;max-width:720px;margin:0 auto}
+.picker-card{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 3px 11px;min-width:0;background:var(--s1);border:1px solid var(--b1);border-radius:12px;cursor:pointer;font-family:var(--sans);transition:border-color .15s,background .15s,transform .12s}
 .picker-card:hover{border-color:var(--ac);background:rgba(45,200,160,.07)}
-.picker-ico{font-size:42px;line-height:1}
-.picker-name{font-family:var(--disp);font-size:15px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx)}
-.picker-tag{font-size:10px;font-family:var(--mono);color:var(--mu)}
-.picker-go{margin-top:6px;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ac)}
+.picker-ico{font-size:28px;line-height:1}
+.picker-name{font-family:var(--disp);font-size:10px;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--tx);text-align:center;line-height:1.15;word-break:break-word}
+.picker-tag,.picker-go{display:none}
+@media(min-width:620px){
+  .picker-card{padding:22px 10px 16px;gap:7px}
+  .picker-ico{font-size:38px}
+  .picker-name{font-size:13px}
+  .picker-tag{display:block;font-size:9.5px;font-family:var(--mono);color:var(--mu);text-align:center}
+}
 .coming-soon{text-align:center;padding:54px 20px 60px;display:flex;flex-direction:column;align-items:center;gap:10px}
 .coming-soon .cs-ico{font-size:52px;filter:grayscale(.2);animation:breathe 6s ease-in-out infinite}
 .coming-soon h3{font-family:var(--disp);font-size:20px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tx)}
