@@ -114,12 +114,16 @@ async function buildLineups(now) {
 // curated seed stays in place.
 const CRIC_NATIONS = new Set(CRICKET_NATIONS.map(s => s.toLowerCase()));
 const CRIC_KEY = process.env.CRICKET_API_KEY || '';
-// "India Women" / "Australia W" → { nation:'india', gender:'women' }; men otherwise.
+// "India [IND]" → {nation:'india'}; "Australia Women" → {nation, women:true};
+// "India A [INA]" / "India U19 [IN19]" → flagged exclude (not a senior team).
 function cricTeam(name) {
-  const raw = String(name || '').trim();
-  const women = /\bwomen\b|\bw\b|\(w\)|women'?s/i.test(raw);
-  const nation = raw.replace(/\bwomen'?s?\b|\(w\)|\bw\b/ig, '').replace(/\s+/g, ' ').trim();
-  return { nation, women };
+  // Drop bracketed codes like " [ENG]", " [IND-A]", " [IN19]".
+  const s = String(name || '').replace(/\[[^\]]*\]/g, '').replace(/\s+/g, ' ').trim();
+  const women = /\bwomen\b|\bwmn\b|\(w\)/i.test(s);
+  const noW = s.replace(/\bwomen'?s?\b|\(w\)/ig, ' ').replace(/\s+/g, ' ').trim();
+  const exclude = /\bu-?19\b|\bunder[-\s]?19\b|(^|\s)A(\s|$)|\bemerging\b|\bdevelopment\b/i.test(noW);
+  const nation = noW.replace(/\bu-?19\b|\bunder[-\s]?19\b/ig, '').replace(/(^|\s)A(\s|$)/i, ' ').replace(/\s+/g, ' ').trim();
+  return { nation, women, exclude };
 }
 function cricFormat(matchType) {
   const t = String(matchType || '').toLowerCase();
@@ -151,10 +155,6 @@ async function buildCricket(now) {
   } catch { /* matches supplement optional */ }
   if (!matches.length) { console.log('Cricket · no matches from API (keeping seed)'); return null; }
 
-  // DIAGNOSTIC (temporary): confirm coverage of the Eng–Ind July fixture + women.
-  const ei = matches.filter(m => /england|india/i.test((m.teams || []).join(' '))).slice(0, 6);
-  for (const m of ei) console.log(`  CK England/India? ${JSON.stringify(m.teams)} | ${m.matchType} | ${m.dateTimeGMT}`);
-
   // Wide window: the full-member international calendar is often weeks out.
   const lo = now - 2 * 24 * 3600e3, hi = now + 120 * 24 * 3600e3;
   const items = [], seen = new Set();
@@ -163,7 +163,7 @@ async function buildCricket(now) {
     const names = m.teams && m.teams.length >= 2 ? m.teams : [];
     if (names.length < 2 || !names[0] || !names[1]) continue;
     const a = cricTeam(names[0]), b = cricTeam(names[1]);
-    if (/u19|u-19|under 19|\ba\b/i.test(names[0] + ' ' + names[1])) continue;   // drop U19 / A teams
+    if (a.exclude || b.exclude) continue;                                       // drop A-teams / U19
     if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
     const gmt = (m.dateTimeGMT || '').replace(' ', 'T');
     const ts = Date.parse(gmt + (gmt && !/[zZ]|[+-]\d\d:?\d\d$/.test(gmt) ? 'Z' : ''));
