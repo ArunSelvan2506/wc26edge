@@ -142,26 +142,26 @@ async function buildCricket(now) {
     }
   } catch (e) { console.log('Cricket API failed:', e.message); return null; }
 
-  const lo = now - 6 * 3600e3, hi = now + 14 * 24 * 3600e3;
+  // Wide window: the full-member international calendar is often weeks out.
+  const lo = now - 2 * 24 * 3600e3, hi = now + 75 * 24 * 3600e3;
   const items = [], seen = new Set();
-  let nationFail = 0, windowFail = 0, parseFail = 0;
-  // DIAGNOSTIC (temporary): show what the feed returns.
-  for (const m of matches.slice(0, 10)) console.log(`  CK? "${m.name}" | type=${m.matchType} | ${m.dateTimeGMT} | teams=${JSON.stringify(m.teams)}`);
   for (const m of matches) {
     const names = m.teams && m.teams.length >= 2 ? m.teams : (m.teamInfo || []).map(t => t.name);
-    if (!names || names.length < 2) { nationFail++; continue; }
+    if (!names || names.length < 2) continue;
     const a = cricTeam(names[0]), b = cricTeam(names[1]);
-    if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) { nationFail++; continue; }
+    // Internationals only: both sides must be senior nations we rate (drops U19,
+    // associates and domestic franchises automatically).
+    if (/u19|u-19|under 19|\ba\b/i.test(names[0] + ' ' + names[1])) continue;
+    if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
     const gmt = (m.dateTimeGMT || '').replace(' ', 'T');
     const ts = Date.parse(gmt + (gmt && !/[zZ]|[+-]\d\d:?\d\d$/.test(gmt) ? 'Z' : ''));
-    if (!isFinite(ts)) { parseFail++; continue; }
-    if (ts < lo || ts > hi) { windowFail++; continue; }
+    if (!isFinite(ts) || ts < lo || ts > hi) continue;
     const key = m.id || (a.nation + b.nation + gmt);
     if (seen.has(key)) continue; seen.add(key);
     const gender = a.women || b.women ? 'women' : 'men';
     items.push({ ts, t1: a.nation, t2: b.nation, gender, format: cricFormat(m.matchType), venue: m.venue || '' });
   }
-  console.log(`Cricket · ${matches.length} fetched · ${items.length} in window · rejected: nation ${nationFail}, window ${windowFail}, parse ${parseFail}`);
+  console.log(`Cricket · ${matches.length} fetched · ${items.length} upcoming internationals (rated nations, 75d window)`);
   if (!items.length) return null;
   items.sort((a, b) => a.ts - b.ts);
   const blocks = [], idx = {};
