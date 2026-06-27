@@ -5794,5 +5794,99 @@
  },
  "updated": "2026-06-27T07:27:43.708Z",
  "source": "openfootball (CC0 · free, no key)",
- "LIVE": {}
+ "LIVE": {},
+ "CRICKET": {
+  "blocks": [
+   {
+    "date": "Sat 27 Jun (IST)",
+    "series": "Bilateral series",
+    "matches": [
+     {
+      "teams": "India vs England",
+      "t1": "India",
+      "t2": "England",
+      "format": "ODI",
+      "venue": "Lord’s, London",
+      "ist": "3:00pm"
+     },
+     {
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "format": "T20I",
+      "venue": "Colombo",
+      "ist": "7:30pm"
+     }
+    ]
+   },
+   {
+    "date": "Sun 28 Jun (IST)",
+    "series": "Bilateral series",
+    "matches": [
+     {
+      "teams": "Australia vs South Africa",
+      "t1": "Australia",
+      "t2": "South Africa",
+      "format": "Test",
+      "venue": "MCG, Melbourne",
+      "ist": "5:30am"
+     },
+     {
+      "teams": "New Zealand vs West Indies",
+      "t1": "New Zealand",
+      "t2": "West Indies",
+      "format": "T20I",
+      "venue": "Auckland",
+      "ist": "11:30am"
+     }
+    ]
+   },
+   {
+    "date": "Mon 29 Jun (IST)",
+    "series": "Bilateral series",
+    "matches": [
+     {
+      "teams": "India vs England",
+      "t1": "India",
+      "t2": "England",
+      "format": "T20I",
+      "venue": "Old Trafford, Manchester",
+      "ist": "9:30pm"
+     },
+     {
+      "teams": "Bangladesh vs Afghanistan",
+      "t1": "Bangladesh",
+      "t2": "Afghanistan",
+      "format": "ODI",
+      "venue": "Dhaka",
+      "ist": "1:30pm"
+     }
+    ]
+   },
+   {
+    "date": "Tue 30 Jun (IST)",
+    "series": "Bilateral series",
+    "matches": [
+     {
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "format": "Test",
+      "venue": "MCG, Melbourne",
+      "ist": "5:30am"
+     },
+     {
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "format": "ODI",
+      "venue": "Colombo",
+      "ist": "3:00pm"
+     }
+    ]
+   }
+  ],
+  "updated": "2026-06-27T07:27:43.708Z",
+  "source": "seed (curated)"
+ }
 }

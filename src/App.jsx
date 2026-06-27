@@ -5,6 +5,7 @@ import { fitFromTable } from './lib/model.js';
 import { OddsToggle, Toast } from './components/Bits.jsx';
 import Fixtures from './components/Fixtures.jsx';
 import Standings from './components/Standings.jsx';
+import Cricket from './components/Cricket.jsx';
 
 const VIEWS = [
   { id: 'fixtures', label: 'Fixtures' },
@@ -15,7 +16,7 @@ const VIEWS = [
 // scaffolded — drop in their data + views to bring them online.
 const SPORTS = [
   { id: 'football', label: 'Football', icon: '⚽', live: true, tag: 'World Cup 2026' },
-  { id: 'cricket', label: 'Cricket', icon: '🏏' },
+  { id: 'cricket', label: 'Cricket', icon: '🏏', live: true, tag: 'Internationals' },
   { id: 'tennis', label: 'Tennis', icon: '🎾' },
   { id: 'basketball', label: 'Basketball', icon: '🏀' },
   { id: 'f1', label: 'Formula 1', icon: '🏎️' },
@@ -48,14 +49,16 @@ export default function App() {
           <span className="logo-dot" />
           PREDICTION HUB
         </button>
-        {sport === 'football' && (
+        {(sport === 'football' || sport === 'cricket') && (
           <div className="topbar-actions">
             <OddsToggle fmt={fmt} onChange={changeFmt} />
-            <nav style={{ display: 'flex', gap: 5 }}>
-              {VIEWS.map(v => (
-                <button key={v.id} className={'nav-btn' + (view === v.id ? ' active' : '')} onClick={() => setView(v.id)}>{v.label}</button>
-              ))}
-            </nav>
+            {sport === 'football' && (
+              <nav style={{ display: 'flex', gap: 5 }}>
+                {VIEWS.map(v => (
+                  <button key={v.id} className={'nav-btn' + (view === v.id ? ' active' : '')} onClick={() => setView(v.id)}>{v.label}</button>
+                ))}
+              </nav>
+            )}
           </div>
         )}
       </header>
@@ -77,13 +80,15 @@ export default function App() {
           <motion.div key={sport + view}
             initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}>
-            {sport !== 'football'
-              ? <ComingSoon sport={SPORTS.find(s => s.id === sport)} />
-              : <>
-                  {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} />}
-                  {view === 'standings' && <Standings />}
-                  {view === 'about' && <About />}
-                </>}
+            {sport === 'cricket'
+              ? <Cricket fmt={fmt} />
+              : sport !== 'football'
+                ? <ComingSoon sport={SPORTS.find(s => s.id === sport)} />
+                : <>
+                    {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} />}
+                    {view === 'standings' && <Standings />}
+                    {view === 'about' && <About />}
+                  </>}
           </motion.div>
         </AnimatePresence>
 

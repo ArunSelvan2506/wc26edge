@@ -154,6 +154,25 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .fix-time small{display:block;font-size:8px;color:var(--mu);font-weight:400;letter-spacing:.03em;text-transform:uppercase}
 .fix-teams{font-family:var(--disp);font-size:14px;font-weight:600;color:var(--tx)}
 .fix-meta{font-size:10px;color:var(--mu);font-family:var(--mono);margin-top:2px}
+/* ── Cricket cards ── */
+.ck-card{background:var(--s1);border:1px solid var(--b1);border-radius:12px;padding:13px;margin-bottom:9px}
+.ck-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:11px}
+.ck-teams{font-family:var(--disp);font-size:15px;font-weight:700;color:var(--tx)}
+.ck-meta{font-size:10.5px;color:var(--mu);font-family:var(--mono);margin-top:3px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ck-meta small{font-size:8px;text-transform:uppercase;letter-spacing:.03em;margin-left:2px;color:var(--dm)}
+.ck-fmt{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:999px;border:1px solid var(--b2)}
+.ck-fmt.cf-test{color:#e0a84e;border-color:rgba(224,168,78,.4);background:rgba(224,168,78,.12)}
+.ck-fmt.cf-odi{color:var(--ac2);border-color:rgba(60,150,230,.4);background:rgba(60,150,230,.12)}
+.ck-fmt.cf-t20{color:var(--pur);border-color:rgba(168,120,240,.4);background:rgba(168,120,240,.12)}
+.ck-mkt{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.ck-mkt.three{grid-template-columns:1fr 1fr 1fr}
+.ck-out{display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 6px;background:var(--s3);border:1px solid var(--b1);border-radius:9px;cursor:pointer;transition:border-color .12s,background .12s}
+.ck-out:hover{border-color:var(--b2)}
+.ck-out.fav{border-color:var(--ac);background:rgba(45,200,160,.1)}
+.ck-out-l{font-size:11px;font-weight:600;color:var(--tx);text-align:center;line-height:1.2}
+.ck-out-o{font-family:var(--mono);font-size:15px;font-weight:700;color:var(--ac)}
+.ck-out-p{font-size:9px;font-family:var(--mono);color:var(--mu)}
+.ck-out.fav .ck-out-p{color:var(--ac)}
 .fix-row-wrap{margin-bottom:8px}
 .fix-row-wrap .fix-row{margin-bottom:0}
 .fix-row.tappable{cursor:pointer;grid-template-columns:64px 1fr auto;transition:border-color .12s}

@@ -9,6 +9,7 @@
 //
 // Usage: node scripts/refresh-data.mjs   (npm run refresh)
 import { readFileSync, writeFileSync } from 'fs';
+import { CRICKET_RATINGS, fmtKey, FORMAT_LABEL } from '../src/lib/cricket.js';
 
 const WD = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -107,6 +108,54 @@ async function buildLineups(now) {
   return out;
 }
 
+// ── Cricket internationals (TheSportsDB · free, self-discovering) ──────────
+// Finds international cricket leagues, pulls upcoming fixtures between known
+// nations, and groups them by date. Returns null on any failure / no coverage
+// so the curated seed in data.CRICKET is left in place.
+const CRIC_NATIONS = new Set(
+  Object.values(CRICKET_RATINGS).flatMap(o => Object.keys(o)).map(s => s.toLowerCase())
+);
+
+async function buildCricket(now) {
+  let leagues = [];
+  try {
+    const r = await tsdb('search_all_leagues.php?s=Cricket');
+    leagues = (r && (r.countries || r.leagues)) || [];
+  } catch (e) { console.log('Cricket · league lookup failed:', e.message); return null; }
+  const intl = leagues.filter(l => /international|\bODI\b|t20i|twenty20 international|test match|\bICC\b/i.test(l.strLeague || ''));
+  console.log(`Cricket · ${leagues.length} cricket leagues · ${intl.length} international`);
+  const lo = now - 6 * 3600e3, hi = now + 12 * 24 * 3600e3;
+  const items = [], seen = new Set();
+  for (const lg of intl.slice(0, 8)) {
+    try {
+      const r = await tsdb(`eventsnextleague.php?id=${lg.idLeague}`);
+      for (const e of (r && r.events) || []) {
+        const t1 = e.strHomeTeam, t2 = e.strAwayTeam;
+        if (!t1 || !t2) continue;
+        if (!CRIC_NATIONS.has(t1.toLowerCase()) || !CRIC_NATIONS.has(t2.toLowerCase())) continue;
+        const ts = Date.parse(e.strTimestamp || e.dateEvent || '');
+        if (!isFinite(ts) || ts < lo || ts > hi) continue;
+        const key = [t1, t2].sort().join('|') + (e.dateEvent || '');
+        if (seen.has(key)) continue; seen.add(key);
+        items.push({ ts, t1, t2, league: lg.strLeague, venue: e.strVenue || '' });
+      }
+    } catch { /* skip league */ }
+  }
+  console.log(`Cricket · ${items.length} international fixtures in window`);
+  if (!items.length) return null;
+  items.sort((a, b) => a.ts - b.ts);
+  const blocks = [], idx = {};
+  for (const x of items) {
+    const date = istDateLabel(x.ts);
+    if (!idx[date]) { idx[date] = { date, series: 'International', matches: [] }; blocks.push(idx[date]); }
+    idx[date].matches.push({
+      teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2,
+      format: FORMAT_LABEL[fmtKey(x.league)], venue: x.venue, ist: istTime(x.ts),
+    });
+  }
+  return blocks;
+}
+
 const SRC = process.env.WC_FEED ||
   'https://raw.githubusercontent.com/openfootball/world-cup.json/master/2026/worldcup.json';
 // Only games on/before "today" (UTC) count as completed — keeps standings
@@ -165,6 +214,18 @@ let live = {};
 try { live = await buildLineups(Date.now()); }
 catch (e) { console.warn('lineup fetch skipped:', e.message); }
 data.LIVE = live;
+
+// Cricket internationals (best-effort, free) — only overwrite the curated seed
+// when TheSportsDB actually returns fixtures; otherwise leave data.CRICKET as-is.
+try {
+  const ckBlocks = await buildCricket(Date.now());
+  if (ckBlocks && ckBlocks.length) {
+    data.CRICKET = { blocks: ckBlocks, updated: new Date().toISOString(), source: 'TheSportsDB (free)' };
+    console.log(`Cricket · using live fixtures (${ckBlocks.reduce((n, b) => n + b.matches.length, 0)} matches)`);
+  } else {
+    console.log('Cricket · keeping curated seed (no live coverage)');
+  }
+} catch (e) { console.warn('cricket fetch skipped:', e.message); }
 
 // Freshness stamp shown in the UI so the live (free) pipeline is visible.
 data.updated = new Date().toISOString();
