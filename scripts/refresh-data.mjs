@@ -141,7 +141,7 @@ async function buildCricket(now) {
     const r = await fetch(`https://api.cricapi.com/v1/cricScore?apikey=${CRIC_KEY}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
     const j = await r.json();
     if (j.status !== 'success') { console.log('Cricket API (cricScore):', j.status, j.reason || j.message || ''); }
-    else matches = (j.data || []).map(m => ({ id: m.id, teams: [m.t1, m.t2], matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.series || '' }));
+    else matches = (j.data || []).map(m => ({ id: m.id, teams: [m.t1, m.t2], matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.series || '', status: m.status || '', ended: false }));
   } catch (e) { console.log('Cricket cricScore failed:', e.message); }
   try {
     for (const offset of [0, 25]) {
@@ -149,19 +149,23 @@ async function buildCricket(now) {
       const j = await r.json();
       if (j.status !== 'success') break;
       const page = j.data || [];
-      matches.push(...page.map(m => ({ id: m.id, teams: m.teams, matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.venue || '' })));
+      matches.push(...page.map(m => ({ id: m.id, teams: m.teams, matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.venue || '', status: m.status || '', ended: m.matchEnded === true })));
       if (page.length < 25) break;
     }
   } catch { /* matches supplement optional */ }
   if (!matches.length) { console.log('Cricket · no matches from API (keeping seed)'); return null; }
 
-  // Wide window: the full-member international calendar is often weeks out.
-  const lo = now - 2 * 24 * 3600e3, hi = now + 120 * 24 * 3600e3;
+  // Keep upcoming (and in-progress) only; completed matches drop off. Window
+  // starts 12h back so a live game stays, and runs 120 days forward.
+  const lo = now - 12 * 3600e3, hi = now + 120 * 24 * 3600e3;
+  // A finished match: explicit ended flag, or a result phrase in the status.
+  const isDone = s => /won by|\bbeat\b|\bdrawn\b|match tied|\btied\b|abandoned|no result/i.test(s || '');
   const items = [], seen = new Set();
   let women = 0;
   for (const m of matches) {
     const names = m.teams && m.teams.length >= 2 ? m.teams : [];
     if (names.length < 2 || !names[0] || !names[1]) continue;
+    if (m.ended || isDone(m.status)) continue;                                  // drop completed
     const a = cricTeam(names[0]), b = cricTeam(names[1]);
     if (a.exclude || b.exclude) continue;                                       // drop A-teams / U19
     if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
