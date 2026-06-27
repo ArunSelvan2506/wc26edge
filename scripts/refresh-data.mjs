@@ -74,13 +74,6 @@ async function buildLineups(now) {
   const season = await tsdb(`eventsseason.php?id=${TSDB_LEAGUE}&s=${TSDB_SEASON}`);
   const events = (season && season.events) || [];
   if (!events.length) { console.log('Lineups · no season events returned (skipping)'); return out; }
-  // DIAGNOSTIC (temporary): what does the free tier actually return for 2026?
-  {
-    console.log(`TSDB DEBUG · ${events.length} events for league ${TSDB_LEAGUE} season ${TSDB_SEASON}`);
-    for (const e of events.slice(0, 8)) console.log(`   ${e.dateEvent} | ts=${e.strTimestamp} | ${e.strEvent || (e.strHomeTeam + ' vs ' + e.strAwayTeam)}`);
-    const ds = events.map(e => e.dateEvent).filter(Boolean).sort();
-    console.log(`   date range: ${ds[0]} … ${ds[ds.length - 1]}`);
-  }
   // Only matches from ~1 day ago to ~2 days ahead — lineups only exist near KO,
   // and this keeps the request count low (free tier friendly).
   const lo = now - 24 * 3600e3, hi = now + 48 * 3600e3;
