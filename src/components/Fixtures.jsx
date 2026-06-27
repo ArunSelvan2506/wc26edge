@@ -44,7 +44,7 @@ export default function Fixtures({ fmt, rat }) {
     <div>
       <div className="section-h">Upcoming fixtures · World Cup 2026</div>
       <div className="live-badge">
-        <span className="live-dot" /> LIVE · auto-updates every 3h
+        <span className="live-dot" /> LIVE · auto-updates hourly
         <span className="live-meta">· {SOURCE} · refreshed {freshLabel(UPDATED)}</span>
       </div>
       <div className="chips">
