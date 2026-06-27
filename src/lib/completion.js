@@ -41,7 +41,9 @@ function kickoffUTC(block, mt) {
 
 export function matchCompleted(block, mt, now = Date.now()) {
   if (mt.done) return true;
-  const ko = kickoffUTC(block, mt);
+  // Feed-derived fixtures carry an exact kickoff timestamp; curated ones are
+  // parsed from their IST clock time.
+  const ko = (typeof mt.koUTC === 'number') ? mt.koUTC : kickoffUTC(block, mt);
   if (ko == null) return false;                           // can't time it → keep it
   return now > ko + COMPLETE_MS;
 }

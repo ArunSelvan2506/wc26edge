@@ -4789,47 +4789,47 @@
   "G": {
    "table": [
     {
-     "team": "Egypt",
-     "p": 2,
+     "team": "Belgium",
+     "p": 3,
      "w": 1,
-     "d": 1,
+     "d": 2,
      "l": 0,
-     "gf": 4,
+     "gf": 6,
      "ga": 2,
+     "gd": 4,
+     "pts": 5
+    },
+    {
+     "team": "Egypt",
+     "p": 3,
+     "w": 1,
+     "d": 2,
+     "l": 0,
+     "gf": 5,
+     "ga": 3,
      "gd": 2,
-     "pts": 4
+     "pts": 5
     },
     {
      "team": "Iran",
-     "p": 2,
+     "p": 3,
      "w": 0,
-     "d": 2,
+     "d": 3,
      "l": 0,
-     "gf": 2,
-     "ga": 2,
+     "gf": 3,
+     "ga": 3,
      "gd": 0,
-     "pts": 2
-    },
-    {
-     "team": "Belgium",
-     "p": 2,
-     "w": 0,
-     "d": 2,
-     "l": 0,
-     "gf": 1,
-     "ga": 1,
-     "gd": 0,
-     "pts": 2
+     "pts": 3
     },
     {
      "team": "New Zealand",
-     "p": 2,
+     "p": 3,
      "w": 0,
      "d": 1,
-     "l": 1,
-     "gf": 3,
-     "ga": 5,
-     "gd": -2,
+     "l": 2,
+     "gf": 4,
+     "ga": 10,
+     "gd": -6,
      "pts": 1
     }
    ],
@@ -4861,6 +4861,20 @@
      "t2": "Egypt",
      "s1": 1,
      "s2": 3
+    },
+    {
+     "date": "2026-06-26",
+     "t1": "Egypt",
+     "t2": "Iran",
+     "s1": 1,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-26",
+     "t1": "New Zealand",
+     "t2": "Belgium",
+     "s1": 1,
+     "s2": 5
     }
    ]
   },
@@ -5465,350 +5479,301 @@
   },
   {
    "date": "Mon 29 Jun (IST)",
-   "grpLabel": "Sun 28 Jun ET",
    "stage": "Round of 32",
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "Canada vs South Africa",
-     "grp": "R32 M85 · SoFi Stadium, Los Angeles",
-     "done": false
+     "teams": "South Africa vs Canada",
+     "grp": "Los Angeles (Inglewood)",
+     "koUTC": 1782673200000
+    },
+    {
+     "ist": "10:30pm",
+     "teams": "Brazil vs Japan",
+     "grp": "Houston",
+     "koUTC": 1782752400000
     }
    ]
   },
   {
    "date": "Tue 30 Jun (IST)",
-   "grpLabel": "Mon 29 Jun ET",
    "stage": "Round of 32",
    "matches": [
     {
-     "ist": "10:30am",
-     "teams": "Winners C vs Runners-up F",
-     "grp": "R32 M86 · NRG Stadium, Houston",
-     "done": false
+     "ist": "2:00am",
+     "teams": "Germany vs 3A/B/C/D/F",
+     "grp": "Boston (Foxborough)",
+     "koUTC": 1782765000000
     },
     {
-     "ist": "2:00pm",
-     "teams": "Winners E vs Best 3rd (A/B/C/D/F)",
-     "grp": "R32 M87 · Gillette Stadium, Boston",
-     "done": false
+     "ist": "6:30am",
+     "teams": "Netherlands vs Morocco",
+     "grp": "Monterrey (Guadalupe)",
+     "koUTC": 1782781200000
     },
     {
-     "ist": "6:30pm",
-     "teams": "Winners F vs Runners-up C",
-     "grp": "R32 M88 · Estadio BBVA, Monterrey",
-     "done": false
+     "ist": "10:30pm",
+     "teams": "Ivory Coast vs 2I",
+     "grp": "Dallas (Arlington)",
+     "koUTC": 1782838800000
     }
    ]
   },
   {
    "date": "Wed 1 Jul (IST)",
-   "grpLabel": "Tue 30 Jun ET",
    "stage": "Round of 32",
    "matches": [
     {
-     "ist": "10:30am",
-     "teams": "Runners-up E vs Runners-up I",
-     "grp": "R32 M89 · AT&T Stadium, Dallas",
-     "done": false
+     "ist": "2:30am",
+     "teams": "1I vs 3C/D/F/G/H",
+     "grp": "New York/New Jersey (East Rutherford)",
+     "koUTC": 1782853200000
     },
     {
-     "ist": "2:30pm",
-     "teams": "Winners I vs Best 3rd (C/D/F/G/H)",
-     "grp": "R32 M90 · MetLife Stadium, New Jersey",
-     "done": false
+     "ist": "6:30am",
+     "teams": "Mexico vs 3C/E/F/H/I",
+     "grp": "Mexico City",
+     "koUTC": 1782867600000
     },
     {
-     "ist": "6:30pm",
-     "teams": "Mexico vs Best 3rd (C/E/F/H/I)",
-     "grp": "R32 M91 · Estadio Azteca, Mexico City",
-     "done": false
+     "ist": "9:30pm",
+     "teams": "1L vs 3E/H/I/J/K",
+     "grp": "Atlanta",
+     "koUTC": 1782921600000
     }
    ]
   },
   {
    "date": "Thu 2 Jul (IST)",
-   "grpLabel": "Wed 1 Jul ET",
    "stage": "Round of 32",
    "matches": [
     {
-     "ist": "9:30am",
-     "teams": "Winners L vs Best 3rd (E/H/I/J/K)",
-     "grp": "R32 M80 · Mercedes-Benz Stadium, Atlanta",
-     "done": false
-    },
-    {
      "ist": "1:30am",
-     "teams": "Winners G vs Best 3rd (A/E/H/I/J)",
-     "grp": "R32 M82 · Lumen Field, Seattle",
-     "done": false
+     "teams": "1G vs 3A/E/H/I/J",
+     "grp": "Seattle",
+     "koUTC": 1782936000000
     },
     {
      "ist": "5:30am",
-     "teams": "USA vs Best 3rd (B/E/F/I/J)",
-     "grp": "R32 M81 · Levis Stadium, Santa Clara",
-     "done": false
+     "teams": "USA vs 3B/E/F/I/J",
+     "grp": "San Francisco Bay Area (Santa Clara)",
+     "koUTC": 1782950400000
     }
    ]
   },
   {
    "date": "Fri 3 Jul (IST)",
-   "grpLabel": "Thu 2 Jul ET",
    "stage": "Round of 32",
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "Winners H vs Runners-up J",
-     "grp": "R32 M93 · SoFi Stadium, Los Angeles",
-     "done": false
+     "teams": "1H vs 2J",
+     "grp": "Los Angeles (Inglewood)",
+     "koUTC": 1783018800000
     },
     {
      "ist": "4:30am",
-     "teams": "Runners-up K vs Runners-up L",
-     "grp": "R32 M94 · BMO Field, Toronto",
-     "done": false
+     "teams": "2K vs 2L",
+     "grp": "Toronto",
+     "koUTC": 1783033200000
     },
     {
      "ist": "8:30am",
-     "teams": "Winners B vs Best 3rd (E/F/G/I/J)",
-     "grp": "R32 M95 · BC Place, Vancouver",
-     "done": false
+     "teams": "Switzerland vs 3E/F/G/I/J",
+     "grp": "Vancouver",
+     "koUTC": 1783047600000
+    },
+    {
+     "ist": "11:30pm",
+     "teams": "Australia vs 2G",
+     "grp": "Dallas (Arlington)",
+     "koUTC": 1783101600000
     }
    ]
   },
   {
    "date": "Sat 4 Jul (IST)",
-   "grpLabel": "Fri 3 Jul ET",
    "stage": "Round of 32",
    "matches": [
     {
-     "ist": "11:30pm",
-     "teams": "Runners-up D vs Runners-up G",
-     "grp": "R32 M96 · AT&T Stadium, Dallas",
-     "done": false
-    },
-    {
      "ist": "3:30am",
-     "teams": "Winners J vs Runners-up H",
-     "grp": "R32 M97 · Hard Rock Stadium, Miami",
-     "done": false
+     "teams": "1J vs 2H",
+     "grp": "Miami (Miami Gardens)",
+     "koUTC": 1783116000000
     },
     {
      "ist": "7:00am",
-     "teams": "Winners K vs Best 3rd (D/E/I/J/L)",
-     "grp": "R32 M98 · Arrowhead Stadium, Kansas City",
-     "done": false
-    }
-   ]
-  },
-  {
-   "date": "Sat 4 & Sun 5 Jul (IST)",
-   "grpLabel": "Sat 4 & Sun 5 Jul ET",
-   "stage": "Round of 32 · Final 4 matches",
-   "matches": [
-    {
-     "ist": "Sat 11:30pm",
-     "teams": "R32 Match TBD",
-     "grp": "R32 M99 · NRG Stadium, Houston",
-     "done": false
-    },
-    {
-     "ist": "Sun 3:30am",
-     "teams": "R32 Match TBD",
-     "grp": "R32 M100 · MetLife Stadium, New Jersey",
-     "done": false
-    },
-    {
-     "ist": "Sun 1:30am",
-     "teams": "R32 Match TBD",
-     "grp": "R32 M101 · Gillette Stadium, Boston",
-     "done": false
-    },
-    {
-     "ist": "Sun 5:30am",
-     "teams": "R32 Match TBD",
-     "grp": "R32 M102 · Estadio Azteca, Mexico City",
-     "done": false
+     "teams": "1K vs 3D/E/I/J/L",
+     "grp": "Kansas City",
+     "koUTC": 1783128600000
     }
    ]
   },
   {
    "date": "Sat 4 Jul (IST)",
-   "grpLabel": "Fri 4 Jul ET — R16 begins",
    "stage": "Round of 16",
    "matches": [
     {
-     "ist": "8:30pm",
-     "teams": "Winners M83 vs Winners M84",
-     "grp": "R16 M103 · AT&T Stadium, Dallas",
-     "done": false
+     "ist": "10:30pm",
+     "teams": "W73 vs W75",
+     "grp": "Houston",
+     "koUTC": 1783184400000
     }
    ]
   },
   {
    "date": "Sun 5 Jul (IST)",
-   "grpLabel": "Sat 5 Jul ET",
    "stage": "Round of 16",
    "matches": [
     {
-     "ist": "12:30am",
-     "teams": "Winners M81 vs Winners M82",
-     "grp": "R16 M104 · Lumen Field, Seattle",
-     "done": false
-    },
-    {
-     "ist": "8:00pm",
-     "teams": "Winners M79 vs Winners M80",
-     "grp": "R16 M105 · Mercedes-Benz Stadium, Atlanta",
-     "done": false
+     "ist": "2:30am",
+     "teams": "W74 vs W77",
+     "grp": "Philadelphia",
+     "koUTC": 1783198800000
     }
    ]
   },
   {
    "date": "Mon 6 Jul (IST)",
-   "grpLabel": "Sun 6 Jul ET",
    "stage": "Round of 16",
    "matches": [
     {
-     "ist": "12:30am",
-     "teams": "Winners M77 vs Winners M78",
-     "grp": "R16 M106 · BC Place, Vancouver",
-     "done": false
+     "ist": "1:30am",
+     "teams": "W76 vs W78",
+     "grp": "New York/New Jersey (East Rutherford)",
+     "koUTC": 1783281600000
     },
     {
-     "ist": "8:30pm",
-     "teams": "Winners M89 vs Winners M90",
-     "grp": "R16 M107 · SoFi Stadium, Los Angeles",
-     "done": false
+     "ist": "5:30am",
+     "teams": "W79 vs W80",
+     "grp": "Mexico City",
+     "koUTC": 1783296000000
     }
    ]
   },
   {
    "date": "Tue 7 Jul (IST)",
-   "grpLabel": "Mon 6 Jul ET",
    "stage": "Round of 16",
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "Winners M91 vs Winners M92",
-     "grp": "R16 M108 · BMO Field, Toronto",
-     "done": false
+     "teams": "W83 vs W84",
+     "grp": "Dallas (Arlington)",
+     "koUTC": 1783364400000
     },
     {
-     "ist": "8:30pm",
-     "teams": "Winners M85 vs Winners M86",
-     "grp": "R16 M109 · Hard Rock Stadium, Miami",
-     "done": false
+     "ist": "5:30am",
+     "teams": "W81 vs W82",
+     "grp": "Seattle",
+     "koUTC": 1783382400000
+    },
+    {
+     "ist": "9:30pm",
+     "teams": "W86 vs W88",
+     "grp": "Atlanta",
+     "koUTC": 1783440000000
     }
    ]
   },
   {
    "date": "Wed 8 Jul (IST)",
-   "grpLabel": "Tue 7 Jul ET",
    "stage": "Round of 16",
    "matches": [
     {
-     "ist": "12:30am",
-     "teams": "Winners M87 vs Winners M88",
-     "grp": "R16 M110 · Arrowhead Stadium, Kansas City",
-     "done": false
+     "ist": "1:30am",
+     "teams": "W85 vs W87",
+     "grp": "Vancouver",
+     "koUTC": 1783454400000
     }
    ]
   },
   {
    "date": "Fri 10 Jul (IST)",
-   "grpLabel": "Thu 9 Jul ET",
-   "stage": "Quarter-Finals · QF 1 of 4",
+   "stage": "Quarter-Finals",
    "matches": [
     {
-     "ist": "6:30am",
-     "teams": "QF1: W103 vs W104",
-     "grp": "QF M97 · Gillette Stadium, Boston · 9pm ET",
-     "done": false
+     "ist": "1:30am",
+     "teams": "W89 vs W90",
+     "grp": "Boston (Foxborough)",
+     "koUTC": 1783627200000
     }
    ]
   },
   {
    "date": "Sat 11 Jul (IST)",
-   "grpLabel": "Fri 10 Jul ET",
-   "stage": "Quarter-Finals · QF 2 of 4",
+   "stage": "Quarter-Finals",
    "matches": [
     {
-     "ist": "5:30am",
-     "teams": "QF2: W107 vs W108",
-     "grp": "QF M98 · SoFi Stadium, Los Angeles · 8pm ET",
-     "done": false
+     "ist": "12:30am",
+     "teams": "W93 vs W94",
+     "grp": "Los Angeles (Inglewood)",
+     "koUTC": 1783710000000
     }
    ]
   },
   {
    "date": "Sun 12 Jul (IST)",
-   "grpLabel": "Sat 11 Jul ET",
-   "stage": "Quarter-Finals · QF 3 & 4 of 4",
+   "stage": "Quarter-Finals",
    "matches": [
     {
      "ist": "2:30am",
-     "teams": "QF3: W105 vs W106",
-     "grp": "QF M99 · Hard Rock Stadium, Miami · 5pm ET",
-     "done": false
+     "teams": "W91 vs W92",
+     "grp": "Miami (Miami Gardens)",
+     "koUTC": 1783803600000
     },
     {
      "ist": "6:30am",
-     "teams": "QF4: W109 vs W110",
-     "grp": "QF M100 · Arrowhead Stadium, Kansas City · 9pm ET",
-     "done": false
+     "teams": "W95 vs W96",
+     "grp": "Kansas City",
+     "koUTC": 1783818000000
     }
    ]
   },
   {
    "date": "Wed 15 Jul (IST)",
-   "grpLabel": "Tue 14 Jul ET",
    "stage": "Semi-Finals",
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "SF1: QF1 winner vs QF2 winner",
-     "grp": "SF M101 · AT&T Stadium, Dallas · 3pm ET",
-     "done": false
+     "teams": "W97 vs W98",
+     "grp": "Dallas (Arlington)",
+     "koUTC": 1784055600000
     }
    ]
   },
   {
    "date": "Thu 16 Jul (IST)",
-   "grpLabel": "Wed 15 Jul ET",
    "stage": "Semi-Finals",
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "SF2: QF3 winner vs QF4 winner",
-     "grp": "SF M102 · Mercedes-Benz Stadium, Atlanta · 3pm ET",
-     "done": false
+     "teams": "W99 vs W100",
+     "grp": "Atlanta",
+     "koUTC": 1784142000000
     }
    ]
   },
   {
    "date": "Sun 19 Jul (IST)",
-   "grpLabel": "Sat 18 Jul ET",
    "stage": "Third Place Play-off",
    "matches": [
     {
      "ist": "2:30am",
-     "teams": "Third Place Play-off",
-     "grp": "M103 · Hard Rock Stadium, Miami · 5pm ET",
-     "done": false
+     "teams": "L101 vs L102",
+     "grp": "Miami (Miami Gardens)",
+     "koUTC": 1784408400000
     }
    ]
   },
   {
    "date": "Mon 20 Jul (IST)",
-   "grpLabel": "Sun 19 Jul ET",
-   "stage": "🏆 WORLD CUP FINAL",
+   "stage": "🏆 World Cup Final",
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "🏆 WORLD CUP FINAL",
-     "grp": "MetLife Stadium, New Jersey · 3pm ET",
-     "done": false
+     "teams": "W101 vs W102",
+     "grp": "New York/New Jersey (East Rutherford)",
+     "koUTC": 1784487600000
     }
    ]
   }
