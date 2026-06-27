@@ -98,6 +98,10 @@ const groupBlocks = (data.FIXTURES || []).filter(b => /group/i.test(b.stage));
 const koBlocks = buildKnockout(matches);
 data.FIXTURES = [...groupBlocks, ...koBlocks];
 
+// Freshness stamp shown in the UI so the live (free) pipeline is visible.
+data.updated = new Date().toISOString();
+data.source = 'openfootball (CC0 · free, no key)';
+
 writeFileSync(DATA, JSON.stringify(data, null, 1));
 const koGames = koBlocks.reduce((n, b) => n + b.matches.length, 0);
 console.log(`Refreshed from openfootball · cutoff ${CUTOFF} · ${Object.keys(table).length} groups · ${played} results · ${koBlocks.length} KO blocks (${koGames} games)`);

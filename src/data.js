@@ -9,4 +9,6 @@ export const WC_TABLE = data.WC_TABLE;
 export const OG_STATS = data.OG_STATS;
 export const FIXTURES = data.FIXTURES;
 export const MONTHS   = data.MONTHS;
+export const UPDATED  = data.updated || null;
+export const SOURCE   = data.source || 'openfootball (CC0 · free)';
 export default data;

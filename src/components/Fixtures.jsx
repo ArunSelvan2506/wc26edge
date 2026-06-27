@@ -1,9 +1,17 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
-import { DAYS } from '../data.js';
+import { DAYS, UPDATED, SOURCE } from '../data.js';
 import { norm } from '../lib/model.js';
 import { upcomingFixtures } from '../lib/completion.js';
 import MatchCard from './MatchCard.jsx';
+
+function freshLabel(iso) {
+  if (!iso) return 'free feed';
+  const d = new Date(iso);
+  if (isNaN(d)) return 'free feed';
+  const mon = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][d.getUTCMonth()];
+  return `${d.getUTCDate()} ${mon} ${String(d.getUTCHours()).padStart(2, '0')}:${String(d.getUTCMinutes()).padStart(2, '0')} UTC`;
+}
 
 // Map a fixture's "A vs B" to the detailed match in DAYS (order-independent).
 const pairKey = (a, b) => [norm(a), norm(b)].sort().join('|');
@@ -35,6 +43,10 @@ export default function Fixtures({ fmt, rat }) {
   return (
     <div>
       <div className="section-h">Upcoming fixtures · World Cup 2026</div>
+      <div className="live-badge">
+        <span className="live-dot" /> LIVE · auto-updates every 3h
+        <span className="live-meta">· {SOURCE} · refreshed {freshLabel(UPDATED)}</span>
+      </div>
       <div className="chips">
         {FILTERS.map(f => (
           <button key={f} className={'chip' + (filter === f ? ' active' : '')} onClick={() => setFilter(f)}>{f}</button>
