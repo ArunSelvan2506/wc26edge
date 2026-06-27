@@ -6,9 +6,6 @@ export default function Standings() {
   return (
     <div>
       <div className="section-h">Group standings</div>
-      <div style={{ fontSize: 10, color: 'var(--dm)', fontFamily: 'var(--mono)', margin: '-4px 0 14px' }}>
-        openfootball dataset · 2026 scores are seed/placeholder data, illustrative — not official results.
-      </div>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(300px,1fr))', gap: 12 }}>
         {groups.map((g, gi) => {
           const t = WC_TABLE[g];
@@ -41,7 +38,7 @@ export default function Standings() {
           );
         })}
       </div>
-      <div style={{ fontSize: 9, color: 'var(--dm)', marginTop: 6 }}>Top 2 of each group (highlighted) advance. Standings reflect the seed dataset only.</div>
+      <div style={{ fontSize: 9, color: 'var(--dm)', marginTop: 6 }}>Top 2 of each group (highlighted) advance.</div>
     </div>
   );
 }

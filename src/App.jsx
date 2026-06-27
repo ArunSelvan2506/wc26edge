@@ -59,7 +59,7 @@ export default function App() {
         </AnimatePresence>
 
         <div className="disc">
-          WC26 EDGE · a private prediction hub for entertainment. Odds are estimates/illustrative; 2026 results use the openfootball seed dataset and are not official. Model outputs are calibrated estimates, not guarantees. Bet responsibly.
+          WC26 EDGE · a private prediction hub for entertainment. Odds and model outputs are calibrated estimates, not guarantees. Bet responsibly.
         </div>
       </main>
 
