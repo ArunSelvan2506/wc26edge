@@ -28,13 +28,24 @@ This prints a URL like `https://wc26-stats.<you>.workers.dev`.
   `arunselvan2506.github.io`, then redeploy.
 
 ## 3. Point the site at the proxy
-In `index.html`, set:
-```js
-const STATS_PROXY = 'https://wc26-stats.<you>.workers.dev';
+The React app reads the proxy URL from `src/config.js`, settable two ways:
+
+**A) Build-time (for the deployed site)** — set the env var, then deploy:
+```bash
+VITE_STATS_PROXY='https://wc26-stats.<you>.workers.dev' npm run build && npm run deploy
 ```
-Commit + deploy. Open a match → the **Shots** and **Fouls** tabs show a
-**🔥 LIVE IN-FORM** strip with the current top players by recent shots-on-target
-and fouls committed, and the top in-form shooter is suggested for the parlay.
+Or add it as a repository **Variable** named `VITE_STATS_PROXY` so the GitHub
+Action picks it up on every scheduled build (`.github/workflows/refresh-deploy.yml`).
+
+**B) Runtime (to test instantly, no rebuild)** — in the browser console:
+```js
+localStorage.setItem('wc_stats_proxy','https://wc26-stats.<you>.workers.dev'); location.reload();
+```
+
+Open a match → **Fouls** tab. With the proxy set, it shows a **🔥 LIVE in-form
+starters** strip — the top committer and top fouls-drawer per side by this
+season's fouls/appearance (from API-Football). With the proxy unset, or if a
+call fails, it falls back to the curated props automatically.
 
 ## How the logic works (all fixtures)
 - `teams?search=<country>` → team id (cached in `localStorage`).

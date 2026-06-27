@@ -45,6 +45,10 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Optional: set repo Variable VITE_STATS_PROXY to your Worker URL to
+          # activate live API-Football foul props. Empty → curated props.
+          VITE_STATS_PROXY: ${{ vars.VITE_STATS_PROXY }}
 
       - name: Publish to gh-pages
         uses: peaceiris/actions-gh-pages@v4

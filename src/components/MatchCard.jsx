@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fmtOdds } from '../lib/odds.js';
 import { buildParlay } from '../lib/parlay.js';
 import { markets, amToDec, devig, ev, kelly } from '../lib/model.js';
 import { OG_STATS } from '../data.js';
 import { cc, cfill, cpill, ecls } from '../lib/ui.js';
+import { liveEnabled, liveFoulProps } from '../lib/apiFootball.js';
 import { Copyable, ConfBar } from './Bits.jsx';
 
 const TABS = [
@@ -159,31 +160,91 @@ function BaselineBlock({ m }) {
   );
 }
 
-/* ── Fouls ── */
+/* ── Fouls ── live (API-Football) when the proxy is set, else curated ── */
+function useLiveFouls(m) {
+  const [s, setS] = useState({ state: liveEnabled() ? 'loading' : 'off', props: null });
+  useEffect(() => {
+    if (!liveEnabled()) { setS({ state: 'off', props: null }); return; }
+    let alive = true;
+    setS({ state: 'loading', props: null });
+    liveFoulProps(m)
+      .then(p => { if (alive) setS({ state: p && p.length ? 'ok' : 'empty', props: p }); })
+      .catch(() => { if (alive) setS({ state: 'empty', props: null }); });
+    return () => { alive = false; };
+  }, [m.id]);
+  return s;
+}
+
 function FoulsTab({ m, fmt }) {
-  if (!m.fouls || !m.fouls.length) return <Empty>No featured foul props</Empty>;
-  return m.fouls.map((f, i) => {
-    const drawn = /drawn|won|fouled/i.test((f.bets && f.bets[0] && f.bets[0].l) || '');
-    const dotLbl = drawn ? 'Last 10 — drew 1+ foul (was fouled)' : 'Last 10 — committed 1+ foul';
-    const cbLbl = drawn ? 'Fouls drawn confidence' : 'Fouls committed confidence';
+  const live = useLiveFouls(m);
+  const hasCurated = m.fouls && m.fouls.length;
+
+  if (live.state === 'ok') {
     return (
-      <div key={i} className={'fpl' + (f.hot ? ' hot' : '')}>
-        <div className="fp-top">
-          <div>
-            <div className="fp-nm">{f.nm} <span className={'mkt-tag ' + (drawn ? 'mkt-drawn' : 'mkt-commit')}>{drawn ? 'DRAWS FOULS' : 'COMMITS FOULS'}</span></div>
-            <div className="fp-cl">{f.cl}</div>
-          </div>
-          <span className={'htag ' + f.ht}>{f.htl}</span>
-        </div>
-        <Stats sts={f.sts} />
-        <div style={{ fontSize: 9, color: 'var(--mu)', marginBottom: 3 }}>{dotLbl}</div>
-        <Dots dots={f.dots} yes="dy" no="dn-d" mark />
-        <ConfBar label={cbLbl} p={f.conf} />
-        {f.bets.map((b, j) => <BetRow key={j} l={b.l} o={b.o} fmt={fmt} />)}
-        {f.note && <div className="fp-note">{f.note}</div>}
+      <div>
+        <div className="live-head">🔥 LIVE in-form starters <span>· API-Football · fouls/appearance this season</span></div>
+        {live.props.map((p, i) => <LiveFoul key={i} p={p} fmt={fmt} />)}
       </div>
     );
-  });
+  }
+  if (live.state === 'loading') {
+    return (
+      <div>
+        <div className="live-head loading">⏳ Loading live in-form starters…</div>
+        {hasCurated ? m.fouls.map((f, i) => <CuratedFoul key={i} f={f} fmt={fmt} />) : null}
+      </div>
+    );
+  }
+  // off / empty → curated
+  if (!hasCurated) return <Empty>No featured foul props</Empty>;
+  return m.fouls.map((f, i) => <CuratedFoul key={i} f={f} fmt={fmt} />);
+}
+
+function CuratedFoul({ f, fmt }) {
+  const drawn = /drawn|won|fouled/i.test((f.bets && f.bets[0] && f.bets[0].l) || '');
+  const dotLbl = drawn ? 'Last 10 — drew 1+ foul (was fouled)' : 'Last 10 — committed 1+ foul';
+  const cbLbl = drawn ? 'Fouls drawn confidence' : 'Fouls committed confidence';
+  return (
+    <div className={'fpl' + (f.hot ? ' hot' : '')}>
+      <div className="fp-top">
+        <div>
+          <div className="fp-nm">{f.nm} <span className={'mkt-tag ' + (drawn ? 'mkt-drawn' : 'mkt-commit')}>{drawn ? 'DRAWS FOULS' : 'COMMITS FOULS'}</span></div>
+          <div className="fp-cl">{f.cl}</div>
+        </div>
+        <span className={'htag ' + f.ht}>{f.htl}</span>
+      </div>
+      <Stats sts={f.sts} />
+      <div style={{ fontSize: 9, color: 'var(--mu)', marginBottom: 3 }}>{dotLbl}</div>
+      <Dots dots={f.dots} yes="dy" no="dn-d" mark />
+      <ConfBar label={cbLbl} p={f.conf} />
+      {f.bets.map((b, j) => <BetRow key={j} l={b.l} o={b.o} fmt={fmt} />)}
+      {f.note && <div className="fp-note">{f.note}</div>}
+    </div>
+  );
+}
+
+// Fair American odds from a probability (for the live bet line).
+function fairAm(p) {
+  const dec = 1 / Math.min(0.92, Math.max(0.05, p) * 1.05);
+  return dec >= 2 ? '+' + Math.round((dec - 1) * 100) + ' est.' : '-' + Math.round(100 / (dec - 1)) + ' est.';
+}
+function LiveFoul({ p, fmt }) {
+  const drawn = p.kind === 'drawn';
+  const bet = `${p.name} 1+ foul${drawn ? 's drawn' : ''}`;
+  return (
+    <div className="fpl hot">
+      <div className="fp-top">
+        <div>
+          <div className="fp-nm">{p.name} <span className={'mkt-tag ' + (drawn ? 'mkt-drawn' : 'mkt-commit')}>{drawn ? 'DRAWS FOULS' : 'COMMITS FOULS'}</span></div>
+          <div className="fp-cl">{p.team}{p.pos ? ' · ' + p.pos : ''} · regular starter</div>
+        </div>
+        <span className="htag h90">in-form</span>
+      </div>
+      <Stats sts={[[drawn ? 'Fouls drawn' : 'Fouls', String(p.total)], ['Per game', p.perGame.toFixed(1)], ['Starts', p.starts + '/' + p.ap]]} />
+      <ConfBar label={(drawn ? 'Fouls drawn' : 'Fouls committed') + ' confidence'} p={p.conf} />
+      <BetRow l={bet} o={[fairAm(p.conf / 100)]} fmt={fmt} />
+    </div>
+  );
 }
 
 /* ── Shots ── */
