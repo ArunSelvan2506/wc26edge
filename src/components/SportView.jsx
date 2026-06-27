@@ -28,24 +28,24 @@ export default function SportView({ sportId, fmt }) {
   return (
     <div>
       <div className="section-h">{cfg.label} · model picks & bets</div>
-      <div className="live-badge"><span className="live-dot" /> AI-curated form · model-fair odds · stakes in units</div>
+      <div className="live-badge"><span className="live-dot" /> AI-curated form · model-fair odds · example returns in £</div>
 
       {hits.length > 0 && (
         <div className="rec-box">
-          <div className="rec-h">💸 Recommended hits · stakes (units)</div>
+          <div className="rec-h">💸 Recommended hits</div>
           {hits.map((h, i) => (
-            <Copyable key={i} className="rec-row" icon={false} copy={`${h.p} @ ${fmtOdds(h.am, fmt)} · stake ${h.stake}u`}>
+            <Copyable key={i} className="rec-row" icon={false} copy={`${h.p} @ ${fmtOdds(h.am, fmt)} · put £${h.stake} returns £${h.ret}`}>
               <div className="rec-l">
                 <div className="rec-pick">{h.p}</div>
                 <div className="rec-tag">{h.tag} · {fmtOdds(h.am, fmt)}</div>
               </div>
               <div className="rec-r">
                 <span className={'eb-cf ' + ecls(pc(h.prob))}>{pc(h.prob)}%</span>
-                <span className="rec-stake">{h.stake}u</span>
+                <span className="rec-stake">£{h.stake} → £{h.ret}</span>
               </div>
             </Copyable>
           ))}
-          <div className="rec-note">Suggested stakes on a 10-unit bankroll — entertainment only, bet responsibly.</div>
+          <div className="rec-note">Example returns include stake — entertainment only, bet responsibly.</div>
         </div>
       )}
 
@@ -208,7 +208,7 @@ function ParlayCard({ title, sub, slip, fmt, tone }) {
     </div>
   );
   const hit = Math.round(slip.prob * 100);
-  const ret = `${slip.dec.toFixed(2)}x · 10u→${(slip.dec * 10).toFixed(1)}u`;
+  const ret = `put £10 returns £${(slip.dec * 10).toFixed(2)}`;
   const copy = `${title}\n` + slip.legs.map((l, i) => `${i + 1}. ${l.p} @ ${fmtOdds(l.am, fmt)}`).join('\n') + `\nHit ~${hit}% · ${ret}`;
   return (
     <div className={'parlay ' + tone}>

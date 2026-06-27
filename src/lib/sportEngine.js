@@ -37,21 +37,25 @@ export function buildParlays(legs) {
   };
 }
 
-// Recommended stake in units, tiered by model confidence (10-unit bankroll).
-export function stakeUnits(prob) {
-  if (prob >= 0.72) return 5;
-  if (prob >= 0.62) return 3;
-  if (prob >= 0.52) return 2;
-  return 1;
+// Recommended £ stake, tiered by model confidence (£100 bankroll).
+export function stakeGBP(prob) {
+  if (prob >= 0.72) return 50;
+  if (prob >= 0.62) return 30;
+  if (prob >= 0.52) return 20;
+  return 10;
 }
 
-// Top single "hits" to recommend, ranked by confidence, with a unit stake each.
+// Top single "hits" to recommend, ranked by confidence, with a £ stake and the
+// example return (stake × decimal odds, total payout incl. stake).
 export function recommendedHits(legs, n = 4) {
   return [...legs]
     .filter(l => l.prob >= 0.58 && l.dec >= 1.2)
     .sort((a, b) => b.prob - a.prob)
     .slice(0, n)
-    .map(l => ({ ...l, stake: stakeUnits(l.prob) }));
+    .map(l => {
+      const stake = stakeGBP(l.prob);
+      return { ...l, stake, ret: Math.round(stake * l.dec) };
+    });
 }
 
 /* ── Head-to-head (Tennis / Basketball) ── */
