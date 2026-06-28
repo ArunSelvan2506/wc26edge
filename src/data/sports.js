@@ -2,37 +2,45 @@
 // model; form / props / injuries are hand-seeded ("AI-curated"). Props list
 // robust last-10 hit counts. All odds shown are model-fair.
 
+// Grass season (Wimbledon). surf = Elo deltas by surface; aces = avg/match.
 export const TENNIS = {
-  id: 'tennis', kind: 'h2h', label: 'ATP/WTA', spread: 190,
+  id: 'tennis', kind: 'h2h', label: 'ATP/WTA', spread: 190, surface: 'grass',
   roster: {
-    'Jannik Sinner': { r: 2060, form: ['W', 'W', 'W', 'L', 'W'], inj: null, props: [
-      { m: 'aces', line: 'Over 8.5', last10: 8, am: '-120' },
-      { m: 'total games', line: 'Over 22.5', last10: 7, am: '-105' },
-      { m: 'to drop a set', line: '', last10: 3, am: '+450' },
-    ] },
-    'Carlos Alcaraz': { r: 2035, form: ['W', 'L', 'W', 'W', 'W'], inj: null, props: [
-      { m: 'aces', line: 'Over 6.5', last10: 8, am: '-130' },
-      { m: 'to win a set', line: '', last10: 10, am: '-650' },
-      { m: 'to win 6-0 a set', line: '', last10: 2, am: '+550' },
-    ] },
-    'Alexander Zverev': { r: 1955, form: ['W', 'W', 'L', 'W', 'L'], inj: 'minor ankle (probable)', props: [
-      { m: 'aces', line: 'Over 9.5', last10: 7, am: '-115' },
-    ] },
-    'Daniil Medvedev': { r: 1930, form: ['L', 'W', 'L', 'W', 'W'], inj: null, props: [
-      { m: 'total games', line: 'Over 21.5', last10: 7, am: '-110' },
-    ] },
-    'Iga Świątek': { r: 2010, form: ['W', 'W', 'W', 'W', 'L'], inj: null, props: [
-      { m: 'to win a set', line: '', last10: 9, am: '-500' },
-    ] },
-    'Aryna Sabalenka': { r: 1980, form: ['W', 'L', 'W', 'W', 'W'], inj: null, props: [
-      { m: 'aces', line: 'Over 4.5', last10: 8, am: '-125' },
-    ] },
+    'Jannik Sinner':     { r: 2060, aces: 8,  form: ['W', 'W', 'W', 'L', 'W'], inj: null, surf: { grass: 20, hard: 25, clay: 10 } },
+    'Carlos Alcaraz':    { r: 2035, aces: 6,  form: ['W', 'L', 'W', 'W', 'W'], inj: null, surf: { grass: 30, hard: 15, clay: 25 } },
+    'Novak Djokovic':    { r: 1990, aces: 7,  form: ['W', 'W', 'L', 'W', 'W'], inj: 'wrist (managed)', surf: { grass: 45, hard: 25, clay: 10 } },
+    'Alexander Zverev':  { r: 1955, aces: 10, form: ['W', 'W', 'L', 'W', 'L'], inj: 'minor ankle (probable)', surf: { grass: 10, hard: 15, clay: 20 } },
+    'Daniil Medvedev':   { r: 1930, aces: 6,  form: ['L', 'W', 'L', 'W', 'W'], inj: null, surf: { grass: -10, hard: 30, clay: -15 } },
+    'Taylor Fritz':      { r: 1885, aces: 12, form: ['W', 'W', 'W', 'L', 'W'], inj: null, surf: { grass: 35, hard: 20, clay: -10 } },
+    'Jack Draper':       { r: 1845, aces: 11, form: ['W', 'L', 'W', 'W', 'L'], inj: null, surf: { grass: 40, hard: 5, clay: -5 } },
+    'Holger Rune':       { r: 1840, aces: 7,  form: ['L', 'W', 'L', 'W', 'L'], inj: 'shoulder (doubt)', surf: { grass: 0, hard: 10, clay: 15 } },
+    'Iga Świątek':       { r: 2010, aces: 2,  form: ['W', 'W', 'W', 'W', 'L'], inj: null, surf: { grass: -50, hard: 10, clay: 60 } },
+    'Aryna Sabalenka':   { r: 1985, aces: 5,  form: ['W', 'L', 'W', 'W', 'W'], inj: null, surf: { grass: 10, hard: 30, clay: 0 } },
+    'Elena Rybakina':    { r: 1960, aces: 8,  form: ['W', 'W', 'W', 'L', 'W'], inj: null, surf: { grass: 55, hard: 20, clay: -10 } },
+    'Coco Gauff':        { r: 1950, aces: 4,  form: ['L', 'W', 'W', 'W', 'L'], inj: null, surf: { grass: 5, hard: 20, clay: 25 } },
+    'Jessica Pegula':    { r: 1900, aces: 3,  form: ['W', 'L', 'W', 'L', 'W'], inj: 'calf (questionable)', surf: { grass: 10, hard: 15, clay: -5 } },
+    'Jasmine Paolini':   { r: 1880, aces: 3,  form: ['W', 'W', 'L', 'W', 'W'], inj: null, surf: { grass: 0, hard: 5, clay: 25 } },
   },
   events: [
-    { utc: '2026-06-28T13:00:00Z', date: 'Sun 28 Jun', series: 'Wimbledon · Round of 16', matches: [
-      { a: 'Jannik Sinner', b: 'Daniil Medvedev', label: 'ATP' },
-      { a: 'Carlos Alcaraz', b: 'Alexander Zverev', label: 'ATP' },
+    { utc: '2026-06-28T11:00:00Z', date: 'Sun 28 Jun', series: 'Wimbledon · Round of 16', matches: [
+      { a: 'Jannik Sinner', b: 'Daniil Medvedev', label: 'ATP', bestOf: 5 },
+      { a: 'Taylor Fritz', b: 'Holger Rune', label: 'ATP', bestOf: 5 },
+      { a: 'Iga Świątek', b: 'Jasmine Paolini', label: 'WTA' },
+    ] },
+    { utc: '2026-06-29T12:30:00Z', date: 'Mon 29 Jun', series: 'Wimbledon · Round of 16', matches: [
+      { a: 'Carlos Alcaraz', b: 'Alexander Zverev', label: 'ATP', bestOf: 5 },
+      { a: 'Novak Djokovic', b: 'Jack Draper', label: 'ATP', bestOf: 5 },
+      { a: 'Aryna Sabalenka', b: 'Jessica Pegula', label: 'WTA' },
+      { a: 'Elena Rybakina', b: 'Coco Gauff', label: 'WTA' },
+    ] },
+    { utc: '2026-07-01T12:30:00Z', date: 'Wed 1 Jul', series: 'Wimbledon · Quarter-finals', matches: [
+      { a: 'Jannik Sinner', b: 'Taylor Fritz', label: 'ATP', bestOf: 5 },
+      { a: 'Carlos Alcaraz', b: 'Novak Djokovic', label: 'ATP', bestOf: 5 },
       { a: 'Iga Świątek', b: 'Aryna Sabalenka', label: 'WTA' },
+    ] },
+    { utc: '2026-07-03T12:30:00Z', date: 'Fri 3 Jul', series: 'Wimbledon · Semi-finals', matches: [
+      { a: 'Jannik Sinner', b: 'Carlos Alcaraz', label: 'ATP', bestOf: 5 },
+      { a: 'Elena Rybakina', b: 'Iga Świątek', label: 'WTA' },
     ] },
   ],
 };

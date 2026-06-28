@@ -8,6 +8,7 @@ import { OddsToggle, Toast } from './components/Bits.jsx';
 import Fixtures from './components/Fixtures.jsx';
 import Cricket from './components/Cricket.jsx';
 import SportView from './components/SportView.jsx';
+import Tennis from './components/Tennis.jsx';
 
 // Distinct fixture days for a sport, in the chosen timezone, for the date pill.
 function daysForSport(sport, tz) {
@@ -115,8 +116,10 @@ export default function App() {
               ? <SportPicker onPick={pick} />
               : sport === 'cricket'
                 ? <Cricket fmt={fmt} tz={tz} dateSel={dateSel} />
-                : (sport === 'tennis' || sport === 'basketball' || sport === 'f1')
-                  ? <SportView sportId={sport} fmt={fmt} tz={tz} dateSel={dateSel} />
+                : sport === 'tennis'
+                  ? <Tennis fmt={fmt} tz={tz} dateSel={dateSel} />
+                  : (sport === 'basketball' || sport === 'f1')
+                    ? <SportView sportId={sport} fmt={fmt} tz={tz} dateSel={dateSel} />
                   : <>
                       {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} tz={tz} />}
                       {view === 'about' && <About />}
