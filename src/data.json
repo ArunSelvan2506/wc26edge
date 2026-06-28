@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T17:04:47.942Z",
+ "updated": "2026-06-28T17:28:57.313Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,17 +5853,6 @@
       "venue": "Bangladesh tour of Zimbabwe, 2026",
       "ist": "1:30pm",
       "utc": 1782633600000
-     },
-     {
-      "id": "0487d1d6-45d8-4838-b91d-026f8fd0bf44",
-      "teams": "India vs Ireland",
-      "t1": "India",
-      "t2": "Ireland",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of Ireland, 2026",
-      "ist": "7:30pm",
-      "utc": 1782655200000
      }
     ]
    },
@@ -6470,7 +6459,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T17:04:46.182Z",
+  "updated": "2026-06-28T17:28:55.802Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6803,7 +6792,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T17:04:47.942Z"
+  "updated": "2026-06-28T17:28:57.313Z"
  },
  "SQUADS": {
   "mexico": [
