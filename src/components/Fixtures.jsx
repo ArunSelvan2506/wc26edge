@@ -2,7 +2,8 @@ import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DAYS, UPDATED } from '../data.js';
 import { norm, markets } from '../lib/model.js';
-import { probToAm, dec } from '../lib/sportEngine.js';
+import { probToAm, dec, buildParlays } from '../lib/sportEngine.js';
+import { footballEngine } from '../lib/football.js';
 import { fmtOdds } from '../lib/odds.js';
 import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { upcomingFixtures } from '../lib/completion.js';
@@ -177,7 +178,7 @@ function KnockoutCard({ mt, rat, fmt, tz, index = 0 }) {
               initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.26, ease: 'easeOut' }}
               style={{ overflow: 'hidden' }}>
-              <KnockoutEngine a={a} c={c} mk={mk} fmt={fmt} />
+              <KnockoutEngine rat={rat} a={a} c={c} fmt={fmt} />
               {lu && <Section title="Lineups"><Lineups lu={lu} teamA={a} teamB={c} /></Section>}
             </motion.div>
           )}
@@ -191,25 +192,30 @@ function Section({ title, children }) {
   return <div className="ck-sec"><div className="ck-sec-t">{title}</div>{children}</div>;
 }
 
-// Same Poisson/Dixon-Coles engine as the group-stage cards: 1X2 + goals
-// markets, model easy bets and a value parlay (fair odds — no book market here).
-function KnockoutEngine({ a, c, mk, fmt }) {
+// Full model/AI engine for every knockout tie: 1X2 + goals + foul/card/corner/
+// shot props (from team strength & form), model easy bets, and safe + value
+// parlays. Fair odds — no book market here.
+function KnockoutEngine({ rat, a, c, fmt }) {
   const pc = x => Math.round(x * 100);
+  const eng = footballEngine(rat, a, c);      // { mk, props, fav, dog, legs }
+  const mk = eng.mk;
+  const props = eng.props;
+  const fav = eng.fav.n, favP = eng.fav.p;
   const over = mk.over25 >= 0.5, btts = mk.btts >= 0.5;
-  const favP = Math.max(mk.home, mk.away), fav = mk.home >= mk.away ? a : c;
-  const oP = over ? mk.over25 : 1 - mk.over25, bP = btts ? mk.btts : 1 - mk.btts;
   const easy = [
     { c: 'Match winner', p: `${fav} to win`, cf: pc(favP), o: probToAm(favP) },
-    { c: 'Goals', p: `${over ? 'Over' : 'Under'} 2.5 goals`, cf: pc(oP), o: probToAm(oP) },
-    { c: 'BTTS', p: `Both teams to score · ${btts ? 'Yes' : 'No'}`, cf: pc(bP), o: probToAm(bP) },
+    { c: 'Goals', p: `${over ? 'Over' : 'Under'} 2.5 goals`, cf: pc(Math.max(mk.over25, 1 - mk.over25)), o: probToAm(Math.max(mk.over25, 1 - mk.over25)) },
+    { c: 'Cards', p: `${props.cards.side} ${props.cards.line} cards`, cf: pc(props.cards.prob), o: props.cards.am },
+    { c: 'Shots', p: `${props.sot.side} ${props.sot.line} shots on target`, cf: pc(props.sot.prob), o: props.sot.am },
   ];
-  const goalLeg = oP >= bP
-    ? { p: `${over ? 'Over' : 'Under'} 2.5 goals`, prob: oP, o: probToAm(oP) }
-    : { p: `BTTS ${btts ? 'Yes' : 'No'}`, prob: bP, o: probToAm(bP) };
-  const legs = [{ p: `${fav} to win`, prob: favP, o: probToAm(favP) }, goalLeg];
-  const pProb = legs.reduce((s, l) => s * l.prob, 1);
-  const pDec = legs.reduce((s, l) => s * (dec(l.o) || 1), 1);
-  const hit = pc(pProb), ret = `put £10 returns £${(pDec * 10).toFixed(2)}`;
+  const { safe, value } = buildParlays(eng.legs);
+
+  const propRow = (o, i) => (
+    <Copyable key={i} className="prop-row" icon={false} copy={`${o.side} ${o.line} ${o.label} @ ${fmtOdds(o.am, fmt)}`}>
+      <span className="prop-pick">{o.side} {o.line} {o.label} <span className="copy-ico">⧉</span></span>
+      <span className="prop-meta"><span className="prop-hits">{pc(o.prob)}%</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
+    </Copyable>
+  );
 
   return (
     <div className="ck-eng">
@@ -223,6 +229,16 @@ function KnockoutEngine({ a, c, mk, fmt }) {
         <ConfBar label="Both teams score" p={pc(mk.btts)} fill="f-pu" delay={0.06} />
         <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals: <b style={{ color: 'var(--tx)' }}>{a} {mk.lh.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{mk.la.toFixed(2)} {c}</b></div>
       </Section>
+      <Section title="🟨 Fouls & cards (model)">
+        {propRow(props.fouls, 0)}
+        {propRow(props.cards, 1)}
+        {propRow(props.corners, 2)}
+      </Section>
+      <Section title="🎯 Shots (model)">
+        {propRow(props.sot, 0)}
+        {propRow(props.sotA, 1)}
+        {propRow(props.sotC, 2)}
+      </Section>
       <Section title="🎯 Easy bets">
         {easy.map((e, i) => (
           <Copyable key={i} className={'ebet' + (e.cf >= 60 ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)}`}>
@@ -231,20 +247,35 @@ function KnockoutEngine({ a, c, mk, fmt }) {
           </Copyable>
         ))}
       </Section>
-      <Section title="⚡ Value parlay">
-        <div className="parlay">
-          <div className="pl-hd"><span>⚡ Winner + goals</span></div>
-          {legs.map((l, i) => (
-            <Copyable key={i} className="pl-leg" icon={false} copy={`${l.p} @ ${fmtOdds(l.o, fmt)}`}>
-              <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.p}</span><span className="pl-od">{fmtOdds(l.o, fmt)}</span>
-            </Copyable>
-          ))}
-          <div className="pl-ret">Est. hit <span style={{ color: 'var(--ac)' }}>~{hit}%</span> · {ret}</div>
+      <Section title="Parlays">
+        <div className="parlay-grid">
+          <KParlay title="🟢 Safe parlay" sub="legs under 1.75 odds" slip={safe} fmt={fmt} tone="safe" />
+          <KParlay title="⚡ Value parlay" sub="legs over 4.0 odds" slip={value} fmt={fmt} tone="value" />
         </div>
       </Section>
       <div className="ref-box" style={{ marginTop: 2 }}>
-        Opponent-adjusted Poisson / Dixon-Coles model (same engine as the group stage) — fair odds, no bookmaker margin. Draw is the 90-minute result. Estimates for entertainment, not guarantees.
+        Opponent-adjusted Poisson / Dixon-Coles model (team strength &amp; form). Foul / card / corner / shot props are model estimates off projected goals + WC baselines. Fair odds, no bookmaker margin. Draw is the 90-minute result. Estimates for entertainment, not guarantees.
       </div>
+    </div>
+  );
+}
+
+function KParlay({ title, sub, slip, fmt, tone }) {
+  if (!slip) return (
+    <div className={'parlay ' + tone}><div className="pl-hd"><span>{title}</span></div><div className="pl-sub">{sub}</div><div className="pl-empty">No qualifying legs.</div></div>
+  );
+  const hit = Math.round(slip.prob * 100);
+  const ret = `put £10 returns £${(slip.dec * 10).toFixed(2)}`;
+  return (
+    <div className={'parlay ' + tone}>
+      <div className="pl-hd"><span>{title}</span></div>
+      <div className="pl-sub">{sub}</div>
+      {slip.legs.map((l, i) => (
+        <Copyable key={i} className="pl-leg" icon={false} copy={`${l.p} @ ${fmtOdds(l.am, fmt)}`}>
+          <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.p}</span><span className="pl-od">{fmtOdds(l.am, fmt)}</span>
+        </Copyable>
+      ))}
+      <div className="pl-ret">Est. hit <span style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</span> · {ret}</div>
     </div>
   );
 }
