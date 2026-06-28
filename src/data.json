@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T13:25:58.169Z",
+ "updated": "2026-06-28T13:29:22.508Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6481,7 +6481,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T13:25:57.283Z",
+  "updated": "2026-06-28T13:29:21.483Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6792,7 +6792,440 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T13:25:58.169Z"
+  "updated": "2026-06-28T13:29:22.508Z"
  },
- "SQUADS": {}
+ "SQUADS": {
+  "mexico": [
+   {
+    "name": "Álvaro Fidalgo",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Brian Gutiérrez",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "César Montes",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Edson Álvarez",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Érik Lira",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Gilberto Mora",
+    "pos": "Attacking Midfield"
+   }
+  ],
+  "south africa": [
+   {
+    "name": "Aubrey Modiba",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Bradley Cross",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Ime Okon",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Jayden Adams",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Kamogelo Sebelebele",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Khuliso Mudau",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Khulumani Ndamane",
+    "pos": "Centre-Back"
+   }
+  ],
+  "south korea": [
+   {
+    "name": "Dong-gyeong Lee",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Gi-hyuk Lee",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Han-beom Lee",
+    "pos": "Centre-Back"
+   }
+  ],
+  "czech republic": [
+   {
+    "name": "Alexandr Sojka",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "David Douděra",
+    "pos": "Right Midfield"
+   },
+   {
+    "name": "David Jurásek",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "David Zima",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Denis Višinský",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Hugo Sochůrek",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Jaroslav Zelený",
+    "pos": "Left-Back"
+   }
+  ],
+  "switzerland": [
+   {
+    "name": "Ardon Jashari",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Aurèle Amenda",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Christian Fassnacht",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Denis Zakaria",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Djibril Sow",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Eray Cömert",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Fabian Rieder",
+    "pos": "Attacking Midfield"
+   }
+  ],
+  "canada": [
+   {
+    "name": "Alfie Jones",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Ali Ahmed",
+    "pos": "Left Midfield"
+   },
+   {
+    "name": "Alistair Johnston",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Alphonso Davies",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Derek Cornelius",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Ismaël Koné",
+    "pos": "Central Midfield"
+   }
+  ],
+  "bosnia herzegovina": [
+   {
+    "name": "Amar Dedić",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Amar Memić",
+    "pos": "Right Midfield"
+   },
+   {
+    "name": "Amir Hadžiahmetović",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Armin Gigović",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Benjamin Tahirović",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Dennis Hadžikadunić",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Dženis Burnić",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Ermin Mahmić",
+    "pos": "Attacking Midfield"
+   }
+  ],
+  "qatar": [
+   {
+    "name": "Abdulaziz Hatem",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Ahmed Fathy",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Al-Hashmi Al-Hussain",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Assim Madibo",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Ayoub Al-Oui",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Boualem Khoukhi",
+    "pos": "Centre-Back"
+   }
+  ],
+  "brazil": [
+   {
+    "name": "Alex Sandro",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Bremer",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Bruno Guimarães",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Casemiro",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Danilo",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Danilo Santos",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Douglas Santos",
+    "pos": "Left-Back"
+   }
+  ],
+  "morocco": [
+   {
+    "name": "Achraf Hakimi",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Anass Salah-Eddine",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Ayyoub Bouaddi",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Azzedine Ounahi",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Bilal El Khannouss",
+    "pos": "Midfielder"
+   }
+  ],
+  "scotland": [
+   {
+    "name": "Aaron Hickey",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Andrew Robertson",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Anthony Ralston",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Dominic Hyam",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Findlay Curtis",
+    "pos": "Midfielder"
+   }
+  ],
+  "haiti": [
+   {
+    "name": "Carl Sainté",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Carlens Arcus",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Danley Jean Jacques",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Dominique Simon",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Duke Lacroix",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Hannes Delcroix",
+    "pos": "Centre-Back"
+   }
+  ],
+  "usa": [
+   {
+    "name": "Alex Freeman",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Antonee Robinson",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Auston Trusty",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Brenden Aaronson",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Chris Richards",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Cristian Roldan",
+    "pos": "Central Midfield"
+   }
+  ],
+  "australia": [
+   {
+    "name": "Aiden O'Neill",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Ajdin Hrustic",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Alessandro Circati",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Aziz Behich",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Cameron Burgess",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Cammy Devlin",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Connor Metcalfe",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Cristian Volpato",
+    "pos": "Attacking Midfield"
+   }
+  ],
+  "paraguay": [
+   {
+    "name": "Alexandro Maidana",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Andrés Cubas",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Braian Ojeda",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Damián Bobadilla",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Diego Gómez",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Fabián Balbuena",
+    "pos": "Centre-Back"
+   }
+  ],
+  "turkey": [
+   {
+    "name": "Abdülkerim Bardakcı",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Arda Güler",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Çağlar Söyüncü",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Can Uzun",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Eren Elmalı",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Ferdi Kadıoğlu",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Hakan Çalhanoğlu",
+    "pos": "Defensive Midfield"
+   }
+  ]
+ }
 }
