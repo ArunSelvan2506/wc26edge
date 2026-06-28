@@ -178,7 +178,7 @@ function KnockoutCard({ mt, rat, fmt, tz, index = 0 }) {
               initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.26, ease: 'easeOut' }}
               style={{ overflow: 'hidden' }}>
-              <KnockoutEngine rat={rat} a={a} c={c} fmt={fmt} />
+              <KnockoutEngine rat={rat} a={a} c={c} fmt={fmt} lineup={lu} />
               {lu && <Section title="Lineups"><Lineups lu={lu} teamA={a} teamB={c} /></Section>}
             </motion.div>
           )}
@@ -195,11 +195,12 @@ function Section({ title, children }) {
 // Full model/AI engine for every knockout tie: 1X2 + goals + foul/card/corner/
 // shot props (from team strength & form), model easy bets, and safe + value
 // parlays. Fair odds — no book market here.
-function KnockoutEngine({ rat, a, c, fmt }) {
+function KnockoutEngine({ rat, a, c, fmt, lineup }) {
   const pc = x => Math.round(x * 100);
-  const eng = footballEngine(rat, a, c);      // { mk, props, fav, dog, legs }
+  const eng = footballEngine(rat, a, c, lineup);   // { mk, props, playerFouls, fav, dog, legs }
   const mk = eng.mk;
   const props = eng.props;
+  const pf = eng.playerFouls;
   const fav = eng.fav.n, favP = eng.fav.p;
   const over = mk.over25 >= 0.5;
   const easy = [
@@ -213,6 +214,12 @@ function KnockoutEngine({ rat, a, c, fmt }) {
   const propRow = (o, i) => (
     <Copyable key={i} className="prop-row" icon={false} copy={`${o.side} ${o.line} ${o.label} @ ${fmtOdds(o.am, fmt)}`}>
       <span className="prop-pick">{o.side} {o.line} {o.label} <span className="copy-ico">⧉</span></span>
+      <span className="prop-meta"><span className="prop-hits">{pc(o.prob)}%</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
+    </Copyable>
+  );
+  const pfRow = (o, i) => (
+    <Copyable key={i} className="prop-row" icon={false} copy={`${o.who} ${o.side} ${o.line} ${o.label} @ ${fmtOdds(o.am, fmt)}`}>
+      <span className="prop-pick">{o.who} · {o.side} {o.line} fouls <span className="copy-ico">⧉</span></span>
       <span className="prop-meta"><span className="prop-hits">{pc(o.prob)}%</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
     </Copyable>
   );
@@ -244,6 +251,17 @@ function KnockoutEngine({ rat, a, c, fmt }) {
     {
       id: 'shots', label: '🎯 Shots', body: (
         <>{propRow(props.sot, 0)}{propRow(props.sotA, 1)}{propRow(props.sotC, 2)}</>
+      ),
+    },
+    {
+      id: 'pfouls', label: '👤 Player fouls', body: (
+        <>
+          <div className="pf-team">{a}</div>
+          {pf.a.map((o, i) => pfRow(o, 'a' + i))}
+          <div className="pf-team" style={{ marginTop: 8 }}>{c}</div>
+          {pf.c.map((o, i) => pfRow(o, 'c' + i))}
+          {!pf.named && <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>By role — player names lock in once the confirmed XI is published.</div>}
+        </>
       ),
     },
     {
