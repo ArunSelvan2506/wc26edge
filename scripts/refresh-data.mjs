@@ -281,11 +281,13 @@ async function buildF1(now) {
   } catch (e) { console.log('F1 · standings fetch failed:', e.message); return null; }
   if (!standings.length) { console.log(`F1 · no ${season} standings yet (keeping curated)`); return null; }
 
-  // Next race from the schedule.
+  // Next race from the schedule — the first race that hasn't started yet, so a
+  // race already under way (or finished) on its day rolls over to the next round.
   let races = [];
   try { races = (await jf1(`${season}/?format=json`))?.MRData?.RaceTable?.Races || []; } catch { /* schedule optional */ }
-  const today = new Date(now).toISOString().slice(0, 10);
-  const next = races.find(x => x.date >= today) || races[races.length - 1] || null;
+  const raceStart = r => Date.parse(`${r.date}T${r.time || '13:00:00Z'}`);
+  const next = races.find(x => { const s = raceStart(x); return isFinite(s) ? s > now : x.date > new Date(now).toISOString().slice(0, 10); })
+    || races[races.length - 1] || null;
 
   // Recent finishing form: fetch the last up-to-5 COMPLETED rounds individually,
   // newest first (Jolpica caps /results limit at 100 and returns oldest-first,
@@ -316,6 +318,7 @@ async function buildF1(now) {
   const circuit = next?.Circuit?.Location?.locality || next?.Circuit?.circuitName || '';
   const event = {
     date: koMs && isFinite(koMs) ? istDateLabel(koMs) : '',
+    utc: koMs && isFinite(koMs) ? koMs : null,
     series: next ? `${next.raceName}${circuit ? ' · ' + circuit : ''}` : `${season} Championship`,
     field,
   };

@@ -127,7 +127,7 @@ function buildF1() {
       id: 'f1', kind: 'race', label: 'Formula 1', tauWin: 11, tauPod: 18,
       live: true, season: F1_LIVE.season,
       drivers,
-      events: [{ date: F1_LIVE.event.date, series: F1_LIVE.event.series, field: F1_LIVE.event.field }],
+      events: [{ date: F1_LIVE.event.date, utc: F1_LIVE.event.utc, series: F1_LIVE.event.series, field: F1_LIVE.event.field }],
     };
   }
   return F1_FALLBACK;
