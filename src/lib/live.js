@@ -2,9 +2,16 @@
 // TheSportsDB (free, best-effort). Keyed by a sorted, normalised team pair so
 // the order in a fixture string ("A vs B") doesn't matter.
 import { norm } from './model.js';
-import { LIVE } from '../data.js';
+import { LIVE, SQUADS } from '../data.js';
 
 const pairKey = (a, b) => [norm(a), norm(b)].sort().join('|');
+
+// Squad-derived foul candidates for a nation: [{name, pos}] or null. norm()
+// shares the alias map used when these are baked, so lookups line up.
+export function squadFor(team) {
+  const list = SQUADS[norm(team)];
+  return Array.isArray(list) && list.length ? list : null;
+}
 const hasXI = x => x && Array.isArray(x.players) && x.players.length > 0;
 
 // Returns { a, b, fetched } where a/b are { name, players:[{name,pos,sub}],

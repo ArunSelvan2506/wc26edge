@@ -56,29 +56,34 @@ function foulProp(who, rate) {
   return { who, label: 'fouls committed', line, side: over ? 'Over' : 'Under', prob, am: probToAm(prob), rate };
 }
 
-// Build player foul props for one side. Uses the real XI (named players, by
-// position) when a lineup is baked; otherwise role archetypes so every fixture
-// still gets picks — names lock in once the lineup is confirmed.
-function sideFoulProps(team, teamFouls, lineupSide) {
+// Pick the top-3 foul-rate players from a list of {name, pos}, scaled by the
+// side's projected fouls. Returns prop rows.
+function namedFoulProps(players, factor) {
+  return players
+    .map(p => ({ who: p.name, rate: posFoulRate(p.pos) * factor }))
+    .sort((a, b) => b.rate - a.rate)
+    .slice(0, 3)
+    .map(p => foulProp(p.who, p.rate));
+}
+
+// Build player foul props for one side, best source first:
+//   confirmed XI (lineup baked near KO) → squad roster (projected names) →
+//   role archetypes (always available). Returns { props, source }.
+function sideFoulProps(team, teamFouls, lineupSide, squadSide) {
   const factor = teamFouls / 12;                         // baseline ~12 fouls / team
   const xi = lineupSide && Array.isArray(lineupSide.players)
     ? lineupSide.players.filter(p => !p.sub) : [];
-  if (xi.length >= 6) {
-    return xi
-      .map(p => ({ who: p.name, rate: posFoulRate(p.pos) * factor }))
-      .sort((a, b) => b.rate - a.rate)
-      .slice(0, 3)
-      .map(p => foulProp(p.who, p.rate));
-  }
-  // Role archetypes (no XI yet).
-  return [
+  if (xi.length >= 6) return { props: namedFoulProps(xi, factor), source: 'confirmed' };
+  if (Array.isArray(squadSide) && squadSide.length) return { props: namedFoulProps(squadSide, factor), source: 'projected' };
+  const roles = [
     { who: `${team} defensive mid`, rate: 2.0 * factor },
     { who: `${team} full-back`, rate: 1.6 * factor },
     { who: `${team} centre-back`, rate: 1.7 * factor },
   ].map(r => foulProp(r.who, r.rate));
+  return { props: roles, source: 'role' };
 }
 
-export function footballEngine(rat, a, c, lineup) {
+export function footballEngine(rat, a, c, lineup, squads) {
   const mk = markets(rat, a, c);
   const la = mk.lh, lb = mk.la;                          // expected goals (form-adjusted)
   // Shots on target scale with expected goals; fouls/cards rise in tight ties.
@@ -100,11 +105,12 @@ export function footballEngine(rat, a, c, lineup) {
 
   // Per-team foul split — the side less likely to win presses & fouls more.
   const foulsA = clamp(foulsTot * (0.5 + (mk.away - mk.home) * 0.15), foulsTot * 0.4, foulsTot * 0.6);
-  const playerFouls = {
-    named: !!(lineup && ((lineup.a?.players?.length || 0) >= 6 || (lineup.b?.players?.length || 0) >= 6)),
-    a: sideFoulProps(a, foulsA, lineup?.a),
-    c: sideFoulProps(c, foulsTot - foulsA, lineup?.b),
-  };
+  const sideA = sideFoulProps(a, foulsA, lineup?.a, squads?.a);
+  const sideC = sideFoulProps(c, foulsTot - foulsA, lineup?.b, squads?.c);
+  // Best source across both sides for the UI note (confirmed > projected > role).
+  const rank = { confirmed: 3, projected: 2, role: 1 };
+  const mode = rank[sideA.source] >= rank[sideC.source] ? sideA.source : sideC.source;
+  const playerFouls = { mode, a: sideA.props, c: sideC.props };
 
   const fav = mk.home >= mk.away ? { n: a, p: mk.home } : { n: c, p: mk.away };
   const dog = mk.home >= mk.away ? { n: c, p: mk.away } : { n: a, p: mk.home };

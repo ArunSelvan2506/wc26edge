@@ -7,7 +7,7 @@ import { footballEngine } from '../lib/football.js';
 import { fmtOdds } from '../lib/odds.js';
 import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { upcomingFixtures } from '../lib/completion.js';
-import { lineupFor } from '../lib/live.js';
+import { lineupFor, squadFor } from '../lib/live.js';
 import { cpill, ecls } from '../lib/ui.js';
 import { Copyable, ConfBar } from './Bits.jsx';
 import { Lineups } from './Lineups.jsx';
@@ -178,7 +178,7 @@ function KnockoutCard({ mt, rat, fmt, tz, index = 0 }) {
               initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.26, ease: 'easeOut' }}
               style={{ overflow: 'hidden' }}>
-              <KnockoutEngine rat={rat} a={a} c={c} fmt={fmt} lineup={lu} />
+              <KnockoutEngine rat={rat} a={a} c={c} fmt={fmt} lineup={lu} squads={{ a: squadFor(a), c: squadFor(c) }} />
               {lu && <Section title="Lineups"><Lineups lu={lu} teamA={a} teamB={c} /></Section>}
             </motion.div>
           )}
@@ -195,9 +195,9 @@ function Section({ title, children }) {
 // Full model/AI engine for every knockout tie: 1X2 + goals + foul/card/corner/
 // shot props (from team strength & form), model easy bets, and safe + value
 // parlays. Fair odds — no book market here.
-function KnockoutEngine({ rat, a, c, fmt, lineup }) {
+function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
   const pc = x => Math.round(x * 100);
-  const eng = footballEngine(rat, a, c, lineup);   // { mk, props, playerFouls, fav, dog, legs }
+  const eng = footballEngine(rat, a, c, lineup, squads);   // { mk, props, playerFouls, fav, dog, legs }
   const mk = eng.mk;
   const props = eng.props;
   const pf = eng.playerFouls;
@@ -260,7 +260,11 @@ function KnockoutEngine({ rat, a, c, fmt, lineup }) {
           {pf.a.map((o, i) => pfRow(o, 'a' + i))}
           <div className="pf-team" style={{ marginTop: 8 }}>{c}</div>
           {pf.c.map((o, i) => pfRow(o, 'c' + i))}
-          {!pf.named && <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>By role — player names lock in once the confirmed XI is published.</div>}
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>{
+            pf.mode === 'confirmed' ? 'From the confirmed starting XI.'
+              : pf.mode === 'projected' ? 'Projected from current squads — locks to the confirmed XI ~1h before kick-off.'
+              : 'By role — player names appear once squads / the XI are published.'
+          }</div>
         </>
       ),
     },

@@ -12,6 +12,7 @@ export const MONTHS   = data.MONTHS;
 export const UPDATED  = data.updated || null;
 export const SOURCE   = data.source || 'openfootball (CC0 · free)';
 export const LIVE     = data.LIVE || {};
+export const SQUADS   = data.SQUADS || {};
 export const CRICKET  = data.CRICKET || { blocks: [], source: 'seed (curated)' };
 export const F1_LIVE  = data.F1 || null;
 export default data;

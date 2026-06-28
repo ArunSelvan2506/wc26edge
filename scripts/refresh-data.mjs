@@ -108,6 +108,35 @@ async function buildLineups(now) {
   return out;
 }
 
+// ── Squad rosters → projected foulers (TheSportsDB · free) ────────────────
+// Confirmed XIs only publish ~1h before kickoff, so for ties further out we
+// name the likely foulers from each nation's squad (defensive mids, full-backs
+// and centre-backs commit most fouls). Refreshed at most once a day and
+// persisted between runs — squads barely change, so this stays cheap.
+const FOUL_POS = /def.*mid|holding|back|defen|\bcb\b|\blb\b|\brb\b|\bwb\b|\bcdm\b|\bdm\b|midfield/i;
+async function buildSquads(now, existing) {
+  const have = existing && Object.keys(existing).length;
+  if (have && new Date(now).getUTCHours() !== 3) return existing;   // once/day at 03:00 UTC
+  let teams = [];
+  try { teams = (await tsdb(`lookup_all_teams.php?id=${TSDB_LEAGUE}`))?.teams || []; }
+  catch (e) { console.log('Squads · team list failed:', e.message); return existing || {}; }
+  if (!teams.length) { console.log('Squads · no teams returned (keeping existing)'); return existing || {}; }
+  const out = {};
+  let withRoster = 0;
+  for (const t of teams) {
+    try {
+      const players = (await tsdb(`lookup_all_players.php?id=${t.idTeam}`))?.player || [];
+      const foulers = players
+        .filter(p => p.strPlayer && FOUL_POS.test(p.strPosition || ''))
+        .map(p => ({ name: p.strPlayer, pos: p.strPosition || '' }))
+        .slice(0, 8);
+      if (foulers.length) { out[liveNorm(t.strTeam)] = foulers; withRoster++; }
+    } catch { /* skip team, keep going */ }
+  }
+  console.log(`Squads · ${teams.length} WC teams · ${withRoster} with rosters (TheSportsDB free)`);
+  return Object.keys(out).length ? out : (existing || {});
+}
+
 // ── Cricket internationals (CricketData.org · free tier, needs CRICKET_API_KEY) ──
 // Pulls upcoming matches, keeps the internationals (both sides are nations we
 // rate), and groups them by date. Returns null with no key / on failure so the
@@ -344,6 +373,11 @@ let live = {};
 try { live = await buildLineups(Date.now()); }
 catch (e) { console.warn('lineup fetch skipped:', e.message); }
 data.LIVE = live;
+
+// Squad rosters → projected foulers (best-effort, free). Persisted between runs
+// and only refreshed once/day, so a failure simply keeps yesterday's rosters.
+try { data.SQUADS = await buildSquads(Date.now(), data.SQUADS || {}); }
+catch (e) { console.warn('squad fetch skipped:', e.message); data.SQUADS = data.SQUADS || {}; }
 
 // Cricket internationals (best-effort, free) — only overwrite the curated seed
 // when TheSportsDB actually returns fixtures; otherwise leave data.CRICKET as-is.
