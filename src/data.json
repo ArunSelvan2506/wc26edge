@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T12:44:35.673Z",
+ "updated": "2026-06-28T12:55:04.591Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5844,6 +5844,7 @@
     "series": "International",
     "matches": [
      {
+      "id": "3839c08a-fa9a-43dd-8d80-b285a9660c9f",
       "teams": "Bangladesh vs Zimbabwe",
       "t1": "Bangladesh",
       "t2": "Zimbabwe",
@@ -5854,6 +5855,7 @@
       "utc": 1782633600000
      },
      {
+      "id": "b2170447-8759-4f97-be6b-410e728696dc",
       "teams": "Australia vs India",
       "t1": "Australia",
       "t2": "India",
@@ -5864,6 +5866,7 @@
       "utc": 1782653400000
      },
      {
+      "id": "0487d1d6-45d8-4838-b91d-026f8fd0bf44",
       "teams": "India vs Ireland",
       "t1": "India",
       "t2": "Ireland",
@@ -5880,6 +5883,7 @@
     "series": "International",
     "matches": [
      {
+      "id": "e3632198-a749-48d3-95b6-2f85c4e06a03",
       "teams": "England vs India",
       "t1": "England",
       "t2": "India",
@@ -5896,6 +5900,7 @@
     "series": "International",
     "matches": [
      {
+      "id": "69da421a-00ad-473e-b831-51133ae8fddf",
       "teams": "Sri Lanka vs West Indies",
       "t1": "Sri Lanka",
       "t2": "West Indies",
@@ -5912,6 +5917,7 @@
     "series": "International",
     "matches": [
      {
+      "id": "c233febb-15cc-430a-90dd-89628c13e028",
       "teams": "England vs India",
       "t1": "England",
       "t2": "India",
@@ -5924,39 +5930,558 @@
     ]
    },
    {
-    "date": "Thu 13 Aug (IST)",
+    "date": "Fri 11 Sep (IST)",
     "series": "International",
     "matches": [
      {
-      "teams": "Australia vs Bangladesh",
-      "t1": "Australia",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "Test",
-      "venue": "Marrara Cricket Ground, Darwin",
-      "ist": "6:00am",
-      "utc": 1786581000000
+      "id": "4b980dc7-ec2a-41b3-b644-d882c0ceb47f",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789124400000
      }
     ]
    },
    {
-    "date": "Sat 22 Aug (IST)",
+    "date": "Sun 13 Sep (IST)",
     "series": "International",
     "matches": [
      {
+      "id": "00484a23-ea47-4353-84a4-b51f9985b33a",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789297200000
+     }
+    ]
+   },
+   {
+    "date": "Tue 15 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "df123077-18c0-4ee1-a8ea-ba9fd29b0cce",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Harare Sports Club, Harare",
+      "ist": "1:00pm",
+      "utc": 1789457400000
+     },
+     {
+      "id": "fb576993-515d-43c6-a6c5-764ded863b13",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789470000000
+     },
+     {
+      "id": "307dc8c8-7976-45f2-af6f-9fe961ea9a1b",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "The Rose Bowl, Southampton",
+      "ist": "11:00pm",
+      "utc": 1789493400000
+     }
+    ]
+   },
+   {
+    "date": "Thu 17 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c538bd6b-6b31-4372-bbc9-dc340718f7c3",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789642800000
+     },
+     {
+      "id": "a001a695-3e19-45b7-a771-eb7a2560a943",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sophia Gardens, Cardiff",
+      "ist": "11:00pm",
+      "utc": 1789666200000
+     }
+    ]
+   },
+   {
+    "date": "Fri 18 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0adee032-79d2-4986-a8a1-3fbc8dd7c887",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Harare Sports Club, Harare",
+      "ist": "1:00pm",
+      "utc": 1789716600000
+     }
+    ]
+   },
+   {
+    "date": "Sat 19 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "caf74ad7-d9e7-47c6-8470-4efbcabdf5b9",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789815600000
+     },
+     {
+      "id": "e9d29537-087d-4422-9897-748dc8aa0346",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Emirates Old Trafford, Manchester",
+      "ist": "7:00pm",
+      "utc": 1789824600000
+     }
+    ]
+   },
+   {
+    "date": "Sun 20 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "6a7ccfb3-514a-457d-a57e-ff736c1fac4c",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Harare Sports Club, Harare",
+      "ist": "1:00pm",
+      "utc": 1789889400000
+     }
+    ]
+   },
+   {
+    "date": "Tue 22 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5511bd93-4e44-4624-9847-017427117624",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Riverside Ground, Chester-le-Street",
+      "ist": "5:00pm",
+      "utc": 1790076600000
+     }
+    ]
+   },
+   {
+    "date": "Thu 24 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "57b077d1-b2f5-4040-8cf2-b25b5fcd39aa",
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Kingsmead, Durban",
+      "ist": "1:30pm",
+      "utc": 1790236800000
+     },
+     {
+      "id": "b3b255de-2bfb-4874-9c81-8bdd4f2fb150",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Headingley, Leeds",
+      "ist": "5:00pm",
+      "utc": 1790249400000
+     }
+    ]
+   },
+   {
+    "date": "Sun 27 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "fecf1d1a-5cdf-4801-a15a-d0aceb1b1ce1",
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "The Wanderers Stadium, Johannesburg",
+      "ist": "1:30pm",
+      "utc": 1790496000000
+     },
+     {
+      "id": "90ae280c-cb10-4d58-9bcc-ec95294819e6",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Greenfield International Stadium, Thiruvananthapuram",
+      "ist": "2:00pm",
+      "utc": 1790497800000
+     },
+     {
+      "id": "bc3c0dd9-ff75-42ff-beb8-4fca1d37d754",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Kennington Oval, London",
+      "ist": "3:00pm",
+      "utc": 1790501400000
+     }
+    ]
+   },
+   {
+    "date": "Wed 30 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "56d07759-19dd-4a8c-a3d5-58bfd6a142a1",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Barsapara Cricket Stadium, Guwahati",
+      "ist": "2:00pm",
+      "utc": 1790757000000
+     },
+     {
+      "id": "b171f697-9270-4448-b8c0-7b6c6074d4b8",
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Senwes Park, Potchefstroom",
+      "ist": "5:00pm",
+      "utc": 1790767800000
+     }
+    ]
+   },
+   {
+    "date": "Sat 3 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "da91f633-acac-4449-86f8-9bff6244053f",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur, New Chandigarh",
+      "ist": "2:00pm",
+      "utc": 1791016200000
+     }
+    ]
+   },
+   {
+    "date": "Tue 6 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0643db2e-fd71-41d6-bad1-df3513607f3f",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+      "ist": "7:00pm",
+      "utc": 1791293400000
+     }
+    ]
+   },
+   {
+    "date": "Fri 9 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1dda32e9-219c-43dd-9512-5b4ed1e647d2",
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Kingsmead, Durban",
+      "ist": "1:00pm",
+      "utc": 1791531000000
+     },
+     {
+      "id": "ff0a0eb6-4abf-474b-9aa6-99fac469b2f2",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "JSCA International Stadium Complex, Ranchi",
+      "ist": "7:00pm",
+      "utc": 1791552600000
+     }
+    ]
+   },
+   {
+    "date": "Sun 11 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "8775724e-9bb6-4494-91ca-7822c201aec5",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Holkar Stadium, Indore",
+      "ist": "7:00pm",
+      "utc": 1791725400000
+     }
+    ]
+   },
+   {
+    "date": "Wed 14 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "3c451481-9fa8-400b-a7b6-27cffc21e1a8",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Rajiv Gandhi International Stadium, Hyderabad",
+      "ist": "7:00pm",
+      "utc": 1791984600000
+     }
+    ]
+   },
+   {
+    "date": "Fri 16 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5b8af9d7-de03-4f19-821b-433dcdb5cdb5",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
+      "ist": "7:00pm",
+      "utc": 1792157400000
+     }
+    ]
+   },
+   {
+    "date": "Sat 17 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "f6ac293e-72ae-434e-aabc-dec0bdcc2114",
+      "teams": "India vs West Indies",
+      "t1": "India",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "M.Chinnaswamy Stadium, Bengaluru",
+      "ist": "7:00pm",
+      "utc": 1792243800000
+     }
+    ]
+   },
+   {
+    "date": "Sun 18 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5010a2a3-e970-4ec8-b115-04c6dc800952",
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "St George's Park, Gqeberha",
+      "ist": "1:30pm",
+      "utc": 1792310400000
+     },
+     {
+      "id": "3024d407-3fa8-4114-866f-03fc36f5f032",
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "North Sydney Oval, Sydney",
+      "ist": "1:45pm",
+      "utc": 1792311300000
+     },
+     {
+      "id": "5271601c-5781-4da9-8acf-b58f404305a9",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
+      "ist": "7:00pm",
+      "utc": 1792330200000
+     }
+    ]
+   },
+   {
+    "date": "Tue 20 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "d15fcf8c-a4b4-44a3-8ae4-8043acbe5e56",
+      "teams": "Australia vs Bangladesh",
+      "t1": "Australia",
+      "t2": "Bangladesh",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "North Sydney Oval, Sydney",
+      "ist": "1:45pm",
+      "utc": 1792484100000
+     },
+     {
+      "id": "4930f108-9731-465d-b224-bafe8c070d98",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
+      "ist": "7:00pm",
+      "utc": 1792503000000
+     }
+    ]
+   },
+   {
+    "date": "Thu 22 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "68be7da0-0e0a-4009-bca0-5a76dcc1d564",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
       "gender": "men",
-      "format": "Test",
-      "venue": "Great Barrier Reef Arena, Mackay",
-      "ist": "5:30am",
-      "utc": 1787356800000
+      "format": "T20I",
+      "venue": "Hagley Oval, Christchurch",
+      "ist": "12:30pm",
+      "utc": 1792652400000
+     },
+     {
+      "id": "e9272c0c-de16-4bbd-93a2-cd93989f67f3",
+      "teams": "Australia vs Bangladesh",
+      "t1": "Australia",
+      "t2": "Bangladesh",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "North Sydney Oval, Sydney",
+      "ist": "1:45pm",
+      "utc": 1792656900000
+     }
+    ]
+   },
+   {
+    "date": "Fri 23 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "cbfac0e5-1932-4966-a7ee-688186c6ac4e",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "BCA Stadium, Kotambi, Vadodara",
+      "ist": "2:00pm",
+      "utc": 1792744200000
+     }
+    ]
+   },
+   {
+    "date": "Sat 24 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "7a614754-d3c7-4690-b8b2-2759ff00a673",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hagley Oval, Christchurch",
+      "ist": "12:30pm",
+      "utc": 1792825200000
+     }
+    ]
+   },
+   {
+    "date": "Sun 25 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0bd6357f-8e8e-4eb6-abb3-60f28cf83dc4",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "BCA Stadium, Kotambi, Vadodara",
+      "ist": "2:00pm",
+      "utc": 1792917000000
      }
     ]
    }
   ],
-  "updated": "2026-06-28T12:44:34.269Z",
+  "updated": "2026-06-28T12:55:03.732Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6267,6 +6792,6 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T12:44:35.673Z"
+  "updated": "2026-06-28T12:55:04.591Z"
  }
 }
