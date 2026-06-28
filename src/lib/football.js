@@ -47,13 +47,14 @@ function posFoulRate(pos) {
   return 1.3;
 }
 
-// One player foul prop from a foul rate (per 90) → leaning side + fair odds.
+// One player foul prop → always the OVER (players to commit fouls). Picks the
+// highest X.5 line the model still makes odds-on, stepping down so the Over is
+// the lean. Never returns an Under.
 function foulProp(who, rate) {
-  const line = Math.max(0.5, line5(rate));
-  const po = poisOver(line, rate);
-  const over = po >= 0.5;
-  const prob = over ? po : 1 - po;
-  return { who, label: 'fouls committed', line, side: over ? 'Over' : 'Under', prob, am: probToAm(prob), rate };
+  let line = Math.max(0.5, line5(rate));
+  let prob = poisOver(line, rate);
+  while (prob < 0.5 && line > 0.5) { line -= 1; prob = poisOver(line, rate); }
+  return { who, label: 'fouls committed', line, side: 'Over', prob, am: probToAm(prob), rate };
 }
 
 // Pick the top-3 foul-rate players from a list of {name, pos}, scaled by the
