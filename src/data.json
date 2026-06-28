@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T17:57:37.727Z",
+ "updated": "2026-06-28T19:12:54.810Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5857,6 +5857,23 @@
     ]
    },
    {
+    "date": "Tue 30 Jun (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "d5bebe6f-27de-40d4-a715-d467b4f7aa81",
+      "teams": "Australia vs West Indies",
+      "t1": "Australia",
+      "t2": "West Indies",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "7:00pm",
+      "utc": 1782826200000
+     }
+    ]
+   },
+   {
     "date": "Wed 1 Jul (IST)",
     "series": "International",
     "matches": [
@@ -5870,6 +5887,23 @@
       "venue": "India tour of England, 2026",
       "ist": "11:00pm",
       "utc": 1782927000000
+     }
+    ]
+   },
+   {
+    "date": "Thu 2 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "2c0b414e-9fed-4311-ac53-e688e4e729ce",
+      "teams": "England vs South Africa",
+      "t1": "England",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "11:00pm",
+      "utc": 1783013400000
      }
     ]
    },
@@ -6459,7 +6493,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T17:57:36.630Z",
+  "updated": "2026-06-28T19:12:53.959Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6793,7 +6827,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T17:57:37.727Z"
+  "updated": "2026-06-28T19:12:54.810Z"
  },
  "SQUADS": {
   "mexico": [
