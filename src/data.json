@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T13:07:19.832Z",
+ "updated": "2026-06-28T13:25:58.169Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6481,7 +6481,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T13:07:18.936Z",
+  "updated": "2026-06-28T13:25:57.283Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6792,6 +6792,660 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T13:07:19.832Z"
+  "updated": "2026-06-28T13:25:58.169Z"
+ },
+ "SQUADS": {
+  "wigan athletic": [
+   {
+    "name": "Babajide Adeeko",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Callum Wright",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Charlie Hughes",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dion Rankine",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Fraser Murray",
+    "pos": "Midfielder"
+   }
+  ],
+  "blackpool": [
+   {
+    "name": "Albie Morgan",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Andrew Lyons",
+    "pos": "Defender"
+   },
+   {
+    "name": "CJ Hamilton",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Daniel Imray",
+    "pos": "Defender"
+   },
+   {
+    "name": "Fraser Horsfall",
+    "pos": "Defender"
+   }
+  ],
+  "doncaster rovers": [
+   {
+    "name": "Bayley Mccann",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ben Close",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Charlie Crew",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Connor O'Riordan",
+    "pos": "Defender"
+   },
+   {
+    "name": "Darren Robinson",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "George Broadbent",
+    "pos": "Midfielder"
+   }
+  ],
+  "leicester city": [
+   {
+    "name": "Aaron Ramsey",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Ben Nelson",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Bobby Decordova-Reid",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Divine Tayon Mahogany Mukasa",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Hamza Choudhury",
+    "pos": "Defensive Midfield"
+   }
+  ],
+  "barnsley": [
+   {
+    "name": "Corey O'Keeffe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Davis Keillor-Dunn",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Eoghan O&#039;Connell",
+    "pos": "Defender"
+   },
+   {
+    "name": "Georgie Gent",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jack Shepherd",
+    "pos": "Midfielder"
+   }
+  ],
+  "peterborough united": [
+   {
+    "name": "Abraham Odoh",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Archie Collins",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ben Woods",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Brandon Khela",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Carl Johnston",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Christopher Conn-Clarke",
+    "pos": "Attacking Midfield"
+   }
+  ],
+  "reading": [
+   {
+    "name": "Abraham Dorsett",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Andre Garcia",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Andy Rinomhota",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Andy Yiadom",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ashqar Ahmed",
+    "pos": "Defender"
+   },
+   {
+    "name": "Benjamin Njongoue Elliott",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Benn Ward",
+    "pos": "Defender"
+   },
+   {
+    "name": "Charlie Savage",
+    "pos": "Midfielder"
+   }
+  ],
+  "plymouth argyle": [
+   {
+    "name": "Alexander Mitchell",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ayman Benarous",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Bali Mumba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Bradley Ibrahim",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Brendan Galloway",
+    "pos": "Defender"
+   },
+   {
+    "name": "Brendan Wiredu",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Caleb Roberts",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Caleb Watts",
+    "pos": "Midfielder"
+   }
+  ],
+  "sheffield wednesday": [
+   {
+    "name": "Barry Bannan",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Bruno Fernandes",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Di'Shon Bernard",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Dominic Iorfa",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gabriel Otegbayo",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Guilherme Siqueira",
+    "pos": "Defender"
+   },
+   {
+    "name": "Harry Amass",
+    "pos": "Defender"
+   }
+  ],
+  "luton town": [
+   {
+    "name": "Alfie Doughty",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Christ Makosso",
+    "pos": "Defender"
+   },
+   {
+    "name": "Christian Chigozie",
+    "pos": "Defender"
+   },
+   {
+    "name": "Cohen Bramall",
+    "pos": "Defender"
+   },
+   {
+    "name": "Davy van den Berg",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "George Saville",
+    "pos": "Midfielder"
+   }
+  ],
+  "huddersfield town": [
+   {
+    "name": "Antony Evans",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Ben Wiles",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Cameron Ashia",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Cameron Humphreys",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Daniel Vost",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "David Kasumu",
+    "pos": "Midfielder"
+   }
+  ],
+  "bradford city": [
+   {
+    "name": "Adam Phillips",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Aden Baldwin",
+    "pos": "Defender"
+   },
+   {
+    "name": "Antoni Sarcevic",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Brad Halliday",
+    "pos": "Defender"
+   },
+   {
+    "name": "Clarke Oduor",
+    "pos": "Defender"
+   },
+   {
+    "name": "Curtis Tilt",
+    "pos": "Defender"
+   },
+   {
+    "name": "George Goodman",
+    "pos": "Defender"
+   }
+  ],
+  "afc wimbledon": [
+   {
+    "name": "Alistair Smith",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Brodi Hughes",
+    "pos": "Defender"
+   },
+   {
+    "name": "Callum Maycock",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Delano Mccoy-Splatt",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ethan Sutcliffe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Harry Hedges",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Harry Sidwell",
+    "pos": "Midfielder"
+   }
+  ],
+  "stockport county": [
+   {
+    "name": "Adetayo Edun",
+    "pos": "Defender"
+   },
+   {
+    "name": "Arttu Hoskonen",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Ben Osborn",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Brad Hills",
+    "pos": "Defender"
+   },
+   {
+    "name": "Callum Camps",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Callum Connolly",
+    "pos": "Defender"
+   }
+  ],
+  "oxford united": [
+   {
+    "name": "Brian De Keersmaecker",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Brodie Spencer",
+    "pos": "Full-back"
+   },
+   {
+    "name": "Cameron Brannigan",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ciaron Brown",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gregory Alex Leigh",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Hidde ter Avest",
+    "pos": "Right-Back"
+   },
+   {
+    "name": "Jack Currie",
+    "pos": "Defender"
+   }
+  ],
+  "leyton orient": [
+   {
+    "name": "Armando Dobra",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Azeem Abdulai",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Charlie Wellens",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Daniel Happe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Demetri Mitchell",
+    "pos": "Defender"
+   }
+  ],
+  "milton keynes dons": [
+   {
+    "name": "Aaron Nemane",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Alex Gilbey",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Callum Paterson",
+    "pos": "Defender"
+   },
+   {
+    "name": "Callum Tripp",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Charlie Waller",
+    "pos": "Defender"
+   },
+   {
+    "name": "Connor Lemonheigh-Evans",
+    "pos": "Midfielder"
+   }
+  ],
+  "notts county": [
+   {
+    "name": "Conor Grant",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Curtis Edwards",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Harald Nilsen Tangen",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Jack Hinchy",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Jacob Bedeau",
+    "pos": "Defender"
+   }
+  ],
+  "burton albion": [
+   {
+    "name": "Andrew Cannon",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ben Whitfield",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Bodi Thistleton",
+    "pos": "Defender"
+   },
+   {
+    "name": "Charles Webster",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ciaran Gilligan",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Daniel Matthews",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Dylan Williams",
+    "pos": "Defender"
+   },
+   {
+    "name": "Finn Delap",
+    "pos": "Defender"
+   }
+  ],
+  "stevenage": [
+   {
+    "name": "Carl Piergianni",
+    "pos": "Defender"
+   },
+   {
+    "name": "Charlie Goode",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Chem Campbell",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Dan Butler",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dan Sweeney",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Daniel Kemp",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Daniel Phillips",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Ellis Bates",
+    "pos": "Defender"
+   }
+  ],
+  "mansfield town": [
+   {
+    "name": "Aaron Lewis",
+    "pos": "Defender"
+   },
+   {
+    "name": "Adedeji Oshilaja",
+    "pos": "Defender"
+   },
+   {
+    "name": "Baily Cargill",
+    "pos": "Defender"
+   },
+   {
+    "name": "Elliott Hewitt",
+    "pos": "Defender"
+   },
+   {
+    "name": "Finn Flanagan",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Frazer Blake-Tracy",
+    "pos": "Defender"
+   }
+  ],
+  "wycombe wanderers": [
+   {
+    "name": "Aaron Morley",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Alex Hartridge",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alex Lowry",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Anders Hagelskjær",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Caolan Boyd-Munce",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Connor Taylor",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dan Casey",
+    "pos": "Defender"
+   }
+  ],
+  "cambridge united": [
+   {
+    "name": "Ben Knight",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Ben Purrington",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dominic Ball",
+    "pos": "Defender"
+   },
+   {
+    "name": "George Hoddle",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "George Munday",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Glenn McConnell",
+    "pos": "Midfielder"
+   }
+  ],
+  "bromley": [
+   {
+    "name": "Alex Stepien-Iwumene",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Ashley Charles",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Ben Thompson",
+    "pos": "Midfielder"
+   },
+   {
+    "name": "Brooklyn Ilunga",
+    "pos": "Defender"
+   },
+   {
+    "name": "Byron Webster",
+    "pos": "Defender"
+   },
+   {
+    "name": "Carl Jenkinson",
+    "pos": "Defender"
+   }
+  ]
  }
 }
