@@ -110,30 +110,38 @@ async function buildLineups(now) {
 
 // ── Squad rosters → projected foulers (TheSportsDB · free) ────────────────
 // Confirmed XIs only publish ~1h before kickoff, so for ties further out we
-// name the likely foulers from each nation's squad (defensive mids, full-backs
-// and centre-backs commit most fouls). Refreshed at most once a day and
-// persisted between runs — squads barely change, so this stays cheap.
+// name the likely foulers from each nation's squad (defenders & midfielders
+// commit most fouls; keepers & forwards least). Each WC nation is found by name
+// search, then its roster is pulled. Refreshed at most once a day and persisted
+// between runs — squads barely change, so this stays cheap.
 const FOUL_POS = /def.*mid|holding|back|defen|\bcb\b|\blb\b|\brb\b|\bwb\b|\bcdm\b|\bdm\b|midfield/i;
-async function buildSquads(now, existing) {
-  const have = existing && Object.keys(existing).length;
-  if (have && new Date(now).getUTCHours() !== 3) return existing;   // once/day at 03:00 UTC
-  let teams = [];
-  try { teams = (await tsdb(`lookup_all_teams.php?id=${TSDB_LEAGUE}`))?.teams || []; }
-  catch (e) { console.log('Squads · team list failed:', e.message); return existing || {}; }
-  if (!teams.length) { console.log('Squads · no teams returned (keeping existing)'); return existing || {}; }
+const NOT_SENIOR = /women|u-?\d\d|under-?\d\d|olympic|futsal|beach|youth/i;
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+async function buildSquads(now, existing, nations) {
+  // Skip the refetch only if we already hold rosters for the actual WC nations
+  // (guards against a stale/wrong cache) and it isn't the daily refresh hour.
+  const valid = existing && nations.some(n => existing[liveNorm(n)]);
+  if (valid && new Date(now).getUTCHours() !== 3) return existing;
   const out = {};
-  let withRoster = 0;
-  for (const t of teams) {
+  let got = 0;
+  for (const nation of nations) {
     try {
-      const players = (await tsdb(`lookup_all_players.php?id=${t.idTeam}`))?.player || [];
+      const teams = (await tsdb(`searchteams.php?t=${encodeURIComponent(nation)}`))?.teams || [];
+      const cand = teams.filter(t => t.strSport === 'Soccer' && !NOT_SENIOR.test(t.strTeam || ''));
+      const team = cand.find(t => liveNorm(t.strTeam) === liveNorm(nation)) || cand[0];
+      await sleep(700);                                  // gentle on the shared free key
+      if (!team) continue;
+      const players = (await tsdb(`lookup_all_players.php?id=${team.idTeam}`))?.player || [];
       const foulers = players
         .filter(p => p.strPlayer && FOUL_POS.test(p.strPosition || ''))
         .map(p => ({ name: p.strPlayer, pos: p.strPosition || '' }))
         .slice(0, 8);
-      if (foulers.length) { out[liveNorm(t.strTeam)] = foulers; withRoster++; }
-    } catch { /* skip team, keep going */ }
+      if (foulers.length) { out[liveNorm(nation)] = foulers; got++; }
+      await sleep(700);
+    } catch { /* skip nation, keep going */ }
   }
-  console.log(`Squads · ${teams.length} WC teams · ${withRoster} with rosters (TheSportsDB free)`);
+  console.log(`Squads · ${nations.length} nations queried · ${got} with rosters (TheSportsDB free)`);
   return Object.keys(out).length ? out : (existing || {});
 }
 
@@ -376,7 +384,8 @@ data.LIVE = live;
 
 // Squad rosters → projected foulers (best-effort, free). Persisted between runs
 // and only refreshed once/day, so a failure simply keeps yesterday's rosters.
-try { data.SQUADS = await buildSquads(Date.now(), data.SQUADS || {}); }
+const wcNations = [...new Set(Object.values(table).flatMap(g => (g.table || []).map(r => r.team)))];
+try { data.SQUADS = await buildSquads(Date.now(), data.SQUADS || {}, wcNations); }
 catch (e) { console.warn('squad fetch skipped:', e.message); data.SQUADS = data.SQUADS || {}; }
 
 // Cricket internationals (best-effort, free) — only overwrite the curated seed
