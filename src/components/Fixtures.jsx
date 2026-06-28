@@ -77,7 +77,7 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
       </div>
 
       {blocks.length === 0 && (
-        <div className="no-matches">No upcoming fixtures in this stage. Completed games drop off automatically — check the Standings tab for results.</div>
+        <div className="no-matches">No upcoming fixtures in this stage.</div>
       )}
 
       {blocks.map((b, bi) => {

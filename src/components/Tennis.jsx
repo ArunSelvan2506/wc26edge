@@ -80,7 +80,7 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
         <ParlayCard title="⚡ ACCA · high returns" sub="best long-odds, in-form multi" slip={parlays.value} fmt={fmt} tone="value" />
       </div>
 
-      {events.length === 0 && <div className="empty-note">All listed matches have completed — the next slate loads on the 3-hour sweep.</div>}
+      {events.length === 0 && <div className="empty-note">No upcoming matches right now.</div>}
 
       {events.map((ev, ei) => (
         <motion.div key={ei} className="fix-block"
@@ -95,7 +95,7 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       ))}
 
       <div className="ref-box" style={{ marginTop: 4 }}>
-        Win % = surface-adjusted Elo (logistic) tuned by recent form and injuries; sets, total-games and aces are model-derived. No live tennis results feed exists for free, so fixtures are a curated upcoming slate and a match auto-clears the board once its expected duration elapses. Fair odds, no margin. Entertainment only.
+        Win % = surface-adjusted Elo (logistic) tuned by recent form and injuries; sets, total-games and aces are model-derived. No live tennis results feed exists for free, so fixtures are a curated upcoming slate. Fair odds, no margin. Entertainment only.
       </div>
     </div>
   );
