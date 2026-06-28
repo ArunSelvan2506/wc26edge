@@ -87,8 +87,8 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       )}
 
       <div className="parlay-grid">
-        <ParlayCard title="🟢 Safe parlay" sub="legs under 1.75 · fit & in-form" slip={parlays.safe} fmt={fmt} tone="safe" />
-        <ParlayCard title="⚡ Value parlay" sub="legs over 4.0 · in-form longshots" slip={parlays.value} fmt={fmt} tone="value" />
+        <ParlayCard title="🟢 Safe parlay" sub="fit & in-form favourites" slip={parlays.safe} fmt={fmt} tone="safe" />
+        <ParlayCard title="⚡ ACCA · high returns" sub="best long-odds, in-form multi" slip={parlays.value} fmt={fmt} tone="value" />
       </div>
 
       {events.length === 0 && <div className="empty-note">All listed matches have completed — the next slate loads on the 3-hour sweep.</div>}
@@ -229,14 +229,15 @@ function ParlayCard({ title, sub, slip, fmt, tone }) {
   const ret = `put £10 returns £${(slip.dec * 10).toFixed(2)}`;
   return (
     <div className={'parlay ' + tone}>
-      <div className="pl-hd"><span>{title}</span></div>
-      <div className="pl-sub">{sub}</div>
+      <div className="pl-hd"><span>{title}</span><span className="pl-od">{slip.dec.toFixed(2)}x</span></div>
+      <div className="pl-sub">{sub} · {slip.legs.length} legs</div>
       {slip.legs.map((l, i) => (
         <Copyable key={i} className="pl-leg" icon={false} copy={`${l.p} @ ${fmtOdds(l.am, fmt)}`}>
           <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.p}</span><span className="pl-od">{fmtOdds(l.am, fmt)}</span>
         </Copyable>
       ))}
-      <div className="pl-ret">Est. hit <span style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</span> · {ret}</div>
+      <div className="pl-meter"><span className="pl-meter-fill" style={{ width: hit + '%' }} /></div>
+      <div className="pl-conf"><span>Confidence <b style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</b></span><span>{ret}</span></div>
     </div>
   );
 }

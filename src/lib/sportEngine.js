@@ -26,14 +26,28 @@ function combine(legs) {
   return { legs, prob, dec: d };
 }
 
-// Build safe (<=1.75) and value (>=4.0) parlays from candidate legs.
+// Pick up to `max` distinct-tag legs from a sorted pool (no two legs from the
+// same match / event). Falls back to `p` text when a leg has no tag.
+function distinct(pool, max) {
+  const seen = new Set(), out = [];
+  for (const l of pool) { const k = l.tag || l.p; if (seen.has(k)) continue; seen.add(k); out.push(l); if (out.length >= max) break; }
+  return out;
+}
+
+// Build a safe parlay (short-priced favourites) and a high-return ACCA. The
+// ACCA always populates when ≥2 legs exist: it takes the longest-priced legs
+// that still carry a real chance, relaxing the floor until it has enough.
 export function buildParlays(legs) {
   const withDec = legs.map(l => ({ ...l, dec: dec(l.am) })).filter(l => l.dec);
-  const safe = withDec.filter(l => l.dec <= SAFE_MAX).sort((a, b) => b.prob - a.prob).slice(0, 4);
-  const value = withDec.filter(l => l.dec >= VALUE_MIN).sort((a, b) => b.prob - a.prob).slice(0, 3);
+  const safe = distinct(withDec.filter(l => l.dec <= SAFE_MAX).sort((a, b) => b.prob - a.prob), 4);
+  let acca = [];
+  for (const floor of [0.40, 0.30, 0.20, 0]) {  // longest odds that still clear the chance-floor
+    acca = distinct(withDec.filter(l => l.prob >= floor).sort((a, b) => b.dec - a.dec), 3);
+    if (acca.length >= 2) break;
+  }
   return {
     safe: safe.length >= 2 ? combine(safe) : null,
-    value: value.length >= 2 ? combine(value) : null,
+    value: acca.length >= 2 ? combine(acca) : null,
   };
 }
 
@@ -102,12 +116,14 @@ export function raceMarket(cfg, ev) {
     amWin: probToAm(clamp(win[i], 0.01, 0.97)), amPodium: probToAm(clamp(podRaw[i] * 3, 0.02, 0.97)),
   })).sort((a, b) => b.pWin - a.pWin);
 
+  // tag = driver, so a parlay/ACCA can stack different drivers but never two
+  // correlated legs on the same driver (win + podium).
   const legs = [];
   rows.forEach((d, i) => {
-    legs.push({ p: `${d.name} to win`, prob: d.pWin, am: d.amWin, dec: dec(d.amWin), tag: ev.series, kind: 'win' });
-    legs.push({ p: `${d.name} podium`, prob: d.pPodium, am: d.amPodium, dec: dec(d.amPodium), tag: ev.series, kind: 'podium' });
+    legs.push({ p: `${d.name} to win`, prob: d.pWin, am: d.amWin, dec: dec(d.amWin), tag: d.name, kind: 'win' });
+    legs.push({ p: `${d.name} podium`, prob: d.pPodium, am: d.amPodium, dec: dec(d.amPodium), tag: d.name, kind: 'podium' });
     for (const pr of (cfg.drivers[d.name]?.props || [])) {
-      legs.push({ p: `${d.name} ${pr.line} ${pr.m}`, prob: clamp((pr.last10 ?? 7) / 10, 0.05, 0.97), am: pr.am, dec: dec(pr.am), last10: pr.last10, tag: ev.series, kind: 'prop' });
+      legs.push({ p: `${d.name} ${pr.line} ${pr.m}`, prob: clamp((pr.last10 ?? 7) / 10, 0.05, 0.97), am: pr.am, dec: dec(pr.am), last10: pr.last10, tag: d.name, kind: 'prop' });
     }
   });
   return { rows, legs };

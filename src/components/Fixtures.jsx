@@ -282,8 +282,8 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
     {
       id: 'parlays', label: 'Parlays', body: (
         <div className="parlay-grid">
-          <KParlay title="🟢 Safe parlay" sub="legs under 1.75 odds" slip={safe} fmt={fmt} tone="safe" />
-          <KParlay title="⚡ Value parlay" sub="legs over 4.0 odds" slip={value} fmt={fmt} tone="value" />
+          <KParlay title="🟢 Safe parlay" sub="short-priced favourites" slip={safe} fmt={fmt} tone="safe" />
+          <KParlay title="⚡ ACCA · high returns" sub="best long-odds multi" slip={value} fmt={fmt} tone="value" />
         </div>
       ),
     },
@@ -324,14 +324,15 @@ function KParlay({ title, sub, slip, fmt, tone }) {
   const ret = `put £10 returns £${(slip.dec * 10).toFixed(2)}`;
   return (
     <div className={'parlay ' + tone}>
-      <div className="pl-hd"><span>{title}</span></div>
-      <div className="pl-sub">{sub}</div>
+      <div className="pl-hd"><span>{title}</span><span className="pl-od">{slip.dec.toFixed(2)}x</span></div>
+      <div className="pl-sub">{sub} · {slip.legs.length} legs</div>
       {slip.legs.map((l, i) => (
         <Copyable key={i} className="pl-leg" icon={false} copy={`${l.p} @ ${fmtOdds(l.am, fmt)}`}>
           <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.p}</span><span className="pl-od">{fmtOdds(l.am, fmt)}</span>
         </Copyable>
       ))}
-      <div className="pl-ret">Est. hit <span style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</span> · {ret}</div>
+      <div className="pl-meter"><span className="pl-meter-fill" style={{ width: hit + '%' }} /></div>
+      <div className="pl-conf"><span>Confidence <b style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</b></span><span>{ret}</span></div>
     </div>
   );
 }

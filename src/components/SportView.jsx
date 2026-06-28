@@ -55,8 +55,8 @@ export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel =
       )}
 
       <div className="parlay-grid">
-        <ParlayCard title="🟢 Safe parlay" sub="legs under 1.75 odds" slip={parlays.safe} fmt={fmt} tone="safe" />
-        <ParlayCard title="⚡ Value parlay" sub="legs over 4.0 odds" slip={parlays.value} fmt={fmt} tone="value" />
+        <ParlayCard title="🟢 Safe parlay" sub="short-priced favourites" slip={parlays.safe} fmt={fmt} tone="safe" />
+        <ParlayCard title="⚡ ACCA · high returns" sub="best long-odds multi" slip={parlays.value} fmt={fmt} tone="value" />
       </div>
 
       {events.map((ev, ei) => (
@@ -215,20 +215,22 @@ function ParlayCard({ title, sub, slip, fmt, tone }) {
   );
   const hit = Math.round(slip.prob * 100);
   const ret = `put £10 returns £${(slip.dec * 10).toFixed(2)}`;
-  const copy = `${title}\n` + slip.legs.map((l, i) => `${i + 1}. ${l.p} @ ${fmtOdds(l.am, fmt)}`).join('\n') + `\nHit ~${hit}% · ${ret}`;
+  const copy = `${title}\n` + slip.legs.map((l, i) => `${i + 1}. ${l.p} @ ${fmtOdds(l.am, fmt)}`).join('\n') + `\nConfidence ~${hit}% · ${ret}`;
   return (
     <div className={'parlay ' + tone}>
       <div className="pl-hd">
         <span>{title}</span>
+        <span className="pl-od">{slip.dec.toFixed(2)}x</span>
         <Copyable copy={copy} icon={false} style={{ fontSize: 9, fontWeight: 700, padding: '2px 7px', borderRadius: 4, background: 'rgba(45,200,160,.12)', border: '1px solid rgba(45,200,160,.35)', color: 'var(--ac)' }}>⧉</Copyable>
       </div>
-      <div className="pl-sub">{sub}</div>
+      <div className="pl-sub">{sub} · {slip.legs.length} legs</div>
       {slip.legs.map((l, i) => (
         <Copyable key={i} className="pl-leg" icon={false} copy={`${l.p} @ ${fmtOdds(l.am, fmt)}`}>
           <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.p}</span><span className="pl-od">{fmtOdds(l.am, fmt)}</span>
         </Copyable>
       ))}
-      <div className="pl-ret">Est. hit <span style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</span> · {ret}</div>
+      <div className="pl-meter"><span className="pl-meter-fill" style={{ width: hit + '%' }} /></div>
+      <div className="pl-conf"><span>Confidence <b style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</b></span><span>{ret}</span></div>
     </div>
   );
 }

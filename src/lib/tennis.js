@@ -142,18 +142,21 @@ export function tennisHits(legs, n = 5) {
     .map(({ l }) => ({ ...l, stake: stake(l.prob), ret: Math.round(stake(l.prob) * l.dec) }));
 }
 
-// Safe (≤1.75) & value (≥4.0) parlays, in-form weighted, skipping hurt players.
+// Safe parlay + high-return ACCA, in-form weighted, skipping hurt players. The
+// ACCA always populates when ≥2 legs exist (longest-priced legs first).
 export function tennisParlays(legs) {
   const ok = legs.filter(l => l.dec && injInfo(l.inj).risk !== 'out' && injInfo(l.inj).risk !== 'high');
-  const pick = (filterFn, k) => {
-    const set = ok.filter(filterFn).map(l => ({ l, sc: legScore(l) })).sort((a, b) => b.sc - a.sc);
+  const pickBy = (pool, k) => {       // one leg per match, in order given
     const seen = new Set(), out = [];
-    for (const { l } of set) { if (seen.has(l.tag)) continue; seen.add(l.tag); out.push(l); if (out.length >= k) break; }
+    for (const l of pool) { if (seen.has(l.tag)) continue; seen.add(l.tag); out.push(l); if (out.length >= k) break; }
     return out;
   };
   const combine = ls => ls.length >= 2 ? { legs: ls, prob: ls.reduce((a, l) => a * l.prob, 1), dec: ls.reduce((a, l) => a * l.dec, 1) } : null;
-  return {
-    safe: combine(pick(l => l.dec <= 1.75, 4)),
-    value: combine(pick(l => l.dec >= 4.0, 3)),
-  };
+  const safe = pickBy(ok.filter(l => l.dec <= 1.75).map(l => ({ l, sc: legScore(l) })).sort((a, b) => b.sc - a.sc).map(x => x.l), 4);
+  let acca = [];
+  for (const floor of [0.40, 0.30, 0.20, 0]) {  // longest odds that still clear the chance-floor
+    acca = pickBy(ok.filter(l => l.prob >= floor).sort((a, b) => b.dec - a.dec), 3);
+    if (acca.length >= 2) break;
+  }
+  return { safe: combine(safe), value: combine(acca) };
 }
