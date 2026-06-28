@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T17:28:57.313Z",
+ "updated": "2026-06-28T17:57:37.727Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6459,7 +6459,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T17:28:55.802Z",
+  "updated": "2026-06-28T17:57:36.630Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6774,8 +6774,9 @@
    }
   },
   "event": {
-   "date": "Sun 28 Jun (IST)",
-   "series": "Austrian Grand Prix · Spielberg",
+   "date": "Sun 5 Jul (IST)",
+   "utc": 1783260000000,
+   "series": "British Grand Prix · Silverstone",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6792,7 +6793,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T17:28:57.313Z"
+  "updated": "2026-06-28T17:57:37.727Z"
  },
  "SQUADS": {
   "mexico": [
