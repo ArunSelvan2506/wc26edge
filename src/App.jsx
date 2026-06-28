@@ -120,7 +120,7 @@ export default function App() {
                 : (sport === 'tennis' || sport === 'basketball' || sport === 'f1')
                   ? <SportView sportId={sport} fmt={fmt} tz={tz} dateSel={dateSel} />
                   : <>
-                      {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} />}
+                      {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} tz={tz} />}
                       {view === 'standings' && <Standings />}
                       {view === 'about' && <About />}
                     </>}

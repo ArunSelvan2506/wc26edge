@@ -1,9 +1,14 @@
 import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DAYS, UPDATED } from '../data.js';
-import { norm } from '../lib/model.js';
+import { norm, markets } from '../lib/model.js';
+import { probToAm } from '../lib/sportEngine.js';
+import { fmtOdds } from '../lib/odds.js';
+import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { upcomingFixtures } from '../lib/completion.js';
 import { lineupFor } from '../lib/live.js';
+import { cpill } from '../lib/ui.js';
+import { Copyable } from './Bits.jsx';
 import { Lineups } from './Lineups.jsx';
 import MatchCard from './MatchCard.jsx';
 
@@ -47,7 +52,7 @@ function stageCat(stage) {
 const STAGE_CLASS = { Group: 'fs-group', R32: 'fs-r32', R16: 'fs-r16', QF: 'fs-qf', SF: 'fs-sf', Final: 'fs-final' };
 const FILTERS = ['Group', 'R32', 'R16', 'QF', 'SF', 'Final'];
 
-export default function Fixtures({ fmt, rat }) {
+export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
   const detail = useMemo(buildDetailIndex, []);
   // Completed date-blocks drop off; recomputed once per mount.
   const upcoming = useMemo(() => upcomingFixtures(Date.now()), []);
@@ -73,12 +78,14 @@ export default function Fixtures({ fmt, rat }) {
 
       {blocks.map((b, bi) => {
         const cat = stageCat(b.stage);
+        const ko0 = b.matches.find(m => m.koUTC != null);
+        const dateLabel = ko0 ? dayLabelIn(ko0.koUTC, tz) : b.date;
         return (
           <motion.div key={b.date + b.stage} className="fix-block"
             initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-30px' }}
             transition={{ duration: 0.3, delay: Math.min(bi * 0.03, 0.2), ease: 'easeOut' }}>
             <div className="fix-block-hdr">
-              <div className="fix-date">{b.date}</div>
+              <div className="fix-date">{dateLabel}</div>
               <span className={'fix-stage ' + (STAGE_CLASS[cat] || 'fs-group')}>{b.stage}</span>
             </div>
             {b.matches.map((mt, mi) => {
@@ -86,7 +93,7 @@ export default function Fixtures({ fmt, rat }) {
               const det = a && c ? detail[pairKey(a, c)] : null;
               return det
                 ? <MatchCard key={mt.teams + mi} m={det} fmt={fmt} rat={rat} index={mi} />
-                : <FixtureRow key={mt.teams + mi} mt={mt} />;
+                : <KnockoutCard key={mt.teams + mi} mt={mt} rat={rat} fmt={fmt} tz={tz} index={mi} />;
             })}
           </motion.div>
         );
@@ -95,30 +102,77 @@ export default function Fixtures({ fmt, rat }) {
   );
 }
 
-function FixtureRow({ mt }) {
-  const [a, b] = (mt.teams || '').split(/\s+vs\s+/i);
-  const lu = a && b ? lineupFor(a, b) : null;
+// Knockout fixture: shows model win odds when both teams are resolved & rated;
+// otherwise a plain row (e.g. an unresolved bracket slot like "3A/B/C/D/F").
+function KnockoutCard({ mt, rat, fmt, tz, index = 0 }) {
+  const [a, c] = (mt.teams || '').split(/\s+vs\s+/i);
+  const lu = a && c ? lineupFor(a, c) : null;
   const [open, setOpen] = useState(false);
+  const time = mt.koUTC != null ? timeIn(mt.koUTC, tz) : (mt.ist || 'TBD');
+  const zone = mt.koUTC != null ? zoneLabel(tz) : 'IST';
+  const rated = rat && a && c && (rat.has(a) || rat.has(c));
+
+  const lineupPanel = (
+    <AnimatePresence initial={false}>
+      {open && lu && (
+        <motion.div className="lineup-panel"
+          initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.24, ease: 'easeOut' }}
+          style={{ overflow: 'hidden' }}>
+          <Lineups lu={lu} teamA={a} teamB={c} />
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+
+  if (!rated) {
+    return (
+      <div className="fix-row-wrap">
+        <div className={'fix-row' + (lu ? ' tappable' : '')} onClick={() => lu && setOpen(o => !o)}>
+          <div className="fix-time">{time}<small>{zone}</small></div>
+          <div>
+            <div className="fix-teams">{mt.teams}</div>
+            {mt.grp && <div className="fix-meta">{mt.grp}</div>}
+          </div>
+          {lu && <span className="lineup-tag">XI {open ? '▴' : '▾'}</span>}
+        </div>
+        {lineupPanel}
+      </div>
+    );
+  }
+
+  const mk = markets(rat, a, c);
+  const pc = x => Math.round(x * 100);
+  const fav = mk.home >= mk.away ? a : c;
+  const conf = pc(Math.max(mk.home, mk.away));
+  const outs = [
+    { label: a, p: mk.home, am: probToAm(mk.home) },
+    { label: 'Draw', p: mk.draw, am: probToAm(mk.draw) },
+    { label: c, p: mk.away, am: probToAm(mk.away) },
+  ];
   return (
     <div className="fix-row-wrap">
-      <div className={'fix-row' + (lu ? ' tappable' : '')} onClick={() => lu && setOpen(o => !o)}>
-        <div className="fix-time">{mt.ist || 'TBD'}<small>IST</small></div>
-        <div>
-          <div className="fix-teams">{mt.teams}</div>
-          {mt.grp && <div className="fix-meta">{mt.grp}</div>}
+      <div className={'ck-card' + (open ? ' open' : '')} onClick={() => lu && setOpen(o => !o)}>
+        <div className="ck-head">
+          <div>
+            <div className="ck-teams">{mt.teams}</div>
+            <div className="ck-meta">{mt.grp ? mt.grp + ' · ' : ''}{time}<small>{zone}</small></div>
+          </div>
+          <span className={'conf-pill ' + cpill(conf)}>{fav} {conf}%</span>
         </div>
-        {lu && <span className="lineup-tag">XI {open ? '▴' : '▾'}</span>}
+        <div className="ck-mkt three">
+          {outs.map((o, i) => (
+            <Copyable key={i} className={'ck-out' + (o.label === fav ? ' fav' : '')} icon={false}
+              copy={`${o.label}${o.label === 'Draw' ? '' : ' to win'} @ ${fmtOdds(o.am, fmt)} (model ${pc(o.p)}%)`}>
+              <div className="ck-out-l">{o.label}</div>
+              <div className="ck-out-o">{fmtOdds(o.am, fmt)}</div>
+              <div className="ck-out-p">{pc(o.p)}%</div>
+            </Copyable>
+          ))}
+        </div>
+        {lu && <div className="ck-toggle">{open ? 'Hide lineups' : 'Lineups'} <span className="tog">▾</span></div>}
       </div>
-      <AnimatePresence initial={false}>
-        {open && lu && (
-          <motion.div className="lineup-panel"
-            initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.24, ease: 'easeOut' }}
-            style={{ overflow: 'hidden' }}>
-            <Lineups lu={lu} teamA={a} teamB={b} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {lineupPanel}
     </div>
   );
 }
