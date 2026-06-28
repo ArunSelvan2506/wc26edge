@@ -218,9 +218,9 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
     </Copyable>
   );
   const pfRow = (o, i) => (
-    <Copyable key={i} className="prop-row" icon={false} copy={`${o.who} ${o.side} ${o.line} ${o.label} @ ${fmtOdds(o.am, fmt)}`}>
-      <span className="prop-pick">{o.who} · {o.side} {o.line} fouls <span className="copy-ico">⧉</span></span>
-      <span className="prop-meta"><span className="prop-hits">{pc(o.prob)}%</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
+    <Copyable key={i} className="prop-row" icon={false} copy={`${o.who} 1+ foul (Over 0.5) @ ${fmtOdds(o.am, fmt)}`}>
+      <span className="prop-pick">{o.who} · 1+ foul <span className="copy-ico">⧉</span></span>
+      <span className="prop-meta"><span className={'prop-hits ' + ecls(pc(o.prob))}>{o.hits}/10</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
     </Copyable>
   );
 
@@ -260,11 +260,12 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
           {pf.a.map((o, i) => pfRow(o, 'a' + i))}
           <div className="pf-team" style={{ marginTop: 8 }}>{c}</div>
           {pf.c.map((o, i) => pfRow(o, 'c' + i))}
-          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>{
-            pf.mode === 'confirmed' ? 'From the confirmed starting XI.'
-              : pf.mode === 'projected' ? 'Projected from current squads — locks to the confirmed XI ~1h before kick-off.'
-              : 'By role — player names appear once squads / the XI are published.'
-          }</div>
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>
+            <b style={{ color: 'var(--tx)' }}>x/10</b> = last-10 matches he commits 1+ foul (modelled by role &amp; match-up). {
+              pf.mode === 'confirmed' ? 'From the confirmed starting XI.'
+                : pf.mode === 'projected' ? 'Projected from current squads — locks to the confirmed XI ~1h before kick-off.'
+                : 'By role — player names appear once squads / the XI are published.'
+            }</div>
         </>
       ),
     },

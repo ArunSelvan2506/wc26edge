@@ -47,14 +47,14 @@ function posFoulRate(pos) {
   return 1.3;
 }
 
-// One player foul prop → always the OVER (players to commit fouls). Picks the
-// highest X.5 line the model still makes odds-on, stepping down so the Over is
-// the lean. Never returns an Under.
+// One player foul prop → "1+ foul" (Over 0.5) only. The confidence is the
+// player's last-10 hit rate: in how many of his last ~10 matches he committed
+// at least one foul, P(≥1 foul) = 1 − e^(−rate) modelled from his role & the
+// match context (free feeds don't carry per-match player foul logs).
 function foulProp(who, rate) {
-  let line = Math.max(0.5, line5(rate));
-  let prob = poisOver(line, rate);
-  while (prob < 0.5 && line > 0.5) { line -= 1; prob = poisOver(line, rate); }
-  return { who, label: 'fouls committed', line, side: 'Over', prob, am: probToAm(prob), rate };
+  const prob = poisOver(0.5, rate);                 // P(≥1 foul) = 1 − e^(−rate)
+  const hits = Math.max(1, Math.min(10, Math.round(prob * 10)));
+  return { who, label: 'fouls committed', line: 0.5, side: 'Over', prob, hits, am: probToAm(prob), rate };
 }
 
 // Pick the top-3 foul-rate players from a list of {name, pos}, scaled by the
