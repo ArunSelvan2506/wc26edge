@@ -55,3 +55,18 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           publish_branch: gh-pages
+
+      # Persist the refreshed data back to the source branch so the live feed
+      # survives manual deploys (and completed matches stay dropped). Commits
+      # only when real data changed, not just the timestamp.
+      - name: Persist refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          changed=$(git diff -U0 src/data.json | grep -E '^[+-][^+-]' | grep -vE '"updated"|"fetched"|"source"' || true)
+          if [ -n "$changed" ]; then
+            git commit -am "data: hourly auto-refresh [skip ci]"
+            git push origin HEAD:${{ env.SOURCE_BRANCH }}
+          else
+            echo "No meaningful data change; skipping persist."
+          fi
