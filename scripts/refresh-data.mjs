@@ -132,61 +132,92 @@ function cricFormat(matchType) {
   return 'T20I';
 }
 
-async function buildCricket(now) {
-  if (!CRIC_KEY) { console.log('Cricket · no CRICKET_API_KEY set (keeping curated seed)'); return null; }
-  let matches = [];
-  // /cricScore returns a large single-call list (quota-friendly); supplement
-  // with a couple of /matches pages for any extra upcoming fixtures.
-  try {
-    const r = await fetch(`https://api.cricapi.com/v1/cricScore?apikey=${CRIC_KEY}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
-    const j = await r.json();
-    if (j.status !== 'success') { console.log('Cricket API (cricScore):', j.status, j.reason || j.message || ''); }
-    else matches = (j.data || []).map(m => ({ id: m.id, teams: [m.t1, m.t2], matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.series || '', status: m.status || '', ended: false }));
-  } catch (e) { console.log('Cricket cricScore failed:', e.message); }
-  try {
-    for (const offset of [0, 25]) {
-      const r = await fetch(`https://api.cricapi.com/v1/matches?apikey=${CRIC_KEY}&offset=${offset}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
-      const j = await r.json();
-      if (j.status !== 'success') break;
-      const page = j.data || [];
-      matches.push(...page.map(m => ({ id: m.id, teams: m.teams, matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.venue || '', status: m.status || '', ended: m.matchEnded === true })));
-      if (page.length < 25) break;
-    }
-  } catch { /* matches supplement optional */ }
-  if (!matches.length) { console.log('Cricket · no matches from API (keeping seed)'); return null; }
+async function cric(path) {
+  const r = await fetch(`https://api.cricapi.com/v1/${path}${path.includes('?') ? '&' : '?'}apikey=${CRIC_KEY}`, { headers: { 'User-Agent': 'wc26edge-refresh' } });
+  return r.json();
+}
+const cricDone = s => /won by|\bbeat\b|\bdrawn\b|match tied|\btied\b|abandoned|no result/i.test(s || '');
 
-  // Keep upcoming (and in-progress) only; completed matches drop off. Window
-  // starts 12h back so a live game stays, and runs 120 days forward.
+async function buildCricket(now, existing) {
+  if (!CRIC_KEY) { console.log('Cricket · no CRICKET_API_KEY set (keeping curated seed)'); return null; }
+  const raw = [], statusById = {};
+
+  // cricScore — cheap (1 call), every run: live/near scores + statuses.
+  try {
+    const j = await cric('cricScore');
+    if (j.status === 'success') for (const m of (j.data || [])) {
+      raw.push({ id: m.id, teams: [m.t1, m.t2], matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.series || '', status: m.status || '' });
+      if (m.id) statusById[m.id] = m.status || '';
+    } else console.log('Cricket cricScore:', j.status, j.reason || j.message || '');
+  } catch (e) { console.log('Cricket cricScore failed:', e.message); }
+
+  // Full series schedules — comprehensive coverage + reliable formats. Gated to
+  // 4×/day (quota), or whenever we have no fixtures yet. Light hours reuse the
+  // persisted fixtures and just refresh status (completed drop off hourly).
+  const haveExisting = existing && existing.blocks && existing.blocks.length;
+  const deep = (new Date(now).getUTCHours() % 6 === 0) || !haveExisting;
+  if (deep) {
+    try {
+      const today = new Date(now).toISOString().slice(0, 10);
+      const horizon = new Date(now + 120 * 864e5).toISOString().slice(0, 10);
+      let series = [];
+      for (const off of [0, 25, 50]) {
+        const j = await cric(`series?offset=${off}`);
+        if (j.status !== 'success') break;
+        series.push(...(j.data || []));
+        if ((j.data || []).length < 25) break;
+      }
+      const dom = /\b(IPL|BBL|CPL|PSL|SA20|ILT20|Hundred|T10|Super Smash|Vitality Blast|County|Sheffield|Ranji|Plunket|Premier League|U19|Under.19|Emerging|Academy)\b/i;
+      const intl = series.filter(s => {
+        const nm = String(s.name || '');
+        const future = (!s.endDate || s.endDate >= today) && (!s.startDate || s.startDate <= horizon);
+        const hasNation = [...CRIC_NATIONS].some(n => n.length > 3 && nm.toLowerCase().includes(n));
+        const looksIntl = hasNation || /tour|trophy|world cup|champions|tri.?series|asia cup|ashes/i.test(nm);
+        return future && looksIntl && !dom.test(nm);
+      }).slice(0, 10);
+      console.log(`Cricket · ${series.length} series · ${intl.length} international shortlisted`);
+      for (const s of intl) {
+        try {
+          const j = await cric(`series_info?id=${s.id}`);
+          for (const m of (j?.data?.matchList || [])) raw.push({ id: m.id, teams: m.teams || [], matchType: m.matchType, dateTimeGMT: m.dateTimeGMT, venue: m.venue || s.name, status: m.status || '' });
+        } catch { /* skip series */ }
+      }
+    } catch (e) { console.log('Cricket series fetch failed:', e.message); }
+  } else if (haveExisting) {
+    for (const b of existing.blocks) for (const m of b.matches) raw.push({ id: m.id, teams: [m.t1, m.t2], utc: m.utc, gender: m.gender, matchType: m.format, venue: m.venue, status: statusById[m.id] || '' });
+    console.log('Cricket · light run (cricScore + persisted fixtures; full series every 6h)');
+  }
+  if (!raw.length) { console.log('Cricket · no matches from API (keeping existing)'); return null; }
+
+  // Filter to upcoming senior internationals; dedup by id preferring an entry
+  // that carries a real format (series_info) over cricScore's blank type.
   const lo = now - 12 * 3600e3, hi = now + 120 * 24 * 3600e3;
-  // A finished match: explicit ended flag, or a result phrase in the status.
-  const isDone = s => /won by|\bbeat\b|\bdrawn\b|match tied|\btied\b|abandoned|no result/i.test(s || '');
-  const items = [], seen = new Set();
-  let women = 0;
-  for (const m of matches) {
+  const byKey = {};
+  for (const m of raw) {
     const names = m.teams && m.teams.length >= 2 ? m.teams : [];
     if (names.length < 2 || !names[0] || !names[1]) continue;
-    if (m.ended || isDone(m.status)) continue;                                  // drop completed
+    if (cricDone(m.status || statusById[m.id] || '')) continue;               // drop completed
     const a = cricTeam(names[0]), b = cricTeam(names[1]);
-    if (a.exclude || b.exclude) continue;                                       // drop A-teams / U19
+    if (a.exclude || b.exclude) continue;                                     // drop A-teams / U19
     if (!CRIC_NATIONS.has(a.nation.toLowerCase()) || !CRIC_NATIONS.has(b.nation.toLowerCase())) continue;
-    const gmt = (m.dateTimeGMT || '').replace(' ', 'T');
-    const ts = Date.parse(gmt + (gmt && !/[zZ]|[+-]\d\d:?\d\d$/.test(gmt) ? 'Z' : ''));
+    let ts = m.utc;
+    if (ts == null) { const gmt = (m.dateTimeGMT || '').replace(' ', 'T'); ts = Date.parse(gmt + (gmt && !/[zZ]|[+-]\d\d:?\d\d$/.test(gmt) ? 'Z' : '')); }
     if (!isFinite(ts) || ts < lo || ts > hi) continue;
-    const key = m.id || (a.nation + b.nation + gmt);
-    if (seen.has(key)) continue; seen.add(key);
-    const gender = a.women || b.women ? 'women' : 'men';
-    if (gender === 'women') women++;
-    items.push({ ts, t1: a.nation, t2: b.nation, gender, format: cricFormat(m.matchType), venue: m.venue || '' });
+    const fmtKnown = /test|odi|t20/i.test(m.matchType || '');
+    const rec = { id: m.id, ts, t1: a.nation, t2: b.nation, gender: a.women || b.women ? 'women' : 'men', format: cricFormat(m.matchType), fmtKnown, venue: m.venue || '' };
+    const key = m.id || (a.nation + b.nation + Math.round(ts / 36e5));
+    if (!byKey[key] || (rec.fmtKnown && !byKey[key].fmtKnown)) byKey[key] = rec;
   }
-  console.log(`Cricket · ${matches.length} fetched · ${items.length} internationals (${women} women's) in 120d window`);
+  const items = Object.values(byKey).sort((a, b) => a.ts - b.ts);
+  const women = items.filter(i => i.gender === 'women').length;
+  console.log(`Cricket · ${items.length} internationals (${women} women's) in 120d window`);
   if (!items.length) return null;
-  items.sort((a, b) => a.ts - b.ts);
   const blocks = [], idx = {};
   for (const x of items) {
     const date = istDateLabel(x.ts);
     if (!idx[date]) { idx[date] = { date, series: 'International', matches: [] }; blocks.push(idx[date]); }
     idx[date].matches.push({
-      teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2, gender: x.gender,
+      id: x.id, teams: `${x.t1} vs ${x.t2}`, t1: x.t1, t2: x.t2, gender: x.gender,
       format: x.format, venue: x.venue, ist: istTime(x.ts), utc: x.ts,
     });
   }
@@ -317,7 +348,7 @@ data.LIVE = live;
 // Cricket internationals (best-effort, free) — only overwrite the curated seed
 // when TheSportsDB actually returns fixtures; otherwise leave data.CRICKET as-is.
 try {
-  const ckBlocks = await buildCricket(Date.now());
+  const ckBlocks = await buildCricket(Date.now(), data.CRICKET);
   if (ckBlocks && ckBlocks.length) {
     data.CRICKET = { blocks: ckBlocks, updated: new Date().toISOString(), source: 'CricketData.org' };
     console.log(`Cricket · using live fixtures (${ckBlocks.reduce((n, b) => n + b.matches.length, 0)} matches)`);
