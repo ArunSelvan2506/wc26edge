@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T13:29:22.508Z",
+ "updated": "2026-06-28T17:04:47.942Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,17 +5853,6 @@
       "venue": "Bangladesh tour of Zimbabwe, 2026",
       "ist": "1:30pm",
       "utc": 1782633600000
-     },
-     {
-      "id": "b2170447-8759-4f97-be6b-410e728696dc",
-      "teams": "Australia vs India",
-      "t1": "Australia",
-      "t2": "India",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's T20 World Cup 2026",
-      "ist": "7:00pm",
-      "utc": 1782653400000
      },
      {
       "id": "0487d1d6-45d8-4838-b91d-026f8fd0bf44",
@@ -6481,7 +6470,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T13:29:21.483Z",
+  "updated": "2026-06-28T17:04:46.182Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6489,127 +6478,137 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 156,
+    "pts": 171,
     "pos": 1,
     "wins": 5,
     "form": [
+     "3",
      "16",
      "1",
      "1",
      "1"
     ]
    },
-   "Lewis Hamilton": {
-    "r": 87,
-    "team": "Ferrari",
-    "pts": 115,
+   "George Russell": {
+    "r": 88,
+    "team": "Mercedes",
+    "pts": 131,
     "pos": 2,
-    "wins": 1,
+    "wins": 2,
     "form": [
      "1",
-     "2",
-     "2",
-     "6"
-    ]
-   },
-   "George Russell": {
-    "r": 84,
-    "team": "Mercedes",
-    "pts": 106,
-    "pos": 3,
-    "wins": 1,
-    "form": [
      "2",
      "12",
      "R",
      "4"
     ]
    },
-   "Charles Leclerc": {
-    "r": 74,
+   "Lewis Hamilton": {
+    "r": 87,
     "team": "Ferrari",
-    "pts": 75,
-    "pos": 4,
-    "wins": 0,
+    "pts": 125,
+    "pos": 3,
+    "wins": 1,
     "form": [
-     "15",
-     "R",
-     "4",
-     "8"
-    ]
-   },
-   "Lando Norris": {
-    "r": 73,
-    "team": "McLaren",
-    "pts": 73,
-    "pos": 5,
-    "wins": 0,
-    "form": [
-     "3",
-     "R",
-     "R",
-     "2"
+     "5",
+     "1",
+     "2",
+     "2",
+     "6"
     ]
    },
    "Oscar Piastri": {
-    "r": 72,
+    "r": 73,
     "team": "McLaren",
-    "pts": 68,
-    "pos": 6,
+    "pts": 80,
+    "pos": 4,
     "wins": 0,
     "form": [
+     "4",
      "5",
      "5",
      "11",
      "3"
     ]
    },
+   "Lando Norris": {
+    "r": 73,
+    "team": "McLaren",
+    "pts": 79,
+    "pos": 5,
+    "wins": 0,
+    "form": [
+     "7",
+     "3",
+     "R",
+     "R",
+     "2"
+    ]
+   },
+   "Charles Leclerc": {
+    "r": 73,
+    "team": "Ferrari",
+    "pts": 79,
+    "pos": 6,
+    "wins": 0,
+    "form": [
+     "8",
+     "15",
+     "R",
+     "4",
+     "8"
+    ]
+   },
    "Max Verstappen": {
-    "r": 68,
+    "r": 71,
     "team": "Red Bull",
-    "pts": 55,
+    "pts": 73,
     "pos": 7,
     "wins": 0,
     "form": [
+     "2",
      "4",
      "R",
      "3",
      "5"
     ]
    },
-   "Pierre Gasly": {
-    "r": 63,
-    "team": "Alpine F1 Team",
-    "pts": 41,
+   "Isack Hadjar": {
+    "r": 62,
+    "team": "Red Bull",
+    "pts": 42,
     "pos": 8,
     "wins": 0,
     "form": [
-     "7",
-     "3",
-     "8",
-     "R"
-    ]
-   },
-   "Isack Hadjar": {
-    "r": 61,
-    "team": "Red Bull",
-    "pts": 34,
-    "pos": 9,
-    "wins": 0,
-    "form": [
+     "6",
      "6",
      "4",
      "5",
      "R"
     ]
    },
+   "Pierre Gasly": {
+    "r": 62,
+    "team": "Alpine F1 Team",
+    "pts": 41,
+    "pos": 9,
+    "wins": 0,
+    "form": [
+     "13",
+     "7",
+     "3",
+     "8",
+     "R"
+    ]
+   },
    "Liam Lawson": {
     "r": 59,
     "team": "RB F1 Team",
-    "pts": 28,
+    "pts": 30,
     "pos": 10,
     "wins": 0,
     "form": [
+     "9",
      "8",
      "6",
      "7",
@@ -6617,12 +6616,13 @@
     ]
    },
    "Oliver Bearman": {
-    "r": 56,
+    "r": 55,
     "team": "Haas F1 Team",
     "pts": 18,
     "pos": 11,
     "wins": 0,
     "form": [
+     "14",
      "17",
      "R",
      "10",
@@ -6636,6 +6636,7 @@
     "pos": 12,
     "wins": 0,
     "form": [
+     "15",
      "10",
      "14",
      "6",
@@ -6645,10 +6646,11 @@
    "Arvid Lindblad": {
     "r": 54,
     "team": "RB F1 Team",
-    "pts": 13,
+    "pts": 14,
     "pos": 13,
     "wins": 0,
     "form": [
+     "10",
      "9",
      "7",
      "W",
@@ -6662,6 +6664,7 @@
     "pos": 14,
     "wins": 0,
     "form": [
+     "R",
      "12",
      "16",
      "9",
@@ -6669,12 +6672,13 @@
     ]
    },
    "Alexander Albon": {
-    "r": 52,
+    "r": 51,
     "team": "Williams",
     "pts": 5,
     "pos": 15,
     "wins": 0,
     "form": [
+     "17",
      "R",
      "8",
      "R",
@@ -6688,6 +6692,7 @@
     "pos": 16,
     "wins": 0,
     "form": [
+     "16",
      "13",
      "9",
      "14",
@@ -6703,6 +6708,7 @@
     "form": [
      "11",
      "11",
+     "11",
      "13",
      "12"
     ]
@@ -6714,6 +6720,7 @@
     "pos": 18,
     "wins": 0,
     "form": [
+     "18",
      "R",
      "10",
      "R",
@@ -6727,6 +6734,7 @@
     "pos": 19,
     "wins": 0,
     "form": [
+     "12",
      "R",
      "13",
      "12",
@@ -6742,6 +6750,7 @@
     "form": [
      "R",
      "R",
+     "R",
      "16",
      "18"
     ]
@@ -6753,6 +6762,7 @@
     "pos": 21,
     "wins": 0,
     "form": [
+     "R",
      "14",
      "15",
      "R",
@@ -6768,6 +6778,7 @@
     "form": [
      "R",
      "R",
+     "R",
      "15",
      "17"
     ]
@@ -6778,21 +6789,21 @@
    "series": "Austrian Grand Prix · Spielberg",
    "field": [
     "Andrea Kimi Antonelli",
-    "Lewis Hamilton",
     "George Russell",
-    "Charles Leclerc",
-    "Lando Norris",
+    "Lewis Hamilton",
     "Oscar Piastri",
+    "Lando Norris",
+    "Charles Leclerc",
     "Max Verstappen",
-    "Pierre Gasly",
     "Isack Hadjar",
+    "Pierre Gasly",
     "Liam Lawson",
     "Oliver Bearman",
     "Franco Colapinto"
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T13:29:22.508Z"
+  "updated": "2026-06-28T17:04:47.942Z"
  },
  "SQUADS": {
   "mexico": [
