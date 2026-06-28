@@ -5066,46 +5066,46 @@
    "table": [
     {
      "team": "Argentina",
-     "p": 2,
-     "w": 2,
+     "p": 3,
+     "w": 3,
      "d": 0,
      "l": 0,
-     "gf": 5,
-     "ga": 0,
-     "gd": 5,
-     "pts": 6
+     "gf": 8,
+     "ga": 1,
+     "gd": 7,
+     "pts": 9
     },
     {
      "team": "Austria",
-     "p": 2,
+     "p": 3,
      "w": 1,
-     "d": 0,
+     "d": 1,
      "l": 1,
-     "gf": 3,
-     "ga": 3,
+     "gf": 6,
+     "ga": 6,
      "gd": 0,
-     "pts": 3
+     "pts": 4
     },
     {
      "team": "Algeria",
-     "p": 2,
+     "p": 3,
      "w": 1,
-     "d": 0,
+     "d": 1,
      "l": 1,
-     "gf": 2,
-     "ga": 4,
+     "gf": 5,
+     "ga": 7,
      "gd": -2,
-     "pts": 3
+     "pts": 4
     },
     {
      "team": "Jordan",
-     "p": 2,
+     "p": 3,
      "w": 0,
      "d": 0,
-     "l": 2,
-     "gf": 2,
-     "ga": 5,
-     "gd": -3,
+     "l": 3,
+     "gf": 3,
+     "ga": 8,
+     "gd": -5,
      "pts": 0
     }
    ],
@@ -5137,6 +5137,20 @@
      "t2": "Algeria",
      "s1": 1,
      "s2": 2
+    },
+    {
+     "date": "2026-06-27",
+     "t1": "Algeria",
+     "t2": "Austria",
+     "s1": 3,
+     "s2": 3
+    },
+    {
+     "date": "2026-06-27",
+     "t1": "Jordan",
+     "t2": "Argentina",
+     "s1": 1,
+     "s2": 3
     }
    ]
   },
@@ -5144,46 +5158,46 @@
    "table": [
     {
      "team": "Colombia",
-     "p": 2,
+     "p": 3,
      "w": 2,
-     "d": 0,
+     "d": 1,
      "l": 0,
      "gf": 4,
      "ga": 1,
      "gd": 3,
-     "pts": 6
+     "pts": 7
     },
     {
      "team": "Portugal",
-     "p": 2,
+     "p": 3,
      "w": 1,
-     "d": 1,
+     "d": 2,
      "l": 0,
      "gf": 6,
      "ga": 1,
      "gd": 5,
-     "pts": 4
+     "pts": 5
     },
     {
      "team": "DR Congo",
-     "p": 2,
-     "w": 0,
+     "p": 3,
+     "w": 1,
      "d": 1,
      "l": 1,
-     "gf": 1,
-     "ga": 2,
-     "gd": -1,
-     "pts": 1
+     "gf": 4,
+     "ga": 3,
+     "gd": 1,
+     "pts": 4
     },
     {
      "team": "Uzbekistan",
-     "p": 2,
+     "p": 3,
      "w": 0,
      "d": 0,
-     "l": 2,
-     "gf": 1,
-     "ga": 8,
-     "gd": -7,
+     "l": 3,
+     "gf": 2,
+     "ga": 11,
+     "gd": -9,
      "pts": 0
     }
    ],
@@ -5215,6 +5229,20 @@
      "t2": "DR Congo",
      "s1": 1,
      "s2": 0
+    },
+    {
+     "date": "2026-06-27",
+     "t1": "Colombia",
+     "t2": "Portugal",
+     "s1": 0,
+     "s2": 0
+    },
+    {
+     "date": "2026-06-27",
+     "t1": "DR Congo",
+     "t2": "Uzbekistan",
+     "s1": 3,
+     "s2": 1
     }
    ]
   },
@@ -5222,46 +5250,46 @@
    "table": [
     {
      "team": "England",
-     "p": 2,
-     "w": 1,
+     "p": 3,
+     "w": 2,
      "d": 1,
      "l": 0,
-     "gf": 4,
+     "gf": 6,
      "ga": 2,
-     "gd": 2,
-     "pts": 4
-    },
-    {
-     "team": "Ghana",
-     "p": 2,
-     "w": 1,
-     "d": 1,
-     "l": 0,
-     "gf": 1,
-     "ga": 0,
-     "gd": 1,
-     "pts": 4
+     "gd": 4,
+     "pts": 7
     },
     {
      "team": "Croatia",
-     "p": 2,
-     "w": 1,
+     "p": 3,
+     "w": 2,
      "d": 0,
      "l": 1,
-     "gf": 3,
-     "ga": 4,
-     "gd": -1,
-     "pts": 3
+     "gf": 5,
+     "ga": 5,
+     "gd": 0,
+     "pts": 6
+    },
+    {
+     "team": "Ghana",
+     "p": 3,
+     "w": 1,
+     "d": 1,
+     "l": 1,
+     "gf": 2,
+     "ga": 2,
+     "gd": 0,
+     "pts": 4
     },
     {
      "team": "Panama",
-     "p": 2,
+     "p": 3,
      "w": 0,
      "d": 0,
-     "l": 2,
+     "l": 3,
      "gf": 0,
-     "ga": 2,
-     "gd": -2,
+     "ga": 4,
+     "gd": -4,
      "pts": 0
     }
    ],
@@ -5292,6 +5320,20 @@
      "t1": "Panama",
      "t2": "Croatia",
      "s1": 0,
+     "s2": 1
+    },
+    {
+     "date": "2026-06-27",
+     "t1": "Panama",
+     "t2": "England",
+     "s1": 0,
+     "s2": 2
+    },
+    {
+     "date": "2026-06-27",
+     "t1": "Croatia",
+     "t2": "Ghana",
+     "s1": 2,
      "s2": 1
     }
    ]
@@ -5501,7 +5543,7 @@
    "matches": [
     {
      "ist": "2:00am",
-     "teams": "Germany vs 3A/B/C/D/F",
+     "teams": "Germany vs Paraguay",
      "grp": "Boston (Foxborough)",
      "koUTC": 1782765000000
     },
@@ -5513,7 +5555,7 @@
     },
     {
      "ist": "10:30pm",
-     "teams": "Ivory Coast vs 2I",
+     "teams": "Ivory Coast vs Norway",
      "grp": "Dallas (Arlington)",
      "koUTC": 1782838800000
     }
@@ -5525,19 +5567,19 @@
    "matches": [
     {
      "ist": "2:30am",
-     "teams": "1I vs 3C/D/F/G/H",
+     "teams": "France vs Sweden",
      "grp": "New York/New Jersey (East Rutherford)",
      "koUTC": 1782853200000
     },
     {
      "ist": "6:30am",
-     "teams": "Mexico vs 3C/E/F/H/I",
+     "teams": "Mexico vs Ecuador",
      "grp": "Mexico City",
      "koUTC": 1782867600000
     },
     {
      "ist": "9:30pm",
-     "teams": "1L vs 3E/H/I/J/K",
+     "teams": "England vs DR Congo",
      "grp": "Atlanta",
      "koUTC": 1782921600000
     }
@@ -5549,13 +5591,13 @@
    "matches": [
     {
      "ist": "1:30am",
-     "teams": "1G vs 3A/E/H/I/J",
+     "teams": "Belgium vs Senegal",
      "grp": "Seattle",
      "koUTC": 1782936000000
     },
     {
      "ist": "5:30am",
-     "teams": "USA vs 3B/E/F/I/J",
+     "teams": "USA vs Bosnia & Herzegovina",
      "grp": "San Francisco Bay Area (Santa Clara)",
      "koUTC": 1782950400000
     }
@@ -5567,25 +5609,25 @@
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "1H vs 2J",
+     "teams": "Spain vs Austria",
      "grp": "Los Angeles (Inglewood)",
      "koUTC": 1783018800000
     },
     {
      "ist": "4:30am",
-     "teams": "2K vs 2L",
+     "teams": "Portugal vs Croatia",
      "grp": "Toronto",
      "koUTC": 1783033200000
     },
     {
      "ist": "8:30am",
-     "teams": "Switzerland vs 3E/F/G/I/J",
+     "teams": "Switzerland vs Algeria",
      "grp": "Vancouver",
      "koUTC": 1783047600000
     },
     {
      "ist": "11:30pm",
-     "teams": "Australia vs 2G",
+     "teams": "Australia vs Egypt",
      "grp": "Dallas (Arlington)",
      "koUTC": 1783101600000
     }
@@ -5597,13 +5639,13 @@
    "matches": [
     {
      "ist": "3:30am",
-     "teams": "1J vs 2H",
+     "teams": "Argentina vs Cape Verde",
      "grp": "Miami (Miami Gardens)",
      "koUTC": 1783116000000
     },
     {
      "ist": "7:00am",
-     "teams": "1K vs 3D/E/I/J/L",
+     "teams": "Colombia vs Ghana",
      "grp": "Kansas City",
      "koUTC": 1783128600000
     }
@@ -5792,146 +5834,449 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-27T07:27:43.708Z",
+ "updated": "2026-06-28T08:18:24.492Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
    {
-    "date": "Sat 27 Jun (IST)",
-    "series": "ICC Cricket World Cup · 50 overs",
-    "matches": [
-     {
-      "teams": "India vs England",
-      "t1": "India",
-      "t2": "England",
-      "format": "ODI",
-      "venue": "Lord’s, London",
-      "ist": "3:00pm"
-     },
-     {
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "format": "ODI",
-      "venue": "Colombo",
-      "ist": "7:30pm"
-     },
-     {
-      "teams": "Australia vs India",
-      "t1": "Australia",
-      "t2": "India",
-      "format": "ODI",
-      "venue": "Sydney",
-      "ist": "9:00am",
-      "gender": "women"
-     }
-    ]
-   },
-   {
     "date": "Sun 28 Jun (IST)",
-    "series": "ICC Cricket World Cup · 50 overs",
+    "series": "International",
     "matches": [
      {
-      "teams": "Australia vs South Africa",
-      "t1": "Australia",
-      "t2": "South Africa",
-      "format": "ODI",
-      "venue": "MCG, Melbourne",
-      "ist": "5:30am"
-     },
-     {
-      "teams": "New Zealand vs West Indies",
-      "t1": "New Zealand",
-      "t2": "West Indies",
-      "format": "ODI",
-      "venue": "Auckland",
-      "ist": "11:30am"
-     },
-     {
-      "teams": "England vs South Africa",
-      "t1": "England",
-      "t2": "South Africa",
-      "format": "ODI",
-      "venue": "Birmingham",
-      "ist": "8:00pm",
-      "gender": "women"
-     }
-    ]
-   },
-   {
-    "date": "Mon 29 Jun (IST)",
-    "series": "ICC Cricket World Cup · 50 overs",
-    "matches": [
-     {
-      "teams": "India vs England",
-      "t1": "India",
-      "t2": "England",
-      "format": "ODI",
-      "venue": "Old Trafford, Manchester",
-      "ist": "9:30pm"
-     },
-     {
-      "teams": "Bangladesh vs Afghanistan",
+      "teams": "Bangladesh vs Zimbabwe",
       "t1": "Bangladesh",
-      "t2": "Afghanistan",
-      "format": "ODI",
-      "venue": "Dhaka",
-      "ist": "1:30pm"
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Bangladesh tour of Zimbabwe, 2026",
+      "ist": "1:30pm",
+      "utc": 1782633600000
+     },
+     {
+      "teams": "Bangladesh vs South Africa",
+      "t1": "Bangladesh",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "3:00pm",
+      "utc": 1782639000000
      },
      {
       "teams": "Australia vs India",
       "t1": "Australia",
       "t2": "India",
-      "format": "ODI",
-      "venue": "Melbourne",
-      "ist": "1:30pm",
-      "gender": "women"
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "7:00pm",
+      "utc": 1782653400000
      },
      {
-      "teams": "New Zealand vs West Indies",
-      "t1": "New Zealand",
-      "t2": "West Indies",
-      "format": "ODI",
-      "venue": "Wellington",
-      "ist": "6:30am",
-      "gender": "women"
+      "teams": "India vs Ireland",
+      "t1": "India",
+      "t2": "Ireland",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of Ireland, 2026",
+      "ist": "7:30pm",
+      "utc": 1782655200000
      }
     ]
    },
    {
-    "date": "Tue 30 Jun (IST)",
-    "series": "ICC Cricket World Cup · 50 overs",
+    "date": "Wed 1 Jul (IST)",
+    "series": "International",
     "matches": [
      {
-      "teams": "South Africa vs Australia",
-      "t1": "South Africa",
-      "t2": "Australia",
-      "format": "ODI",
-      "venue": "MCG, Melbourne",
-      "ist": "5:30am"
-     },
-     {
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "format": "ODI",
-      "venue": "Colombo",
-      "ist": "3:00pm"
-     },
-     {
-      "teams": "England vs South Africa",
+      "teams": "England vs India",
       "t1": "England",
-      "t2": "South Africa",
-      "format": "ODI",
-      "venue": "Lord’s, London",
-      "ist": "3:30pm",
-      "gender": "women"
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of England, 2026",
+      "ist": "11:00pm",
+      "utc": 1782927000000
+     }
+    ]
+   },
+   {
+    "date": "Fri 3 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "teams": "Sri Lanka vs West Indies",
+      "t1": "Sri Lanka",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sri Lanka tour of West Indies 2026",
+      "ist": "7:30pm",
+      "utc": 1783087200000
+     }
+    ]
+   },
+   {
+    "date": "Sat 4 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "teams": "England vs India",
+      "t1": "England",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of England, 2026",
+      "ist": "7:00pm",
+      "utc": 1783171800000
+     }
+    ]
+   },
+   {
+    "date": "Thu 13 Aug (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "teams": "Australia vs Bangladesh",
+      "t1": "Australia",
+      "t2": "Bangladesh",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Marrara Cricket Ground, Darwin",
+      "ist": "6:00am",
+      "utc": 1786581000000
+     }
+    ]
+   },
+   {
+    "date": "Sat 22 Aug (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "teams": "Australia vs Bangladesh",
+      "t1": "Australia",
+      "t2": "Bangladesh",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Great Barrier Reef Arena, Mackay",
+      "ist": "5:30am",
+      "utc": 1787356800000
      }
     ]
    }
   ],
-  "updated": "2026-06-27T07:27:43.708Z",
-  "source": "seed (curated)"
+  "updated": "2026-06-28T08:18:21.746Z",
+  "source": "CricketData.org"
+ },
+ "F1": {
+  "drivers": {
+   "Andrea Kimi Antonelli": {
+    "r": 100,
+    "team": "Mercedes",
+    "pts": 156,
+    "pos": 1,
+    "wins": 5,
+    "form": [
+     "16",
+     "1",
+     "1",
+     "1"
+    ]
+   },
+   "Lewis Hamilton": {
+    "r": 87,
+    "team": "Ferrari",
+    "pts": 115,
+    "pos": 2,
+    "wins": 1,
+    "form": [
+     "1",
+     "2",
+     "2",
+     "6"
+    ]
+   },
+   "George Russell": {
+    "r": 84,
+    "team": "Mercedes",
+    "pts": 106,
+    "pos": 3,
+    "wins": 1,
+    "form": [
+     "2",
+     "12",
+     "R",
+     "4"
+    ]
+   },
+   "Charles Leclerc": {
+    "r": 74,
+    "team": "Ferrari",
+    "pts": 75,
+    "pos": 4,
+    "wins": 0,
+    "form": [
+     "15",
+     "R",
+     "4",
+     "8"
+    ]
+   },
+   "Lando Norris": {
+    "r": 73,
+    "team": "McLaren",
+    "pts": 73,
+    "pos": 5,
+    "wins": 0,
+    "form": [
+     "3",
+     "R",
+     "R",
+     "2"
+    ]
+   },
+   "Oscar Piastri": {
+    "r": 72,
+    "team": "McLaren",
+    "pts": 68,
+    "pos": 6,
+    "wins": 0,
+    "form": [
+     "5",
+     "5",
+     "11",
+     "3"
+    ]
+   },
+   "Max Verstappen": {
+    "r": 68,
+    "team": "Red Bull",
+    "pts": 55,
+    "pos": 7,
+    "wins": 0,
+    "form": [
+     "4",
+     "R",
+     "3",
+     "5"
+    ]
+   },
+   "Pierre Gasly": {
+    "r": 63,
+    "team": "Alpine F1 Team",
+    "pts": 41,
+    "pos": 8,
+    "wins": 0,
+    "form": [
+     "7",
+     "3",
+     "8",
+     "R"
+    ]
+   },
+   "Isack Hadjar": {
+    "r": 61,
+    "team": "Red Bull",
+    "pts": 34,
+    "pos": 9,
+    "wins": 0,
+    "form": [
+     "6",
+     "4",
+     "5",
+     "R"
+    ]
+   },
+   "Liam Lawson": {
+    "r": 59,
+    "team": "RB F1 Team",
+    "pts": 28,
+    "pos": 10,
+    "wins": 0,
+    "form": [
+     "8",
+     "6",
+     "7",
+     "R"
+    ]
+   },
+   "Oliver Bearman": {
+    "r": 56,
+    "team": "Haas F1 Team",
+    "pts": 18,
+    "pos": 11,
+    "wins": 0,
+    "form": [
+     "17",
+     "R",
+     "10",
+     "11"
+    ]
+   },
+   "Franco Colapinto": {
+    "r": 55,
+    "team": "Alpine F1 Team",
+    "pts": 16,
+    "pos": 12,
+    "wins": 0,
+    "form": [
+     "10",
+     "14",
+     "6",
+     "7"
+    ]
+   },
+   "Arvid Lindblad": {
+    "r": 54,
+    "team": "RB F1 Team",
+    "pts": 13,
+    "pos": 13,
+    "wins": 0,
+    "form": [
+     "9",
+     "7",
+     "W",
+     "14"
+    ]
+   },
+   "Carlos Sainz": {
+    "r": 52,
+    "team": "Williams",
+    "pts": 6,
+    "pos": 14,
+    "wins": 0,
+    "form": [
+     "12",
+     "16",
+     "9",
+     "9"
+    ]
+   },
+   "Alexander Albon": {
+    "r": 52,
+    "team": "Williams",
+    "pts": 5,
+    "pos": 15,
+    "wins": 0,
+    "form": [
+     "R",
+     "8",
+     "R",
+     "10"
+    ]
+   },
+   "Esteban Ocon": {
+    "r": 51,
+    "team": "Haas F1 Team",
+    "pts": 3,
+    "pos": 16,
+    "wins": 0,
+    "form": [
+     "13",
+     "9",
+     "14",
+     "13"
+    ]
+   },
+   "Gabriel Bortoleto": {
+    "r": 51,
+    "team": "Audi",
+    "pts": 2,
+    "pos": 17,
+    "wins": 0,
+    "form": [
+     "11",
+     "11",
+     "13",
+     "12"
+    ]
+   },
+   "Fernando Alonso": {
+    "r": 50,
+    "team": "Aston Martin",
+    "pts": 1,
+    "pos": 18,
+    "wins": 0,
+    "form": [
+     "R",
+     "10",
+     "R",
+     "15"
+    ]
+   },
+   "Nico Hülkenberg": {
+    "r": 50,
+    "team": "Audi",
+    "pts": 0,
+    "pos": 19,
+    "wins": 0,
+    "form": [
+     "R",
+     "13",
+     "12",
+     "R"
+    ]
+   },
+   "Valtteri Bottas": {
+    "r": 50,
+    "team": "Cadillac F1 Team",
+    "pts": 0,
+    "pos": 20,
+    "wins": 0,
+    "form": [
+     "R",
+     "R",
+     "16",
+     "18"
+    ]
+   },
+   "Sergio Pérez": {
+    "r": 50,
+    "team": "Cadillac F1 Team",
+    "pts": 0,
+    "pos": 21,
+    "wins": 0,
+    "form": [
+     "14",
+     "15",
+     "R",
+     "16"
+    ]
+   },
+   "Lance Stroll": {
+    "r": 50,
+    "team": "Aston Martin",
+    "pts": 0,
+    "pos": 22,
+    "wins": 0,
+    "form": [
+     "R",
+     "R",
+     "15",
+     "17"
+    ]
+   }
+  },
+  "event": {
+   "date": "Sun 28 Jun (IST)",
+   "series": "Austrian Grand Prix · Spielberg",
+   "field": [
+    "Andrea Kimi Antonelli",
+    "Lewis Hamilton",
+    "George Russell",
+    "Charles Leclerc",
+    "Lando Norris",
+    "Oscar Piastri",
+    "Max Verstappen",
+    "Pierre Gasly",
+    "Isack Hadjar",
+    "Liam Lawson",
+    "Oliver Bearman",
+    "Franco Colapinto"
+   ]
+  },
+  "season": 2026,
+  "updated": "2026-06-28T08:18:24.492Z"
  }
 }
