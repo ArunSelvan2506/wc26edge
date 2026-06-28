@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T08:18:24.492Z",
+ "updated": "2026-06-28T12:44:35.673Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5852,16 +5852,6 @@
       "venue": "Bangladesh tour of Zimbabwe, 2026",
       "ist": "1:30pm",
       "utc": 1782633600000
-     },
-     {
-      "teams": "Bangladesh vs South Africa",
-      "t1": "Bangladesh",
-      "t2": "South Africa",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's T20 World Cup 2026",
-      "ist": "3:00pm",
-      "utc": 1782639000000
      },
      {
       "teams": "Australia vs India",
@@ -5966,7 +5956,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T08:18:21.746Z",
+  "updated": "2026-06-28T12:44:34.269Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6277,6 +6267,6 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T08:18:24.492Z"
+  "updated": "2026-06-28T12:44:35.673Z"
  }
 }
