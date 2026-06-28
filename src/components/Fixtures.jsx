@@ -2,13 +2,13 @@ import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { DAYS, UPDATED } from '../data.js';
 import { norm, markets } from '../lib/model.js';
-import { probToAm } from '../lib/sportEngine.js';
+import { probToAm, dec } from '../lib/sportEngine.js';
 import { fmtOdds } from '../lib/odds.js';
 import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { upcomingFixtures } from '../lib/completion.js';
 import { lineupFor } from '../lib/live.js';
-import { cpill } from '../lib/ui.js';
-import { Copyable } from './Bits.jsx';
+import { cpill, ecls } from '../lib/ui.js';
+import { Copyable, ConfBar } from './Bits.jsx';
 import { Lineups } from './Lineups.jsx';
 import MatchCard from './MatchCard.jsx';
 
@@ -152,7 +152,7 @@ function KnockoutCard({ mt, rat, fmt, tz, index = 0 }) {
   ];
   return (
     <div className="fix-row-wrap">
-      <div className={'ck-card' + (open ? ' open' : '')} onClick={() => lu && setOpen(o => !o)}>
+      <div className={'ck-card' + (open ? ' open' : '')} onClick={() => setOpen(o => !o)}>
         <div className="ck-head">
           <div>
             <div className="ck-teams">{mt.teams}</div>
@@ -170,9 +170,81 @@ function KnockoutCard({ mt, rat, fmt, tz, index = 0 }) {
             </Copyable>
           ))}
         </div>
-        {lu && <div className="ck-toggle">{open ? 'Hide lineups' : 'Lineups'} <span className="tog">▾</span></div>}
+        <div className="ck-toggle">{open ? 'Hide' : 'Chances · goals · easy & value bets'} <span className="tog">▾</span></div>
+        <AnimatePresence initial={false}>
+          {open && (
+            <motion.div className="ck-body" onClick={e => e.stopPropagation()}
+              initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.26, ease: 'easeOut' }}
+              style={{ overflow: 'hidden' }}>
+              <KnockoutEngine a={a} c={c} mk={mk} fmt={fmt} />
+              {lu && <Section title="Lineups"><Lineups lu={lu} teamA={a} teamB={c} /></Section>}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
-      {lineupPanel}
+    </div>
+  );
+}
+
+function Section({ title, children }) {
+  return <div className="ck-sec"><div className="ck-sec-t">{title}</div>{children}</div>;
+}
+
+// Same Poisson/Dixon-Coles engine as the group-stage cards: 1X2 + goals
+// markets, model easy bets and a value parlay (fair odds — no book market here).
+function KnockoutEngine({ a, c, mk, fmt }) {
+  const pc = x => Math.round(x * 100);
+  const over = mk.over25 >= 0.5, btts = mk.btts >= 0.5;
+  const favP = Math.max(mk.home, mk.away), fav = mk.home >= mk.away ? a : c;
+  const oP = over ? mk.over25 : 1 - mk.over25, bP = btts ? mk.btts : 1 - mk.btts;
+  const easy = [
+    { c: 'Match winner', p: `${fav} to win`, cf: pc(favP), o: probToAm(favP) },
+    { c: 'Goals', p: `${over ? 'Over' : 'Under'} 2.5 goals`, cf: pc(oP), o: probToAm(oP) },
+    { c: 'BTTS', p: `Both teams to score · ${btts ? 'Yes' : 'No'}`, cf: pc(bP), o: probToAm(bP) },
+  ];
+  const goalLeg = oP >= bP
+    ? { p: `${over ? 'Over' : 'Under'} 2.5 goals`, prob: oP, o: probToAm(oP) }
+    : { p: `BTTS ${btts ? 'Yes' : 'No'}`, prob: bP, o: probToAm(bP) };
+  const legs = [{ p: `${fav} to win`, prob: favP, o: probToAm(favP) }, goalLeg];
+  const pProb = legs.reduce((s, l) => s * l.prob, 1);
+  const pDec = legs.reduce((s, l) => s * (dec(l.o) || 1), 1);
+  const hit = pc(pProb), ret = `put £10 returns £${(pDec * 10).toFixed(2)}`;
+
+  return (
+    <div className="ck-eng">
+      <Section title="Chances of winning">
+        <ConfBar label={a} p={pc(mk.home)} fill="f-hi" />
+        <ConfBar label="Draw (90 min)" p={pc(mk.draw)} fill="f-md" delay={0.05} />
+        <ConfBar label={c} p={pc(mk.away)} fill="f-hi" delay={0.1} />
+      </Section>
+      <Section title="Goals — model">
+        <ConfBar label="Over 2.5 goals" p={pc(mk.over25)} fill="f-bl" />
+        <ConfBar label="Both teams score" p={pc(mk.btts)} fill="f-pu" delay={0.06} />
+        <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals: <b style={{ color: 'var(--tx)' }}>{a} {mk.lh.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{mk.la.toFixed(2)} {c}</b></div>
+      </Section>
+      <Section title="🎯 Easy bets">
+        {easy.map((e, i) => (
+          <Copyable key={i} className={'ebet' + (e.cf >= 60 ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)}`}>
+            <div className="eb-l"><div className="eb-cat">{e.c}</div><div className="eb-pick">{e.p} <span className="copy-ico">⧉</span></div><div className="eb-odds">{fmtOdds(e.o, fmt)}</div></div>
+            <span className={'eb-cf ' + ecls(e.cf)}>{e.cf}%</span>
+          </Copyable>
+        ))}
+      </Section>
+      <Section title="⚡ Value parlay">
+        <div className="parlay">
+          <div className="pl-hd"><span>⚡ Winner + goals</span></div>
+          {legs.map((l, i) => (
+            <Copyable key={i} className="pl-leg" icon={false} copy={`${l.p} @ ${fmtOdds(l.o, fmt)}`}>
+              <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.p}</span><span className="pl-od">{fmtOdds(l.o, fmt)}</span>
+            </Copyable>
+          ))}
+          <div className="pl-ret">Est. hit <span style={{ color: 'var(--ac)' }}>~{hit}%</span> · {ret}</div>
+        </div>
+      </Section>
+      <div className="ref-box" style={{ marginTop: 2 }}>
+        Opponent-adjusted Poisson / Dixon-Coles model (same engine as the group stage) — fair odds, no bookmaker margin. Draw is the 90-minute result. Estimates for entertainment, not guarantees.
+      </div>
     </div>
   );
 }
