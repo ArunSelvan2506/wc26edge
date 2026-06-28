@@ -201,7 +201,7 @@ function KnockoutEngine({ rat, a, c, fmt }) {
   const mk = eng.mk;
   const props = eng.props;
   const fav = eng.fav.n, favP = eng.fav.p;
-  const over = mk.over25 >= 0.5, btts = mk.btts >= 0.5;
+  const over = mk.over25 >= 0.5;
   const easy = [
     { c: 'Match winner', p: `${fav} to win`, cf: pc(favP), o: probToAm(favP) },
     { c: 'Goals', p: `${over ? 'Over' : 'Under'} 2.5 goals`, cf: pc(Math.max(mk.over25, 1 - mk.over25)), o: probToAm(Math.max(mk.over25, 1 - mk.over25)) },
@@ -217,42 +217,75 @@ function KnockoutEngine({ rat, a, c, fmt }) {
     </Copyable>
   );
 
-  return (
-    <div className="ck-eng">
-      <Section title="Chances of winning">
-        <ConfBar label={a} p={pc(mk.home)} fill="f-hi" />
-        <ConfBar label="Draw (90 min)" p={pc(mk.draw)} fill="f-md" delay={0.05} />
-        <ConfBar label={c} p={pc(mk.away)} fill="f-hi" delay={0.1} />
-      </Section>
-      <Section title="Goals — model">
-        <ConfBar label="Over 2.5 goals" p={pc(mk.over25)} fill="f-bl" />
-        <ConfBar label="Both teams score" p={pc(mk.btts)} fill="f-pu" delay={0.06} />
-        <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals: <b style={{ color: 'var(--tx)' }}>{a} {mk.lh.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{mk.la.toFixed(2)} {c}</b></div>
-      </Section>
-      <Section title="🟨 Fouls & cards (model)">
-        {propRow(props.fouls, 0)}
-        {propRow(props.cards, 1)}
-        {propRow(props.corners, 2)}
-      </Section>
-      <Section title="🎯 Shots (model)">
-        {propRow(props.sot, 0)}
-        {propRow(props.sotA, 1)}
-        {propRow(props.sotC, 2)}
-      </Section>
-      <Section title="🎯 Easy bets">
-        {easy.map((e, i) => (
+  const tabs = [
+    {
+      id: 'chances', label: 'Chances', body: (
+        <>
+          <ConfBar label={a} p={pc(mk.home)} fill="f-hi" />
+          <ConfBar label="Draw (90 min)" p={pc(mk.draw)} fill="f-md" delay={0.05} />
+          <ConfBar label={c} p={pc(mk.away)} fill="f-hi" delay={0.1} />
+        </>
+      ),
+    },
+    {
+      id: 'goals', label: 'Goals', body: (
+        <>
+          <ConfBar label="Over 2.5 goals" p={pc(mk.over25)} fill="f-bl" />
+          <ConfBar label="Both teams score" p={pc(mk.btts)} fill="f-pu" delay={0.06} />
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals: <b style={{ color: 'var(--tx)' }}>{a} {mk.lh.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{mk.la.toFixed(2)} {c}</b></div>
+        </>
+      ),
+    },
+    {
+      id: 'fouls', label: '🟨 Fouls', body: (
+        <>{propRow(props.fouls, 0)}{propRow(props.cards, 1)}{propRow(props.corners, 2)}</>
+      ),
+    },
+    {
+      id: 'shots', label: '🎯 Shots', body: (
+        <>{propRow(props.sot, 0)}{propRow(props.sotA, 1)}{propRow(props.sotC, 2)}</>
+      ),
+    },
+    {
+      id: 'easy', label: 'Easy bets', body: (
+        <>{easy.map((e, i) => (
           <Copyable key={i} className={'ebet' + (e.cf >= 60 ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)}`}>
             <div className="eb-l"><div className="eb-cat">{e.c}</div><div className="eb-pick">{e.p} <span className="copy-ico">⧉</span></div><div className="eb-odds">{fmtOdds(e.o, fmt)}</div></div>
             <span className={'eb-cf ' + ecls(e.cf)}>{e.cf}%</span>
           </Copyable>
-        ))}
-      </Section>
-      <Section title="Parlays">
+        ))}</>
+      ),
+    },
+    {
+      id: 'parlays', label: 'Parlays', body: (
         <div className="parlay-grid">
           <KParlay title="🟢 Safe parlay" sub="legs under 1.75 odds" slip={safe} fmt={fmt} tone="safe" />
           <KParlay title="⚡ Value parlay" sub="legs over 4.0 odds" slip={value} fmt={fmt} tone="value" />
         </div>
-      </Section>
+      ),
+    },
+  ];
+  const [tab, setTab] = useState('chances');
+  const active = tabs.find(t => t.id === tab) || tabs[0];
+
+  return (
+    <div className="ck-eng">
+      <div className="eng-tabs" role="tablist">
+        {tabs.map(t => (
+          <button key={t.id} type="button" role="tab"
+            className={'eng-tab' + (t.id === tab ? ' on' : '')}
+            onClick={() => setTab(t.id)}>{t.label}</button>
+        ))}
+      </div>
+      <div className="eng-pane">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div key={active.id}
+            initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.16, ease: 'easeOut' }}>
+            {active.body}
+          </motion.div>
+        </AnimatePresence>
+      </div>
       <div className="ref-box" style={{ marginTop: 2 }}>
         Opponent-adjusted Poisson / Dixon-Coles model (team strength &amp; form). Foul / card / corner / shot props are model estimates off projected goals + WC baselines. Fair odds, no bookmaker margin. Draw is the 90-minute result. Estimates for entertainment, not guarantees.
       </div>
