@@ -5,7 +5,8 @@ import { fmtOdds } from '../lib/odds.js';
 import { cricketMarket, cricketBets, cricketParlay, cricketForm, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
 import { timeIn, dayKeyIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { cpill, cfill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar } from './Bits.jsx';
+import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { useSweep, isDone, DONE_HRS } from '../lib/useSweep.js';
 
 const FORMATS = ['All', 'Test', 'ODI', 'T20I'];
 const GENDERS = [['all', 'All'], ['men', "Men's"], ['women', "Women's"]];
@@ -16,13 +17,16 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
   const blocks = CRICKET.blocks || [];
   const [filter, setFilter] = useState('All');
   const [gender, setGender] = useState('all');
+  const { now, nowMin, nextSweep } = useSweep();
 
   // Flatten, then re-group by day in the chosen timezone (so day labels and the
-  // date filter follow the region picker).
+  // date filter follow the region picker). Completed matches drop off (re-checked
+  // each minute on the 3-hour sweep cadence).
   const view = useMemo(() => {
     const groups = [], idx = {};
     for (const b of blocks) {
       for (const m of b.matches) {
+        if (isDone(m.utc, DONE_HRS[fmtKey(m.format)], now)) continue;
         if (!(filter === 'All' || FORMAT_LABEL[fmtKey(m.format)] === filter)) continue;
         if (!(gender === 'all' || gOf(m) === gender)) continue;
         const key = m.utc != null ? dayKeyIn(m.utc, tz) : 'd:' + b.date;
@@ -33,7 +37,7 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       }
     }
     return groups;
-  }, [blocks, filter, gender, tz, dateSel]);
+  }, [blocks, filter, gender, tz, dateSel, nowMin]);   // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div>
@@ -41,6 +45,7 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       <div className="live-badge">
         <span className="live-dot" /> Model-derived fair odds · whole win market
       </div>
+      <SweepBanner now={now} nextSweep={nextSweep} />
       <div className="chips">
         {GENDERS.map(([k, l]) => (
           <button key={k} className={'chip' + (gender === k ? ' active' : '')} onClick={() => setGender(k)}>{l}</button>

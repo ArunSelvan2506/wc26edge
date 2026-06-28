@@ -5,7 +5,8 @@ import { SPORT_CFG } from '../data/sports.js';
 import { h2hMarket, raceMarket, buildParlays, recommendedHits } from '../lib/sportEngine.js';
 import { dayKeyIn, dayLabelIn } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar } from './Bits.jsx';
+import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { useSweep, isDone, DONE_HRS } from '../lib/useSweep.js';
 
 const pc = x => Math.round(x * 100);
 
@@ -25,15 +26,20 @@ function buildAll(cfg) {
 export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
   const cfg = SPORT_CFG[sportId];
   const { events: allEvents, hits, parlays } = useMemo(() => buildAll(cfg), [cfg]);
-  // Race events ignore the date filter; H2H events filter by day in the chosen tz.
+  const { now, nextSweep } = useSweep();
+  // Completed games drop off (H2H events timed by start + duration). Race events
+  // advance via the hourly data refresh (next race), so they aren't time-cleared.
+  const dur = DONE_HRS[sportId] || DONE_HRS.basketball;
   const events = allEvents.filter(ev =>
-    cfg.kind === 'race' || dateSel === 'all' ||
-    (ev.utc != null ? dayKeyIn(ev.utc, tz) === dateSel : 'd:' + ev.date === dateSel));
+    (cfg.kind === 'race' || !isDone(ev.utc, dur, now)) &&
+    (cfg.kind === 'race' || dateSel === 'all' ||
+      (ev.utc != null ? dayKeyIn(ev.utc, tz) === dateSel : 'd:' + ev.date === dateSel)));
 
   return (
     <div>
       <div className="section-h">{cfg.label} · model picks & bets</div>
       <div className="live-badge"><span className="live-dot" /> AI-curated form · model-fair odds · example returns in £</div>
+      {cfg.kind !== 'race' && <SweepBanner now={now} nextSweep={nextSweep} />}
 
       {hits.length > 0 && (
         <div className="rec-box">

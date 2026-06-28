@@ -1,14 +1,15 @@
-import { useMemo, useState, useEffect } from 'react';
+import { useMemo } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { fmtOdds } from '../lib/odds.js';
 import { TENNIS } from '../data/sports.js';
 import { tennisMatch, tennisHits, tennisParlays, injInfo } from '../lib/tennis.js';
 import { dayKeyIn, dayLabelIn, timeIn, zoneLabel } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar } from './Bits.jsx';
+import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { useSweep } from '../lib/useSweep.js';
 
 const pc = x => Math.round(x * 100);
-const REFRESH_MS = 3 * 3600e3;          // completed-game sweep cadence
 
 // "2d 3h" / "5h 12m" / "48m" / "12m 04s"
 function countdown(ms) {
@@ -18,10 +19,6 @@ function countdown(ms) {
   if (h) return `${h}h ${m}m`;
   if (m >= 1) return `${m}m`;
   return `${m}m ${String(ss).padStart(2, '0')}s`;
-}
-function clock(ms) {
-  const s = Math.max(0, Math.floor(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), ss = s % 60;
-  return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(ss).padStart(2, '0')}`;
 }
 
 // Model every match once (markets/legs are time-independent; status is live).
@@ -35,10 +32,7 @@ function buildTennis(cfg) {
 export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
   const cfg = TENNIS;
   const allEvents = useMemo(() => buildTennis(cfg), [cfg]);
-  const [now, setNow] = useState(() => Date.now());
-  useEffect(() => { const id = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(id); }, []);
-
-  const nextSweep = Math.ceil(now / REFRESH_MS) * REFRESH_MS;   // next 3h boundary
+  const { now, nextSweep } = useSweep();
 
   // Drop completed matches; keep upcoming/live. Then apply the date filter.
   const events = allEvents.map(ev => {
@@ -59,12 +53,7 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
     <div>
       <div className="section-h">{cfg.label} · live model & bets</div>
 
-      <div className="tn-timer">
-        <div className="tn-timer-l">
-          <span className="live-dot" /> {liveCount > 0 ? `${liveCount} live now · ` : ''}auto-removes completed games
-        </div>
-        <div className="tn-timer-r">↻ next sweep in <b>{clock(nextSweep - now)}</b></div>
-      </div>
+      <SweepBanner now={now} nextSweep={nextSweep} live={liveCount} />
       <div className="live-badge">🎾 Elo + surface + form + injury model · in-form & injury-aware picks · returns in £</div>
 
       {hits.length > 0 && (

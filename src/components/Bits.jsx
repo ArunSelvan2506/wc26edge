@@ -1,6 +1,18 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { copyText, cc, cfill } from '../lib/ui.js';
+import { sweepClock } from '../lib/useSweep.js';
+
+// Auto-sweep banner: shows live count + a countdown to the next 3-hour sweep
+// that removes completed games. Shared across all sports.
+export function SweepBanner({ now, nextSweep, live = 0 }) {
+  return (
+    <div className="tn-timer">
+      <div className="tn-timer-l"><span className="live-dot" />{live > 0 ? `${live} live now · ` : ''}auto-removes completed games</div>
+      <div className="tn-timer-r">↻ next sweep in <b>{sweepClock(nextSweep - now)}</b></div>
+    </div>
+  );
+}
 
 // Tappable element that copies `copy` to the clipboard.
 export function Copyable({ copy, className = '', children, style, icon = true }) {

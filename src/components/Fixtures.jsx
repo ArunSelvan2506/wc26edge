@@ -9,7 +9,8 @@ import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { upcomingFixtures } from '../lib/completion.js';
 import { lineupFor, squadFor } from '../lib/live.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar } from './Bits.jsx';
+import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { useSweep } from '../lib/useSweep.js';
 import { Lineups } from './Lineups.jsx';
 import MatchCard from './MatchCard.jsx';
 
@@ -55,8 +56,9 @@ const FILTERS = ['R32', 'R16', 'QF', 'SF', 'Final'];
 
 export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
   const detail = useMemo(buildDetailIndex, []);
-  // Completed date-blocks drop off; recomputed once per mount.
-  const upcoming = useMemo(() => upcomingFixtures(Date.now()), []);
+  const { now, nowMin, nextSweep } = useSweep();
+  // Completed matches drop off; re-checked each minute (3-hour sweep cadence).
+  const upcoming = useMemo(() => upcomingFixtures(now), [nowMin]);   // eslint-disable-line react-hooks/exhaustive-deps
   const [filter, setFilter] = useState('R32');
   const blocks = upcoming.filter(b => stageCat(b.stage) === filter);
 
@@ -67,6 +69,7 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
         <span className="live-dot" /> Updated {freshLabel(UPDATED)}
         <NextUpdate />
       </div>
+      <SweepBanner now={now} nextSweep={nextSweep} />
       <div className="chips">
         {FILTERS.map(f => (
           <button key={f} className={'chip' + (filter === f ? ' active' : '')} onClick={() => setFilter(f)}>{f}</button>
