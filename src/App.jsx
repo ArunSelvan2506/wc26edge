@@ -6,7 +6,6 @@ import { ZONES, dayKeyIn, dayLabelIn } from './lib/tz.js';
 import { SPORT_CFG } from './data/sports.js';
 import { OddsToggle, Toast } from './components/Bits.jsx';
 import Fixtures from './components/Fixtures.jsx';
-import Standings from './components/Standings.jsx';
 import Cricket from './components/Cricket.jsx';
 import SportView from './components/SportView.jsx';
 
@@ -24,7 +23,6 @@ function daysForSport(sport, tz) {
 
 const VIEWS = [
   { id: 'fixtures', label: 'Fixtures' },
-  { id: 'standings', label: 'Standings' },
 ];
 
 // Top-level sport groups. Football (World Cup 2026) is live; the rest are
@@ -83,7 +81,7 @@ export default function App() {
               {ZONES.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
             </select>
             <OddsToggle fmt={fmt} onChange={changeFmt} />
-            {sport === 'football' && (
+            {sport === 'football' && VIEWS.length > 1 && (
               <nav style={{ display: 'flex', gap: 5 }}>
                 {VIEWS.map(v => (
                   <button key={v.id} className={'nav-btn' + (view === v.id ? ' active' : '')} onClick={() => setView(v.id)}>{v.label}</button>
@@ -121,7 +119,6 @@ export default function App() {
                   ? <SportView sportId={sport} fmt={fmt} tz={tz} dateSel={dateSel} />
                   : <>
                       {view === 'fixtures' && <Fixtures fmt={fmt} rat={rat} tz={tz} />}
-                      {view === 'standings' && <Standings />}
                       {view === 'about' && <About />}
                     </>}
           </motion.div>
