@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-29T00:04:21.987Z",
+ "updated": "2026-06-29T05:27:23.656Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5944,7 +5944,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -5972,7 +5972,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6259,7 +6259,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6304,7 +6304,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6315,7 +6315,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6332,7 +6332,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6343,7 +6343,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6371,7 +6371,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6388,7 +6388,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6422,7 +6422,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6431,7 +6431,7 @@
     ]
    }
   ],
-  "updated": "2026-06-29T00:04:20.329Z",
+  "updated": "2026-06-29T05:27:22.499Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6765,7 +6765,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-29T00:04:21.987Z"
+  "updated": "2026-06-29T05:27:23.656Z"
  },
  "SQUADS": {
   "mexico": [
