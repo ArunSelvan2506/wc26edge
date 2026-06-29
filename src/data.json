@@ -5834,25 +5834,25 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-28T17:28:57.313Z",
+ "updated": "2026-06-29T10:49:27.194Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
    {
-    "date": "Sun 28 Jun (IST)",
+    "date": "Tue 30 Jun (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "3839c08a-fa9a-43dd-8d80-b285a9660c9f",
-      "teams": "Bangladesh vs Zimbabwe",
-      "t1": "Bangladesh",
-      "t2": "Zimbabwe",
-      "gender": "men",
+      "id": "d5bebe6f-27de-40d4-a715-d467b4f7aa81",
+      "teams": "Australia vs West Indies",
+      "t1": "Australia",
+      "t2": "West Indies",
+      "gender": "women",
       "format": "T20I",
-      "venue": "Bangladesh tour of Zimbabwe, 2026",
-      "ist": "1:30pm",
-      "utc": 1782633600000
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "7:00pm",
+      "utc": 1782826200000
      }
     ]
    },
@@ -5870,6 +5870,23 @@
       "venue": "India tour of England, 2026",
       "ist": "11:00pm",
       "utc": 1782927000000
+     }
+    ]
+   },
+   {
+    "date": "Thu 2 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "2c0b414e-9fed-4311-ac53-e688e4e729ce",
+      "teams": "England vs South Africa",
+      "t1": "England",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "11:00pm",
+      "utc": 1783013400000
      }
     ]
    },
@@ -5908,36 +5925,19 @@
     ]
    },
    {
-    "date": "Fri 11 Sep (IST)",
+    "date": "Mon 6 Jul (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "4b980dc7-ec2a-41b3-b644-d882c0ceb47f",
-      "teams": "Zimbabwe vs South Africa",
-      "t1": "Zimbabwe",
-      "t2": "South Africa",
+      "id": "51861aa2-cf08-4fda-909b-83deac4572cc",
+      "teams": "Bangladesh vs Zimbabwe",
+      "t1": "Bangladesh",
+      "t2": "Zimbabwe",
       "gender": "men",
       "format": "T20I",
-      "venue": "Queens Sports Club, Bulawayo",
-      "ist": "4:30pm",
-      "utc": 1789124400000
-     }
-    ]
-   },
-   {
-    "date": "Sun 13 Sep (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "00484a23-ea47-4353-84a4-b51f9985b33a",
-      "teams": "Zimbabwe vs South Africa",
-      "t1": "Zimbabwe",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Queens Sports Club, Bulawayo",
-      "ist": "4:30pm",
-      "utc": 1789297200000
+      "venue": "Bangladesh tour of Zimbabwe, 2026",
+      "ist": "12:45pm",
+      "utc": 1783322100000
      }
     ]
    },
@@ -6029,17 +6029,6 @@
     "date": "Sat 19 Sep (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "caf74ad7-d9e7-47c6-8470-4efbcabdf5b9",
-      "teams": "Zimbabwe vs South Africa",
-      "t1": "Zimbabwe",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Queens Sports Club, Bulawayo",
-      "ist": "4:30pm",
-      "utc": 1789815600000
-     },
      {
       "id": "e9d29537-087d-4422-9897-748dc8aa0346",
       "teams": "England vs Sri Lanka",
@@ -6459,7 +6448,7 @@
     ]
    }
   ],
-  "updated": "2026-06-28T17:28:55.802Z",
+  "updated": "2026-06-29T10:49:24.649Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6774,8 +6763,9 @@
    }
   },
   "event": {
-   "date": "Sun 28 Jun (IST)",
-   "series": "Austrian Grand Prix · Spielberg",
+   "date": "Sun 5 Jul (IST)",
+   "utc": 1783260000000,
+   "series": "British Grand Prix · Silverstone",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6792,7 +6782,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-28T17:28:57.313Z"
+  "updated": "2026-06-29T10:49:27.194Z"
  },
  "SQUADS": {
   "mexico": [
