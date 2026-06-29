@@ -189,6 +189,124 @@ export function cricketBets(m) {
   return { mk, fav, sc, easy };
 }
 
+/* ── Player & team props (probable XI) ──────────────────────────────────────
+   No free per-match squad feed exists, so key players are a curated, illustrative
+   top order + strike bowler per nation (real names where known, role labels
+   otherwise). Runs / wickets / boundaries are modelled from team strength + form,
+   shown with a last-10 hit meter. Used for safe player parlays. */
+const KEY_PLAYERS = {
+  men: {
+    India: [['Shubman Gill', 'bat'], ['Virat Kohli', 'bat'], ['Suryakumar Yadav', 'bat'], ['Jasprit Bumrah', 'bowl']],
+    Australia: [['Travis Head', 'bat'], ['Steve Smith', 'bat'], ['Mitchell Marsh', 'bat'], ['Pat Cummins', 'bowl']],
+    England: [['Phil Salt', 'bat'], ['Harry Brook', 'bat'], ['Joe Root', 'bat'], ['Jofra Archer', 'bowl']],
+    'South Africa': [['Quinton de Kock', 'bat'], ['Aiden Markram', 'bat'], ['Heinrich Klaasen', 'bat'], ['Kagiso Rabada', 'bowl']],
+    'New Zealand': [['Devon Conway', 'bat'], ['Kane Williamson', 'bat'], ['Daryl Mitchell', 'bat'], ['Trent Boult', 'bowl']],
+    Pakistan: [['Babar Azam', 'bat'], ['Mohammad Rizwan', 'bat'], ['Fakhar Zaman', 'bat'], ['Shaheen Afridi', 'bowl']],
+    'Sri Lanka': [['Pathum Nissanka', 'bat'], ['Kusal Mendis', 'bat'], ['Charith Asalanka', 'bat'], ['Wanindu Hasaranga', 'bowl']],
+    Afghanistan: [['Rahmanullah Gurbaz', 'bat'], ['Ibrahim Zadran', 'bat'], ['Azmatullah Omarzai', 'bat'], ['Rashid Khan', 'bowl']],
+    Bangladesh: [['Litton Das', 'bat'], ['Najmul Shanto', 'bat'], ['Towhid Hridoy', 'bat'], ['Mustafizur Rahman', 'bowl']],
+    'West Indies': [['Brandon King', 'bat'], ['Nicholas Pooran', 'bat'], ['Shai Hope', 'bat'], ['Alzarri Joseph', 'bowl']],
+  },
+  women: {
+    Australia: [['Beth Mooney', 'bat'], ['Ellyse Perry', 'bat'], ['Ashleigh Gardner', 'bat'], ['Megan Schutt', 'bowl']],
+    England: [['Danni Wyatt-Hodge', 'bat'], ['Nat Sciver-Brunt', 'bat'], ['Heather Knight', 'bat'], ['Sophie Ecclestone', 'bowl']],
+    India: [['Smriti Mandhana', 'bat'], ['Shafali Verma', 'bat'], ['Harmanpreet Kaur', 'bat'], ['Deepti Sharma', 'bowl']],
+    'South Africa': [['Laura Wolvaardt', 'bat'], ['Tazmin Brits', 'bat'], ['Marizanne Kapp', 'bat'], ['Nonkululeko Mlaba', 'bowl']],
+    'New Zealand': [['Suzie Bates', 'bat'], ['Sophie Devine', 'bat'], ['Amelia Kerr', 'bat'], ['Lea Tahuhu', 'bowl']],
+    'West Indies': [['Hayley Matthews', 'bat'], ['Stafanie Taylor', 'bat'], ['Deandra Dottin', 'bat'], ['Afy Fletcher', 'bowl']],
+  },
+};
+function squad(team, gender) {
+  const tbl = KEY_PLAYERS[gender] || KEY_PLAYERS.men;
+  let list = tbl[team];
+  if (!list) { const a = ALIAS[String(team).toLowerCase()]; if (a) list = tbl[a]; }
+  if (list) return list.map(([name, role]) => ({ name, role }));
+  return [
+    { name: `${team} opener`, role: 'bat' }, { name: `${team} No.3`, role: 'bat' },
+    { name: `${team} middle order`, role: 'bat' }, { name: `${team} strike bowler`, role: 'bowl' },
+  ];
+}
+
+function formScore(team, gender) {
+  const f = cricketForm(team, gender);
+  if (!f) return 0;
+  let s = 0; for (const r of f) s += /w/i.test(r) ? 1 : /l/i.test(r) ? -1 : 0;
+  return s / f.length;
+}
+const hit10 = p => clamp(Math.round(p * 10), 1, 10);
+
+const BAT_MEAN = { t20i: { men: 32, women: 28 }, odi: { men: 44, women: 40 }, test: { men: 40, women: 36 } };
+const WKT_BASE = { t20i: 1.15, odi: 1.5, test: 2.4 };
+function teamStrength(team, gender, f, soft) {
+  const table = (RATINGS[gender] || RATINGS.men)[f] || RATINGS.men.t20i;
+  const r = rating(table, team), par = avg(table);
+  return clamp(1 + (r - par) / (par * soft), 0.75, 1.32);
+}
+function batMu(team, gender, f, i) {
+  const base = (BAT_MEAN[f] || BAT_MEAN.t20i)[gender] || BAT_MEAN.t20i.men;
+  const orderF = [1, 0.96, 0.9, 0.82][i] || 0.8;
+  return base * teamStrength(team, gender, f, 1.1) * (1 + formScore(team, gender) * 0.08) * orderF;
+}
+function wktLambda(team, gender, f) {
+  return (WKT_BASE[f] || 1.15) * teamStrength(team, gender, f, 1.4) * (1 + formScore(team, gender) * 0.06);
+}
+
+// Per-team player props (probable XI). Batters get a safe "10+ runs" line,
+// bowlers a "1+ wkt" line, each with model prob, last-10 hits and fair odds.
+export function cricketPlayerProps(m) {
+  const gender = m.gender === 'women' ? 'women' : 'men';
+  const f = fmtKey(m.format);
+  const out = {};
+  for (const team of [m.t1, m.t2]) {
+    out[team] = squad(team, gender).slice(0, 4).map((pl, i) => {
+      if (pl.role === 'bowl') {
+        const prob = clamp(1 - Math.exp(-wktLambda(team, gender, f)), 0.05, 0.95);
+        return { who: pl.name, pick: `${pl.name} 1+ wkt`, prob, hits: hit10(prob), am: probToAmerican(prob), role: 'bowl' };
+      }
+      const mu = batMu(team, gender, f, i);
+      const prob = clamp(Math.exp(-10 / mu), 0.05, 0.95);
+      return { who: pl.name, pick: `${pl.name} 10+ runs`, prob, hits: hit10(prob), am: probToAmerican(prob), role: 'bat' };
+    });
+  }
+  return out;
+}
+
+// Per-team prop bets (limited-overs) modelled from the projected total & form:
+// 20+ boundaries, total runs, 6+ sixes. Each with prob, last-10 hits, fair odds.
+export function cricketTeamProps(m) {
+  const gender = m.gender === 'women' ? 'women' : 'men';
+  const f = fmtKey(m.format);
+  if (f === 'test') return {};
+  const sc = projectScores(m.t1, m.t2, m.format, gender);
+  if (!sc) return {};
+  const totals = { [m.t1]: sc.total1, [m.t2]: sc.total2 };
+  const runLine = f === 't20i' ? 149.5 : 249.5, sdR = f === 't20i' ? 24 : 34;
+  const out = {};
+  for (const team of [m.t1, m.t2]) {
+    const total = totals[team] * (1 + formScore(team, gender) * 0.05);
+    const bound = total * 0.14, six = total * 0.035;
+    const pB = clamp(1 - normCdf((19.5 - bound) / 4.2), 0.05, 0.95);
+    const pR = clamp(1 - normCdf((runLine - total) / sdR), 0.05, 0.95);
+    const pS = clamp(1 - normCdf((5.5 - six) / 2), 0.05, 0.95);
+    out[team] = [
+      { team, pick: `${team} 20+ boundaries`, prob: pB, hits: hit10(pB), am: probToAmerican(pB), why: `~${Math.round(bound)} projected` },
+      { team, pick: `${team} ${f === 't20i' ? '150' : '250'}+ runs`, prob: pR, hits: hit10(pR), am: probToAmerican(pR), why: `~${Math.round(total)} projected` },
+      { team, pick: `${team} 6+ sixes`, prob: pS, hits: hit10(pS), am: probToAmerican(pS), why: `~${Math.round(six)} projected` },
+    ];
+  }
+  return out;
+}
+
+// Safe player parlay: the highest-confidence player legs across the probable XIs.
+export function cricketSafeParlay(m) {
+  const props = cricketPlayerProps(m);
+  const all = [...(props[m.t1] || []), ...(props[m.t2] || [])]
+    .map(x => ({ ...x, dec: amToDec(x.am) })).filter(x => x.dec);
+  const safe = all.filter(x => x.prob >= 0.6).sort((a, b) => b.prob - a.prob).slice(0, 4);
+  if (safe.length < 2) return null;
+  return { legs: safe, prob: safe.reduce((a, l) => a * l.prob, 1), dec: safe.reduce((a, l) => a * l.dec, 1) };
+}
+
 // Two-leg value parlay: match winner + total runs over/under.
 export function cricketParlay(m) {
   const { fav, sc } = cricketBets(m);

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CRICKET } from '../data.js';
 import { fmtOdds } from '../lib/odds.js';
-import { cricketMarket, cricketBets, cricketParlay, cricketForm, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
+import { cricketMarket, cricketBets, cricketParlay, cricketForm, cricketPlayerProps, cricketTeamProps, cricketSafeParlay, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
 import { timeIn, dayKeyIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { cpill, cfill, ecls } from '../lib/ui.js';
 import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
@@ -144,6 +144,9 @@ function CricketEngine({ m, fmt, gender, mk, f }) {
   const { sc, easy } = cricketBets(m);
   const parlay = cricketParlay(m);
   const f1 = cricketForm(m.t1, gender), f2 = cricketForm(m.t2, gender);
+  const players = cricketPlayerProps(m);
+  const tProps = cricketTeamProps(m);
+  const safe = cricketSafeParlay(m);
 
   return (
     <div className="ck-eng">
@@ -198,6 +201,33 @@ function CricketEngine({ m, fmt, gender, mk, f }) {
         ))}
       </Section>
 
+      <Section title="👤 Player props · probable XI">
+        {[m.t1, m.t2].map(team => (
+          <div key={team}>
+            <div className="pf-team">{teamLabel(team, gender)}</div>
+            {(players[team] || []).map((pl, i) => <PropMeter key={i} pick={pl.pick} prob={pl.prob} hits={pl.hits} am={pl.am} fmt={fmt} />)}
+          </div>
+        ))}
+        <div className="rec-note">Probable-XI key players — runs/wickets modelled from team strength &amp; form. x/10 = last-10 hit rate.</div>
+      </Section>
+
+      {tProps[m.t1] && (
+        <Section title="📊 Team props · form-based">
+          {[m.t1, m.t2].map(team => (
+            <div key={team}>
+              <div className="pf-team">{teamLabel(team, gender)}</div>
+              {(tProps[team] || []).map((tp, i) => <PropMeter key={i} pick={tp.pick.replace(team, teamLabel(team, gender))} prob={tp.prob} hits={tp.hits} am={tp.am} sub={tp.why} fmt={fmt} />)}
+            </div>
+          ))}
+        </Section>
+      )}
+
+      {safe && (
+        <Section title="🟢 Safe player parlay">
+          <SafeParlay slip={safe} gender={gender} fmt={fmt} />
+        </Section>
+      )}
+
       {parlay.legs.length > 1 && (
         <Section title="⚡ Value parlay">
           <ParlaySlip parlay={parlay} fmt={fmt} />
@@ -216,6 +246,41 @@ function Section({ title, children }) {
     <div className="ck-sec">
       <div className="ck-sec-t">{title}</div>
       {children}
+    </div>
+  );
+}
+
+// One prop row with a confidence meter (bar), last-10 hits and fair odds.
+function PropMeter({ pick, prob, hits, am, sub, fmt }) {
+  const pcv = Math.round(prob * 100);
+  return (
+    <Copyable className="prop-row" icon={false} copy={`${pick} @ ${fmtOdds(am, fmt)}`}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="prop-pick">{pick} <span className="copy-ico">⧉</span></div>
+        <div className="pl-meter" style={{ margin: '5px 0 0' }}><span className="pl-meter-fill" style={{ width: pcv + '%' }} /></div>
+      </div>
+      <span className="prop-meta">
+        <span className={'prop-hits ' + ecls(pcv)}>{hits}/10</span>
+        <span className="prop-od">{fmtOdds(am, fmt)}</span>
+        {sub && <span className="prop-why">{sub}</span>}
+      </span>
+    </Copyable>
+  );
+}
+
+function SafeParlay({ slip, gender, fmt }) {
+  const hit = Math.round(slip.prob * 100);
+  return (
+    <div className="parlay safe">
+      <div className="pl-hd"><span>🟢 Safe player parlay</span><span className="pl-od">{slip.dec.toFixed(2)}x</span></div>
+      <div className="pl-sub">probable-XI key players · {slip.legs.length} legs</div>
+      {slip.legs.map((l, i) => (
+        <Copyable key={i} className="pl-leg" icon={false} copy={`${l.pick} @ ${fmtOdds(l.am, fmt)}`}>
+          <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.pick}</span><span className="pl-od">{fmtOdds(l.am, fmt)}</span>
+        </Copyable>
+      ))}
+      <div className="pl-meter"><span className="pl-meter-fill" style={{ width: hit + '%' }} /></div>
+      <div className="pl-conf"><span>Confidence <b style={{ color: 'var(--ac)' }}>~{hit}%</b></span><span>put £10 returns £{(slip.dec * 10).toFixed(2)}</span></div>
     </div>
   );
 }
