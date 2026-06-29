@@ -139,7 +139,7 @@ export default function App() {
         </AnimatePresence>
 
         <div className="disc">
-          Prediction Hub · a private hub for entertainment. Odds and model outputs are calibrated estimates, not guarantees. Bet responsibly.
+          Prediction Hub · a private hub for entertainment. AI confidence is out of 100 — estimates, not guarantees. Bet responsibly.
         </div>
       </main>
 
@@ -152,7 +152,7 @@ function SportPicker({ onPick }) {
   return (
     <div className="picker">
       <div className="picker-h">Pick a sport</div>
-      <div className="picker-sub">Model picks, odds, props &amp; value parlays — choose where to start.</div>
+      <div className="picker-sub">AI picks, odds, props &amp; value parlays — choose where to start.</div>
       <div className="picker-grid">
         {SPORTS.map((s, i) => (
           <motion.button key={s.id} type="button" className="picker-card" onClick={() => onPick(s.id)}
@@ -175,7 +175,7 @@ function ComingSoon({ sport }) {
     <div className="coming-soon">
       <div className="cs-ico">{sport.icon}</div>
       <h3>{sport.label} · coming soon</h3>
-      <p>The prediction engine is being extended to {sport.label}. Fixtures, the probability model and value parlays will land here next.</p>
+      <p>{sport.label} is being added. Fixtures, AI picks and value parlays will land here next.</p>
       <span className="cs-pill">In the works</span>
     </div>
   );
