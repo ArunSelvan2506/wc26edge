@@ -1,16 +1,16 @@
 :root{
   --bg:#0b0e14;--bg-rgb:11,14,20;--s1:#11151d;--s2:#161c26;--s3:#1f2734;
   --b1:#2a3340;--b2:#39434f;--tx:#e9edf5;--mu:#92a0b4;--dm:#586679;
-  --ac:#00c060;--ac-rgb:0,192,96;--ac2:#38bdf8;--ac3:#fb923c;
-  --red:#f06363;--grn:#3fd27e;--grn-rgb:63,210,126;--amb:#f6b23f;--pur:#b079ef;
+  --ac:#6e7bff;--ac-rgb:110,123,255;--ac2:#38bdf8;--ac3:#fb923c;
+  --red:#f06363;--grn:#36cf7a;--grn-rgb:54,207,122;--amb:#f6b23f;--pur:#b079ef;
   --bar:rgba(11,14,20,.82);
   --sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;--disp:'Oswald','Inter',sans-serif}
 :root[data-theme="light"]{
   --bg:#f3f5fa;--bg-rgb:243,245,250;--s1:#ffffff;--s2:#ffffff;--s3:#eef1f7;
   --b1:#dde2ec;--b2:#c8d0dd;--tx:#19212f;--mu:#5a6573;--dm:#8d99a9;
-  --ac:#00824a;--ac-rgb:0,130,74;--ac2:#0284c7;--ac3:#e1722a;
-  --red:#d64545;--grn:#0a9d52;--grn-rgb:10,157,82;--amb:#b8860b;--pur:#7c4ddc;
-  --bar:rgba(255,255,255,.9)}
+  --ac:#4f5bd5;--ac-rgb:79,91,213;--ac2:#0284c7;--ac3:#e1722a;
+  --red:#d64545;--grn:#15a34a;--grn-rgb:21,163,74;--amb:#b8860b;--pur:#7c4ddc;
+  --bar:rgba(255,255,255,.86)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px;min-height:100vh;-webkit-font-smoothing:antialiased;transition:background .22s ease,color .22s ease}
@@ -416,21 +416,3 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .about h3:first-child{margin-top:0}
 .about b{color:var(--tx)}
 .about code{font-family:var(--mono);font-size:11px;background:var(--s3);padding:1px 5px;border-radius:4px;color:var(--ac2)}
-
-/* ── Paddy Power-style green header bar ── */
-.topbar{background:var(--ac);border-bottom:1px solid rgba(0,0,0,.18)}
-.topbar .logo{color:#fff}
-.topbar .logo-dot{background:#fff;box-shadow:none;animation:blink 2s infinite}
-.topbar .logo-mark{filter:drop-shadow(0 0 4px rgba(255,255,255,.55))}
-.topbar .theme-btn{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.4);color:#fff}
-.topbar .theme-btn:hover{background:rgba(255,255,255,.3);border-color:#fff;color:#fff}
-.topbar .pill-sel{background:rgba(255,255,255,.94);border-color:rgba(255,255,255,.7);color:#0a3d28;font-weight:700}
-.topbar .pill-sel:hover{border-color:#fff}
-.topbar .odds-toggle{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.12)}
-.topbar .of-lbl{color:rgba(255,255,255,.85)}
-.topbar .of-btn{color:rgba(255,255,255,.85);border-left-color:rgba(255,255,255,.3)}
-.topbar .of-btn:hover{color:#fff}
-.topbar .of-btn.active{background:#fff;color:var(--ac)}
-.topbar .nav-btn{color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.4)}
-.topbar .nav-btn:hover{color:#fff;border-color:#fff}
-.topbar .nav-btn.active{background:#fff;color:var(--ac);border-color:#fff}
