@@ -3,14 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { copyText, cc, cfill } from '../lib/ui.js';
 import { sweepClock } from '../lib/useSweep.js';
 
-// Sweep banner: a countdown timer to the next 3-hour update. Shared across all
-// sports.
-export function SweepBanner({ now, nextSweep, live = 0 }) {
+// Inline countdown timer to the next 3-hour update — sits inside the live-badge
+// pill so there's a single info box. Shared across all sports.
+export function SweepTimer({ now, nextSweep, live = 0 }) {
   return (
-    <div className="tn-timer">
-      <div className="tn-timer-l">{live > 0 ? <><span className="live-dot" />{live} live now</> : null}</div>
-      <div className="tn-timer-r">↻ next update in <b>{sweepClock(nextSweep - now)}</b></div>
-    </div>
+    <span className="sweep-inline">
+      {live > 0 && <>{live} live ·{' '}</>}↻ next update <b>{sweepClock(nextSweep - now)}</b>
+    </span>
   );
 }
 

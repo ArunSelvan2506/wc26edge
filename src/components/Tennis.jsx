@@ -6,7 +6,7 @@ import { TENNIS } from '../data/sports.js';
 import { tennisMatch, tennisHits, tennisParlays, injInfo } from '../lib/tennis.js';
 import { dayKeyIn, dayLabelIn, timeIn, zoneLabel } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
 import { useSweep } from '../lib/useSweep.js';
 
 const pc = x => Math.round(x * 100);
@@ -53,8 +53,9 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
     <div>
       <div className="section-h">{cfg.label} · live model & bets</div>
 
-      <SweepBanner now={now} nextSweep={nextSweep} live={liveCount} />
-      <div className="live-badge">🎾 Elo + surface + form + injury model · in-form & injury-aware picks · returns in £</div>
+      <div className="live-badge">🎾 Elo + surface + form + injury model · in-form & injury-aware picks
+        <SweepTimer now={now} nextSweep={nextSweep} live={liveCount} />
+      </div>
 
       {hits.length > 0 && (
         <div className="rec-box">

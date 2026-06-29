@@ -5,7 +5,7 @@ import { fmtOdds } from '../lib/odds.js';
 import { cricketMarket, cricketBets, cricketParlay, cricketForm, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
 import { timeIn, dayKeyIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { cpill, cfill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
 import { useSweep, isDone, DONE_HRS } from '../lib/useSweep.js';
 
 const FORMATS = ['All', 'Test', 'ODI', 'T20I'];
@@ -44,8 +44,8 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       <div className="section-h">International cricket · match-winner odds</div>
       <div className="live-badge">
         <span className="live-dot" /> Model-derived fair odds · whole win market
+        <SweepTimer now={now} nextSweep={nextSweep} />
       </div>
-      <SweepBanner now={now} nextSweep={nextSweep} />
       <div className="chips">
         {GENDERS.map(([k, l]) => (
           <button key={k} className={'chip' + (gender === k ? ' active' : '')} onClick={() => setGender(k)}>{l}</button>

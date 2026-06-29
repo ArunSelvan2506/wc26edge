@@ -5,7 +5,7 @@ import { SPORT_CFG } from '../data/sports.js';
 import { h2hMarket, raceMarket, buildParlays, recommendedHits } from '../lib/sportEngine.js';
 import { dayKeyIn, dayLabelIn } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
 import { useSweep, isDone, DONE_HRS } from '../lib/useSweep.js';
 
 const pc = x => Math.round(x * 100);
@@ -38,8 +38,9 @@ export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel =
   return (
     <div>
       <div className="section-h">{cfg.label} · model picks & bets</div>
-      <div className="live-badge"><span className="live-dot" /> AI-curated form · model-fair odds · example returns in £</div>
-      {cfg.kind !== 'race' && <SweepBanner now={now} nextSweep={nextSweep} />}
+      <div className="live-badge"><span className="live-dot" /> AI-curated form · model-fair odds · example returns in £
+        {cfg.kind !== 'race' && <SweepTimer now={now} nextSweep={nextSweep} />}
+      </div>
 
       {hits.length > 0 && (
         <div className="rec-box">

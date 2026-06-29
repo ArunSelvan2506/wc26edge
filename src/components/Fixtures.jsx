@@ -9,7 +9,7 @@ import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { upcomingFixtures } from '../lib/completion.js';
 import { lineupFor, squadFor } from '../lib/live.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepBanner } from './Bits.jsx';
+import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
 import { useSweep } from '../lib/useSweep.js';
 import { Lineups } from './Lineups.jsx';
 import MatchCard from './MatchCard.jsx';
@@ -56,8 +56,8 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
       <div className="section-h">Upcoming fixtures · World Cup 2026</div>
       <div className="live-badge">
         <span className="live-dot" /> Updated {freshLabel(UPDATED)}
+        <SweepTimer now={now} nextSweep={nextSweep} />
       </div>
-      <SweepBanner now={now} nextSweep={nextSweep} />
       <div className="chips">
         {FILTERS.map(f => (
           <button key={f} className={'chip' + (filter === f ? ' active' : '')} onClick={() => setFilter(f)}>{f}</button>
