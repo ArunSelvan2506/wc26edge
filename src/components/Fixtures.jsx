@@ -49,7 +49,17 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
   // Completed matches drop off; re-checked each minute (3-hour sweep cadence).
   const upcoming = useMemo(() => upcomingFixtures(now), [nowMin]);   // eslint-disable-line react-hooks/exhaustive-deps
   const [filter, setFilter] = useState('R32');
-  const blocks = upcoming.filter(b => stageCat(b.stage) === filter);
+  // Only show a knockout tie once BOTH sides are real resolved nations — until
+  // the prior round is played a slot is a placeholder ("W75"), which would be
+  // misleading (e.g. "Canada vs W75").
+  const bothResolved = mt => {
+    const [a, c] = (mt.teams || '').split(/\s+vs\s+/i);
+    return a && c && rat && rat.has(a) && rat.has(c);
+  };
+  const blocks = upcoming
+    .filter(b => stageCat(b.stage) === filter)
+    .map(b => ({ ...b, matches: b.matches.filter(bothResolved) }))
+    .filter(b => b.matches.length);
 
   return (
     <div>
