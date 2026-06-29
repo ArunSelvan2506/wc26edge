@@ -2,8 +2,21 @@
 // fixture from the opponent-adjusted model (team strength + form via ratings)
 // plus World Cup baselines. No per-player curation, so it applies to every
 // knockout tie automatically. All fair odds (no book margin).
-import { markets } from './model.js';
+import { markets, pois } from './model.js';
 import { probToAm } from './sportEngine.js';
+
+// Knockout football is tighter than the group stage — sides are more cautious,
+// chances dry up and ties drift toward extra time / penalties. We trim the
+// group-stage goal expectation rather than carry it straight in.
+const KO_DAMP = 0.86;
+const pcN = x => Math.round(x * 100);
+// P(total goals > line) for a Poisson total with mean mu (line = n + 0.5).
+function poisTotalOver(mu, n) {
+  let cum = 0; for (let k = 0; k <= n; k++) cum += pois(mu, k);
+  return clamp(1 - cum, 0.04, 0.96);
+}
+// Bet/Lean/Pass from model confidence — never "safe", never a guarantee.
+const verdictOf = p => (p >= 0.62 ? 'Bet' : p >= 0.55 ? 'Lean' : 'Pass');
 
 const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const line5 = x => Math.floor(x) + 0.5;                 // nearest X.5 line below the mean
@@ -86,14 +99,19 @@ function sideFoulProps(team, teamFouls, lineupSide, squadSide) {
 
 export function footballEngine(rat, a, c, lineup, squads) {
   const mk = markets(rat, a, c);
-  const la = mk.lh, lb = mk.la;                          // expected goals (form-adjusted)
-  // Shots on target scale with expected goals; fouls/cards rise in tight ties.
-  const sotA = clamp(2.2 + la * 2.1, 1.2, 9);
-  const sotC = clamp(2.2 + lb * 2.1, 1.2, 9);
-  const tight = 1 - Math.abs(mk.home - mk.away);         // 0 = mismatch, 1 = even
-  const foulsTot = 23 + tight * 4;                       // WC baseline ~24/match
-  const cardsTot = clamp(foulsTot / 6 + 0.9, 3, 7);      // knockout tension
-  const cornTot = 10.4 + Math.max(la, lb) * 0.6;         // WC baseline ~10.6
+  // Knockout-trimmed goal expectation — DON'T carry the group-stage number in.
+  const la = mk.lh * KO_DAMP, lb = mk.la * KO_DAMP;
+  const muTot = la + lb;                                  // projected total goals (90 min)
+  const over25 = poisTotalOver(muTot, 2);                 // re-derived, not the group figure
+  const bttsYes = clamp((1 - Math.exp(-la)) * (1 - Math.exp(-lb)), 0.04, 0.96);
+
+  // Shots dry up when sides are cautious; fouls/cards rise in a tense KO tie.
+  const sotA = clamp(2.0 + la * 2.0, 1.0, 8.5);
+  const sotC = clamp(2.0 + lb * 2.0, 1.0, 8.5);
+  const tight = 1 - Math.abs(mk.home - mk.away);          // 0 = mismatch, 1 = even
+  const foulsTot = 25 + tight * 4;                        // tactical, niggly knockouts
+  const cardsTot = clamp(foulsTot / 5.5 + 1.0, 3.2, 7.5); // more cards under pressure
+  const cornTot = 9.6 + Math.max(la, lb) * 0.6;           // fewer (cautious) than groups
 
   const props = {
     fouls: ou('total fouls', foulsTot, 4.6),
@@ -108,24 +126,73 @@ export function footballEngine(rat, a, c, lineup, squads) {
   const foulsA = clamp(foulsTot * (0.5 + (mk.away - mk.home) * 0.15), foulsTot * 0.4, foulsTot * 0.6);
   const sideA = sideFoulProps(a, foulsA, lineup?.a, squads?.a);
   const sideC = sideFoulProps(c, foulsTot - foulsA, lineup?.b, squads?.c);
-  // Best source across both sides for the UI note (confirmed > projected > role).
   const rank = { confirmed: 3, projected: 2, role: 1 };
   const mode = rank[sideA.source] >= rank[sideC.source] ? sideA.source : sideC.source;
   const playerFouls = { mode, a: sideA.props, c: sideC.props };
 
   const fav = mk.home >= mk.away ? { n: a, p: mk.home } : { n: c, p: mk.away };
   const dog = mk.home >= mk.away ? { n: c, p: mk.away } : { n: a, p: mk.home };
-  const goalsP = Math.max(mk.over25, 1 - mk.over25), goalsOver = mk.over25 >= 0.5;
-  const bttsP = Math.max(mk.btts, 1 - mk.btts), bttsYes = mk.btts >= 0.5;
+  const goalsP = Math.max(over25, 1 - over25), goalsOver = over25 >= 0.5;
+  const bttsP = Math.max(bttsYes, 1 - bttsYes), bttsY = bttsYes >= 0.5;
 
-  // Candidate legs for safe / value parlay selection (split by odds downstream).
+  const ko = { la, lb, muTot, over25, bttsYes, etRisk: mk.draw };
+  const script = gameScript(mk, ko, fav, dog, a, c);
+  const radar = upsetRadar(mk, ko, fav, dog);
+
   const legs = [
     { p: `${fav.n} to win`, prob: fav.p, am: probToAm(fav.p) },
     { p: `${dog.n} to win`, prob: dog.p, am: probToAm(dog.p) },
     { p: `${goalsOver ? 'Over' : 'Under'} 2.5 goals`, prob: goalsP, am: probToAm(goalsP) },
-    { p: `BTTS ${bttsYes ? 'Yes' : 'No'}`, prob: bttsP, am: probToAm(bttsP) },
+    { p: `BTTS ${bttsY ? 'Yes' : 'No'}`, prob: bttsP, am: probToAm(bttsP) },
     ...Object.values(props).map(o => ({ p: `${o.side} ${o.line} ${o.label}`, prob: o.prob, am: o.am })),
     ...[...playerFouls.a, ...playerFouls.c].map(o => ({ p: `${o.who} ${o.side} ${o.line} ${o.label}`, prob: o.prob, am: o.am })),
   ];
-  return { mk, props, playerFouls, fav, dog, legs };
+  return { mk, ko, props, playerFouls, fav, dog, script, radar, legs };
+}
+
+// Game-script read — how the tie is likely to play, with a Bet/Lean/Pass verdict
+// per market. Confidence only; never a guarantee, never "safe".
+function gameScript(mk, ko, fav, dog, a, c) {
+  const cautious = ko.muTot < 2.5;
+  const coinFlip = Math.abs(mk.home - mk.away) < 0.08;
+  const etPct = pcN(ko.etRisk);
+  const lines = [
+    `${cautious ? 'Both sides likely cautious' : 'Open-ish for a knockout'} — projected total ~${ko.muTot.toFixed(1)} goals (group-stage expectation trimmed for a tighter tie).`,
+    coinFlip
+      ? `True coin-flip on paper — neither side is clearly forced to chase.`
+      : `${dog.n} has to take the risks; ${fav.n} can sit on a lead and trust the defence.`,
+    `Extra-time / penalties risk ${etPct}/100 — ${ko.etRisk > 0.27 ? 'a real chance it drags past 90' : 'should be settled inside 90'}.`,
+    `Lineups unconfirmed — rotation and heavy legs from the group stage can't be fully priced yet.`,
+  ];
+  const winConf = coinFlip ? fav.p : fav.p;
+  const goalsConf = Math.max(ko.over25, 1 - ko.over25);
+  const bttsConf = Math.max(ko.bttsYes, 1 - ko.bttsYes);
+  const markets = [
+    { m: 'Match winner', pick: `${fav.n} to win`, conf: pcN(fav.p), verdict: coinFlip ? 'Pass' : verdictOf(fav.p), note: coinFlip ? 'coin flip — no edge' : 'lineups can shift this' },
+    { m: 'Total goals', pick: `${ko.over25 >= 0.5 ? 'Over' : 'Under'} 2.5`, conf: pcN(goalsConf), verdict: cautious && ko.over25 < 0.5 ? verdictOf(goalsConf) : verdictOf(goalsConf), note: 'knockout-trimmed' },
+    { m: 'Both teams score', pick: `BTTS ${ko.bttsYes >= 0.5 ? 'Yes' : 'No'}`, conf: pcN(bttsConf), verdict: verdictOf(bttsConf), note: 'tight tie favours No' },
+  ];
+  return { cautious, coinFlip, lines, markets };
+}
+
+// Upset-risk radar — favourite vulnerability, the underdog's path, the style
+// clash, and an honest verdict (sometimes the favourite just cruises).
+function upsetRadar(mk, ko, fav, dog) {
+  const favVuln = [];
+  if (ko.muTot < 2.5) favVuln.push('a low-event tie limits how often the favourite can assert quality');
+  if (fav.p < 0.66) favVuln.push('not dominant on paper — margins are thin');
+  if (ko.etRisk > 0.27) favVuln.push('high draw chance funnels the tie toward a penalty lottery');
+  favVuln.push('rotation / key absences unconfirmed');
+  const dogPath = (ko.muTot < 2.5 || ko.etRisk > 0.27)
+    ? 'Sit deep, stay compact, hit on the break — and be happy to take it to penalties.'
+    : 'Needs an early goal and a near-perfect night to live with the favourite.';
+  const gap = fav.p - dog.p;
+  const clash = gap < 0.18 ? 'Closely matched — small margins decide it.'
+    : gap < 0.4 ? 'Favourite is stronger but beatable on the day.'
+      : 'Favourite stronger across the pitch.';
+  let verdict, live;
+  if (fav.p >= 0.72) { verdict = `Favourite should cruise — the upset is unlikely and ${dog.n}'s price is fair, not value.`; live = false; }
+  else if (dog.p >= 0.33 && (ko.muTot < 2.5 || ko.etRisk > 0.27)) { verdict = `Live upset spot — a low-event tie plus penalty risk gives ${dog.n} a genuine path.`; live = true; }
+  else { verdict = `Fair — ${fav.n} is rightly priced; no standout upset edge.`; live = false; }
+  return { fav: fav.n, dog: dog.n, favVuln, dogPath, clash, verdict, live, upsetPct: pcN(dog.p) };
 }

@@ -208,6 +208,19 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .eng-pane{min-height:96px}
 .pf-team{font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--ac2);margin-bottom:4px}
 .prop-why{font-size:9px;color:var(--mu);white-space:nowrap}
+.gs-line{font-size:11px;line-height:1.5;color:var(--tx);padding:5px 0;border-bottom:1px solid var(--b1)}
+.gs-bullet{font-size:11px;line-height:1.5;color:var(--mu);padding:2px 0}
+.gs-mkt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--b1)}
+.gs-mkt-m{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mu)}
+.gs-mkt-p{font-size:12px;color:var(--tx)}.gs-mkt-p small{color:var(--dm);font-size:9px}
+.gs-mkt-r{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.vd{font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px}
+.vd-bet{background:rgba(60,203,115,.16);color:var(--grn)}
+.vd-lean{background:rgba(246,178,63,.16);color:var(--amb)}
+.vd-pass{background:rgba(144,160,184,.14);color:var(--mu)}
+.upset-verdict{font-size:11px;font-weight:800;padding:7px 11px;border-radius:8px;margin-bottom:8px}
+.upset-verdict.live{background:rgba(239,109,109,.14);color:var(--red);border:1px solid rgba(239,109,109,.34)}
+.upset-verdict.fair{background:rgba(45,200,160,.1);color:var(--ac);border:1px solid rgba(45,200,160,.3)}
 .prop-row.pm{align-items:flex-start;gap:10px}
 .pm-main{flex:1;min-width:0}
 .conf-meter{height:7px;border-radius:4px;background:var(--s3);overflow:hidden;margin:5px 0 3px}

@@ -202,20 +202,22 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
   const mk = eng.mk;
   const props = eng.props;
   const pf = eng.playerFouls;
+  const ko = eng.ko, script = eng.script, radar = eng.radar;
   const fav = eng.fav.n, favP = eng.fav.p;
-  const over = mk.over25 >= 0.5;
-  const easy = [
+  const over = ko.over25 >= 0.5;
+  const picks = [
     { c: 'Match winner', p: `${fav} to win`, cf: pc(favP), o: probToAm(favP) },
-    { c: 'Goals', p: `${over ? 'Over' : 'Under'} 2.5 goals`, cf: pc(Math.max(mk.over25, 1 - mk.over25)), o: probToAm(Math.max(mk.over25, 1 - mk.over25)) },
+    { c: 'Goals', p: `${over ? 'Over' : 'Under'} 2.5 goals`, cf: pc(Math.max(ko.over25, 1 - ko.over25)), o: probToAm(Math.max(ko.over25, 1 - ko.over25)) },
     { c: 'Cards', p: `${props.cards.side} ${props.cards.line} cards`, cf: pc(props.cards.prob), o: props.cards.am },
     { c: 'Shots', p: `${props.sot.side} ${props.sot.line} shots on target`, cf: pc(props.sot.prob), o: props.sot.am },
   ];
   const { safe, value } = buildParlays(eng.legs);
+  const vcls = v => (v === 'Bet' ? 'vd-bet' : v === 'Lean' ? 'vd-lean' : 'vd-pass');
 
   const propRow = (o, i) => (
     <Copyable key={i} className="prop-row" icon={false} copy={`${o.side} ${o.line} ${o.label} @ ${fmtOdds(o.am, fmt)}`}>
       <span className="prop-pick">{o.side} {o.line} {o.label} <span className="copy-ico">⧉</span></span>
-      <span className="prop-meta"><span className="prop-hits">{pc(o.prob)}%</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
+      <span className="prop-meta"><span className={'prop-hits ' + ecls(pc(o.prob))}>{pc(o.prob)}/100</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
     </Copyable>
   );
   const pfRow = (o, i) => (
@@ -227,20 +229,52 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
 
   const tabs = [
     {
+      id: 'script', label: '📋 Game script', body: (
+        <>
+          {script.lines.map((l, i) => <div key={i} className="gs-line">{l}</div>)}
+          <div className="ck-sec-t" style={{ marginTop: 10 }}>Verdict by market</div>
+          {script.markets.map((mm, i) => (
+            <div key={i} className="gs-mkt">
+              <div className="gs-mkt-l"><div className="gs-mkt-m">{mm.m}</div><div className="gs-mkt-p">{mm.pick} <small>· {mm.note}</small></div></div>
+              <div className="gs-mkt-r"><span className={'eb-cf ' + ecls(mm.conf)}>{mm.conf}/100</span><span className={'vd ' + vcls(mm.verdict)}>{mm.verdict}</span></div>
+            </div>
+          ))}
+          <div className="rec-note">Bet / Lean / Pass is an AI confidence read, never a guarantee. We don't carry the group-stage goal count into a tighter knockout.</div>
+        </>
+      ),
+    },
+    {
+      id: 'upset', label: '🚨 Upset radar', body: (
+        <>
+          <div className={'upset-verdict ' + (radar.live ? 'live' : 'fair')}>
+            {radar.live ? '🔥 Live upset spot' : '✓ Fair price'} · {radar.dog} upset {radar.upsetPct}/100
+          </div>
+          <div className="gs-line">{radar.verdict}</div>
+          <div className="ck-sec-t" style={{ marginTop: 8 }}>Favourite vulnerability — {radar.fav}</div>
+          {radar.favVuln.map((v, i) => <div key={i} className="gs-bullet">• {v}</div>)}
+          <div className="ck-sec-t" style={{ marginTop: 8 }}>{radar.dog}'s path to the upset</div>
+          <div className="gs-bullet">• {radar.dogPath}</div>
+          <div className="ck-sec-t" style={{ marginTop: 8 }}>Style clash</div>
+          <div className="gs-bullet">• {radar.clash}</div>
+        </>
+      ),
+    },
+    {
       id: 'chances', label: 'Chances', body: (
         <>
           <ConfBar label={a} p={pc(mk.home)} fill="f-hi" />
           <ConfBar label="Draw (90 min)" p={pc(mk.draw)} fill="f-md" delay={0.05} />
           <ConfBar label={c} p={pc(mk.away)} fill="f-hi" delay={0.1} />
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 6 }}>Draw is the 90-min result — extra-time / penalties risk <b style={{ color: 'var(--tx)' }}>{pc(ko.etRisk)}/100</b>.</div>
         </>
       ),
     },
     {
       id: 'goals', label: 'Goals', body: (
         <>
-          <ConfBar label="Over 2.5 goals" p={pc(mk.over25)} fill="f-bl" />
-          <ConfBar label="Both teams score" p={pc(mk.btts)} fill="f-pu" delay={0.06} />
-          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals: <b style={{ color: 'var(--tx)' }}>{a} {mk.lh.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{mk.la.toFixed(2)} {c}</b></div>
+          <ConfBar label="Over 2.5 goals" p={pc(ko.over25)} fill="f-bl" />
+          <ConfBar label="Both teams score" p={pc(ko.bttsYes)} fill="f-pu" delay={0.06} />
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Knockout-trimmed total ≈ <b style={{ color: 'var(--tx)' }}>{ko.muTot.toFixed(1)}</b> goals · <b style={{ color: 'var(--tx)' }}>{a} {ko.la.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{ko.lb.toFixed(2)} {c}</b></div>
         </>
       ),
     },
@@ -271,25 +305,27 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
       ),
     },
     {
-      id: 'easy', label: 'Easy bets', body: (
-        <>{easy.map((e, i) => (
-          <Copyable key={i} className={'ebet' + (e.cf >= 60 ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)}`}>
+      id: 'picks', label: '🎯 AI picks', body: (
+        <>{picks.map((e, i) => (
+          <Copyable key={i} className={'ebet' + (e.cf >= 60 ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)} · AI ${e.cf}/100`}>
             <div className="eb-l"><div className="eb-cat">{e.c}</div><div className="eb-pick">{e.p} <span className="copy-ico">⧉</span></div><div className="eb-odds">{fmtOdds(e.o, fmt)}</div></div>
-            <span className={'eb-cf ' + ecls(e.cf)}>{e.cf}%</span>
+            <span className={'eb-cf ' + ecls(e.cf)}>{e.cf}/100</span>
           </Copyable>
-        ))}</>
+        ))}
+          <div className="rec-note">Ranked by AI confidence (out of 100) — not guarantees. Knockout football is low-event and high-variance.</div>
+        </>
       ),
     },
     {
-      id: 'parlays', label: 'Parlays', body: (
+      id: 'parlays', label: 'Multis', body: (
         <div className="parlay-grid">
-          <KParlay title="🟢 Safe parlay" sub="short-priced favourites" slip={safe} fmt={fmt} tone="safe" />
+          <KParlay title="🔵 High-confidence multi" sub="top AI-confidence legs" slip={safe} fmt={fmt} tone="safe" />
           <KParlay title="⚡ ACCA · high returns" sub="best long-odds multi" slip={value} fmt={fmt} tone="value" />
         </div>
       ),
     },
   ];
-  const [tab, setTab] = useState('chances');
+  const [tab, setTab] = useState('script');
   const active = tabs.find(t => t.id === tab) || tabs[0];
 
   return (
@@ -311,7 +347,7 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
         </AnimatePresence>
       </div>
       <div className="ref-box" style={{ marginTop: 2 }}>
-        Opponent-adjusted Poisson / Dixon-Coles model (team strength &amp; form). Foul / card / corner / shot props are model estimates off projected goals + WC baselines. Fair odds, no bookmaker margin. Draw is the 90-minute result. Estimates for entertainment, not guarantees.
+        Read as a <b>knockout</b> — goal expectation is trimmed for tighter, more cautious ties and draws funnel into extra time / penalties. Everything is <b>AI confidence out of 100</b>, never a guarantee and never a "safe" bet. Lineups are unconfirmed until ~1h before kick-off. Fair odds, no bookmaker margin. For entertainment — never stake more than you can afford to lose.
       </div>
     </div>
   );
@@ -333,7 +369,7 @@ function KParlay({ title, sub, slip, fmt, tone }) {
         </Copyable>
       ))}
       <div className="pl-meter"><span className="pl-meter-fill" style={{ width: hit + '%' }} /></div>
-      <div className="pl-conf"><span>Confidence <b style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>~{hit}%</b></span><span>{ret}</span></div>
+      <div className="pl-conf"><span>AI confidence <b style={{ color: tone === 'value' ? 'var(--ac3)' : 'var(--ac)' }}>{hit}/100</b></span><span>{ret}</span></div>
     </div>
   );
 }
