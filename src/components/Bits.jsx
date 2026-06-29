@@ -8,7 +8,7 @@ import { sweepClock } from '../lib/useSweep.js';
 export function SweepBanner({ now, nextSweep, live = 0 }) {
   return (
     <div className="tn-timer">
-      <div className="tn-timer-l"><span className="live-dot" />{live > 0 ? `${live} live now` : 'Live model'}</div>
+      <div className="tn-timer-l">{live > 0 ? <><span className="live-dot" />{live} live now</> : null}</div>
       <div className="tn-timer-r">↻ next update in <b>{sweepClock(nextSweep - now)}</b></div>
     </div>
   );
