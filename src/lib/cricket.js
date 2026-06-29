@@ -234,9 +234,16 @@ function formScore(team, gender) {
   return s / f.length;
 }
 const hit10 = p => clamp(Math.round(p * 10), 1, 10);
+// Confidence cap — no single prop is ever shown as a near-certainty. Cricket
+// props are high-variance (early dismissals, collapses), so we keep estimates
+// realistic and never let the meter imply a sure thing.
+const CONF_CAP = 0.82;
+const conf = p => clamp(p, 0.05, CONF_CAP);
 
-const BAT_MEAN = { t20i: { men: 32, women: 28 }, odi: { men: 44, women: 40 }, test: { men: 40, women: 36 } };
-const WKT_BASE = { t20i: 1.15, odi: 1.5, test: 2.4 };
+// Realistic batting means (lower than raw averages — top-order batters fail
+// often in white-ball cricket) and strike-bowler wicket rates.
+const BAT_MEAN = { t20i: { men: 26, women: 23 }, odi: { men: 38, women: 34 }, test: { men: 34, women: 30 } };
+const WKT_BASE = { t20i: 1.05, odi: 1.4, test: 2.2 };
 function teamStrength(team, gender, f, soft) {
   const table = (RATINGS[gender] || RATINGS.men)[f] || RATINGS.men.t20i;
   const r = rating(table, team), par = avg(table);
@@ -260,11 +267,11 @@ export function cricketPlayerProps(m) {
   for (const team of [m.t1, m.t2]) {
     out[team] = squad(team, gender).slice(0, 4).map((pl, i) => {
       if (pl.role === 'bowl') {
-        const prob = clamp(1 - Math.exp(-wktLambda(team, gender, f)), 0.05, 0.95);
+        const prob = conf(1 - Math.exp(-wktLambda(team, gender, f)));
         return { who: pl.name, pick: `${pl.name} 1+ wkt`, prob, hits: hit10(prob), am: probToAmerican(prob), role: 'bowl' };
       }
       const mu = batMu(team, gender, f, i);
-      const prob = clamp(Math.exp(-10 / mu), 0.05, 0.95);
+      const prob = conf(Math.exp(-10 / mu));
       return { who: pl.name, pick: `${pl.name} 10+ runs`, prob, hits: hit10(prob), am: probToAmerican(prob), role: 'bat' };
     });
   }
@@ -284,10 +291,11 @@ export function cricketTeamProps(m) {
   const out = {};
   for (const team of [m.t1, m.t2]) {
     const total = totals[team] * (1 + formScore(team, gender) * 0.05);
-    const bound = total * 0.14, six = total * 0.035;
-    const pB = clamp(1 - normCdf((19.5 - bound) / 4.2), 0.05, 0.95);
-    const pR = clamp(1 - normCdf((runLine - total) / sdR), 0.05, 0.95);
-    const pS = clamp(1 - normCdf((5.5 - six) / 2), 0.05, 0.95);
+    const bound = total * 0.135, six = total * 0.033;
+    // Wider variance — boundary/six counts swing hugely match to match.
+    const pB = conf(1 - normCdf((19.5 - bound) / 6.5));
+    const pR = conf(1 - normCdf((runLine - total) / sdR));
+    const pS = conf(1 - normCdf((5.5 - six) / 2.8));
     out[team] = [
       { team, pick: `${team} 20+ boundaries`, prob: pB, hits: hit10(pB), am: probToAmerican(pB), why: `~${Math.round(bound)} projected` },
       { team, pick: `${team} ${f === 't20i' ? '150' : '250'}+ runs`, prob: pR, hits: hit10(pR), am: probToAmerican(pR), why: `~${Math.round(total)} projected` },
@@ -302,7 +310,7 @@ export function cricketSafeParlay(m) {
   const props = cricketPlayerProps(m);
   const all = [...(props[m.t1] || []), ...(props[m.t2] || [])]
     .map(x => ({ ...x, dec: amToDec(x.am) })).filter(x => x.dec);
-  const safe = all.filter(x => x.prob >= 0.6).sort((a, b) => b.prob - a.prob).slice(0, 4);
+  const safe = all.filter(x => x.prob >= 0.62).sort((a, b) => b.prob - a.prob).slice(0, 3);
   if (safe.length < 2) return null;
   return { legs: safe, prob: safe.reduce((a, l) => a * l.prob, 1), dec: safe.reduce((a, l) => a * l.dec, 1) };
 }

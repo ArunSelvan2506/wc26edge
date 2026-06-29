@@ -148,94 +148,90 @@ function CricketEngine({ m, fmt, gender, mk, f }) {
   const tProps = cricketTeamProps(m);
   const safe = cricketSafeParlay(m);
 
-  return (
-    <div className="ck-eng">
-      {(f1 || f2) && (
-        <Section title="Recent form">
-          <FormRow team={n1} form={f1} />
-          <FormRow team={n2} form={f2} />
-        </Section>
-      )}
-
-      <Section title="Chances of winning">
-        <ConfBar label={n1} p={pc(mk.pA)} fill="f-hi" />
-        {f === 'test' && <ConfBar label="Draw" p={pc(mk.pDraw)} fill="f-md" delay={0.05} />}
-        <ConfBar label={n2} p={pc(mk.pB)} fill="f-hi" delay={0.1} />
-      </Section>
-
-      {sc && (
-        <Section title="Score predictor">
-          <div className="ck-score">
-            <span><b>{n1}</b> {sc.total1}</span>
-            <span className="ck-score-sep">vs</span>
-            <span>{sc.total2} <b>{n2}</b></span>
-          </div>
+  const tabs = [
+    {
+      id: 'chances', label: 'Chances', body: (
+        <>
+          <ConfBar label={n1} p={pc(mk.pA)} fill="f-hi" />
+          {f === 'test' && <ConfBar label="Draw" p={pc(mk.pDraw)} fill="f-md" delay={0.05} />}
+          <ConfBar label={n2} p={pc(mk.pB)} fill="f-hi" delay={0.1} />
+          {(f1 || f2) && <div style={{ marginTop: 10 }}><div className="ck-sec-t">Recent form</div><FormRow team={n1} form={f1} /><FormRow team={n2} form={f2} /></div>}
+        </>
+      ),
+    },
+    ...(sc ? [{
+      id: 'score', label: 'Score', body: (
+        <>
+          <div className="ck-score"><span><b>{n1}</b> {sc.total1}</span><span className="ck-score-sep">vs</span><span>{sc.total2} <b>{n2}</b></span></div>
           <div className="ck-score-meta">Projected match total ≈ <b>{sc.matchTotal}</b> runs · line {sc.line}</div>
           <div className="ck-ou">
-            <Copyable className={'ck-out' + (sc.pOver >= sc.pUnder ? ' fav' : '')} icon={false}
-              copy={`Over ${sc.line} match runs @ ${fmtOdds(sc.oddsOver, fmt)} (model ${pc(sc.pOver)}%)`}>
-              <div className="ck-out-l">Over {sc.line}</div>
-              <div className="ck-out-o">{fmtOdds(sc.oddsOver, fmt)}</div>
-              <div className="ck-out-p">{pc(sc.pOver)}%</div>
+            <Copyable className={'ck-out' + (sc.pOver >= sc.pUnder ? ' fav' : '')} icon={false} copy={`Over ${sc.line} match runs @ ${fmtOdds(sc.oddsOver, fmt)} (${pc(sc.pOver)}/100)`}>
+              <div className="ck-out-l">Over {sc.line}</div><div className="ck-out-o">{fmtOdds(sc.oddsOver, fmt)}</div><div className="ck-out-p">{pc(sc.pOver)}/100</div>
             </Copyable>
-            <Copyable className={'ck-out' + (sc.pUnder > sc.pOver ? ' fav' : '')} icon={false}
-              copy={`Under ${sc.line} match runs @ ${fmtOdds(sc.oddsUnder, fmt)} (model ${pc(sc.pUnder)}%)`}>
-              <div className="ck-out-l">Under {sc.line}</div>
-              <div className="ck-out-o">{fmtOdds(sc.oddsUnder, fmt)}</div>
-              <div className="ck-out-p">{pc(sc.pUnder)}%</div>
+            <Copyable className={'ck-out' + (sc.pUnder > sc.pOver ? ' fav' : '')} icon={false} copy={`Under ${sc.line} match runs @ ${fmtOdds(sc.oddsUnder, fmt)} (${pc(sc.pUnder)}/100)`}>
+              <div className="ck-out-l">Under {sc.line}</div><div className="ck-out-o">{fmtOdds(sc.oddsUnder, fmt)}</div><div className="ck-out-p">{pc(sc.pUnder)}/100</div>
             </Copyable>
           </div>
-        </Section>
-      )}
-
-      <Section title="🎯 Easy bets">
-        {easy.map((e, i) => (
-          <Copyable key={i} className={'ebet' + (e.star ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)}`}>
-            <div className="eb-l">
-              <div className="eb-cat">{e.c}</div>
-              <div className="eb-pick">{e.p} <span className="copy-ico">⧉</span></div>
-              <div className="eb-odds">{fmtOdds(e.o, fmt)}</div>
-            </div>
-            <span className={'eb-cf ' + ecls(e.cf)}>{e.cf}%</span>
-          </Copyable>
-        ))}
-      </Section>
-
-      <Section title="👤 Player props · probable XI">
-        {[m.t1, m.t2].map(team => (
-          <div key={team}>
-            <div className="pf-team">{teamLabel(team, gender)}</div>
-            {(players[team] || []).map((pl, i) => <PropMeter key={i} pick={pl.pick} prob={pl.prob} hits={pl.hits} am={pl.am} fmt={fmt} />)}
-          </div>
-        ))}
-        <div className="rec-note">Probable-XI key players — runs/wickets modelled from team strength &amp; form. x/10 = last-10 hit rate.</div>
-      </Section>
-
-      {tProps[m.t1] && (
-        <Section title="📊 Team props · form-based">
+        </>
+      ),
+    }] : []),
+    {
+      id: 'players', label: '👤 Players', body: (
+        <>
           {[m.t1, m.t2].map(team => (
             <div key={team}>
               <div className="pf-team">{teamLabel(team, gender)}</div>
-              {(tProps[team] || []).map((tp, i) => <PropMeter key={i} pick={tp.pick.replace(team, teamLabel(team, gender))} prob={tp.prob} hits={tp.hits} am={tp.am} sub={tp.why} fmt={fmt} />)}
+              {(players[team] || []).map((pl, i) => <PropMeter key={i} pick={pl.pick} prob={pl.prob} hits={pl.hits} am={pl.am} fmt={fmt} />)}
             </div>
           ))}
-        </Section>
-      )}
+          <div className="rec-note">Probable-XI key players · runs &amp; wickets modelled from team strength + form.</div>
+        </>
+      ),
+    },
+    ...(tProps[m.t1] ? [{
+      id: 'teams', label: '📊 Teams', body: (
+        <>{[m.t1, m.t2].map(team => (
+          <div key={team}>
+            <div className="pf-team">{teamLabel(team, gender)}</div>
+            {(tProps[team] || []).map((tp, i) => <PropMeter key={i} pick={tp.pick.replace(team, teamLabel(team, gender))} prob={tp.prob} hits={tp.hits} am={tp.am} sub={tp.why} fmt={fmt} />)}
+          </div>
+        ))}</>
+      ),
+    }] : []),
+    {
+      id: 'bets', label: '💰 Bets', body: (
+        <>
+          <div className="ck-sec-t">🎯 Easy bets</div>
+          {easy.map((e, i) => (
+            <Copyable key={i} className={'ebet' + (e.star ? ' star' : '')} icon={false} copy={`${e.p} @ ${fmtOdds(e.o, fmt)}`}>
+              <div className="eb-l"><div className="eb-cat">{e.c}</div><div className="eb-pick">{e.p} <span className="copy-ico">⧉</span></div><div className="eb-odds">{fmtOdds(e.o, fmt)}</div></div>
+              <span className={'eb-cf ' + ecls(e.cf)}>{e.cf}/100</span>
+            </Copyable>
+          ))}
+          {safe && <div style={{ marginTop: 12 }}><SafeParlay slip={safe} gender={gender} fmt={fmt} /></div>}
+        </>
+      ),
+    },
+  ];
+  const [tab, setTab] = useState('players');
+  const active = tabs.find(t => t.id === tab) || tabs[0];
 
-      {safe && (
-        <Section title="🟢 Safe player parlay">
-          <SafeParlay slip={safe} gender={gender} fmt={fmt} />
-        </Section>
-      )}
-
-      {parlay.legs.length > 1 && (
-        <Section title="⚡ Value parlay">
-          <ParlaySlip parlay={parlay} fmt={fmt} />
-        </Section>
-      )}
-
+  return (
+    <div className="ck-eng">
+      <div className="eng-tabs" role="tablist">
+        {tabs.map(t => (
+          <button key={t.id} type="button" role="tab" className={'eng-tab' + (t.id === active.id ? ' on' : '')} onClick={() => setTab(t.id)}>{t.label}</button>
+        ))}
+      </div>
+      <div className="eng-pane">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div key={active.id} initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -6 }} transition={{ duration: 0.16, ease: 'easeOut' }}>
+            {active.body}
+          </motion.div>
+        </AnimatePresence>
+      </div>
       <div className="ref-box" style={{ marginTop: 2 }}>
-        Win % from format/gender strength ratings (logistic). Score predictor estimates innings totals from the rating gap and matchup quality; the runs line is a model par. Odds are fair (no margin). Estimates for entertainment — not guarantees.
+        <b>AI confidence is out of 100</b> — a model estimate of how likely each outcome is, never a guarantee. Cricket is high-variance: even an 80/100 pick loses often. Odds are fair (no margin). For entertainment — never bet more than you can afford to lose.
       </div>
     </div>
   );
@@ -250,37 +246,37 @@ function Section({ title, children }) {
   );
 }
 
-// One prop row with a confidence meter (bar), last-10 hits and fair odds.
+const confColor = pcv => (pcv >= 67 ? 'var(--grn)' : pcv >= 50 ? 'var(--amb)' : 'var(--red)');
+
+// One prop row: pick + AI confidence meter (out of 100, colour-coded), last-10
+// hits and fair odds.
 function PropMeter({ pick, prob, hits, am, sub, fmt }) {
-  const pcv = Math.round(prob * 100);
+  const pcv = Math.round(prob * 100), col = confColor(pcv);
   return (
-    <Copyable className="prop-row" icon={false} copy={`${pick} @ ${fmtOdds(am, fmt)}`}>
-      <div style={{ flex: 1, minWidth: 0 }}>
+    <Copyable className="prop-row pm" icon={false} copy={`${pick} @ ${fmtOdds(am, fmt)} · AI ${pcv}/100`}>
+      <div className="pm-main">
         <div className="prop-pick">{pick} <span className="copy-ico">⧉</span></div>
-        <div className="pl-meter" style={{ margin: '5px 0 0' }}><span className="pl-meter-fill" style={{ width: pcv + '%' }} /></div>
+        <div className="conf-meter"><span className="conf-fill" style={{ width: pcv + '%', background: col }} /></div>
+        <div className="conf-sub">AI confidence <b style={{ color: col }}>{pcv}/100</b> · {hits}/10 last 10{sub ? ` · ${sub}` : ''}</div>
       </div>
-      <span className="prop-meta">
-        <span className={'prop-hits ' + ecls(pcv)}>{hits}/10</span>
-        <span className="prop-od">{fmtOdds(am, fmt)}</span>
-        {sub && <span className="prop-why">{sub}</span>}
-      </span>
+      <span className="prop-od">{fmtOdds(am, fmt)}</span>
     </Copyable>
   );
 }
 
 function SafeParlay({ slip, gender, fmt }) {
-  const hit = Math.round(slip.prob * 100);
+  const hit = Math.round(slip.prob * 100), col = confColor(hit);
   return (
     <div className="parlay safe">
       <div className="pl-hd"><span>🟢 Safe player parlay</span><span className="pl-od">{slip.dec.toFixed(2)}x</span></div>
-      <div className="pl-sub">probable-XI key players · {slip.legs.length} legs</div>
+      <div className="pl-sub">probable-XI key players · {slip.legs.length} legs · all must land</div>
       {slip.legs.map((l, i) => (
         <Copyable key={i} className="pl-leg" icon={false} copy={`${l.pick} @ ${fmtOdds(l.am, fmt)}`}>
           <span className="pl-n">{i + 1}</span><span className="pl-pk">{l.pick}</span><span className="pl-od">{fmtOdds(l.am, fmt)}</span>
         </Copyable>
       ))}
-      <div className="pl-meter"><span className="pl-meter-fill" style={{ width: hit + '%' }} /></div>
-      <div className="pl-conf"><span>Confidence <b style={{ color: 'var(--ac)' }}>~{hit}%</b></span><span>put £10 returns £{(slip.dec * 10).toFixed(2)}</span></div>
+      <div className="conf-meter"><span className="conf-fill" style={{ width: hit + '%', background: col }} /></div>
+      <div className="pl-conf"><span>AI confidence <b style={{ color: col }}>{hit}/100</b></span><span>put £10 returns £{(slip.dec * 10).toFixed(2)}</span></div>
     </div>
   );
 }
