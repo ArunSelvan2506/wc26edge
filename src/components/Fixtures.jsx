@@ -23,17 +23,6 @@ function freshLabel(iso) {
 }
 
 // Live countdown to the next hourly auto-update (cron fires at :00 UTC).
-function NextUpdate() {
-  const calc = () => 3600000 - (Date.now() % 3600000);
-  const [ms, setMs] = useState(calc);
-  useEffect(() => {
-    const t = setInterval(() => setMs(calc()), 1000);
-    return () => clearInterval(t);
-  }, []);
-  const m = Math.floor(ms / 60000), s = Math.floor((ms % 60000) / 1000);
-  return <span className="live-meta">· next in {m}:{String(s).padStart(2, '0')}</span>;
-}
-
 // Map a fixture's "A vs B" to the detailed match in DAYS (order-independent).
 const pairKey = (a, b) => [norm(a), norm(b)].sort().join('|');
 function buildDetailIndex() {
@@ -67,7 +56,6 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
       <div className="section-h">Upcoming fixtures · World Cup 2026</div>
       <div className="live-badge">
         <span className="live-dot" /> Updated {freshLabel(UPDATED)}
-        <NextUpdate />
       </div>
       <SweepBanner now={now} nextSweep={nextSweep} />
       <div className="chips">
