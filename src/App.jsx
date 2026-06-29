@@ -46,7 +46,16 @@ export default function App() {
     try { return localStorage.getItem('wc_tz') || 'Asia/Kolkata'; } catch { return 'Asia/Kolkata'; }
   });
   const [dateSel, setDateSel] = useState('all');
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('wc_theme') || 'dark'; } catch { return 'dark'; }
+  });
   const rat = useMemo(() => fitFromTable(WC_TABLE), []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try { localStorage.setItem('wc_theme', theme); } catch { /* ignore */ }
+  }, [theme]);
+  const toggleTheme = () => setTheme(t => (t === 'light' ? 'dark' : 'light'));
 
   const changeFmt = f => { setFmt(f); try { localStorage.setItem('wc_oddsfmt', f); } catch { /* ignore */ } };
   const changeTz = z => { setTz(z); try { localStorage.setItem('wc_tz', z); } catch { /* ignore */ } setDateSel('all'); };
@@ -61,8 +70,7 @@ export default function App() {
 
   return (
     <>
-      <div className={'backdrop' + (sport === 'football' ? '' : ' plain')} />
-      <div className="backdrop-glow" />
+      <div className="backdrop" />
 
       <header className="topbar">
         <button className="logo" onClick={() => { setSport(null); setView('fixtures'); }} aria-label="Home" type="button">
@@ -70,27 +78,30 @@ export default function App() {
           <span className="logo-dot" />
           PREDICTION HUB
         </button>
-        {sport && (
-          <div className="topbar-actions">
-            {days.length > 1 && (
-              <select className="pill-sel" value={dateSel} onChange={e => setDateSel(e.target.value)} aria-label="Date">
-                <option value="all">All days</option>
-                {days.map(d => <option key={d.key} value={d.key}>{d.label}</option>)}
+        <div className="topbar-actions">
+          {sport && (
+            <>
+              {days.length > 1 && (
+                <select className="pill-sel" value={dateSel} onChange={e => setDateSel(e.target.value)} aria-label="Date">
+                  <option value="all">All days</option>
+                  {days.map(d => <option key={d.key} value={d.key}>{d.label}</option>)}
+                </select>
+              )}
+              <select className="pill-sel" value={tz} onChange={e => changeTz(e.target.value)} aria-label="Timezone">
+                {ZONES.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
               </select>
-            )}
-            <select className="pill-sel" value={tz} onChange={e => changeTz(e.target.value)} aria-label="Timezone">
-              {ZONES.map(z => <option key={z.id} value={z.id}>{z.label}</option>)}
-            </select>
-            <OddsToggle fmt={fmt} onChange={changeFmt} />
-            {sport === 'football' && VIEWS.length > 1 && (
-              <nav style={{ display: 'flex', gap: 5 }}>
-                {VIEWS.map(v => (
-                  <button key={v.id} className={'nav-btn' + (view === v.id ? ' active' : '')} onClick={() => setView(v.id)}>{v.label}</button>
-                ))}
-              </nav>
-            )}
-          </div>
-        )}
+              <OddsToggle fmt={fmt} onChange={changeFmt} />
+              {sport === 'football' && VIEWS.length > 1 && (
+                <nav style={{ display: 'flex', gap: 5 }}>
+                  {VIEWS.map(v => (
+                    <button key={v.id} className={'nav-btn' + (view === v.id ? ' active' : '')} onClick={() => setView(v.id)}>{v.label}</button>
+                  ))}
+                </nav>
+              )}
+            </>
+          )}
+          <button className="theme-btn" type="button" onClick={toggleTheme} aria-label="Toggle light / dark theme" title="Toggle theme">{theme === 'light' ? '🌙' : '☀️'}</button>
+        </div>
       </header>
 
       {sport && (

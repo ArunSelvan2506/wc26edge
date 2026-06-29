@@ -169,7 +169,7 @@ function gameScript(mk, ko, fav, dog, a, c) {
   const bttsConf = Math.max(ko.bttsYes, 1 - ko.bttsYes);
   const markets = [
     { m: 'Match winner', pick: `${fav.n} to win`, conf: pcN(fav.p), verdict: coinFlip ? 'Pass' : verdictOf(fav.p), note: coinFlip ? 'coin flip — no edge' : 'lineups can shift this' },
-    { m: 'Total goals', pick: `${ko.over25 >= 0.5 ? 'Over' : 'Under'} 2.5`, conf: pcN(goalsConf), verdict: cautious && ko.over25 < 0.5 ? verdictOf(goalsConf) : verdictOf(goalsConf), note: 'knockout-trimmed' },
+    { m: 'Total goals', pick: `${ko.over25 >= 0.5 ? 'Over' : 'Under'} 2.5`, conf: pcN(goalsConf), verdict: verdictOf(goalsConf), note: cautious ? 'low-event tie' : 'could open up' },
     { m: 'Both teams score', pick: `BTTS ${ko.bttsYes >= 0.5 ? 'Yes' : 'No'}`, conf: pcN(bttsConf), verdict: verdictOf(bttsConf), note: 'tight tie favours No' },
   ];
   return { cautious, coinFlip, lines, markets };
