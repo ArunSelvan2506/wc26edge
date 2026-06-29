@@ -1,6 +1,6 @@
 // Small UI helpers shared across components.
 
-export const cc    = p => (p >= 75 ? 'var(--ac)' : p >= 55 ? 'var(--amb)' : 'var(--red)');
+export const cc    = p => (p >= 75 ? 'var(--grn)' : p >= 55 ? 'var(--amb)' : 'var(--red)');
 export const cpill = p => (p >= 75 ? 'cp-hi' : p >= 55 ? 'cp-md' : 'cp-lo');
 export const cfill = p => (p >= 75 ? 'f-hi' : p >= 55 ? 'f-md' : 'f-lo');
 export const ecls  = cf => (cf >= 75 ? 'ec-hi' : 'ec-md');
