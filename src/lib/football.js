@@ -157,7 +157,7 @@ function gameScript(mk, ko, fav, dog, a, c) {
   const coinFlip = Math.abs(mk.home - mk.away) < 0.08;
   const etPct = pcN(ko.etRisk);
   const lines = [
-    `${cautious ? 'Both sides likely cautious' : 'Open-ish for a knockout'} — projected total ~${ko.muTot.toFixed(1)} goals (group-stage expectation trimmed for a tighter tie).`,
+    `${cautious ? 'Both sides likely cautious' : 'Open-ish for a knockout'} — projected total around ${ko.muTot.toFixed(1)} goals.`,
     coinFlip
       ? `True coin-flip on paper — neither side is clearly forced to chase.`
       : `${dog.n} has to take the risks; ${fav.n} can sit on a lead and trust the defence.`,

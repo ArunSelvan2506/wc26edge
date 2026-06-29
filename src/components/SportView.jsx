@@ -37,8 +37,8 @@ export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel =
 
   return (
     <div>
-      <div className="section-h">{cfg.label} · model picks & bets</div>
-      <div className="live-badge"><span className="live-dot" /> AI-curated form · model-fair odds · example returns in £
+      <div className="section-h">{cfg.label} · picks & bets</div>
+      <div className="live-badge"><span className="live-dot" /> In-form picks · AI confidence out of 100 · returns in £
         {cfg.kind !== 'race' && <SweepTimer now={now} nextSweep={nextSweep} />}
       </div>
 
@@ -81,7 +81,7 @@ export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel =
       ))}
 
       <div className="ref-box" style={{ marginTop: 4 }}>
-        Win % from curated strength ratings (logistic / softmax). Form, player props (robust last-10 hits) and injuries are AI-curated illustrative data — no live feed. Odds are fair (no margin). Estimates for entertainment — not guarantees.
+        Everything is <b>AI confidence out of 100</b> — never a guarantee. For entertainment — never stake more than you can afford to lose.
       </div>
     </div>
   );
@@ -119,7 +119,7 @@ function MatchupCard({ cfg, m, mk, fmt, index }) {
             initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.26, ease: 'easeOut' }} style={{ overflow: 'hidden' }}>
             <div className="ck-eng">
-              <Section title="Recent form (AI-curated)">
+              <Section title="Recent form">
                 <FormRow name={m.a} form={cfg.roster[m.a]?.form} inj={injA} />
                 <FormRow name={m.b} form={cfg.roster[m.b]?.form} inj={injB} />
               </Section>
@@ -143,7 +143,7 @@ function RaceCard({ cfg, ev, fmt }) {
   return (
     <div className="ck-card open">
       <div className="ck-head">
-        <div><div className="ck-teams">Race winner & podium</div><div className="ck-meta">{ev.field.length} drivers · model softmax</div></div>
+        <div><div className="ck-teams">Race winner & podium</div><div className="ck-meta">{ev.field.length} drivers</div></div>
         <button type="button" className="ck-mini" onClick={() => setOpen(o => !o)}>{open ? 'Hide grid' : 'Show grid'}</button>
       </div>
       <div className="f1-rows">

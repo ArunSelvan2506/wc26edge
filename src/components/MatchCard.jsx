@@ -87,7 +87,7 @@ function ModelPick({ m, rat }) {
   const [pick, p] = [[m.hT, mk.home], ['Draw', mk.draw], [m.aT, mk.away]].sort((a, b) => b[1] - a[1])[0];
   return (
     <div className="model-pick">
-      <span className="mp-tag">📊 Model</span> <b>{pick}</b> {pc(p)}% · O2.5 {pc(mk.over25)}% · BTTS {pc(mk.btts)}%
+      <span className="mp-tag">📊 AI</span> <b>{pick}</b> {pc(p)}/100 · O2.5 {pc(mk.over25)}/100 · BTTS {pc(mk.btts)}/100
     </div>
   );
 }
@@ -147,7 +147,7 @@ function BaselineBlock({ m }) {
     const col = d >= 8 ? 'var(--ac)' : d <= -8 ? 'var(--red)' : 'var(--mu)';
     const lean = d >= 8 ? 'lean OVER' : d <= -8 ? 'lean UNDER' : 'in line';
     edge = <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7, paddingTop: 6, borderTop: '1px solid var(--b1)' }}>
-      This match — model Over 2.5: <b style={{ color: 'var(--tx)' }}>{o}%</b> vs {b.over25Pct}% WC baseline → <b style={{ color: col }}>{d >= 0 ? '+' : ''}{d} edge · {lean}</b>
+      Over 2.5 goals: <b style={{ color: 'var(--tx)' }}>{o}/100</b> → <b style={{ color: col }}>{lean}</b>
     </div>;
   }
   const Cell = ({ l, v }) => <div style={{ textAlign: 'center' }}><div style={{ fontSize: 8, textTransform: 'uppercase', letterSpacing: '.04em', color: 'var(--mu)' }}>{l}</div><div style={{ fontFamily: 'var(--mono)', fontSize: 13, fontWeight: 700, color: 'var(--ac2)', marginTop: 2 }}>{v}</div></div>;
@@ -232,7 +232,7 @@ function EasyTab({ m, fmt }) {
 
 /* ── 📊 Model ── */
 function ModelTab({ m, fmt, rat }) {
-  if (!rat) return <Empty>Model needs completed results to fit ratings.</Empty>;
+  if (!rat) return <Empty>Awaiting results.</Empty>;
   const mk = markets(rat, m.hT, m.aT);
   const dH = amToDec(m.odds.h), dD = amToDec(m.odds.d), dA = amToDec(m.odds.a);
   const fair = devig([dH, dD, dA]);
@@ -244,8 +244,7 @@ function ModelTab({ m, fmt, rat }) {
   const isVal = (p, dec, ref) => dec && ref != null && ev(p, dec) > 0 && (p - ref) > 0.04;
   const meta = (p, dec, ref) => {
     const bits = []; if (ref != null) bits.push('mkt ' + pc(ref) + '%');
-    if (dec) { bits.push('EV ' + sgn(Math.round(ev(p, dec) * 100)) + '%'); const k = kelly(p, dec) * 0.25; if (k > 0) bits.push('¼-Kelly ' + (k * 100).toFixed(1) + '%'); }
-    return bits.join(' · ');
+    return '';
   };
   const Row = ({ label, p, dec, refp, fill }) => (
     <ConfBar label={<>{label}{isVal(p, dec, refp) && <span className="val-chip">VALUE</span>}</>} p={pc(p)} fill={fill} sub={meta(p, dec, refp)} />
@@ -253,19 +252,19 @@ function ModelTab({ m, fmt, rat }) {
   return (
     <div className="pred-grid">
       <div className="psec">
-        <div className="psec-t">Match result — model vs market</div>
+        <div className="psec-t">Match result</div>
         <Row label={m.hT + ' win'} p={mk.home} dec={dH} refp={fair[0]} fill="f-hi" />
         <Row label="Draw" p={mk.draw} dec={dD} refp={fair[1]} fill="f-md" />
         <Row label={m.aT + ' win'} p={mk.away} dec={dA} refp={fair[2]} fill="f-hi" />
       </div>
       <div className="psec">
-        <div className="psec-t">Goals — model</div>
+        <div className="psec-t">Goals</div>
         <Row label="Over 2.5 goals" p={mk.over25} dec={dOver} refp={dOver ? 1 / dOver : null} fill="f-bl" />
         <Row label="Both teams score" p={mk.btts} dec={dBtts} refp={dBtts ? 1 / dBtts : null} fill="f-pu" />
         <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals: <b style={{ color: 'var(--tx)' }}>{m.hT} {mk.lh.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{mk.la.toFixed(2)} {m.aT}</b></div>
       </div>
       <div className="ref-box" style={{ gridColumn: '1/-1', marginTop: 2 }}>
-        Model = opponent-adjusted Poisson (Dixon-Coles) fit to tournament results, regularised toward the historical baseline. For 1X2, “mkt” is the de-vigged fair price; for Over/BTTS it is the single-side implied price (still carries the book margin). EV &amp; ¼-Kelly use the offered odds. <b style={{ color: 'var(--tx)' }}>Calibration:</b> beats base rates on BTTS, ~baseline on 1X2/Over on seed data — treat goals-market value cautiously and stake small. Estimates, not guarantees.{!rated && ' ⚠ Limited rating data for these teams; treated near league-average.'}
+        <b style={{ color: 'var(--tx)' }}>AI confidence out of 100</b> — never a guarantee. For entertainment — never stake more than you can afford to lose.
       </div>
     </div>
   );

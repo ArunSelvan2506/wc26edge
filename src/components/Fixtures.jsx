@@ -239,7 +239,7 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
               <div className="gs-mkt-r"><span className={'eb-cf ' + ecls(mm.conf)}>{mm.conf}/100</span><span className={'vd ' + vcls(mm.verdict)}>{mm.verdict}</span></div>
             </div>
           ))}
-          <div className="rec-note">Bet / Lean / Pass is an AI confidence read, never a guarantee. We don't carry the group-stage goal count into a tighter knockout.</div>
+          <div className="rec-note">Bet / Lean / Pass is an AI confidence read — never a guarantee.</div>
         </>
       ),
     },
@@ -274,7 +274,7 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
         <>
           <ConfBar label="Over 2.5 goals" p={pc(ko.over25)} fill="f-bl" />
           <ConfBar label="Both teams score" p={pc(ko.bttsYes)} fill="f-pu" delay={0.06} />
-          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Knockout-trimmed total ≈ <b style={{ color: 'var(--tx)' }}>{ko.muTot.toFixed(1)}</b> goals · <b style={{ color: 'var(--tx)' }}>{a} {ko.la.toFixed(2)}</b> — <b style={{ color: 'var(--tx)' }}>{ko.lb.toFixed(2)} {c}</b></div>
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 5 }}>Projected goals · <b style={{ color: 'var(--tx)' }}>{a} {ko.la.toFixed(1)}</b> — <b style={{ color: 'var(--tx)' }}>{ko.lb.toFixed(1)} {c}</b></div>
         </>
       ),
     },
@@ -296,10 +296,10 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
           <div className="pf-team" style={{ marginTop: 8 }}>{c}</div>
           {pf.c.map((o, i) => pfRow(o, 'c' + i))}
           <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>
-            <b style={{ color: 'var(--tx)' }}>x/10</b> = last-10 matches he commits 1+ foul (modelled by role &amp; match-up). {
-              pf.mode === 'confirmed' ? 'From the confirmed starting XI.'
-                : pf.mode === 'projected' ? 'Projected from current squads — locks to the confirmed XI ~1h before kick-off.'
-                : 'By role — player names appear once squads / the XI are published.'
+            <b style={{ color: 'var(--tx)' }}>x/10</b> = how often he commits 1+ foul across his last 10. {
+              pf.mode === 'confirmed' ? 'Confirmed starting XI.'
+                : pf.mode === 'projected' ? 'Probable XI — firms up ~1h before kick-off.'
+                : 'Names appear once the XI is published.'
             }</div>
         </>
       ),
@@ -347,7 +347,7 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
         </AnimatePresence>
       </div>
       <div className="ref-box" style={{ marginTop: 2 }}>
-        Read as a <b>knockout</b> — goal expectation is trimmed for tighter, more cautious ties and draws funnel into extra time / penalties. Everything is <b>AI confidence out of 100</b>, never a guarantee and never a "safe" bet. Lineups are unconfirmed until ~1h before kick-off. Fair odds, no bookmaker margin. For entertainment — never stake more than you can afford to lose.
+Tight, cautious knockout ties that can go to extra time / penalties. Everything is <b>AI confidence out of 100</b> — never a guarantee, never a "safe" bet. Lineups unconfirmed until ~1h before kick-off. For entertainment — never stake more than you can afford to lose.
       </div>
     </div>
   );

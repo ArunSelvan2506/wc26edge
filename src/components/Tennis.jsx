@@ -51,15 +51,15 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
 
   return (
     <div>
-      <div className="section-h">{cfg.label} · live model & bets</div>
+      <div className="section-h">{cfg.label} · live picks & bets</div>
 
-      <div className="live-badge">🎾 Elo + surface + form + injury model · in-form & injury-aware picks
+      <div className="live-badge">🎾 In-form & injury-aware picks · AI confidence out of 100
         <SweepTimer now={now} nextSweep={nextSweep} live={liveCount} />
       </div>
 
       {hits.length > 0 && (
         <div className="rec-box">
-          <div className="rec-h">💸 AI recommended hits <span className="rec-sub">in-form · fit · model edge</span></div>
+          <div className="rec-h">💸 AI recommended hits <span className="rec-sub">in-form · fit · best edge</span></div>
           {hits.map((h, i) => (
             <Copyable key={i} className="rec-row" icon={false} copy={`${h.p} @ ${fmtOdds(h.am, fmt)} · put £${h.stake} returns £${h.ret}`}>
               <div className="rec-l">
@@ -96,7 +96,7 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       ))}
 
       <div className="ref-box" style={{ marginTop: 4 }}>
-        Win % = surface-adjusted Elo (logistic) tuned by recent form and injuries; sets, total-games and aces are model-derived. No live tennis results feed exists for free, so fixtures are a curated upcoming slate. Fair odds, no margin. Entertainment only.
+        Everything is <b>AI confidence out of 100</b> — never a guarantee. Fixtures are an upcoming slate and lineups can change. For entertainment — never stake more than you can afford to lose.
       </div>
     </div>
   );

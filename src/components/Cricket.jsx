@@ -43,7 +43,7 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
     <div>
       <div className="section-h">International cricket · match-winner odds</div>
       <div className="live-badge">
-        <span className="live-dot" /> Model-derived fair odds · whole win market
+        <span className="live-dot" /> Match-winner odds · AI confidence out of 100
         <SweepTimer now={now} nextSweep={nextSweep} />
       </div>
       <div className="chips">
@@ -74,7 +74,7 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       ))}
 
       <div className="ref-box" style={{ marginTop: 4 }}>
-        Win probabilities come from curated, format-specific strength ratings (approx ICC ranking points — illustrative, not official) via a logistic model; Tests include a draw outcome scaled by how evenly matched the sides are. Odds shown are <b>fair</b> (no bookmaker margin). Estimates for entertainment, not guarantees.
+Everything is <b>AI confidence out of 100</b> — never a guarantee. For entertainment — never bet more than you can afford to lose.
       </div>
     </div>
   );
@@ -184,7 +184,7 @@ function CricketEngine({ m, fmt, gender, mk, f }) {
               {(players[team] || []).map((pl, i) => <PropMeter key={i} pick={pl.pick} prob={pl.prob} hits={pl.hits} am={pl.am} fmt={fmt} />)}
             </div>
           ))}
-          <div className="rec-note">Probable-XI key players · runs &amp; wickets modelled from team strength + form.</div>
+          <div className="rec-note">Probable-XI key players · firms up before the toss.</div>
         </>
       ),
     },
@@ -231,7 +231,7 @@ function CricketEngine({ m, fmt, gender, mk, f }) {
         </AnimatePresence>
       </div>
       <div className="ref-box" style={{ marginTop: 2 }}>
-        <b>AI confidence is out of 100</b> — a model estimate of how likely each outcome is, never a guarantee. Cricket is high-variance: even an 80/100 pick loses often. Odds are fair (no margin). For entertainment — never bet more than you can afford to lose.
+        <b>AI confidence is out of 100</b> — how likely we think each outcome is, never a guarantee. Cricket is high-variance: even an 80/100 pick loses often. For entertainment — never bet more than you can afford to lose.
       </div>
     </div>
   );
