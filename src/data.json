@@ -5657,7 +5657,7 @@
    "matches": [
     {
      "ist": "10:30pm",
-     "teams": "W73 vs W75",
+     "teams": "Canada vs W75",
      "grp": "Houston",
      "koUTC": 1783184400000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-29T10:49:27.194Z",
+ "updated": "2026-06-29T13:31:32.368Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6448,7 +6448,7 @@
     ]
    }
   ],
-  "updated": "2026-06-29T10:49:24.649Z",
+  "updated": "2026-06-29T13:31:31.479Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6782,7 +6782,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-29T10:49:27.194Z"
+  "updated": "2026-06-29T13:31:32.368Z"
  },
  "SQUADS": {
   "mexico": [
