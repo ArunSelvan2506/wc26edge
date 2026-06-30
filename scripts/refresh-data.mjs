@@ -145,6 +145,56 @@ async function buildSquads(now, existing, nations) {
   return Object.keys(out).length ? out : (existing || {});
 }
 
+// ── WC26 squads from Wikipedia (free, CC-licensed, official API) ──────────────
+// Pulls the actual 2026 World Cup squads (real names + DF/MF positions) so the
+// "possible XI" foul/card props are grounded in the tournament squads rather
+// than a curated guess. (Per-match appearance counts aren't reliably parseable
+// from free wikitext, so we don't fake them — names come from the real squad.)
+// Refreshed once a day and persisted.
+async function wiki(page) {
+  const u = `https://en.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(page)}&prop=wikitext&format=json&formatversion=2&redirects=1`;
+  const r = await fetch(u, { headers: { 'User-Agent': 'wc26edge-refresh/1.0 (prediction hub; contact via github)' } });
+  if (!r.ok) throw new Error('wiki ' + r.status);
+  return (await r.json())?.parse?.wikitext || '';
+}
+const wikiName = s => {
+  const m = String(s).match(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/);
+  return (m ? (m[2] || m[1]) : String(s)).replace(/[[\]]/g, '').replace(/\{\{.*?\}\}/g, '').trim();
+};
+// Parse a squads article → { teamName: [{name,pos}] } (defenders & midfielders).
+function parseWikiSquads(wt) {
+  const out = {}; let team = null;
+  for (const ln of wt.split('\n')) {
+    const h = ln.match(/^=+\s*(.+?)\s*=+\s*$/);
+    if (h) { const nm = wikiName(h[1]).replace(/ national football team/i, '').trim(); team = nm || team; continue; }
+    if (!team) continue;
+    const pm = ln.match(/\bpos\s*=\s*([A-Za-z]{2})\b/);
+    const nm = ln.match(/\bname\s*=\s*([^|}\n]+)/);
+    if (pm && nm) {
+      const pos = pm[1].toUpperCase();
+      if (pos !== 'DF' && pos !== 'MF') continue;
+      const name = wikiName(nm[1]);
+      if (name && name.length > 1) (out[team] ??= []).push({ name, pos: pos === 'DF' ? 'Defender' : 'Midfield' });
+    }
+  }
+  return out;
+}
+async function buildWcXI(now, existing, nations) {
+  const valid = existing && nations.some(n => existing[liveNorm(n)]);
+  if (valid && new Date(now).getUTCHours() !== 4) return existing;     // once/day at 04:00 UTC
+  let wt = '';
+  try { wt = await wiki('2026 FIFA World Cup squads'); }
+  catch (e) { console.log('WC XI · Wikipedia fetch failed:', e.message); return existing || {}; }
+  if (!wt) { console.log('WC XI · squads article empty (keeping existing)'); return existing || {}; }
+  const parsed = parseWikiSquads(wt);
+  const out = {};
+  for (const [team, players] of Object.entries(parsed)) {
+    if (players.length >= 4) out[liveNorm(team)] = players.slice(0, 16);
+  }
+  console.log(`WC XI · ${Object.keys(out).length} WC26 squads parsed from Wikipedia`);
+  return Object.keys(out).length ? out : (existing || {});
+}
+
 // ── Cricket internationals (CricketData.org · free tier, needs CRICKET_API_KEY) ──
 // Pulls upcoming matches, keeps the internationals (both sides are nations we
 // rate), and groups them by date. Returns null with no key / on failure so the
@@ -390,6 +440,10 @@ data.LIVE = live;
 const wcNations = [...new Set(Object.values(table).flatMap(g => (g.table || []).map(r => r.team)))];
 try { data.SQUADS = await buildSquads(Date.now(), data.SQUADS || {}, wcNations); }
 catch (e) { console.warn('squad fetch skipped:', e.message); data.SQUADS = data.SQUADS || {}; }
+
+// WC26 squads from Wikipedia (best-effort) — preferred source for the possible XI.
+try { data.WC_XI = await buildWcXI(Date.now(), data.WC_XI || {}, wcNations); }
+catch (e) { console.warn('WC XI skipped:', e.message); data.WC_XI = data.WC_XI || {}; }
 
 // Cricket internationals (best-effort, free) — only overwrite the curated seed
 // when TheSportsDB actually returns fixtures; otherwise leave data.CRICKET as-is.
