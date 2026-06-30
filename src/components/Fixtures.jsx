@@ -202,6 +202,7 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
   const mk = eng.mk;
   const props = eng.props;
   const pf = eng.playerFouls;
+  const pcards = eng.playerCards;
   const ko = eng.ko, script = eng.script, radar = eng.radar;
   const fav = eng.fav.n, favP = eng.fav.p;
   const over = ko.over25 >= 0.5;
@@ -224,6 +225,12 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
     <Copyable key={i} className="prop-row" icon={false} copy={`${o.who} 1+ foul (Over 0.5) @ ${fmtOdds(o.am, fmt)}`}>
       <span className="prop-pick">{o.who} · 1+ foul <span className="copy-ico">⧉</span></span>
       <span className="prop-meta"><span className={'prop-hits ' + ecls(pc(o.prob))}>{o.hits}/10</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
+    </Copyable>
+  );
+  const cardRow = (o, i) => (
+    <Copyable key={i} className="prop-row" icon={false} copy={`${o.who} to be carded @ ${fmtOdds(o.am, fmt)} · AI ${pc(o.prob)}/100`}>
+      <span className="prop-pick">{o.who === pcards.top && <span className="star-ico">⭐</span>}🟨 {o.who} to be carded <span className="copy-ico">⧉</span></span>
+      <span className="prop-meta"><span className={'prop-hits ' + ecls(pc(o.prob))}>{pc(o.prob)}/100</span><span className="prop-od">{fmtOdds(o.am, fmt)}</span></span>
     </Copyable>
   );
 
@@ -301,6 +308,22 @@ function KnockoutEngine({ rat, a, c, fmt, lineup, squads }) {
                 : pf.mode === 'projected' ? 'Probable XI — firms up ~1h before kick-off.'
                 : 'Names appear once the XI is published.'
             }</div>
+        </>
+      ),
+    },
+    {
+      id: 'cards', label: '🟨 Cards', body: (
+        <>
+          {pcards.top && <div className="ai-read"><span className="ai-tag">🤖 Most likely booking</span><b>{pcards.top}</b> — aggressive tackler in a tense, high-press tie.</div>}
+          <div className="pf-team">{a}</div>
+          {pcards.a.map((o, i) => cardRow(o, 'ca' + i))}
+          <div className="pf-team" style={{ marginTop: 8 }}>{c}</div>
+          {pcards.c.map((o, i) => cardRow(o, 'cc' + i))}
+          <div style={{ fontSize: 10, color: 'var(--mu)', marginTop: 7 }}>Aggressive tacklers & press-heavy roles, ranked by AI confidence (out of 100). {
+            pcards.mode === 'confirmed' ? 'Confirmed starting XI.'
+              : pcards.mode === 'projected' ? 'Probable XI — firms up ~1h before kick-off.'
+              : 'Names appear once the XI is published.'
+          }</div>
         </>
       ),
     },

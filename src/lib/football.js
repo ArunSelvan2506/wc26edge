@@ -130,6 +130,21 @@ export function footballEngine(rat, a, c, lineup, squads) {
   const mode = rank[sideA.source] >= rank[sideC.source] ? sideA.source : sideC.source;
   const playerFouls = { mode, a: sideA.props, c: sideC.props };
 
+  // Yellow-card props — aggressive tacklers / press-heavy roles in a tense tie
+  // are likeliest to be booked. Confidence scales with each player's foul load
+  // and the match's card tension.
+  const cardOf = o => {
+    const p = clamp(0.06 + o.rate * 0.16 + (cardsTot - 4) * 0.025, 0.05, 0.62);
+    return { who: o.who, prob: p, am: probToAm(p) };
+  };
+  const cardsAll = [...sideA.props.map(cardOf), ...sideC.props.map(cardOf)];
+  const topCard = cardsAll.reduce((m, x) => (m && m.prob >= x.prob ? m : x), null);
+  const playerCards = {
+    mode, top: topCard ? topCard.who : null,
+    a: sideA.props.map(cardOf).sort((x, y) => y.prob - x.prob),
+    c: sideC.props.map(cardOf).sort((x, y) => y.prob - x.prob),
+  };
+
   const fav = mk.home >= mk.away ? { n: a, p: mk.home } : { n: c, p: mk.away };
   const dog = mk.home >= mk.away ? { n: c, p: mk.away } : { n: a, p: mk.home };
   const goalsP = Math.max(over25, 1 - over25), goalsOver = over25 >= 0.5;
@@ -147,7 +162,7 @@ export function footballEngine(rat, a, c, lineup, squads) {
     ...Object.values(props).map(o => ({ p: `${o.side} ${o.line} ${o.label}`, prob: o.prob, am: o.am })),
     ...[...playerFouls.a, ...playerFouls.c].map(o => ({ p: `${o.who} ${o.side} ${o.line} ${o.label}`, prob: o.prob, am: o.am })),
   ];
-  return { mk, ko, props, playerFouls, fav, dog, script, radar, legs };
+  return { mk, ko, props, playerFouls, playerCards, fav, dog, script, radar, legs };
 }
 
 // Game-script read — how the tie is likely to play, with a Bet/Lean/Pass verdict
