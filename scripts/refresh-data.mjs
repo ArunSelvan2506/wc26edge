@@ -159,7 +159,11 @@ async function wiki(page) {
 }
 const wikiName = s => {
   const m = String(s).match(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/);
-  return (m ? (m[2] || m[1]) : String(s)).replace(/[[\]]/g, '').replace(/\{\{.*?\}\}/g, '').trim();
+  return (m ? (m[2] || m[1]) : String(s))
+    .replace(/[[\]]/g, '').replace(/\{\{.*?\}\}/g, '')
+    .replace(/\s*\((?:footballer|soccer|football)[^)]*\)\s*$/i, '')   // drop disambiguation
+    .replace(/\s*\([^)]*\bborn\b[^)]*\)\s*$/i, '')
+    .trim();
 };
 // Parse a squads article → { teamName: [{name,pos}] } (defenders & midfielders).
 function parseWikiSquads(wt) {
