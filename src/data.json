@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-29T13:31:32.368Z",
+ "updated": "2026-06-30T04:19:28.248Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5957,17 +5957,6 @@
       "utc": 1789457400000
      },
      {
-      "id": "fb576993-515d-43c6-a6c5-764ded863b13",
-      "teams": "Zimbabwe vs South Africa",
-      "t1": "Zimbabwe",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Queens Sports Club, Bulawayo",
-      "ist": "4:30pm",
-      "utc": 1789470000000
-     },
-     {
       "id": "307dc8c8-7976-45f2-af6f-9fe961ea9a1b",
       "teams": "England vs Sri Lanka",
       "t1": "England",
@@ -5984,17 +5973,6 @@
     "date": "Thu 17 Sep (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "c538bd6b-6b31-4372-bbc9-dc340718f7c3",
-      "teams": "Zimbabwe vs South Africa",
-      "t1": "Zimbabwe",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Queens Sports Club, Bulawayo",
-      "ist": "4:30pm",
-      "utc": 1789642800000
-     },
      {
       "id": "a001a695-3e19-45b7-a771-eb7a2560a943",
       "teams": "England vs Sri Lanka",
@@ -6317,6 +6295,17 @@
       "utc": 1792310400000
      },
      {
+      "id": "96c28c45-810b-4794-984e-e5207b34dfa3",
+      "teams": "Australia vs New Zealand",
+      "t1": "Australia",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "North Sydney Oval, Sydney",
+      "ist": "1:45pm",
+      "utc": 1792311300000
+     },
+     {
       "id": "3024d407-3fa8-4114-866f-03fc36f5f032",
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
@@ -6344,6 +6333,17 @@
     "date": "Tue 20 Oct (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "2e5ee6e9-511f-434e-b794-9d3a792e2a6e",
+      "teams": "Australia vs New Zealand",
+      "t1": "Australia",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "North Sydney Oval, Sydney",
+      "ist": "1:45pm",
+      "utc": 1792484100000
+     },
      {
       "id": "d15fcf8c-a4b4-44a3-8ae4-8043acbe5e56",
       "teams": "Australia vs Bangladesh",
@@ -6382,6 +6382,17 @@
       "venue": "Hagley Oval, Christchurch",
       "ist": "12:30pm",
       "utc": 1792652400000
+     },
+     {
+      "id": "1e140eff-3d6d-4b62-bfcf-cd723dd26cd7",
+      "teams": "Australia vs New Zealand",
+      "t1": "Australia",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "North Sydney Oval, Sydney",
+      "ist": "1:45pm",
+      "utc": 1792656900000
      },
      {
       "id": "e9272c0c-de16-4bbd-93a2-cd93989f67f3",
@@ -6446,9 +6457,37 @@
       "utc": 1792917000000
      }
     ]
+   },
+   {
+    "date": "Tue 27 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1962f911-9e43-4b49-9e02-f3ef74b76fe6",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sky Stadium, Wellington",
+      "ist": "12:30pm",
+      "utc": 1793084400000
+     },
+     {
+      "id": "fd14f45e-f135-4cf9-b4f5-8709ec5ba2eb",
+      "teams": "South Africa vs Australia",
+      "t1": "South Africa",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Newlands, Cape Town",
+      "ist": "1:30pm",
+      "utc": 1793088000000
+     }
+    ]
    }
   ],
-  "updated": "2026-06-29T13:31:31.479Z",
+  "updated": "2026-06-30T04:19:27.387Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6782,7 +6821,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-29T13:31:32.368Z"
+  "updated": "2026-06-30T04:19:28.248Z"
  },
  "SQUADS": {
   "mexico": [
