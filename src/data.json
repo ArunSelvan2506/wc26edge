@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-30T04:19:28.248Z",
+ "updated": "2026-06-30T09:39:22.996Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6487,7 +6487,7 @@
     ]
    }
   ],
-  "updated": "2026-06-30T04:19:27.387Z",
+  "updated": "2026-06-30T09:39:22.226Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6821,7 +6821,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-30T04:19:28.248Z"
+  "updated": "2026-06-30T09:39:22.996Z"
  },
  "SQUADS": {
   "mexico": [
@@ -7254,6 +7254,3100 @@
    {
     "name": "Hakan Çalhanoğlu",
     "pos": "Defensive Midfield"
+   }
+  ]
+ },
+ "WC_XI": {
+  "czech republic": [
+   {
+    "name": "David Zima",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tomáš Holeš",
+    "pos": "Defender"
+   },
+   {
+    "name": "Robin Hranáč",
+    "pos": "Defender"
+   },
+   {
+    "name": "Vladimír Coufal",
+    "pos": "Defender"
+   },
+   {
+    "name": "Štěpán Chaloupek",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ladislav Krejčí (footballer, born 1999)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Vladimír Darida",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lukáš Červ",
+    "pos": "Midfield"
+   },
+   {
+    "name": "David Jurásek",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lukáš Provod",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Michal Sadílek",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jaroslav Zelený",
+    "pos": "Defender"
+   },
+   {
+    "name": "David Douděra",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tomáš Souček",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alexandr Sojka",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hugo Sochůrek",
+    "pos": "Midfield"
+   }
+  ],
+  "mexico": [
+   {
+    "name": "Jorge Sánchez (footballer, born 1997)",
+    "pos": "Defender"
+   },
+   {
+    "name": "César Montes",
+    "pos": "Defender"
+   },
+   {
+    "name": "Edson Álvarez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Johan Vásquez (footballer, born 1998)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Érik Lira",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Luis Romo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Álvaro Fidalgo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Israel Reyes",
+    "pos": "Defender"
+   },
+   {
+    "name": "Orbelín Pineda",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Obed Vargas",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gilberto Mora (footballer, born 2008)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mateo Chávez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jesús Gallardo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Luis Chávez (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Brian Gutiérrez",
+    "pos": "Midfield"
+   }
+  ],
+  "south africa": [
+   {
+    "name": "Thabang Matuludi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Khulumani Ndamane",
+    "pos": "Defender"
+   },
+   {
+    "name": "Teboho Mokoena (soccer, born 1997)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Thalente Mbatha",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aubrey Modiba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Themba Zwane",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Sphephelo Sithole",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mbekezeli Mbokazi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Samukele Kabini",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nkosinathi Sibisi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Khuliso Mudau",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ime Okon",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jayden Adams",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Olwethu Makhanya",
+    "pos": "Defender"
+   },
+   {
+    "name": "Bradley Cross (soccer)",
+    "pos": "Defender"
+   }
+  ],
+  "south korea": [
+   {
+    "name": "Lee Han-beom",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lee Gi-hyuk",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kim Min-jae (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kim Tae-hyeon",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hwang In-beom",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Paik Seung-ho",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lee Jae-sung",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hwang Hee-chan",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lee Tae-seok",
+    "pos": "Defender"
+   },
+   {
+    "name": "Cho Wi-je",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kim Moon-hwan",
+    "pos": "Defender"
+   },
+   {
+    "name": "Park Jin-seob (footballer, born 1995)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Bae Jun-ho",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lee Kang-in",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yang Hyun-jun",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Seol Young-woo",
+    "pos": "Defender"
+   }
+  ],
+  "bosnia herzegovina": [
+   {
+    "name": "Nihad Mujakić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dennis Hadžikadunić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tarik Muharemović",
+    "pos": "Defender"
+   },
+   {
+    "name": "Sead Kolašinac",
+    "pos": "Defender"
+   },
+   {
+    "name": "Benjamin Tahirović",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Amar Dedić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Armin Gigović",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ivan Bašić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ivan Šunjić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Amar Memić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Amir Hadžiahmetović",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Dženis Burnić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nikola Katić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Stjepan Radeljić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Arjan Malić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ermin Mahmić",
+    "pos": "Midfield"
+   }
+  ],
+  "canada": [
+   {
+    "name": "Alistair Johnston",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alfie Jones",
+    "pos": "Defender"
+   },
+   {
+    "name": "Luc de Fougerolles",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joel Waterman",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mathieu Choinière",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Stephen Eustáquio",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ismaël Koné",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Liam Millar",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Derek Cornelius",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jacob Shaffelburg",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Moïse Bombito",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alphonso Davies",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jonathan Osorio",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Richie Laryea",
+    "pos": "Defender"
+   },
+   {
+    "name": "Niko Sigur",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nathan Saliba",
+    "pos": "Midfield"
+   }
+  ],
+  "qatar": [
+   {
+    "name": "Pedro Miguel (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lucas Mendes (footballer, born 1990)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Issa Laye",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jassem Gaber",
+    "pos": "Defender"
+   },
+   {
+    "name": "Abdulaziz Hatem",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Karim Boudiaf",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ayoub Al-Oui",
+    "pos": "Defender"
+   },
+   {
+    "name": "Homam Ahmed",
+    "pos": "Defender"
+   },
+   {
+    "name": "Boualem Khoukhi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ahmed Al-Ganehi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Sultan Al-Brake",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ahmed Fathy (Qatari footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Assim Madibo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Al-Hashmi Al-Hussain",
+    "pos": "Defender"
+   }
+  ],
+  "switzerland": [
+   {
+    "name": "Miro Muheim",
+    "pos": "Defender"
+   },
+   {
+    "name": "Silvan Widmer",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nico Elvedi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Manuel Akanji",
+    "pos": "Defender"
+   },
+   {
+    "name": "Denis Zakaria",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Remo Freuler",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Johan Manzambi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Granit Xhaka",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ricardo Rodriguez (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ardon Jashari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Djibril Sow",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Eray Cömert",
+    "pos": "Defender"
+   },
+   {
+    "name": "Michel Aebischer",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Fabian Rieder",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aurèle Amenda",
+    "pos": "Defender"
+   },
+   {
+    "name": "Luca Jaquez",
+    "pos": "Defender"
+   }
+  ],
+  "brazil": [
+   {
+    "name": "Éderson (footballer, born 1999)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gabriel Magalhães",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marquinhos",
+    "pos": "Defender"
+   },
+   {
+    "name": "Casemiro",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alex Sandro",
+    "pos": "Defender"
+   },
+   {
+    "name": "Bruno Guimarães",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Danilo (footballer, born July 1991)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gleison Bremer",
+    "pos": "Defender"
+   },
+   {
+    "name": "Léo Pereira (footballer, born 1996)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Douglas Santos (footballer, born 1994)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Fabinho (footballer, born 1993)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Danilo (footballer, born 2001)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lucas Paquetá",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Roger Ibañez",
+    "pos": "Defender"
+   }
+  ],
+  "haiti": [
+   {
+    "name": "Carlens Arcus",
+    "pos": "Defender"
+   },
+   {
+    "name": "Keeto Thermoncy",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ricardo Adé",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hannes Delcroix",
+    "pos": "Defender"
+   },
+   {
+    "name": "Carl Sainté",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Martin Expérience",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jean-Ricner Bellegarde",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Duke Lacroix",
+    "pos": "Defender"
+   },
+   {
+    "name": "Garven Metusala",
+    "pos": "Defender"
+   },
+   {
+    "name": "Danley Jean Jacques",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jean-Kévin Duverne",
+    "pos": "Defender"
+   },
+   {
+    "name": "Wilguens Paugain",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dominique Simon",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Woodensky Pierre",
+    "pos": "Midfield"
+   }
+  ],
+  "morocco": [
+   {
+    "name": "Achraf Hakimi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Noussair Mazraoui",
+    "pos": "Defender"
+   },
+   {
+    "name": "Sofyan Amrabat",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Marwane Saâdane",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ayyoub Bouaddi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Chemsdine Talbi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Azzedine Ounahi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ismael Saibari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Zakaria El Ouahdi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Issa Diop (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Samir El Mourabet",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gessime Yassine",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Chadi Riad",
+    "pos": "Defender"
+   },
+   {
+    "name": "Youssef Belammari",
+    "pos": "Defender"
+   },
+   {
+    "name": "Bilal El Khannouss",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Neil El Aynaoui",
+    "pos": "Midfield"
+   }
+  ],
+  "scotland": [
+   {
+    "name": "Aaron Hickey",
+    "pos": "Defender"
+   },
+   {
+    "name": "Andy Robertson",
+    "pos": "Defender"
+   },
+   {
+    "name": "Scott McTominay",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Grant Hanley",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kieran Tierney",
+    "pos": "Defender"
+   },
+   {
+    "name": "John McGinn",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Tyler Fletcher",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ryan Christie",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jack Hendry (footballer, born 1995)",
+    "pos": "Defender"
+   },
+   {
+    "name": "John Souttar",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dominic Hyam",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lewis Ferguson",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nathan Patterson (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kenny McLean",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Anthony Ralston",
+    "pos": "Defender"
+   },
+   {
+    "name": "Scott McKenna",
+    "pos": "Defender"
+   }
+  ],
+  "australia": [
+   {
+    "name": "Miloš Degenek",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alessandro Circati",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jacob Italiano",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jordan Bos",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jason Geria",
+    "pos": "Defender"
+   },
+   {
+    "name": "Connor Metcalfe",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aiden O'Neill",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Cammy Devlin",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kai Trewin",
+    "pos": "Defender"
+   },
+   {
+    "name": "Aziz Behich",
+    "pos": "Defender"
+   },
+   {
+    "name": "Harry Souttar",
+    "pos": "Defender"
+   },
+   {
+    "name": "Cameron Burgess",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jackson Irvine",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Paul Okon-Engstler",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lucas Herrington",
+    "pos": "Defender"
+   }
+  ],
+  "paraguay": [
+   {
+    "name": "Gustavo Velázquez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Omar Alderete",
+    "pos": "Defender"
+   },
+   {
+    "name": "Juan José Cáceres",
+    "pos": "Defender"
+   },
+   {
+    "name": "Fabián Balbuena",
+    "pos": "Defender"
+   },
+   {
+    "name": "Júnior Alonso",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ramón Sosa",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Diego Gómez (Paraguayan footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Miguel Almirón",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Maurício (footballer, born 2001)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "José Canale",
+    "pos": "Defender"
+   },
+   {
+    "name": "Andrés Cubas",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gustavo Gómez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Damián Bobadilla",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Braian Ojeda",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Matías Galarza (Paraguayan footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gustavo Caballero",
+    "pos": "Midfield"
+   }
+  ],
+  "turkey": [
+   {
+    "name": "Zeki Çelik",
+    "pos": "Defender"
+   },
+   {
+    "name": "Merih Demiral",
+    "pos": "Defender"
+   },
+   {
+    "name": "Çağlar Söyüncü",
+    "pos": "Defender"
+   },
+   {
+    "name": "Salih Özcan",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Orkun Kökçü",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hakan Çalhanoğlu",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Eren Elmalı",
+    "pos": "Defender"
+   },
+   {
+    "name": "Abdülkerim Bardakcı",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ozan Kabak",
+    "pos": "Defender"
+   },
+   {
+    "name": "İsmail Yüksek",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mert Müldür",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ferdi Kadıoğlu",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kaan Ayhan",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Samet Akaydin",
+    "pos": "Defender"
+   }
+  ],
+  "usa": [
+   {
+    "name": "Sergiño Dest",
+    "pos": "Defender"
+   },
+   {
+    "name": "Chris Richards (soccer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tyler Adams",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Antonee Robinson",
+    "pos": "Defender"
+   },
+   {
+    "name": "Auston Trusty",
+    "pos": "Defender"
+   },
+   {
+    "name": "Giovanni Reyna",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Weston McKennie",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Miles Robinson (soccer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tim Ream",
+    "pos": "Defender"
+   },
+   {
+    "name": "Sebastian Berhalter",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Cristian Roldan",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alex Freeman",
+    "pos": "Defender"
+   },
+   {
+    "name": "Malik Tillman",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Max Arfsten",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mark McKenzie (soccer, born 1999)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joe Scally",
+    "pos": "Defender"
+   }
+  ],
+  "curacao": [
+   {
+    "name": "Shurandy Sambo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Juriën Gaari",
+    "pos": "Defender"
+   },
+   {
+    "name": "Roshon van Eijma",
+    "pos": "Defender"
+   },
+   {
+    "name": "Sherel Floranus",
+    "pos": "Defender"
+   },
+   {
+    "name": "Godfried Roemeratoe",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Juninho Bacuna",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Livano Comenencia",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Leandro Bacuna",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ar'jany Martha",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Armando Obispo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joshua Brenet",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tahith Chong",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kevin Felida",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Riechedly Bazoer",
+    "pos": "Defender"
+   },
+   {
+    "name": "Deveron Fonville",
+    "pos": "Defender"
+   }
+  ],
+  "ecuador": [
+   {
+    "name": "Félix Torres (footballer, born 1997)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Piero Hincapié",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joel Ordóñez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jordy Alcívar",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Willian Pacho",
+    "pos": "Defender"
+   },
+   {
+    "name": "Pervis Estupiñán",
+    "pos": "Defender"
+   },
+   {
+    "name": "Anthony Valencia",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kendry Páez",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alan Minda",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Pedro Vite",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ángelo Preciado",
+    "pos": "Defender"
+   },
+   {
+    "name": "Denil Castillo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alan Franco (footballer, born 1998)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Moisés Caicedo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jackson Porozo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Yaimar Medina",
+    "pos": "Defender"
+   }
+  ],
+  "germany": [
+   {
+    "name": "Antonio Rüdiger",
+    "pos": "Defender"
+   },
+   {
+    "name": "Waldemar Anton",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jonathan Tah",
+    "pos": "Defender"
+   },
+   {
+    "name": "Aleksandar Pavlović (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Joshua Kimmich",
+    "pos": "Defender"
+   },
+   {
+    "name": "Leon Goretzka",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jamie Leweling",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jamal Musiala",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Pascal Groß",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nico Schlotterbeck",
+    "pos": "Defender"
+   },
+   {
+    "name": "Angelo Stiller",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Florian Wirtz",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nathaniel Brown (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Leroy Sané",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nadiem Amiri",
+    "pos": "Midfield"
+   },
+   {
+    "name": "David Raum",
+    "pos": "Defender"
+   }
+  ],
+  "ivory coast": [
+   {
+    "name": "Ousmane Diomande",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ghislain Konan",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jean Michaël Seri",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Wilfried Singo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Seko Fofana",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Odilon Kossounou",
+    "pos": "Defender"
+   },
+   {
+    "name": "Franck Kessié",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Christopher Opéri",
+    "pos": "Defender"
+   },
+   {
+    "name": "Guéla Doué",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ibrahim Sangaré (Ivorian footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Emmanuel Agbadou",
+    "pos": "Defender"
+   },
+   {
+    "name": "Evan Ndicka",
+    "pos": "Defender"
+   },
+   {
+    "name": "Parfait Guiagon",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Christ Inao Oulaï",
+    "pos": "Midfield"
+   }
+  ],
+  "japan": [
+   {
+    "name": "Yukinari Sugawara",
+    "pos": "Defender"
+   },
+   {
+    "name": "Shōgo Taniguchi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kō Itakura",
+    "pos": "Defender"
+   },
+   {
+    "name": "Yūto Nagatomo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ao Tanaka",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Takefusa Kubo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ritsu Dōan",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Daizen Maeda",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Keito Nakamura",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Junya Itō",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Daichi Kamada",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Tsuyoshi Watanabe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Yuito Suzuki",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ayumu Seko",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hiroki Itō (footballer, born 1999)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Takehiro Tomiyasu",
+    "pos": "Defender"
+   }
+  ],
+  "netherlands": [
+   {
+    "name": "Lutsharel Geertruida",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marten de Roon",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Virgil van Dijk",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nathan Aké",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jan Paul van Hecke",
+    "pos": "Defender"
+   },
+   {
+    "name": "Justin Kluivert",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ryan Gravenberch",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mats Wieffer",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tijjani Reijnders",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Micky van de Ven",
+    "pos": "Defender"
+   },
+   {
+    "name": "Guus Til",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Teun Koopmeiners",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Frenkie de Jong",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Denzel Dumfries",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jorrel Hato",
+    "pos": "Defender"
+   },
+   {
+    "name": "Quinten Timber",
+    "pos": "Midfield"
+   }
+  ],
+  "sweden": [
+   {
+    "name": "Gustaf Lagerbielke (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Victor Lindelöf",
+    "pos": "Defender"
+   },
+   {
+    "name": "Isak Hien",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gabriel Gudmundsson",
+    "pos": "Defender"
+   },
+   {
+    "name": "Herman Johansson",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lucas Bergvall",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Daniel Svensson (footballer, born 2002)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Benjamin Nygren",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ken Sema",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hjalmar Ekdal",
+    "pos": "Defender"
+   },
+   {
+    "name": "Carl Starfelt",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jesper Karlström",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yasin Ayari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mattias Svanberg",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Eric Smith (Swedish footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alexander Bernhardsson",
+    "pos": "Defender"
+   }
+  ],
+  "tunisia": [
+   {
+    "name": "Ali Abdi (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Montassar Talbi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Omar Rekik",
+    "pos": "Defender"
+   },
+   {
+    "name": "Adem Arous",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dylan Bronn",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hannibal Mejbri",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ismaël Gharbi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mortadha Ben Ouanes",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rani Khedira",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Khalil Ayari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hadj Mahmoud",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ellyes Skhiri",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yan Valery",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohamed Amine Ben Hamida",
+    "pos": "Defender"
+   },
+   {
+    "name": "Moutaz Neffati",
+    "pos": "Defender"
+   },
+   {
+    "name": "Raed Chikhaoui",
+    "pos": "Defender"
+   }
+  ],
+  "belgium": [
+   {
+    "name": "Zeno Debast",
+    "pos": "Defender"
+   },
+   {
+    "name": "Arthur Theate",
+    "pos": "Defender"
+   },
+   {
+    "name": "Brandon Mechele",
+    "pos": "Defender"
+   },
+   {
+    "name": "Maxim De Cuyper",
+    "pos": "Defender"
+   },
+   {
+    "name": "Axel Witsel",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kevin De Bruyne",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Youri Tielemans",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Thomas Meunier",
+    "pos": "Defender"
+   },
+   {
+    "name": "Koni De Winter",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joaquin Seys",
+    "pos": "Defender"
+   },
+   {
+    "name": "Diego Moreira",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hans Vanaken",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Timothy Castagne",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alexis Saelemaekers",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nicolas Raskin",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Amadou Onana",
+    "pos": "Midfield"
+   }
+  ],
+  "egypt": [
+   {
+    "name": "Yasser Ibrahim",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohamed Hany",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hossam Abdelmaguid",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ramy Rabia",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohamed Abdelmonem",
+    "pos": "Defender"
+   },
+   {
+    "name": "Emam Ashour",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mostafa Ziko",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ahmed Fatouh",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hamdy Fathy",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Karim Hafez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohanad Lasheen",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nabil Emad",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Marwan Attia",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mahmoud Saber",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Tarek Alaa (footballer, born 2002)",
+    "pos": "Defender"
+   }
+  ],
+  "iran": [
+   {
+    "name": "Saleh Hardani",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ehsan Hajsafi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Shojae Khalilzadeh",
+    "pos": "Defender"
+   },
+   {
+    "name": "Milad Mohammadi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Saeid Ezatolahi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alireza Jahanbakhsh",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mohammad Mohebi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Hossein Kanaanizadegan",
+    "pos": "Defender"
+   },
+   {
+    "name": "Saman Ghoddos",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Rouzbeh Cheshmi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mahdi Torabi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Arya Yousefi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ali Nemati",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohammad Ghorbani (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ramin Rezaeian",
+    "pos": "Defender"
+   },
+   {
+    "name": "Danial Eiri",
+    "pos": "Defender"
+   }
+  ],
+  "new zealand": [
+   {
+    "name": "Tim Payne (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Francis de Vries",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tyler Bindon",
+    "pos": "Defender"
+   },
+   {
+    "name": "Michael Boxall",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joe Bell (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Marko Stamenić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Sarpreet Singh",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Elijah Just",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Liberato Cacace",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alex Rufer",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nando Pijnaker",
+    "pos": "Defender"
+   },
+   {
+    "name": "Finn Surman",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ben Old",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Callum McCowatt",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ryan Thomas (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Callan Elliot",
+    "pos": "Defender"
+   }
+  ],
+  "cape verde": [
+   {
+    "name": "Stopira",
+    "pos": "Defender"
+   },
+   {
+    "name": "Diney (footballer, born 1995)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Pico Lopes",
+    "pos": "Defender"
+   },
+   {
+    "name": "Logan Costa",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kevin Pina (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jovane Cabral",
+    "pos": "Midfield"
+   },
+   {
+    "name": "João Paulo Fernandes (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jamiro Monteiro",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Garry Rodrigues",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Sidny Lopes Cabral",
+    "pos": "Defender"
+   },
+   {
+    "name": "Deroy Duarte",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Laros Duarte",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yannick Semedo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Willy Semedo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Telmo Arcanjo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nuno da Costa",
+    "pos": "Midfield"
+   }
+  ],
+  "saudi arabia": [
+   {
+    "name": "Ali Majrashi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ali Lajami",
+    "pos": "Defender"
+   },
+   {
+    "name": "Abdulelah Al-Amri",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hassan Al-Tambakti",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nasser Al-Dawsari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Musab Al-Juwayr",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Saud Abdulhamid",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nawaf Boushal",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hassan Kadesh",
+    "pos": "Defender"
+   },
+   {
+    "name": "Abdullah Al-Khaibari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ziyad Al-Johani",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alaa Al-Hejji",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mohamed Kanno",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Moteb Al-Harbi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jehad Thakri",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohammed Abu Al-Shamat",
+    "pos": "Defender"
+   }
+  ],
+  "spain": [
+   {
+    "name": "Marc Pubill",
+    "pos": "Defender"
+   },
+   {
+    "name": "Álex Grimaldo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Eric García (footballer, born 2001)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marcos Llorente",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mikel Merino",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Fabián Ruiz",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gavi (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Pedro Porro",
+    "pos": "Defender"
+   },
+   {
+    "name": "Aymeric Laporte",
+    "pos": "Defender"
+   },
+   {
+    "name": "Álex Baena",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Rodri (footballer, born 1996)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Martín Zubimendi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Pedri",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Pau Cubarsí",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marc Cucurella",
+    "pos": "Defender"
+   }
+  ],
+  "uruguay": [
+   {
+    "name": "José María Giménez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Sebastián Cáceres",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ronald Araújo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Manuel Ugarte (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Rodrigo Bentancur",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nicolás de la Cruz",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Federico Valverde",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Giorgian de Arrascaeta",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Guillermo Varela",
+    "pos": "Defender"
+   },
+   {
+    "name": "Agustín Canobbio",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Emiliano Martínez (footballer, born 1999)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mathías Olivera",
+    "pos": "Defender"
+   },
+   {
+    "name": "Matías Viña",
+    "pos": "Defender"
+   },
+   {
+    "name": "Maximiliano Araújo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Joaquín Piquerez",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Santiago Bueno",
+    "pos": "Defender"
+   }
+  ],
+  "france": [
+   {
+    "name": "Malo Gusto",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lucas Digne",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dayot Upamecano",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jules Koundé",
+    "pos": "Defender"
+   },
+   {
+    "name": "Manu Koné",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aurélien Tchouaméni",
+    "pos": "Midfield"
+   },
+   {
+    "name": "N'Golo Kanté",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Adrien Rabiot",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ibrahima Konaté",
+    "pos": "Defender"
+   },
+   {
+    "name": "William Saliba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Warren Zaïre-Emery",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Théo Hernandez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Lucas Hernandez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rayan Cherki",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Maghnes Akliouche",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Maxence Lacroix",
+    "pos": "Defender"
+   }
+  ],
+  "iraq": [
+   {
+    "name": "Rebin Sulaka",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hussein Ali (footballer, born 2002)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Zaid Tahseen",
+    "pos": "Defender"
+   },
+   {
+    "name": "Akam Hashim",
+    "pos": "Defender"
+   },
+   {
+    "name": "Manaf Younis",
+    "pos": "Defender"
+   },
+   {
+    "name": "Youssef Amyn",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ibrahim Bayesh",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Zidane Iqbal",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ahmed Maknzi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Amir Al-Ammari",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kevin Yakob",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aimar Sher",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Merchas Doski",
+    "pos": "Defender"
+   },
+   {
+    "name": "Zaid Ismail",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mustafa Saadoon (footballer, born 2001)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Frans Putros",
+    "pos": "Defender"
+   }
+  ],
+  "norway": [
+   {
+    "name": "Morten Thorsby",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kristoffer Ajer",
+    "pos": "Defender"
+   },
+   {
+    "name": "Leo Østigård",
+    "pos": "Defender"
+   },
+   {
+    "name": "David Møller Wolfe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Patrick Berg",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Sander Berge",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Martin Ødegaard",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Fredrik Aursnes",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Fredrik André Bjørkan",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marcus Holmgren Pedersen",
+    "pos": "Defender"
+   },
+   {
+    "name": "Torbjørn Heggem",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kristian Thorstvedt",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Thelo Aasgaard",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Antonio Nusa",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Andreas Schjelderup",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Oscar Bobb",
+    "pos": "Midfield"
+   }
+  ],
+  "senegal": [
+   {
+    "name": "Mamadou Sarr",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kalidou Koulibaly",
+    "pos": "Defender"
+   },
+   {
+    "name": "Abdoulaye Seck (footballer, born 1992)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Idrissa Gueye",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Pathé Ciss",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lamine Camara",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ismail Jakobs",
+    "pos": "Defender"
+   },
+   {
+    "name": "Krépin Diatta",
+    "pos": "Defender"
+   },
+   {
+    "name": "Pape Matar Sarr",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Moussa Niakhaté",
+    "pos": "Defender"
+   },
+   {
+    "name": "Habib Diarra",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Bara Sapoko Ndiaye",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Antoine Mendy (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "El Hadji Malick Diouf",
+    "pos": "Defender"
+   },
+   {
+    "name": "Pape Gueye",
+    "pos": "Midfield"
+   }
+  ],
+  "algeria": [
+   {
+    "name": "Aïssa Mandi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Achref Abada",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohamed Amine Tougai",
+    "pos": "Defender"
+   },
+   {
+    "name": "Zineddine Belaïd",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ramiz Zerrouki",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Houssem Aouar",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Farès Chaïbi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jaouen Hadjam",
+    "pos": "Defender"
+   },
+   {
+    "name": "Hicham Boudaoui",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Rayan Aït-Nouri",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rafik Belghali",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nabil Bentaleb",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ramy Bensebaini",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ibrahim Maza",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yacine Titraoui",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Samir Chergui",
+    "pos": "Defender"
+   }
+  ],
+  "argentina": [
+   {
+    "name": "Marcos Senesi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nicolás Tagliafico",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gonzalo Montiel",
+    "pos": "Defender"
+   },
+   {
+    "name": "Leandro Paredes",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Lisandro Martínez",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rodrigo De Paul",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Valentín Barco",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Giovani Lo Celso",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Cristian Romero",
+    "pos": "Defender"
+   },
+   {
+    "name": "Exequiel Palacios",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nicolás González (footballer, born 1998)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nicolás Otamendi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alexis Mac Allister",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Enzo Fernández",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Facundo Medina",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nahuel Molina",
+    "pos": "Defender"
+   }
+  ],
+  "austria": [
+   {
+    "name": "David Affengruber (footballer, born 2001)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kevin Danso",
+    "pos": "Defender"
+   },
+   {
+    "name": "Xaver Schlager",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Stefan Posch",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nicolas Seiwald",
+    "pos": "Midfield"
+   },
+   {
+    "name": "David Alaba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marcel Sabitzer",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Florian Grillitsch",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Philipp Lienhart",
+    "pos": "Defender"
+   },
+   {
+    "name": "Phillipp Mwene",
+    "pos": "Defender"
+   },
+   {
+    "name": "Carney Chukwuemeka",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Romano Schmid",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Dejan Ljubičić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Konrad Laimer",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Alexander Prass",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Marco Friedl",
+    "pos": "Defender"
+   }
+  ],
+  "jordan": [
+   {
+    "name": "Mohammad Abu Hashish",
+    "pos": "Defender"
+   },
+   {
+    "name": "Abdallah Nasib",
+    "pos": "Defender"
+   },
+   {
+    "name": "Husam Abu Dahab",
+    "pos": "Defender"
+   },
+   {
+    "name": "Yazan Al-Arab",
+    "pos": "Defender"
+   },
+   {
+    "name": "Amer Jamous",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Noor Al-Rawabdeh",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Rajaei Ayed",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ibrahim Sadeh",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mo Abualnadi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Salim Obaid",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohammad Taha (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Saed Al-Rosan",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohannad Abu Taha",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nizar Al-Rashdan",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ihsan Haddad",
+    "pos": "Defender"
+   },
+   {
+    "name": "Mohammad Al-Dawoud",
+    "pos": "Midfield"
+   }
+  ],
+  "colombia": [
+   {
+    "name": "Daniel Muñoz (footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jhon Lucumí",
+    "pos": "Defender"
+   },
+   {
+    "name": "Santiago Arias",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kevin Castaño",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Richard Ríos",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jorge Carrascal",
+    "pos": "Midfield"
+   },
+   {
+    "name": "James Rodríguez",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jhon Arias (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yerry Mina",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gustavo Puerta",
+    "pos": "Defender"
+   },
+   {
+    "name": "Juan Portilla",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jefferson Lerma",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Johan Mojica",
+    "pos": "Defender"
+   },
+   {
+    "name": "Willer Ditta",
+    "pos": "Defender"
+   },
+   {
+    "name": "Juan Fernando Quintero",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Deiver Machado",
+    "pos": "Defender"
+   }
+  ],
+  "dr congo": [
+   {
+    "name": "Aaron Wan-Bissaka",
+    "pos": "Defender"
+   },
+   {
+    "name": "Steve Kapuadi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Axel Tuanzebe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dylan Batubinsika",
+    "pos": "Defender"
+   },
+   {
+    "name": "Ngal'ayel Mukau",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nathanaël Mbuku",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Samuel Moutoussamy",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Théo Bongonda",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Joris Kayembe",
+    "pos": "Defender"
+   },
+   {
+    "name": "Noah Sadiki",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aaron Tshibola",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Charles Pickel",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Chancel Mbemba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gédéon Kalulu",
+    "pos": "Defender"
+   },
+   {
+    "name": "Edo Kayembe",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Arthur Masuaku",
+    "pos": "Defender"
+   }
+  ],
+  "portugal": [
+   {
+    "name": "Nélson Semedo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rúben Dias",
+    "pos": "Defender"
+   },
+   {
+    "name": "Tomás Araújo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Diogo Dalot",
+    "pos": "Defender"
+   },
+   {
+    "name": "Matheus Nunes",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Bruno Fernandes",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Bernardo Silva",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Renato Veiga",
+    "pos": "Defender"
+   },
+   {
+    "name": "Gonçalo Inácio",
+    "pos": "Defender"
+   },
+   {
+    "name": "João Neves",
+    "pos": "Midfield"
+   },
+   {
+    "name": "João Cancelo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rúben Neves",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Vitinha",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Samú Costa",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nuno Mendes (footballer, born 2002)",
+    "pos": "Defender"
+   }
+  ],
+  "uzbekistan": [
+   {
+    "name": "Abdukodir Khusanov",
+    "pos": "Defender"
+   },
+   {
+    "name": "Khojiakbar Alijonov",
+    "pos": "Defender"
+   },
+   {
+    "name": "Farrukh Sayfiev",
+    "pos": "Defender"
+   },
+   {
+    "name": "Rustam Ashurmatov",
+    "pos": "Defender"
+   },
+   {
+    "name": "Akmal Mozgovoy",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Otabek Shukurov",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jamshid Iskanderov",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Odiljon Hamrobekov",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ruslanbek Jiyanov",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Oston Urunov",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Sherzod Nasrullaev",
+    "pos": "Defender"
+   },
+   {
+    "name": "Umar Eshmurodov",
+    "pos": "Defender"
+   },
+   {
+    "name": "Dostonbek Khamdamov",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Abdulla Abdullaev",
+    "pos": "Defender"
+   },
+   {
+    "name": "Azizjon Ganiev",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Abbosbek Fayzullaev",
+    "pos": "Midfield"
+   }
+  ],
+  "croatia": [
+   {
+    "name": "Josip Stanišić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marin Pongračić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Joško Gvardiol",
+    "pos": "Defender"
+   },
+   {
+    "name": "Duje Ćaleta-Car",
+    "pos": "Defender"
+   },
+   {
+    "name": "Josip Šutalo",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nikola Moro",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mateo Kovačić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Luka Modrić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Nikola Vlašić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Mario Pašalić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Martin Baturina",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Petar Sučić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kristijan Jakić",
+    "pos": "Defender"
+   },
+   {
+    "name": "Toni Fruk",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Luka Sučić",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Luka Vušković",
+    "pos": "Defender"
+   }
+  ],
+  "england": [
+   {
+    "name": "Ezri Konsa",
+    "pos": "Defender"
+   },
+   {
+    "name": "Nico O'Reilly",
+    "pos": "Defender"
+   },
+   {
+    "name": "Declan Rice",
+    "pos": "Midfield"
+   },
+   {
+    "name": "John Stones",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marc Guéhi",
+    "pos": "Defender"
+   },
+   {
+    "name": "Elliot Anderson (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jude Bellingham",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Trevoh Chalobah",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jordan Henderson",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Dan Burn",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kobbie Mainoo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Morgan Rogers",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Eberechi Eze",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Reece James",
+    "pos": "Defender"
+   },
+   {
+    "name": "Djed Spence",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jarell Quansah",
+    "pos": "Defender"
+   }
+  ],
+  "ghana": [
+   {
+    "name": "Alidu Seidu",
+    "pos": "Defender"
+   },
+   {
+    "name": "Caleb Yirenkyi",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jonas Adjetey",
+    "pos": "Defender"
+   },
+   {
+    "name": "Thomas Partey",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Abdul Mumin",
+    "pos": "Defender"
+   },
+   {
+    "name": "Kwasi Sibo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Antoine Semenyo",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Gideon Mensah (footballer, born 1998)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Elisha Owusu",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Abdul Rahman Baba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Jerome Opoku",
+    "pos": "Defender"
+   },
+   {
+    "name": "Augustine Boakye",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Kojo Peprah Oppong",
+    "pos": "Defender"
+   },
+   {
+    "name": "Derrick Luckassen",
+    "pos": "Defender"
+   },
+   {
+    "name": "Marvin Senaya",
+    "pos": "Defender"
+   }
+  ],
+  "panama": [
+   {
+    "name": "César Blackman",
+    "pos": "Defender"
+   },
+   {
+    "name": "José Córdoba",
+    "pos": "Defender"
+   },
+   {
+    "name": "Fidel Escobar",
+    "pos": "Defender"
+   },
+   {
+    "name": "Edgardo Fariña",
+    "pos": "Defender"
+   },
+   {
+    "name": "Cristian Martínez (Panamanian footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "José Luis Rodríguez (footballer, born 1998)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Adalberto Carrasquilla",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Ismael Díaz (footballer, born 1997)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Yoel Bárcenas",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Jiovany Ramos",
+    "pos": "Defender"
+   },
+   {
+    "name": "Carlos Harvey",
+    "pos": "Defender"
+   },
+   {
+    "name": "Eric Davis (Panamanian footballer)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Andrés Andrade (footballer, born 1998)",
+    "pos": "Defender"
+   },
+   {
+    "name": "Alberto Quintero (footballer)",
+    "pos": "Midfield"
+   },
+   {
+    "name": "Aníbal Godoy",
+    "pos": "Midfield"
+   },
+   {
+    "name": "César Yanis",
+    "pos": "Midfield"
    }
   ]
  }
