@@ -80,15 +80,60 @@ function namedFoulProps(players, factor) {
     .map(p => foulProp(p.who, p.rate));
 }
 
+// Curated "possible XI" key tacklers (defensive mids / full-backs / centre-backs
+// — the foul & card magnets) per nation, so real names always show even before
+// the live squad / confirmed XI lands. [name, position].
+const KEY_XI = {
+  Brazil: [['Casemiro', 'DM'], ['Marquinhos', 'CB'], ['Danilo', 'RB'], ['Bruno Guimarães', 'CM']],
+  Argentina: [['Rodrigo De Paul', 'CM'], ['Cristian Romero', 'CB'], ['Nicolás Otamendi', 'CB'], ['Enzo Fernández', 'CM']],
+  France: [['Aurélien Tchouaméni', 'DM'], ['Dayot Upamecano', 'CB'], ['Jules Koundé', 'RB'], ['Adrien Rabiot', 'CM']],
+  England: [['Declan Rice', 'DM'], ['John Stones', 'CB'], ['Kyle Walker', 'RB'], ['Kalvin Phillips', 'DM']],
+  Spain: [['Rodri', 'DM'], ['Aymeric Laporte', 'CB'], ['Dani Carvajal', 'RB'], ['Gavi', 'CM']],
+  Germany: [['Joshua Kimmich', 'DM'], ['Antonio Rüdiger', 'CB'], ['Robert Andrich', 'DM'], ['Jonathan Tah', 'CB']],
+  Portugal: [['João Palhinha', 'DM'], ['Rúben Dias', 'CB'], ['Rúben Neves', 'DM'], ['Pepe', 'CB']],
+  Netherlands: [['Frenkie de Jong', 'CM'], ['Virgil van Dijk', 'CB'], ['Denzel Dumfries', 'RB'], ['Marten de Roon', 'DM']],
+  Belgium: [['Amadou Onana', 'DM'], ['Axel Witsel', 'DM'], ['Jan Vertonghen', 'CB']],
+  Croatia: [['Marcelo Brozović', 'DM'], ['Luka Modrić', 'CM'], ['Joško Gvardiol', 'CB']],
+  Morocco: [['Sofyan Amrabat', 'DM'], ['Achraf Hakimi', 'RB'], ['Romain Saïss', 'CB']],
+  USA: [['Tyler Adams', 'DM'], ['Weston McKennie', 'CM'], ['Chris Richards', 'CB']],
+  Mexico: [['Edson Álvarez', 'DM'], ['César Montes', 'CB'], ['Jorge Sánchez', 'RB']],
+  Japan: [['Wataru Endō', 'DM'], ['Ko Itakura', 'CB'], ['Hidemasa Morita', 'DM']],
+  Senegal: [['Idrissa Gueye', 'DM'], ['Kalidou Koulibaly', 'CB'], ['Pape Matar Sarr', 'CM']],
+  Switzerland: [['Granit Xhaka', 'CM'], ['Manuel Akanji', 'CB'], ['Remo Freuler', 'DM']],
+  Australia: [['Jackson Irvine', 'CM'], ['Harry Souttar', 'CB'], ['Aziz Behich', 'LB']],
+  Ecuador: [['Moisés Caicedo', 'DM'], ['Piero Hincapié', 'CB'], ['Pervis Estupiñán', 'LB']],
+  Colombia: [['Wilmar Barrios', 'DM'], ['Davinson Sánchez', 'CB'], ['Daniel Muñoz', 'RB']],
+  Norway: [['Sander Berge', 'DM'], ['Kristoffer Ajer', 'CB'], ['Martin Ødegaard', 'CM']],
+  Sweden: [['Albin Ekdal', 'DM'], ['Victor Lindelöf', 'CB'], ['Emil Krafth', 'RB']],
+  Austria: [['Nicolas Seiwald', 'DM'], ['David Alaba', 'CB'], ['Konrad Laimer', 'CM']],
+  Ghana: [['Thomas Partey', 'DM'], ['Mohammed Salisu', 'CB'], ['Daniel Amartey', 'CB']],
+  'Ivory Coast': [['Franck Kessié', 'CM'], ['Seko Fofana', 'CM'], ['Eric Bailly', 'CB']],
+  Egypt: [['Mohamed Elneny', 'DM'], ['Hamdi Fathi', 'DM'], ['Mahmoud Hamdy', 'CB']],
+  Algeria: [['Nabil Bentaleb', 'DM'], ['Aïssa Mandi', 'CB'], ['Ramy Bensebaini', 'LB']],
+  Paraguay: [['Andrés Cubas', 'DM'], ['Gustavo Gómez', 'CB'], ['Mathías Villasanti', 'CM']],
+  'DR Congo': [['Samuel Moutoussamy', 'DM'], ['Chancel Mbemba', 'CB'], ['Arthur Masuaku', 'LB']],
+  'South Africa': [['Teboho Mokoena', 'DM'], ['Mothobi Mvala', 'CB'], ['Aubrey Modiba', 'LB']],
+  Canada: [['Stephen Eustáquio', 'DM'], ['Alistair Johnston', 'RB'], ['Moïse Bombito', 'CB']],
+  'Cape Verde': [['Kenny Rocha Santos', 'DM'], ['Roberto Lopes', 'CB'], ['Diney Borges', 'CM']],
+  'Bosnia & Herzegovina': [['Miralem Pjanić', 'CM'], ['Sead Kolašinac', 'LB'], ['Amar Dedić', 'RB']],
+  Uruguay: [['Manuel Ugarte', 'DM'], ['Ronald Araújo', 'CB'], ['Federico Valverde', 'CM']],
+};
+function curatedXI(team) {
+  const list = KEY_XI[team];
+  return list ? list.map(([name, pos]) => ({ name, pos })) : null;
+}
+
 // Build player foul props for one side, best source first:
-//   confirmed XI (lineup baked near KO) → squad roster (projected names) →
-//   role archetypes (always available). Returns { props, source }.
+//   confirmed XI (lineup baked near KO) → live squad → curated possible XI →
+//   role archetypes. Returns { props, source }.
 function sideFoulProps(team, teamFouls, lineupSide, squadSide) {
   const factor = teamFouls / 12;                         // baseline ~12 fouls / team
   const xi = lineupSide && Array.isArray(lineupSide.players)
     ? lineupSide.players.filter(p => !p.sub) : [];
   if (xi.length >= 6) return { props: namedFoulProps(xi, factor), source: 'confirmed' };
   if (Array.isArray(squadSide) && squadSide.length) return { props: namedFoulProps(squadSide, factor), source: 'projected' };
+  const cur = curatedXI(team);
+  if (cur) return { props: namedFoulProps(cur, factor), source: 'projected' };
   const roles = [
     { who: `${team} defensive mid`, rate: 2.0 * factor },
     { who: `${team} full-back`, rate: 1.6 * factor },
