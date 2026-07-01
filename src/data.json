@@ -5657,7 +5657,7 @@
    "matches": [
     {
      "ist": "10:30pm",
-     "teams": "Canada vs W75",
+     "teams": "Canada vs Morocco",
      "grp": "Houston",
      "koUTC": 1783184400000
     }
@@ -5669,7 +5669,7 @@
    "matches": [
     {
      "ist": "2:30am",
-     "teams": "W74 vs W77",
+     "teams": "Paraguay vs France",
      "grp": "Philadelphia",
      "koUTC": 1783198800000
     }
@@ -5681,7 +5681,7 @@
    "matches": [
     {
      "ist": "1:30am",
-     "teams": "W76 vs W78",
+     "teams": "Brazil vs Norway",
      "grp": "New York/New Jersey (East Rutherford)",
      "koUTC": 1783281600000
     },
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-01T03:24:57.078Z",
+ "updated": "2026-07-01T08:07:39.533Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6487,7 +6487,7 @@
     ]
    }
   ],
-  "updated": "2026-07-01T03:24:56.266Z",
+  "updated": "2026-07-01T08:07:37.746Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6821,7 +6821,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-01T03:24:57.078Z"
+  "updated": "2026-07-01T08:07:39.533Z"
  },
  "SQUADS": {
   "mexico": [
