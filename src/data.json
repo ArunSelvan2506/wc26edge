@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-01T11:57:48.185Z",
+ "updated": "2026-07-01T19:48:00.345Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Wed 1 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "e3632198-a749-48d3-95b6-2f85c4e06a03",
-      "teams": "England vs India",
-      "t1": "England",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of England, 2026",
-      "ist": "11:00pm",
-      "utc": 1782927000000
-     }
-    ]
-   },
    {
     "date": "Thu 2 Jul (IST)",
     "series": "International",
@@ -6487,7 +6470,7 @@
     ]
    }
   ],
-  "updated": "2026-07-01T11:57:47.122Z",
+  "updated": "2026-07-01T19:47:58.089Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6821,7 +6804,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-01T11:57:48.185Z"
+  "updated": "2026-07-01T19:48:00.345Z"
  },
  "SQUADS": {
   "mexico": [
