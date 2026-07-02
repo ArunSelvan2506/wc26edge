@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-02T15:12:06.145Z",
+ "updated": "2026-07-02T17:42:35.450Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5938,6 +5938,17 @@
       "venue": "Bangladesh tour of Zimbabwe, 2026",
       "ist": "12:45pm",
       "utc": 1783581300000
+     },
+     {
+      "id": "3c0f46f4-033c-4bb9-986e-00ae9e235c96",
+      "teams": "England vs India",
+      "t1": "England",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of England, 2026",
+      "ist": "11:00pm",
+      "utc": 1783618200000
      }
     ]
    },
@@ -6521,7 +6532,7 @@
     ]
    }
   ],
-  "updated": "2026-07-02T15:12:05.268Z",
+  "updated": "2026-07-02T17:42:33.918Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6855,7 +6866,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-02T15:12:06.145Z"
+  "updated": "2026-07-02T17:42:35.450Z"
  },
  "SQUADS": {
   "mexico": [
