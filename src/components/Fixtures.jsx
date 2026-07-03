@@ -6,10 +6,10 @@ import { probToAm, dec, buildParlays } from '../lib/sportEngine.js';
 import { footballEngine } from '../lib/football.js';
 import { fmtOdds } from '../lib/odds.js';
 import { timeIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
-import { upcomingFixtures } from '../lib/completion.js';
+import { upcomingFixtures, completedFixtures } from '../lib/completion.js';
 import { lineupFor, squadFor } from '../lib/live.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
+import { Copyable, ConfBar, SweepTimer, CompletedSection } from './Bits.jsx';
 import { useSweep } from '../lib/useSweep.js';
 import { Lineups } from './Lineups.jsx';
 import MatchCard from './MatchCard.jsx';
@@ -48,6 +48,7 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
   const { now, nowMin, nextSweep } = useSweep();
   // Completed matches drop off; re-checked each minute (3-hour sweep cadence).
   const upcoming = useMemo(() => upcomingFixtures(now), [nowMin]);   // eslint-disable-line react-hooks/exhaustive-deps
+  const done = useMemo(() => completedFixtures(now), [nowMin]);      // eslint-disable-line react-hooks/exhaustive-deps
   const [filter, setFilter] = useState('R32');
   // Only show a knockout tie once BOTH sides are real resolved nations — until
   // the prior round is played a slot is a placeholder ("W75"), which would be
@@ -56,10 +57,11 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
     const [a, c] = (mt.teams || '').split(/\s+vs\s+/i);
     return a && c && rat && rat.has(a) && rat.has(c);
   };
-  const blocks = upcoming
-    .filter(b => stageCat(b.stage) === filter)
-    .map(b => ({ ...b, matches: b.matches.filter(bothResolved) }))
-    .filter(b => b.matches.length);
+  const inStage = b => stageCat(b.stage) === filter;
+  const withResolved = b => b.matches.filter(bothResolved);
+  const blocks = upcoming.filter(inStage).map(b => ({ ...b, matches: withResolved(b) })).filter(b => b.matches.length);
+  const doneBlocks = done.filter(inStage).map(b => ({ ...b, matches: withResolved(b) })).filter(b => b.matches.length);
+  const doneCount = doneBlocks.reduce((n, b) => n + b.matches.length, 0);
 
   return (
     <div>
@@ -74,7 +76,17 @@ export default function Fixtures({ fmt, rat, tz = 'Asia/Kolkata' }) {
         ))}
       </div>
 
-      {blocks.length === 0 && (
+      <CompletedSection count={doneCount}>
+        {doneBlocks.map(b => b.matches.map((mt, mi) => {
+          const [a, c] = (mt.teams || '').split(/\s+vs\s+/i);
+          const det = a && c ? detail[pairKey(a, c)] : null;
+          return det
+            ? <MatchCard key={'d' + mt.teams + mi} m={det} fmt={fmt} rat={rat} index={mi} />
+            : <KnockoutCard key={'d' + mt.teams + mi} mt={mt} rat={rat} fmt={fmt} tz={tz} index={mi} />;
+        }))}
+      </CompletedSection>
+
+      {blocks.length === 0 && doneCount === 0 && (
         <div className="no-matches">No upcoming fixtures in this stage.</div>
       )}
 

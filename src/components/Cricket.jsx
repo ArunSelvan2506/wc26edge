@@ -5,8 +5,8 @@ import { fmtOdds } from '../lib/odds.js';
 import { cricketMarket, cricketBets, cricketParlay, cricketForm, cricketPlayerProps, cricketTeamProps, cricketSafeParlay, teamLabel, FORMAT_LABEL, fmtKey } from '../lib/cricket.js';
 import { timeIn, dayKeyIn, dayLabelIn, zoneLabel } from '../lib/tz.js';
 import { cpill, cfill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
-import { useSweep, isDone, DONE_HRS } from '../lib/useSweep.js';
+import { Copyable, ConfBar, SweepTimer, CompletedSection } from './Bits.jsx';
+import { useSweep, isDone, isGone, DONE_HRS } from '../lib/useSweep.js';
 
 const FORMATS = ['All', 'Test', 'ODI', 'T20I'];
 const GENDERS = [['all', 'All'], ['men', "Men's"], ['women', "Women's"]];
@@ -22,13 +22,15 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
   // Flatten, then re-group by day in the chosen timezone (so day labels and the
   // date filter follow the region picker). Completed matches drop off (re-checked
   // each minute on the 3-hour sweep cadence).
-  const view = useMemo(() => {
-    const groups = [], idx = {};
+  const { view, completed } = useMemo(() => {
+    const groups = [], idx = {}, completed = [];
     for (const b of blocks) {
       for (const m of b.matches) {
-        if (isDone(m.utc, DONE_HRS[fmtKey(m.format)], now)) continue;
+        const hrs = DONE_HRS[fmtKey(m.format)];
+        if (isGone(m.utc, hrs, now)) continue;                       // past grace → drop
         if (!(filter === 'All' || FORMAT_LABEL[fmtKey(m.format)] === filter)) continue;
         if (!(gender === 'all' || gOf(m) === gender)) continue;
+        if (isDone(m.utc, hrs, now)) { completed.push({ ...m, series: b.series }); continue; }
         const key = m.utc != null ? dayKeyIn(m.utc, tz) : 'd:' + b.date;
         if (dateSel !== 'all' && key !== dateSel) continue;
         const label = m.utc != null ? dayLabelIn(m.utc, tz) : b.date.replace(/\s*\(IST\)/, '');
@@ -36,7 +38,8 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
         idx[key].matches.push(m);
       }
     }
-    return groups;
+    completed.sort((a, b) => (b.utc || 0) - (a.utc || 0));
+    return { view: groups, completed };
   }, [blocks, filter, gender, tz, dateSel, nowMin]);   // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -57,7 +60,11 @@ export default function Cricket({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
         ))}
       </div>
 
-      {view.length === 0 && (
+      <CompletedSection count={completed.length}>
+        {completed.map((m, i) => <CricketCard key={'d' + m.teams + i} m={m} fmt={fmt} tz={tz} index={i} done />)}
+      </CompletedSection>
+
+      {view.length === 0 && completed.length === 0 && (
         <div className="no-matches">No upcoming international fixtures in this format.</div>
       )}
 
@@ -80,7 +87,7 @@ Everything is <b>AI confidence out of 100</b> — never a guarantee. For enterta
   );
 }
 
-function CricketCard({ m, fmt, tz = 'Asia/Kolkata', index = 0 }) {
+function CricketCard({ m, fmt, tz = 'Asia/Kolkata', index = 0, done = false }) {
   const [open, setOpen] = useState(false);
   const women = gOf(m) === 'women';
   const gender = women ? 'women' : 'men';
@@ -110,7 +117,7 @@ function CricketCard({ m, fmt, tz = 'Asia/Kolkata', index = 0 }) {
             {m.venue} · {m.utc != null ? timeIn(m.utc, tz) : m.ist}<small>{m.utc != null ? zoneLabel(tz) : 'IST'}</small>
           </div>
         </div>
-        <span className={'conf-pill ' + cpill(conf)}>{fav} {conf}%</span>
+        {done ? <span className="ft-pill">FT</span> : <span className={'conf-pill ' + cpill(conf)}>{fav} {conf}%</span>}
       </div>
       <div className={'ck-mkt' + (f === 'test' ? ' three' : '')}>
         {outcomes.map((o, i) => (

@@ -18,11 +18,19 @@ export function useSweep() {
   return { now, nowMin: Math.floor(now / 60000), nextSweep: Math.ceil(now / SWEEP_MS) * SWEEP_MS };
 }
 
+// How long a finished match stays visible in the "Completed" section before it
+// drops off entirely.
+export const DONE_GRACE_H = 30;
+
 // True once a fixture starting at `utc` has run its expected duration.
 export function isDone(utc, hrs, now) {
   const t = typeof utc === 'number' ? utc : Date.parse(utc);
   if (!isFinite(t) || !hrs) return false;            // no time/duration → keep it
   return now > t + hrs * 3600e3;
+}
+// True once it's also past the grace window → no longer shown at all.
+export function isGone(utc, hrs, now) {
+  return isDone(utc, (hrs || 0) + DONE_GRACE_H, now);
 }
 
 // "00:42:17"

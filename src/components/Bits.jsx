@@ -3,6 +3,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { copyText, cc, cfill } from '../lib/ui.js';
 import { sweepClock } from '../lib/useSweep.js';
 
+// Collapsible "Completed" section shown above the upcoming list so users can
+// look back at recently finished matches. Renders nothing when empty.
+export function CompletedSection({ count, children, defaultOpen = false }) {
+  const [open, setOpen] = useState(defaultOpen);
+  if (!count) return null;
+  return (
+    <div className="done-wrap">
+      <button type="button" className="done-hd" onClick={() => setOpen(o => !o)}>
+        <span>✓ Completed <span className="done-n">{count}</span></span>
+        <span className="tog">{open ? 'Hide ▴' : 'View ▾'}</span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div className="done-body" initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.24, ease: 'easeOut' }} style={{ overflow: 'hidden' }}>
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
 // Inline countdown timer to the next 3-hour update — sits inside the live-badge
 // pill so there's a single info box. Shared across all sports.
 export function SweepTimer({ now, nextSweep, live = 0 }) {

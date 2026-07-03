@@ -5,8 +5,8 @@ import { SPORT_CFG } from '../data/sports.js';
 import { h2hMarket, raceMarket, buildParlays, recommendedHits } from '../lib/sportEngine.js';
 import { dayKeyIn, dayLabelIn } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
-import { useSweep, isDone, DONE_HRS } from '../lib/useSweep.js';
+import { Copyable, ConfBar, SweepTimer, CompletedSection } from './Bits.jsx';
+import { useSweep, isDone, isGone, DONE_HRS } from '../lib/useSweep.js';
 
 const pc = x => Math.round(x * 100);
 
@@ -34,6 +34,10 @@ export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel =
     (cfg.kind === 'race' || !isDone(ev.utc, dur, now)) &&
     (cfg.kind === 'race' || dateSel === 'all' ||
       (ev.utc != null ? dayKeyIn(ev.utc, tz) === dateSel : 'd:' + ev.date === dateSel)));
+  // Recently-completed events (H2H only) for the Completed view.
+  const doneMatches = cfg.kind === 'race' ? []
+    : allEvents.filter(ev => isDone(ev.utc, dur, now) && !isGone(ev.utc, dur, now))
+      .flatMap(ev => ev.matches.map((x, i) => ({ x, i })));
 
   return (
     <div>
@@ -65,6 +69,10 @@ export default function SportView({ sportId, fmt, tz = 'Asia/Kolkata', dateSel =
         <ParlayCard title="🟢 Safe parlay" sub="short-priced favourites" slip={parlays.safe} fmt={fmt} tone="safe" />
         <ParlayCard title="⚡ ACCA · high returns" sub="best long-odds multi" slip={parlays.value} fmt={fmt} tone="value" />
       </div>
+
+      <CompletedSection count={doneMatches.length}>
+        {doneMatches.map(({ x, i }, k) => <MatchupCard key={'d' + k} cfg={cfg} m={x.m} mk={x.mk} fmt={fmt} index={i} />)}
+      </CompletedSection>
 
       {events.map((ev, ei) => (
         <motion.div key={ei} className="fix-block"

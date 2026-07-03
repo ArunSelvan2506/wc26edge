@@ -6,8 +6,8 @@ import { TENNIS } from '../data/sports.js';
 import { tennisMatch, tennisHits, tennisParlays, injInfo } from '../lib/tennis.js';
 import { dayKeyIn, dayLabelIn, timeIn, zoneLabel } from '../lib/tz.js';
 import { cpill, ecls } from '../lib/ui.js';
-import { Copyable, ConfBar, SweepTimer } from './Bits.jsx';
-import { useSweep } from '../lib/useSweep.js';
+import { Copyable, ConfBar, SweepTimer, CompletedSection } from './Bits.jsx';
+import { useSweep, isGone } from '../lib/useSweep.js';
 
 const pc = x => Math.round(x * 100);
 
@@ -40,6 +40,12 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
       && (dateSel === 'all' || dayKeyIn(x.m.utc, tz) === dateSel));
     return { ...ev, matches };
   }).filter(ev => ev.matches.length);
+
+  // Recently-completed matches (finished, still in grace) for the Completed view.
+  const completed = allEvents.flatMap(e => e.matches)
+    .filter(x => recompute(x.m.utc, x.mk.bestOf, now).state === 'done'
+      && !isGone(x.m.utc, x.mk.bestOf === 5 ? 3.6 : 2.2, now))
+    .sort((a, b) => (Date.parse(b.m.utc) || 0) - (Date.parse(a.m.utc) || 0));
 
   // Hits & parlays from only the still-live/upcoming board (completed games gone).
   const liveLegs = allEvents.flatMap(e => e.matches)
@@ -81,7 +87,11 @@ export default function Tennis({ fmt, tz = 'Asia/Kolkata', dateSel = 'all' }) {
         <ParlayCard title="⚡ ACCA · high returns" sub="best long-odds, in-form multi" slip={parlays.value} fmt={fmt} tone="value" />
       </div>
 
-      {events.length === 0 && <div className="empty-note">No upcoming matches right now.</div>}
+      <CompletedSection count={completed.length}>
+        {completed.map((x, i) => <MatchupCard key={'d' + i} cfg={cfg} x={x} fmt={fmt} tz={tz} now={now} index={i} />)}
+      </CompletedSection>
+
+      {events.length === 0 && completed.length === 0 && <div className="empty-note">No upcoming matches right now.</div>}
 
       {events.map((ev, ei) => (
         <motion.div key={ei} className="fix-block"
@@ -138,7 +148,9 @@ function MatchupCard({ cfg, x, fmt, tz, now, index }) {
         </div>
         {st.state === 'live'
           ? <span className="st-pill st-live"><span className="live-dot" /> LIVE</span>
-          : <span className="st-pill st-soon">in {countdown(st.startsIn)}</span>}
+          : st.state === 'done'
+            ? <span className="ft-pill">FT</span>
+            : <span className="st-pill st-soon">in {countdown(st.startsIn)}</span>}
       </div>
       <div className="ck-mkt">
         <Copyable className={'ck-out' + (mk.pA >= mk.pB ? ' fav' : '')} icon={false} copy={`${m.a} to win @ ${fmtOdds(mk.amA, fmt)} (${pc(mk.pA)}%)`}>

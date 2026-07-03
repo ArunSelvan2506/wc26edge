@@ -8,6 +8,7 @@ import { FIXTURES } from '../data.js';
 const MONTHS = { jan: 0, feb: 1, mar: 2, apr: 3, may: 4, jun: 5, jul: 6, aug: 7, sep: 8, oct: 9, nov: 10, dec: 11 };
 const WD = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
 const COMPLETE_MS = 135 * 60 * 1000;
+const GRACE_MS = 30 * 60 * 60 * 1000;                    // keep completed visible ~30h
 const IST_OFFSET_MS = (5 * 60 + 30) * 60 * 1000;
 
 // Parse all "<weekday> <day> [<mon>]" entries in a block label; the month is
@@ -52,5 +53,19 @@ export function matchCompleted(block, mt, now = Date.now()) {
 export function upcomingFixtures(now = Date.now()) {
   return FIXTURES
     .map(b => ({ ...b, matches: b.matches.filter(mt => !matchCompleted(b, mt, now)) }))
+    .filter(b => b.matches.length);
+}
+
+// A match kicked off long enough ago to have dropped out of the Completed view.
+function matchGone(block, mt, now) {
+  const ko = (typeof mt.koUTC === 'number') ? mt.koUTC : kickoffUTC(block, mt);
+  if (ko == null) return false;
+  return now > ko + COMPLETE_MS + GRACE_MS;
+}
+
+// Blocks with only their recently-completed matches (finished, still in grace).
+export function completedFixtures(now = Date.now()) {
+  return FIXTURES
+    .map(b => ({ ...b, matches: b.matches.filter(mt => matchCompleted(b, mt, now) && !matchGone(b, mt, now)) }))
     .filter(b => b.matches.length);
 }

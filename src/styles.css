@@ -216,6 +216,13 @@ body{background:var(--bg);color:var(--tx);font-family:var(--sans);font-size:13px
 .pf-team{font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--ac2);margin-bottom:4px}
 .prop-why{font-size:9px;color:var(--mu);white-space:nowrap}
 .star-ico{margin-right:3px}
+.done-wrap{margin:2px 0 12px;border:1px solid var(--b1);border-radius:10px;overflow:hidden;background:var(--s2)}
+.done-hd{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:12px;font-weight:700;color:var(--tx)}
+.done-n{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:rgba(var(--ac-rgb),.16);color:var(--ac);font-size:10px;font-family:var(--mono);margin-left:4px}
+.done-hd .tog{font-size:10px;font-weight:700;color:var(--mu)}
+.done-body{padding:0 10px 8px}
+.done-body .ck-card,.done-body .fix-row-wrap{opacity:.72}
+.ft-pill{font-size:9px;font-weight:800;letter-spacing:.04em;padding:2px 7px;border-radius:4px;background:var(--s3);color:var(--mu);border:1px solid var(--b1)}
 .gs-line{font-size:11px;line-height:1.5;color:var(--tx);padding:5px 0;border-bottom:1px solid var(--b1)}
 .gs-bullet{font-size:11px;line-height:1.5;color:var(--mu);padding:2px 0}
 .gs-mkt{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--b1)}
