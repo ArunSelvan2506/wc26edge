@@ -5657,7 +5657,7 @@
    "matches": [
     {
      "ist": "10:30pm",
-     "teams": "Canada vs W75",
+     "teams": "Canada vs Morocco",
      "grp": "Houston",
      "koUTC": 1783184400000
     }
@@ -5669,7 +5669,7 @@
    "matches": [
     {
      "ist": "2:30am",
-     "teams": "W74 vs W77",
+     "teams": "Paraguay vs France",
      "grp": "Philadelphia",
      "koUTC": 1783198800000
     }
@@ -5681,13 +5681,13 @@
    "matches": [
     {
      "ist": "1:30am",
-     "teams": "W76 vs W78",
+     "teams": "Brazil vs Norway",
      "grp": "New York/New Jersey (East Rutherford)",
      "koUTC": 1783281600000
     },
     {
      "ist": "5:30am",
-     "teams": "W79 vs W80",
+     "teams": "Mexico vs England",
      "grp": "Mexico City",
      "koUTC": 1783296000000
     }
@@ -5699,13 +5699,13 @@
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "W83 vs W84",
+     "teams": "Portugal vs Spain",
      "grp": "Dallas (Arlington)",
      "koUTC": 1783364400000
     },
     {
      "ist": "5:30am",
-     "teams": "W81 vs W82",
+     "teams": "USA vs Belgium",
      "grp": "Seattle",
      "koUTC": 1783382400000
     },
@@ -5723,7 +5723,7 @@
    "matches": [
     {
      "ist": "1:30am",
-     "teams": "W85 vs W87",
+     "teams": "Switzerland vs W87",
      "grp": "Vancouver",
      "koUTC": 1783454400000
     }
@@ -5834,62 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-06-30T09:39:22.996Z",
+ "updated": "2026-07-03T15:07:20.339Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Tue 30 Jun (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "d5bebe6f-27de-40d4-a715-d467b4f7aa81",
-      "teams": "Australia vs West Indies",
-      "t1": "Australia",
-      "t2": "West Indies",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's T20 World Cup 2026",
-      "ist": "7:00pm",
-      "utc": 1782826200000
-     }
-    ]
-   },
-   {
-    "date": "Wed 1 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "e3632198-a749-48d3-95b6-2f85c4e06a03",
-      "teams": "England vs India",
-      "t1": "England",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of England, 2026",
-      "ist": "11:00pm",
-      "utc": 1782927000000
-     }
-    ]
-   },
-   {
-    "date": "Thu 2 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "2c0b414e-9fed-4311-ac53-e688e4e729ce",
-      "teams": "England vs South Africa",
-      "t1": "England",
-      "t2": "South Africa",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's T20 World Cup 2026",
-      "ist": "11:00pm",
-      "utc": 1783013400000
-     }
-    ]
-   },
    {
     "date": "Fri 3 Jul (IST)",
     "series": "International",
@@ -5938,6 +5887,79 @@
       "venue": "Bangladesh tour of Zimbabwe, 2026",
       "ist": "12:45pm",
       "utc": 1783322100000
+     }
+    ]
+   },
+   {
+    "date": "Tue 7 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "3f9e5500-b850-4d5f-adc5-2dc11ddf7aff",
+      "teams": "England vs India",
+      "t1": "England",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of England, 2026",
+      "ist": "11:00pm",
+      "utc": 1783445400000
+     }
+    ]
+   },
+   {
+    "date": "Thu 9 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "369a0234-af6d-451d-9c3c-8e2a5c03a4a1",
+      "teams": "Bangladesh vs Zimbabwe",
+      "t1": "Bangladesh",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Bangladesh tour of Zimbabwe, 2026",
+      "ist": "12:45pm",
+      "utc": 1783581300000
+     },
+     {
+      "id": "3c0f46f4-033c-4bb9-986e-00ae9e235c96",
+      "teams": "England vs India",
+      "t1": "England",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of England, 2026",
+      "ist": "11:00pm",
+      "utc": 1783618200000
+     }
+    ]
+   },
+   {
+    "date": "Fri 10 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "f889c347-4b1f-498e-9700-9ff11e0a8bfd",
+      "teams": "Ireland vs West Indies",
+      "t1": "Ireland",
+      "t2": "West Indies",
+      "gender": "women",
+      "format": "ODI",
+      "venue": "West Indies Women tour of Ireland, 2026",
+      "ist": "3:15pm",
+      "utc": 1783676700000
+     },
+     {
+      "id": "fa58470b-7be9-4db2-980d-6fe62fabb6c2",
+      "teams": "England vs India",
+      "t1": "England",
+      "t2": "India",
+      "gender": "women",
+      "format": "Test",
+      "venue": "India Women tour of England 2026",
+      "ist": "3:30pm",
+      "utc": 1783677600000
      }
     ]
    },
@@ -6485,9 +6507,43 @@
       "utc": 1793088000000
      }
     ]
+   },
+   {
+    "date": "Wed 28 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "08c63728-f52b-49e0-86b2-fb6b07961086",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "BCA Stadium, Kotambi, Vadodara",
+      "ist": "2:00pm",
+      "utc": 1793176200000
+     }
+    ]
+   },
+   {
+    "date": "Fri 30 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "2445a90a-eef7-467e-8cb6-75c4203a8e2c",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Eden Park, Auckland",
+      "ist": "12:30pm",
+      "utc": 1793343600000
+     }
+    ]
    }
   ],
-  "updated": "2026-06-30T09:39:22.226Z",
+  "updated": "2026-07-03T15:07:18.354Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6821,7 +6877,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-06-30T09:39:22.996Z"
+  "updated": "2026-07-03T15:07:20.339Z"
  },
  "SQUADS": {
   "mexico": [
@@ -7198,62 +7254,6 @@
    {
     "name": "Cristian Volpato",
     "pos": "Attacking Midfield"
-   }
-  ],
-  "paraguay": [
-   {
-    "name": "Alexandro Maidana",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Andrés Cubas",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Braian Ojeda",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Damián Bobadilla",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Diego Gómez",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Fabián Balbuena",
-    "pos": "Centre-Back"
-   }
-  ],
-  "turkey": [
-   {
-    "name": "Abdülkerim Bardakcı",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Arda Güler",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Çağlar Söyüncü",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Can Uzun",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Eren Elmalı",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Ferdi Kadıoğlu",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Hakan Çalhanoğlu",
-    "pos": "Defensive Midfield"
    }
   ]
  },
