@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-04T04:31:51.866Z",
+ "updated": "2026-07-04T07:42:28.124Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5943,6 +5943,23 @@
       "venue": "India Women tour of England 2026",
       "ist": "3:30pm",
       "utc": 1783677600000
+     }
+    ]
+   },
+   {
+    "date": "Sat 11 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1f31d27a-64be-4607-85c3-5d234be9f93d",
+      "teams": "Bangladesh vs Zimbabwe",
+      "t1": "Bangladesh",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Bangladesh tour of Zimbabwe, 2026",
+      "ist": "12:45pm",
+      "utc": 1783754100000
      }
     ]
    },
@@ -6526,7 +6543,7 @@
     ]
    }
   ],
-  "updated": "2026-07-04T04:31:50.218Z",
+  "updated": "2026-07-04T07:42:26.047Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6860,7 +6877,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-04T04:31:51.866Z"
+  "updated": "2026-07-04T07:42:28.124Z"
  },
  "SQUADS": {
   "mexico": [
