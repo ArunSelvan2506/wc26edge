@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-04T12:04:10.530Z",
+ "updated": "2026-07-04T14:25:59.917Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6276,7 +6276,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6321,7 +6321,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6332,7 +6332,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6343,7 +6343,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6360,7 +6360,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6371,7 +6371,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6382,7 +6382,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6410,7 +6410,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6421,7 +6421,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6438,7 +6438,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6472,7 +6472,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6517,7 +6517,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6560,7 +6560,7 @@
     ]
    }
   ],
-  "updated": "2026-07-04T12:04:09.003Z",
+  "updated": "2026-07-04T14:25:58.585Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6568,13 +6568,12 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 171,
+    "pts": 179,
     "pos": 1,
     "wins": 5,
     "form": [
      "3",
      "16",
-     "1",
      "1",
      "1"
     ]
@@ -6582,85 +6581,79 @@
    "George Russell": {
     "r": 88,
     "team": "Mercedes",
-    "pts": 131,
+    "pts": 136,
     "pos": 2,
     "wins": 2,
     "form": [
      "1",
      "2",
      "12",
-     "R",
-     "4"
+     "R"
     ]
    },
    "Lewis Hamilton": {
     "r": 87,
     "team": "Ferrari",
-    "pts": 125,
+    "pts": 132,
     "pos": 3,
     "wins": 1,
     "form": [
      "5",
      "1",
      "2",
-     "2",
-     "6"
-    ]
-   },
-   "Oscar Piastri": {
-    "r": 73,
-    "team": "McLaren",
-    "pts": 80,
-    "pos": 4,
-    "wins": 0,
-    "form": [
-     "4",
-     "5",
-     "5",
-     "11",
-     "3"
+     "2"
     ]
    },
    "Lando Norris": {
-    "r": 73,
+    "r": 74,
     "team": "McLaren",
-    "pts": 79,
-    "pos": 5,
+    "pts": 85,
+    "pos": 4,
     "wins": 0,
     "form": [
      "7",
      "3",
      "R",
-     "R",
-     "2"
+     "R"
     ]
    },
    "Charles Leclerc": {
     "r": 73,
     "team": "Ferrari",
-    "pts": 79,
-    "pos": 6,
+    "pts": 83,
+    "pos": 5,
     "wins": 0,
     "form": [
      "8",
      "15",
      "R",
+     "4"
+    ]
+   },
+   "Oscar Piastri": {
+    "r": 73,
+    "team": "McLaren",
+    "pts": 82,
+    "pos": 6,
+    "wins": 0,
+    "form": [
      "4",
-     "8"
+     "5",
+     "5",
+     "11"
     ]
    },
    "Max Verstappen": {
     "r": 71,
     "team": "Red Bull",
-    "pts": 73,
+    "pts": 76,
     "pos": 7,
     "wins": 0,
     "form": [
      "2",
      "4",
      "R",
-     "3",
-     "5"
+     "3"
     ]
    },
    "Isack Hadjar": {
@@ -6673,12 +6666,11 @@
      "6",
      "6",
      "4",
-     "5",
-     "R"
+     "5"
     ]
    },
    "Pierre Gasly": {
-    "r": 62,
+    "r": 61,
     "team": "Alpine F1 Team",
     "pts": 41,
     "pos": 9,
@@ -6687,22 +6679,20 @@
      "13",
      "7",
      "3",
-     "8",
-     "R"
+     "8"
     ]
    },
    "Liam Lawson": {
     "r": 59,
     "team": "RB F1 Team",
-    "pts": 30,
+    "pts": 31,
     "pos": 10,
     "wins": 0,
     "form": [
      "9",
      "8",
      "6",
-     "7",
-     "R"
+     "7"
     ]
    },
    "Oliver Bearman": {
@@ -6715,12 +6705,11 @@
      "14",
      "17",
      "R",
-     "10",
-     "11"
+     "10"
     ]
    },
    "Franco Colapinto": {
-    "r": 55,
+    "r": 54,
     "team": "Alpine F1 Team",
     "pts": 16,
     "pos": 12,
@@ -6729,8 +6718,7 @@
      "15",
      "10",
      "14",
-     "6",
-     "7"
+     "6"
     ]
    },
    "Arvid Lindblad": {
@@ -6743,8 +6731,7 @@
      "10",
      "9",
      "7",
-     "W",
-     "14"
+     "W"
     ]
    },
    "Carlos Sainz": {
@@ -6757,7 +6744,6 @@
      "R",
      "12",
      "16",
-     "9",
      "9"
     ]
    },
@@ -6771,8 +6757,7 @@
      "17",
      "R",
      "8",
-     "R",
-     "10"
+     "R"
     ]
    },
    "Esteban Ocon": {
@@ -6785,8 +6770,7 @@
      "16",
      "13",
      "9",
-     "14",
-     "13"
+     "14"
     ]
    },
    "Gabriel Bortoleto": {
@@ -6799,8 +6783,7 @@
      "11",
      "11",
      "11",
-     "13",
-     "12"
+     "13"
     ]
    },
    "Fernando Alonso": {
@@ -6813,8 +6796,7 @@
      "18",
      "R",
      "10",
-     "R",
-     "15"
+     "R"
     ]
    },
    "Nico Hülkenberg": {
@@ -6827,8 +6809,7 @@
      "12",
      "R",
      "13",
-     "12",
-     "R"
+     "12"
     ]
    },
    "Valtteri Bottas": {
@@ -6841,8 +6822,7 @@
      "R",
      "R",
      "R",
-     "16",
-     "18"
+     "16"
     ]
    },
    "Sergio Pérez": {
@@ -6855,8 +6835,7 @@
      "R",
      "14",
      "15",
-     "R",
-     "16"
+     "R"
     ]
    },
    "Lance Stroll": {
@@ -6869,8 +6848,7 @@
      "R",
      "R",
      "R",
-     "15",
-     "17"
+     "15"
     ]
    }
   },
@@ -6882,9 +6860,9 @@
     "Andrea Kimi Antonelli",
     "George Russell",
     "Lewis Hamilton",
-    "Oscar Piastri",
     "Lando Norris",
     "Charles Leclerc",
+    "Oscar Piastri",
     "Max Verstappen",
     "Isack Hadjar",
     "Pierre Gasly",
@@ -6894,7 +6872,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-04T12:04:10.530Z"
+  "updated": "2026-07-04T14:25:59.916Z"
  },
  "SQUADS": {
   "mexico": [
