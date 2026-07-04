@@ -5834,11 +5834,28 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-04T19:04:29.950Z",
+ "updated": "2026-07-04T20:52:12.126Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
+   {
+    "date": "Sun 5 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "00e5e610-d8a7-4863-b61d-c574120e39ac",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's T20 World Cup 2026",
+      "ist": "7:00pm",
+      "utc": 1783258200000
+     }
+    ]
+   },
    {
     "date": "Mon 6 Jul (IST)",
     "series": "International",
@@ -6571,7 +6588,7 @@
     ]
    }
   ],
-  "updated": "2026-07-04T19:04:28.889Z",
+  "updated": "2026-07-04T20:52:10.967Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6883,7 +6900,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-04T19:04:29.950Z"
+  "updated": "2026-07-04T20:52:12.126Z"
  },
  "SQUADS": {
   "mexico": [
