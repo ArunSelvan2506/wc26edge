@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-04T00:01:50.184Z",
+ "updated": "2026-07-04T04:31:51.866Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 3 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "69da421a-00ad-473e-b831-51133ae8fddf",
-      "teams": "Sri Lanka vs West Indies",
-      "t1": "Sri Lanka",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sri Lanka tour of West Indies 2026",
-      "ist": "7:30pm",
-      "utc": 1783087200000
-     }
-    ]
-   },
    {
     "date": "Sat 4 Jul (IST)",
     "series": "International",
@@ -6276,7 +6259,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6321,7 +6304,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6332,7 +6315,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6343,7 +6326,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6360,7 +6343,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6371,7 +6354,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6382,7 +6365,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6410,7 +6393,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6421,7 +6404,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6438,7 +6421,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6472,7 +6455,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6517,7 +6500,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6543,7 +6526,7 @@
     ]
    }
   ],
-  "updated": "2026-07-04T00:01:49.093Z",
+  "updated": "2026-07-04T04:31:50.218Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6877,7 +6860,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-04T00:01:50.184Z"
+  "updated": "2026-07-04T04:31:51.866Z"
  },
  "SQUADS": {
   "mexico": [
