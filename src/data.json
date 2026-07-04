@@ -5711,7 +5711,7 @@
     },
     {
      "ist": "9:30pm",
-     "teams": "W86 vs W88",
+     "teams": "Argentina vs Egypt",
      "grp": "Atlanta",
      "koUTC": 1783440000000
     }
@@ -5723,7 +5723,7 @@
    "matches": [
     {
      "ist": "1:30am",
-     "teams": "Switzerland vs W87",
+     "teams": "Switzerland vs Colombia",
      "grp": "Vancouver",
      "koUTC": 1783454400000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-04T07:42:28.124Z",
+ "updated": "2026-07-04T12:04:10.530Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6276,7 +6276,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6321,7 +6321,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6332,7 +6332,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6343,7 +6343,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6360,7 +6360,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6371,7 +6371,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6382,7 +6382,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6410,7 +6410,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6421,7 +6421,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6438,7 +6438,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6472,7 +6472,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6517,7 +6517,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6541,9 +6541,26 @@
       "utc": 1793343600000
      }
     ]
+   },
+   {
+    "date": "Sun 1 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "936348e9-608f-4ca8-9cc5-5d3082ab0b90",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Seddon Park, Hamilton",
+      "ist": "12:30pm",
+      "utc": 1793516400000
+     }
+    ]
    }
   ],
-  "updated": "2026-07-04T07:42:26.047Z",
+  "updated": "2026-07-04T12:04:09.003Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6877,7 +6894,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-04T07:42:28.124Z"
+  "updated": "2026-07-04T12:04:10.530Z"
  },
  "SQUADS": {
   "mexico": [
