@@ -5735,7 +5735,7 @@
    "matches": [
     {
      "ist": "1:30am",
-     "teams": "W89 vs W90",
+     "teams": "France vs Morocco",
      "grp": "Boston (Foxborough)",
      "koUTC": 1783627200000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-05T17:59:13.421Z",
+ "updated": "2026-07-05T19:27:22.418Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6582,7 +6582,7 @@
     ]
    }
   ],
-  "updated": "2026-07-05T17:59:11.552Z",
+  "updated": "2026-07-05T19:27:20.617Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6916,7 +6916,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-05T17:59:13.421Z"
+  "updated": "2026-07-05T19:27:22.418Z"
  },
  "SQUADS": {
   "mexico": [
