@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-05T12:12:34.364Z",
+ "updated": "2026-07-05T14:29:13.006Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6315,7 +6315,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6360,7 +6360,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6371,7 +6371,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6382,7 +6382,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6399,7 +6399,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6410,7 +6410,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6421,7 +6421,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6449,7 +6449,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6460,7 +6460,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6477,7 +6477,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6511,7 +6511,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6556,7 +6556,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6599,7 +6599,7 @@
     ]
    }
   ],
-  "updated": "2026-07-05T12:12:32.704Z",
+  "updated": "2026-07-05T14:29:11.412Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6892,9 +6892,9 @@
    }
   },
   "event": {
-   "date": "Sun 5 Jul (IST)",
-   "utc": 1783260000000,
-   "series": "British Grand Prix · Silverstone",
+   "date": "Sun 19 Jul (IST)",
+   "utc": 1784466000000,
+   "series": "Belgian Grand Prix · Spa",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6911,7 +6911,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-05T12:12:34.364Z"
+  "updated": "2026-07-05T14:29:13.006Z"
  },
  "SQUADS": {
   "mexico": [
