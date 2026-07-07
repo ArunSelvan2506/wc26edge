@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-07T11:44:31.792Z",
+ "updated": "2026-07-07T14:22:31.851Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5965,6 +5965,23 @@
       "venue": "West Indies Women tour of Ireland, 2026",
       "ist": "3:15pm",
       "utc": 1783849500000
+     }
+    ]
+   },
+   {
+    "date": "Tue 14 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "a5ecf1bb-1f8c-4a4d-9165-67aa61af2ea2",
+      "teams": "England vs India",
+      "t1": "England",
+      "t2": "India",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "India tour of England, 2026",
+      "ist": "5:30pm",
+      "utc": 1784030400000
      }
     ]
    },
@@ -6521,7 +6538,7 @@
     ]
    }
   ],
-  "updated": "2026-07-07T11:44:30.475Z",
+  "updated": "2026-07-07T14:22:28.703Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6855,7 +6872,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-07T11:44:31.792Z"
+  "updated": "2026-07-07T14:22:31.851Z"
  },
  "SQUADS": {
   "mexico": [
