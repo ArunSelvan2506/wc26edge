@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-07T14:22:31.851Z",
+ "updated": "2026-07-07T19:49:24.162Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Tue 7 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "3f9e5500-b850-4d5f-adc5-2dc11ddf7aff",
-      "teams": "England vs India",
-      "t1": "England",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of England, 2026",
-      "ist": "11:00pm",
-      "utc": 1783445400000
-     }
-    ]
-   },
    {
     "date": "Thu 9 Jul (IST)",
     "series": "International",
@@ -5982,6 +5965,23 @@
       "venue": "India tour of England, 2026",
       "ist": "5:30pm",
       "utc": 1784030400000
+     }
+    ]
+   },
+   {
+    "date": "Wed 15 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "e68e2a40-ac8d-4a4a-9808-1cacbe9c9e25",
+      "teams": "New Zealand vs West Indies",
+      "t1": "New Zealand",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "New Zealand tour of West Indies, 2026",
+      "ist": "12:00am",
+      "utc": 1784053800000
      }
     ]
    },
@@ -6538,7 +6538,7 @@
     ]
    }
   ],
-  "updated": "2026-07-07T14:22:28.703Z",
+  "updated": "2026-07-07T19:49:23.145Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6872,7 +6872,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-07T14:22:31.851Z"
+  "updated": "2026-07-07T19:49:24.162Z"
  },
  "SQUADS": {
   "mexico": [
