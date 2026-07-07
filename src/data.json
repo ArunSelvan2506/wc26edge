@@ -5747,7 +5747,7 @@
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "W93 vs W94",
+     "teams": "Spain vs Belgium",
      "grp": "Los Angeles (Inglewood)",
      "koUTC": 1783710000000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-07T04:47:19.448Z",
+ "updated": "2026-07-07T11:44:31.792Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6521,7 +6521,7 @@
     ]
    }
   ],
-  "updated": "2026-07-07T04:47:17.723Z",
+  "updated": "2026-07-07T11:44:30.475Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6855,7 +6855,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-07T04:47:19.448Z"
+  "updated": "2026-07-07T11:44:31.792Z"
  },
  "SQUADS": {
   "mexico": [
