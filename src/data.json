@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-08T03:15:20.147Z",
+ "updated": "2026-07-08T06:24:51.299Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5871,28 +5871,6 @@
     "date": "Fri 10 Jul (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "fc616678-62c7-4362-86dd-7b20ae028dbf",
-      "teams": "Ireland vs West Indies",
-      "t1": "Ireland",
-      "t2": "West Indies",
-      "gender": "women",
-      "format": "ODI",
-      "venue": "West Indies Women tour of Ireland, 2026",
-      "ist": "3:15pm",
-      "utc": 1783676700000
-     },
-     {
-      "id": "f889c347-4b1f-498e-9700-9ff11e0a8bfd",
-      "teams": "Ireland vs West Indies",
-      "t1": "Ireland",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "West Indies Women tour of Ireland, 2026",
-      "ist": "3:15pm",
-      "utc": 1783676700000
-     },
      {
       "id": "fa58470b-7be9-4db2-980d-6fe62fabb6c2",
       "teams": "England vs India",
@@ -5948,28 +5926,6 @@
       "venue": "New Zealand tour of West Indies, 2026",
       "ist": "12:00am",
       "utc": 1783794600000
-     },
-     {
-      "id": "58ce7e55-56e5-4a5c-9765-5e27460b30ca",
-      "teams": "Ireland vs West Indies",
-      "t1": "Ireland",
-      "t2": "West Indies",
-      "gender": "women",
-      "format": "ODI",
-      "venue": "West Indies Women tour of Ireland, 2026",
-      "ist": "3:15pm",
-      "utc": 1783849500000
-     },
-     {
-      "id": "a4c41153-55b9-4a1c-abdf-fa787bdcd984",
-      "teams": "Ireland vs West Indies",
-      "t1": "Ireland",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "West Indies Women tour of Ireland, 2026",
-      "ist": "3:15pm",
-      "utc": 1783849500000
      }
     ]
    },
@@ -6067,7 +6023,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6084,7 +6040,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6112,7 +6068,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6129,7 +6085,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6163,7 +6119,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6394,7 +6350,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6405,7 +6361,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6422,7 +6378,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6433,7 +6389,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6461,7 +6417,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6472,7 +6428,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6558,9 +6514,26 @@
       "utc": 1793516400000
      }
     ]
+   },
+   {
+    "date": "Wed 4 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c547eb46-2025-413a-b7f2-6d1584daa42f",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Eden Park, Auckland",
+      "ist": "7:30am",
+      "utc": 1793757600000
+     }
+    ]
    }
   ],
-  "updated": "2026-07-08T03:15:18.506Z",
+  "updated": "2026-07-08T06:24:49.839Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6894,7 +6867,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-08T03:15:20.147Z"
+  "updated": "2026-07-08T06:24:51.299Z"
  },
  "SQUADS": {
   "mexico": [
