@@ -5765,7 +5765,7 @@
     },
     {
      "ist": "6:30am",
-     "teams": "W95 vs W96",
+     "teams": "Argentina vs Switzerland",
      "grp": "Kansas City",
      "koUTC": 1783818000000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-08T09:23:34.933Z",
+ "updated": "2026-07-08T11:44:17.293Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5960,6 +5960,17 @@
       "venue": "New Zealand tour of West Indies, 2026",
       "ist": "12:00am",
       "utc": 1784053800000
+     },
+     {
+      "id": "b1892f6f-966a-4cf3-b34c-80a533f7c5c0",
+      "teams": "Bangladesh vs Zimbabwe",
+      "t1": "Bangladesh",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Bangladesh tour of Zimbabwe, 2026",
+      "ist": "5:00pm",
+      "utc": 1784115000000
      }
     ]
    },
@@ -6533,7 +6544,7 @@
     ]
    }
   ],
-  "updated": "2026-07-08T09:23:33.898Z",
+  "updated": "2026-07-08T11:44:15.913Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6867,7 +6878,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-08T09:23:34.933Z"
+  "updated": "2026-07-08T11:44:17.293Z"
  },
  "SQUADS": {
   "mexico": [
