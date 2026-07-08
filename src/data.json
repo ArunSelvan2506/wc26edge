@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-08T06:24:51.299Z",
+ "updated": "2026-07-08T09:23:34.933Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6023,7 +6023,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6040,7 +6040,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6068,7 +6068,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6085,7 +6085,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6119,7 +6119,7 @@
       "teams": "Zimbabwe vs South Africa",
       "t1": "Zimbabwe",
       "t2": "South Africa",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Queens Sports Club, Bulawayo",
       "ist": "4:30pm",
@@ -6350,7 +6350,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6361,7 +6361,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6378,7 +6378,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6389,7 +6389,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6417,7 +6417,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6428,7 +6428,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6533,7 +6533,7 @@
     ]
    }
   ],
-  "updated": "2026-07-08T06:24:49.839Z",
+  "updated": "2026-07-08T09:23:33.898Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6867,7 +6867,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-08T06:24:51.299Z"
+  "updated": "2026-07-08T09:23:34.933Z"
  },
  "SQUADS": {
   "mexico": [
