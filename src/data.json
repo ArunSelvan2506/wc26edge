@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-10T20:19:20.180Z",
+ "updated": "2026-07-10T23:00:40.600Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 10 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "fa58470b-7be9-4db2-980d-6fe62fabb6c2",
-      "teams": "England vs India",
-      "t1": "England",
-      "t2": "India",
-      "gender": "women",
-      "format": "Test",
-      "venue": "India Women tour of England 2026",
-      "ist": "3:30pm",
-      "utc": 1783677600000
-     }
-    ]
-   },
    {
     "date": "Sat 11 Jul (IST)",
     "series": "International",
@@ -6566,7 +6549,7 @@
     ]
    }
   ],
-  "updated": "2026-07-10T20:19:17.883Z",
+  "updated": "2026-07-10T23:00:38.160Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6900,7 +6883,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-10T20:19:20.180Z"
+  "updated": "2026-07-10T23:00:40.600Z"
  },
  "SQUADS": {
   "mexico": [
