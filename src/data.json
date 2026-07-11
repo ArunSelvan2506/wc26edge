@@ -5777,7 +5777,7 @@
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "W97 vs W98",
+     "teams": "France vs Spain",
      "grp": "Dallas (Arlington)",
      "koUTC": 1784055600000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-10T23:00:40.600Z",
+ "updated": "2026-07-11T14:48:54.557Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Sat 11 Jul (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "1f31d27a-64be-4607-85c3-5d234be9f93d",
-      "teams": "Bangladesh vs Zimbabwe",
-      "t1": "Bangladesh",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Bangladesh tour of Zimbabwe, 2026",
-      "ist": "12:45pm",
-      "utc": 1783754100000
-     },
      {
       "id": "54ffa207-60d3-4d20-8df5-d19f376ef556",
       "teams": "England vs India",
@@ -6549,7 +6538,7 @@
     ]
    }
   ],
-  "updated": "2026-07-10T23:00:38.160Z",
+  "updated": "2026-07-11T14:48:52.916Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6883,7 +6872,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-10T23:00:40.600Z"
+  "updated": "2026-07-11T14:48:54.557Z"
  },
  "SQUADS": {
   "mexico": [
