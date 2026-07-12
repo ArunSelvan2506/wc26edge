@@ -5789,7 +5789,7 @@
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "W99 vs W100",
+     "teams": "England vs Argentina",
      "grp": "Atlanta",
      "koUTC": 1784142000000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-12T11:55:56.935Z",
+ "updated": "2026-07-12T15:55:49.206Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6538,7 +6538,7 @@
     ]
    }
   ],
-  "updated": "2026-07-12T11:55:55.252Z",
+  "updated": "2026-07-12T15:55:46.822Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6872,7 +6872,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-12T11:55:56.935Z"
+  "updated": "2026-07-12T15:55:49.206Z"
  },
  "SQUADS": {
   "mexico": [
