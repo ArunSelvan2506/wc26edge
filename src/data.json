@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-11T23:50:57.477Z",
+ "updated": "2026-07-12T05:53:11.718Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Sun 12 Jul (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "c7874c75-e5fd-4d60-a50a-dcafe86732f8",
-      "teams": "New Zealand vs West Indies",
-      "t1": "New Zealand",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "New Zealand tour of West Indies, 2026",
-      "ist": "12:00am",
-      "utc": 1783794600000
-     },
      {
       "id": "25504f95-6277-4e54-901d-421192877485",
       "teams": "Ireland vs West Indies",
@@ -6521,7 +6510,7 @@
     ]
    }
   ],
-  "updated": "2026-07-11T23:50:56.011Z",
+  "updated": "2026-07-12T05:53:09.073Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6855,7 +6844,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-11T23:50:57.477Z"
+  "updated": "2026-07-12T05:53:11.718Z"
  },
  "SQUADS": {
   "mexico": [
