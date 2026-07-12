@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-12T15:55:49.206Z",
+ "updated": "2026-07-12T16:56:03.624Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 12 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "25504f95-6277-4e54-901d-421192877485",
-      "teams": "Ireland vs West Indies",
-      "t1": "Ireland",
-      "t2": "West Indies",
-      "gender": "women",
-      "format": "ODI",
-      "venue": "West Indies Women tour of Ireland, 2026",
-      "ist": "3:15pm",
-      "utc": 1783849500000
-     }
-    ]
-   },
    {
     "date": "Tue 14 Jul (IST)",
     "series": "International",
@@ -6538,7 +6521,7 @@
     ]
    }
   ],
-  "updated": "2026-07-12T15:55:46.822Z",
+  "updated": "2026-07-12T16:56:00.661Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6872,7 +6855,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-12T15:55:49.206Z"
+  "updated": "2026-07-12T16:56:03.624Z"
  },
  "SQUADS": {
   "mexico": [
