@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-13T10:21:01.096Z",
+ "updated": "2026-07-13T18:41:07.061Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5992,6 +5992,40 @@
     ]
    },
    {
+    "date": "Fri 11 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "4b980dc7-ec2a-41b3-b644-d882c0ceb47f",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789124400000
+     }
+    ]
+   },
+   {
+    "date": "Sun 13 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "00484a23-ea47-4353-84a4-b51f9985b33a",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789297200000
+     }
+    ]
+   },
+   {
     "date": "Tue 15 Sep (IST)",
     "series": "International",
     "matches": [
@@ -6005,6 +6039,34 @@
       "venue": "Harare Sports Club, Harare",
       "ist": "1:00pm",
       "utc": 1789457400000
+     },
+     {
+      "id": "fb576993-515d-43c6-a6c5-764ded863b13",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789470000000
+     }
+    ]
+   },
+   {
+    "date": "Thu 17 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c538bd6b-6b31-4372-bbc9-dc340718f7c3",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789642800000
      }
     ]
    },
@@ -6022,6 +6084,23 @@
       "venue": "Harare Sports Club, Harare",
       "ist": "1:00pm",
       "utc": 1789716600000
+     }
+    ]
+   },
+   {
+    "date": "Sat 19 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "caf74ad7-d9e7-47c6-8470-4efbcabdf5b9",
+      "teams": "Zimbabwe vs South Africa",
+      "t1": "Zimbabwe",
+      "t2": "South Africa",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Queens Sports Club, Bulawayo",
+      "ist": "4:30pm",
+      "utc": 1789815600000
      }
     ]
    },
@@ -6220,7 +6299,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6265,7 +6344,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6276,7 +6355,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6287,7 +6366,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6304,7 +6383,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6315,7 +6394,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6326,7 +6405,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Shaheed Veer Narayan Singh International Stadium, Raipur",
       "ist": "7:00pm",
@@ -6354,7 +6433,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6365,7 +6444,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6382,7 +6461,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6416,7 +6495,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6461,7 +6540,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "BCA Stadium, Kotambi, Vadodara",
       "ist": "2:00pm",
@@ -6555,7 +6634,7 @@
     ]
    }
   ],
-  "updated": "2026-07-13T10:21:00.102Z",
+  "updated": "2026-07-13T18:41:05.166Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6889,7 +6968,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-13T10:21:01.096Z"
+  "updated": "2026-07-13T18:41:07.061Z"
  },
  "SQUADS": {
   "mexico": [
