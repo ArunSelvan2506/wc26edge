@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-13T20:10:35.112Z",
+ "updated": "2026-07-14T02:03:38.818Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5860,17 +5860,6 @@
     "date": "Wed 15 Jul (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "e68e2a40-ac8d-4a4a-9808-1cacbe9c9e25",
-      "teams": "New Zealand vs West Indies",
-      "t1": "New Zealand",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "New Zealand tour of West Indies, 2026",
-      "ist": "12:00am",
-      "utc": 1784053800000
-     },
      {
       "id": "cad7f004-3f96-41f5-befd-056dc070044b",
       "teams": "Ireland vs West Indies",
@@ -5988,6 +5977,23 @@
       "venue": "New Zealand tour of West Indies, 2026",
       "ist": "12:00am",
       "utc": 1784485800000
+     }
+    ]
+   },
+   {
+    "date": "Tue 21 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "238f1c8d-f35b-472f-8b42-69d350fd1298",
+      "teams": "Namibia vs Nepal",
+      "t1": "Namibia",
+      "t2": "Nepal",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "5:30am",
+      "utc": 1784592000000
      }
     ]
    },
@@ -6634,7 +6640,7 @@
     ]
    }
   ],
-  "updated": "2026-07-13T20:10:33.376Z",
+  "updated": "2026-07-14T02:03:36.435Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6968,7 +6974,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-13T20:10:35.112Z"
+  "updated": "2026-07-14T02:03:38.818Z"
  },
  "SQUADS": {
   "mexico": [
