@@ -5801,7 +5801,7 @@
    "matches": [
     {
      "ist": "2:30am",
-     "teams": "France vs L102",
+     "teams": "France vs England",
      "grp": "Miami (Miami Gardens)",
      "koUTC": 1784408400000
     }
@@ -5813,7 +5813,7 @@
    "matches": [
     {
      "ist": "12:30am",
-     "teams": "Spain vs W102",
+     "teams": "Spain vs Argentina",
      "grp": "New York/New Jersey (East Rutherford)",
      "koUTC": 1784487600000
     }
@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-15T20:05:09.348Z",
+ "updated": "2026-07-15T21:55:14.948Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6550,7 +6550,7 @@
     ]
    }
   ],
-  "updated": "2026-07-15T20:05:07.747Z",
+  "updated": "2026-07-15T21:55:13.379Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6884,7 +6884,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-15T20:05:09.348Z"
+  "updated": "2026-07-15T21:55:14.948Z"
  },
  "SQUADS": {
   "mexico": [
