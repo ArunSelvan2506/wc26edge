@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-15T21:55:14.948Z",
+ "updated": "2026-07-16T02:32:51.630Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5966,6 +5966,23 @@
       "venue": "New Zealand tour of West Indies, 2026",
       "ist": "12:00am",
       "utc": 1784658600000
+     }
+    ]
+   },
+   {
+    "date": "Thu 23 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "67019b0b-ffb8-402d-ae60-4e422538d19a",
+      "teams": "Nepal vs Netherlands",
+      "t1": "Nepal",
+      "t2": "Netherlands",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "5:30am",
+      "utc": 1784764800000
      }
     ]
    },
@@ -6550,7 +6567,7 @@
     ]
    }
   ],
-  "updated": "2026-07-15T21:55:13.379Z",
+  "updated": "2026-07-16T02:32:49.934Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6884,7 +6901,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-15T21:55:14.948Z"
+  "updated": "2026-07-16T02:32:51.630Z"
  },
  "SQUADS": {
   "mexico": [
