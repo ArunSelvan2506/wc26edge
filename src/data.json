@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-17T20:02:30.196Z",
+ "updated": "2026-07-17T23:48:47.878Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 17 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "de3ace51-a87d-41fc-bf33-4e26c844e079",
-      "teams": "Bangladesh vs Zimbabwe",
-      "t1": "Bangladesh",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Bangladesh tour of Zimbabwe, 2026",
-      "ist": "5:00pm",
-      "utc": 1784287800000
-     }
-    ]
-   },
    {
     "date": "Sat 18 Jul (IST)",
     "series": "International",
@@ -6527,7 +6510,7 @@
     ]
    }
   ],
-  "updated": "2026-07-17T20:02:29.049Z",
+  "updated": "2026-07-17T23:48:45.687Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6861,7 +6844,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-17T20:02:30.196Z"
+  "updated": "2026-07-17T23:48:47.878Z"
  },
  "SQUADS": {
   "mexico": [
