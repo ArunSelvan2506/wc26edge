@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-17T23:48:47.878Z",
+ "updated": "2026-07-18T02:03:06.856Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5960,6 +5960,23 @@
       "venue": "India tour of Zimbabwe 2026",
       "ist": "4:30pm",
       "utc": 1784804400000
+     }
+    ]
+   },
+   {
+    "date": "Sat 25 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "04bb7afb-9f57-4c1e-9421-f23bc98c93ad",
+      "teams": "Namibia vs Netherlands",
+      "t1": "Namibia",
+      "t2": "Netherlands",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "5:30am",
+      "utc": 1784937600000
      }
     ]
    },
@@ -6510,7 +6527,7 @@
     ]
    }
   ],
-  "updated": "2026-07-17T23:48:45.687Z",
+  "updated": "2026-07-18T02:03:04.836Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6844,7 +6861,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-17T23:48:47.878Z"
+  "updated": "2026-07-18T02:03:06.856Z"
  },
  "SQUADS": {
   "mexico": [
