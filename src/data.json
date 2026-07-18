@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-18T07:42:06.894Z",
+ "updated": "2026-07-18T11:56:26.363Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5960,6 +5960,17 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "5:30am",
       "utc": 1784937600000
+     },
+     {
+      "id": "610cac66-a929-4422-9a45-3ee22ff1c3c8",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of Zimbabwe 2026",
+      "ist": "4:30pm",
+      "utc": 1784977200000
      }
     ]
    },
@@ -6510,7 +6521,7 @@
     ]
    }
   ],
-  "updated": "2026-07-18T07:42:04.675Z",
+  "updated": "2026-07-18T11:56:25.020Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6844,7 +6855,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-18T07:42:06.894Z"
+  "updated": "2026-07-18T11:56:26.363Z"
  },
  "SQUADS": {
   "mexico": [
