@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-18T11:56:26.363Z",
+ "updated": "2026-07-18T14:47:38.065Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5971,6 +5971,17 @@
       "venue": "India tour of Zimbabwe 2026",
       "ist": "4:30pm",
       "utc": 1784977200000
+     },
+     {
+      "id": "a2cdbdde-a120-43f2-8089-fba847d42ab3",
+      "teams": "Pakistan vs West Indies",
+      "t1": "Pakistan",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Pakistan tour of West Indies, 2026",
+      "ist": "7:30pm",
+      "utc": 1784988000000
      }
     ]
    },
@@ -6521,7 +6532,7 @@
     ]
    }
   ],
-  "updated": "2026-07-18T11:56:25.020Z",
+  "updated": "2026-07-18T14:47:36.609Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6855,7 +6866,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-18T11:56:26.363Z"
+  "updated": "2026-07-18T14:47:38.065Z"
  },
  "SQUADS": {
   "mexico": [
