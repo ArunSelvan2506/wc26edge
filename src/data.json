@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-19T11:53:25.116Z",
+ "updated": "2026-07-19T13:07:37.172Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6588,7 +6588,7 @@
     ]
    }
   ],
-  "updated": "2026-07-19T11:53:24.190Z",
+  "updated": "2026-07-19T13:07:36.370Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6881,9 +6881,9 @@
    }
   },
   "event": {
-   "date": "Sun 19 Jul (IST)",
-   "utc": 1784466000000,
-   "series": "Belgian Grand Prix · Spa",
+   "date": "Sun 26 Jul (IST)",
+   "utc": 1785070800000,
+   "series": "Hungarian Grand Prix · Budapest",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6900,7 +6900,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-19T11:53:25.115Z"
+  "updated": "2026-07-19T13:07:37.172Z"
  },
  "SQUADS": {
   "mexico": [
