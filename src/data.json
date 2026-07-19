@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-19T15:53:37.534Z",
+ "updated": "2026-07-19T16:53:39.506Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6588,7 +6588,7 @@
     ]
    }
   ],
-  "updated": "2026-07-19T15:53:35.779Z",
+  "updated": "2026-07-19T16:53:37.267Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6596,9 +6596,9 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 179,
+    "pts": 204,
     "pos": 1,
-    "wins": 5,
+    "wins": 6,
     "form": [
      "1",
      "15",
@@ -6607,25 +6607,11 @@
      "1"
     ]
    },
-   "George Russell": {
-    "r": 93,
-    "team": "Mercedes",
-    "pts": 154,
-    "pos": 2,
-    "wins": 2,
-    "form": [
-     "R",
-     "2",
-     "1",
-     "2",
-     "12"
-    ]
-   },
    "Lewis Hamilton": {
-    "r": 91,
+    "r": 89,
     "team": "Ferrari",
-    "pts": 147,
-    "pos": 3,
+    "pts": 159,
+    "pos": 2,
     "wins": 1,
     "form": [
      "4",
@@ -6635,10 +6621,24 @@
      "2"
     ]
    },
+   "George Russell": {
+    "r": 88,
+    "team": "Mercedes",
+    "pts": 154,
+    "pos": 3,
+    "wins": 2,
+    "form": [
+     "R",
+     "2",
+     "1",
+     "2",
+     "12"
+    ]
+   },
    "Charles Leclerc": {
-    "r": 80,
+    "r": 81,
     "team": "Ferrari",
-    "pts": 108,
+    "pts": 126,
     "pos": 4,
     "wins": 1,
     "form": [
@@ -6650,9 +6650,9 @@
     ]
    },
    "Lando Norris": {
-    "r": 77,
+    "r": 75,
     "team": "McLaren",
-    "pts": 97,
+    "pts": 103,
     "pos": 5,
     "wins": 0,
     "form": [
@@ -6666,7 +6666,7 @@
    "Oscar Piastri": {
     "r": 73,
     "team": "McLaren",
-    "pts": 82,
+    "pts": 92,
     "pos": 6,
     "wins": 0,
     "form": [
@@ -6678,9 +6678,9 @@
     ]
    },
    "Max Verstappen": {
-    "r": 71,
+    "r": 72,
     "team": "Red Bull",
-    "pts": 76,
+    "pts": 91,
     "pos": 7,
     "wins": 0,
     "form": [
@@ -6694,7 +6694,7 @@
    "Isack Hadjar": {
     "r": 65,
     "team": "Red Bull",
-    "pts": 52,
+    "pts": 60,
     "pos": 8,
     "wins": 0,
     "form": [
@@ -6706,7 +6706,7 @@
     ]
    },
    "Pierre Gasly": {
-    "r": 62,
+    "r": 60,
     "team": "Alpine F1 Team",
     "pts": 42,
     "pos": 9,
@@ -6720,7 +6720,7 @@
     ]
    },
    "Liam Lawson": {
-    "r": 61,
+    "r": 60,
     "team": "RB F1 Team",
     "pts": 39,
     "pos": 10,
@@ -6734,9 +6734,9 @@
     ]
    },
    "Arvid Lindblad": {
-    "r": 56,
+    "r": 55,
     "team": "RB F1 Team",
-    "pts": 20,
+    "pts": 22,
     "pos": 11,
     "wins": 0,
     "form": [
@@ -6747,25 +6747,11 @@
      "7"
     ]
    },
-   "Oliver Bearman": {
-    "r": 55,
-    "team": "Haas F1 Team",
-    "pts": 18,
-    "pos": 12,
-    "wins": 0,
-    "form": [
-     "14",
-     "12",
-     "14",
-     "17",
-     "R"
-    ]
-   },
    "Franco Colapinto": {
     "r": 55,
     "team": "Alpine F1 Team",
-    "pts": 18,
-    "pos": 13,
+    "pts": 19,
+    "pos": 12,
     "wins": 0,
     "form": [
      "10",
@@ -6775,10 +6761,24 @@
      "14"
     ]
    },
+   "Oliver Bearman": {
+    "r": 54,
+    "team": "Haas F1 Team",
+    "pts": 18,
+    "pos": 13,
+    "wins": 0,
+    "form": [
+     "14",
+     "12",
+     "14",
+     "17",
+     "R"
+    ]
+   },
    "Gabriel Bortoleto": {
     "r": 52,
     "team": "Audi",
-    "pts": 6,
+    "pts": 10,
     "pos": 14,
     "wins": 0,
     "form": [
@@ -6790,7 +6790,7 @@
     ]
    },
    "Carlos Sainz": {
-    "r": 52,
+    "r": 51,
     "team": "Williams",
     "pts": 6,
     "pos": 15,
@@ -6908,8 +6908,8 @@
    "series": "Hungarian Grand Prix · Budapest",
    "field": [
     "Andrea Kimi Antonelli",
-    "George Russell",
     "Lewis Hamilton",
+    "George Russell",
     "Charles Leclerc",
     "Lando Norris",
     "Oscar Piastri",
@@ -6918,11 +6918,11 @@
     "Pierre Gasly",
     "Liam Lawson",
     "Arvid Lindblad",
-    "Oliver Bearman"
+    "Franco Colapinto"
    ]
   },
   "season": 2026,
-  "updated": "2026-07-19T15:53:37.534Z"
+  "updated": "2026-07-19T16:53:39.506Z"
  },
  "SQUADS": {
   "mexico": [
