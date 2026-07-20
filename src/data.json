@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-19T23:53:12.587Z",
+ "updated": "2026-07-20T02:35:02.463Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5971,6 +5971,23 @@
       "venue": "India tour of Zimbabwe 2026",
       "ist": "4:30pm",
       "utc": 1785063600000
+     }
+    ]
+   },
+   {
+    "date": "Mon 27 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "2cc4cb6d-50e2-4ca3-8ad6-70f0a3a8c5f9",
+      "teams": "Namibia vs Nepal",
+      "t1": "Namibia",
+      "t2": "Nepal",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "5:30am",
+      "utc": 1785110400000
      }
     ]
    },
@@ -6560,7 +6577,7 @@
     ]
    }
   ],
-  "updated": "2026-07-19T23:53:10.521Z",
+  "updated": "2026-07-20T02:34:59.901Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6894,7 +6911,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-19T23:53:12.587Z"
+  "updated": "2026-07-20T02:35:02.462Z"
  },
  "SQUADS": {
   "mexico": [
