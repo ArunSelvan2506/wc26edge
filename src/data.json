@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-21T13:29:03.123Z",
+ "updated": "2026-07-22T02:11:16.716Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5954,6 +5954,23 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "5:30am",
       "utc": 1785110400000
+     }
+    ]
+   },
+   {
+    "date": "Wed 29 Jul (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "8019a8b4-6270-484d-8e62-b601cd7bb263",
+      "teams": "Nepal vs Netherlands",
+      "t1": "Nepal",
+      "t2": "Netherlands",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "5:30am",
+      "utc": 1785283200000
      }
     ]
    },
@@ -6543,7 +6560,7 @@
     ]
    }
   ],
-  "updated": "2026-07-21T13:29:01.199Z",
+  "updated": "2026-07-22T02:11:15.091Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6877,7 +6894,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-21T13:29:03.123Z"
+  "updated": "2026-07-22T02:11:16.716Z"
  },
  "SQUADS": {
   "mexico": [
