@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-23T12:21:15.396Z",
+ "updated": "2026-07-23T15:05:08.037Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Thu 23 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "ff0a1980-f7ef-403b-8396-42b65ef62a8b",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of Zimbabwe 2026",
-      "ist": "4:30pm",
-      "utc": 1784804400000
-     }
-    ]
-   },
    {
     "date": "Sat 25 Jul (IST)",
     "series": "International",
@@ -6074,7 +6057,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "7:00pm",
@@ -6108,7 +6091,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6119,7 +6102,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6130,7 +6113,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "7:00pm",
@@ -6147,7 +6130,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6158,7 +6141,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6169,7 +6152,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "7:00pm",
@@ -6197,7 +6180,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6208,7 +6191,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6225,7 +6208,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "2:00pm",
@@ -6259,7 +6242,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "2:00pm",
@@ -6293,7 +6276,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "2:00pm",
@@ -6494,7 +6477,7 @@
     ]
    }
   ],
-  "updated": "2026-07-23T12:21:13.783Z",
+  "updated": "2026-07-23T15:05:06.803Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6828,7 +6811,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-23T12:21:15.396Z"
+  "updated": "2026-07-23T15:05:08.037Z"
  },
  "SQUADS": {
   "mexico": [
