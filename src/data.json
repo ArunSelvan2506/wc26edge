@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-23T00:01:31.218Z",
+ "updated": "2026-07-23T04:11:54.903Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6085,7 +6085,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "7:00pm",
@@ -6119,7 +6119,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6130,7 +6130,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6141,7 +6141,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "7:00pm",
@@ -6158,7 +6158,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6169,7 +6169,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6180,7 +6180,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "7:00pm",
@@ -6208,7 +6208,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6219,7 +6219,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6236,7 +6236,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "2:00pm",
@@ -6270,7 +6270,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "2:00pm",
@@ -6304,7 +6304,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India 2026",
       "ist": "2:00pm",
@@ -6505,7 +6505,7 @@
     ]
    }
   ],
-  "updated": "2026-07-23T00:01:28.865Z",
+  "updated": "2026-07-23T04:11:53.134Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6839,7 +6839,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-23T00:01:31.218Z"
+  "updated": "2026-07-23T04:11:54.903Z"
  },
  "SQUADS": {
   "mexico": [
@@ -8780,7 +8780,7 @@
     "pos": "Midfield"
    },
    {
-    "name": "Hadj Mahmoud",
+    "name": "Mohamed Belhadj Mahmoud",
     "pos": "Midfield"
    },
    {
