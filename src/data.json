@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-24T02:35:31.134Z",
+ "updated": "2026-07-24T12:24:20.269Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5943,6 +5943,57 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "5:30am",
       "utc": 1785456000000
+     }
+    ]
+   },
+   {
+    "date": "Tue 15 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "df123077-18c0-4ee1-a8ea-ba9fd29b0cce",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Australia tour of Zimbabwe 2026",
+      "ist": "1:00pm",
+      "utc": 1789457400000
+     }
+    ]
+   },
+   {
+    "date": "Fri 18 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0adee032-79d2-4986-a8a1-3fbc8dd7c887",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Australia tour of Zimbabwe 2026",
+      "ist": "1:00pm",
+      "utc": 1789716600000
+     }
+    ]
+   },
+   {
+    "date": "Sun 20 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "6a7ccfb3-514a-457d-a57e-ff736c1fac4c",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Australia tour of Zimbabwe 2026",
+      "ist": "1:00pm",
+      "utc": 1789889400000
      }
     ]
    },
@@ -6066,23 +6117,6 @@
     ]
    },
    {
-    "date": "Fri 16 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "c4381fbd-ffc0-4953-b0f5-07894fd48fcf",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India 2026",
-      "ist": "7:00pm",
-      "utc": 1792157400000
-     }
-    ]
-   },
-   {
     "date": "Sat 17 Oct (IST)",
     "series": "International",
     "matches": [
@@ -6108,7 +6142,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6119,22 +6153,11 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792311300000
-     },
-     {
-      "id": "9020593d-7ca4-4691-b027-36bb28517a46",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India 2026",
-      "ist": "7:00pm",
-      "utc": 1792330200000
      }
     ]
    },
@@ -6147,7 +6170,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6158,22 +6181,11 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792484100000
-     },
-     {
-      "id": "c08f38a1-25b9-4153-9f7c-5da8477df917",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India 2026",
-      "ist": "7:00pm",
-      "utc": 1792503000000
      }
     ]
    },
@@ -6197,7 +6209,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
@@ -6208,28 +6220,11 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792656900000
-     }
-    ]
-   },
-   {
-    "date": "Fri 23 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "2f37d01c-a436-471d-aea6-0614947ab7fd",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India 2026",
-      "ist": "2:00pm",
-      "utc": 1792744200000
      }
     ]
    },
@@ -6251,23 +6246,6 @@
     ]
    },
    {
-    "date": "Sun 25 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "c100234c-eae6-4b23-b250-a8418a9df3e3",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India 2026",
-      "ist": "2:00pm",
-      "utc": 1792917000000
-     }
-    ]
-   },
-   {
     "date": "Tue 27 Oct (IST)",
     "series": "International",
     "matches": [
@@ -6281,23 +6259,6 @@
       "venue": "India tour of New Zealand 2026",
       "ist": "12:30pm",
       "utc": 1793084400000
-     }
-    ]
-   },
-   {
-    "date": "Wed 28 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "e7b587d3-ff62-4c91-a29e-ff71a30b8778",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India 2026",
-      "ist": "2:00pm",
-      "utc": 1793176200000
      }
     ]
    },
@@ -6492,9 +6453,26 @@
       "utc": 1795125600000
      }
     ]
+   },
+   {
+    "date": "Sat 21 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "9938f414-5b57-4cc8-bff8-e41e47c94fba",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "England tour of Australia, 2026",
+      "ist": "1:45pm",
+      "utc": 1795248900000
+     }
+    ]
    }
   ],
-  "updated": "2026-07-24T02:35:28.332Z",
+  "updated": "2026-07-24T12:24:18.791Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6828,7 +6806,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-24T02:35:31.134Z"
+  "updated": "2026-07-24T12:24:20.268Z"
  },
  "SQUADS": {
   "mexico": [
