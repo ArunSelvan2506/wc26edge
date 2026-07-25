@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-24T20:17:05.136Z",
+ "updated": "2026-07-25T03:23:26.862Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6472,7 +6472,7 @@
     ]
    }
   ],
-  "updated": "2026-07-24T20:17:03.809Z",
+  "updated": "2026-07-25T03:23:25.209Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6806,7 +6806,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-24T20:17:05.136Z"
+  "updated": "2026-07-25T03:23:26.862Z"
  },
  "SQUADS": {
   "mexico": [
@@ -6847,10 +6847,6 @@
    {
     "name": "Ime Okon",
     "pos": "Centre-Back"
-   },
-   {
-    "name": "Jayden Adams",
-    "pos": "Attacking Midfield"
    },
    {
     "name": "Kamogelo Sebelebele",
@@ -7183,62 +7179,6 @@
    {
     "name": "Cristian Volpato",
     "pos": "Attacking Midfield"
-   }
-  ],
-  "paraguay": [
-   {
-    "name": "Alexandro Maidana",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Andrés Cubas",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Braian Ojeda",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Damián Bobadilla",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Diego Gómez",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Fabián Balbuena",
-    "pos": "Centre-Back"
-   }
-  ],
-  "turkey": [
-   {
-    "name": "Abdülkerim Bardakcı",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Arda Güler",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Çağlar Söyüncü",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Can Uzun",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Eren Elmalı",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Ferdi Kadıoğlu",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Hakan Çalhanoğlu",
-    "pos": "Defensive Midfield"
    }
   ]
  },
