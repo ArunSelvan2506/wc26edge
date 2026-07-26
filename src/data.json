@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-26T13:45:50.261Z",
+ "updated": "2026-07-26T15:01:13.364Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 26 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "1f11e2ab-0cdd-4a4c-b61d-5e7b128e3b6e",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of Zimbabwe 2026",
-      "ist": "4:30pm",
-      "utc": 1785063600000
-     }
-    ]
-   },
    {
     "date": "Mon 27 Jul (IST)",
     "series": "International",
@@ -5904,6 +5887,23 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "5:30am",
       "utc": 1785456000000
+     }
+    ]
+   },
+   {
+    "date": "Sun 2 Aug (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "68f000b7-4d03-4727-b06f-ab9cc599caa8",
+      "teams": "Pakistan vs West Indies",
+      "t1": "Pakistan",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Pakistan tour of West Indies, 2026",
+      "ist": "7:30pm",
+      "utc": 1785679200000
      }
     ]
    },
@@ -6433,7 +6433,7 @@
     ]
    }
   ],
-  "updated": "2026-07-26T13:45:48.784Z",
+  "updated": "2026-07-26T15:01:12.597Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6745,7 +6745,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-26T13:45:50.261Z"
+  "updated": "2026-07-26T15:01:13.364Z"
  },
  "SQUADS": {
   "mexico": [
