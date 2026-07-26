@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-26T02:38:38.886Z",
+ "updated": "2026-07-26T13:45:50.261Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6433,7 +6433,7 @@
     ]
    }
   ],
-  "updated": "2026-07-26T02:38:37.359Z",
+  "updated": "2026-07-26T13:45:48.784Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6726,9 +6726,9 @@
    }
   },
   "event": {
-   "date": "Sun 26 Jul (IST)",
-   "utc": 1785070800000,
-   "series": "Hungarian Grand Prix · Budapest",
+   "date": "Sun 23 Aug (IST)",
+   "utc": 1787490000000,
+   "series": "Dutch Grand Prix · Zandvoort",
    "field": [
     "Andrea Kimi Antonelli",
     "Lewis Hamilton",
@@ -6745,7 +6745,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-26T02:38:38.886Z"
+  "updated": "2026-07-26T13:45:50.261Z"
  },
  "SQUADS": {
   "mexico": [
