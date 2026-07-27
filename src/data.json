@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-27T10:46:47.287Z",
+ "updated": "2026-07-27T13:36:34.952Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Mon 27 Jul (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "2cc4cb6d-50e2-4ca3-8ad6-70f0a3a8c5f9",
-      "teams": "Namibia vs Nepal",
-      "t1": "Namibia",
-      "t2": "Nepal",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "5:30am",
-      "utc": 1785110400000
-     }
-    ]
-   },
    {
     "date": "Wed 29 Jul (IST)",
     "series": "International",
@@ -6450,7 +6433,7 @@
     ]
    }
   ],
-  "updated": "2026-07-27T10:46:45.542Z",
+  "updated": "2026-07-27T13:36:32.400Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6784,7 +6767,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-27T10:46:47.287Z"
+  "updated": "2026-07-27T13:36:34.952Z"
  },
  "SQUADS": {
   "mexico": [
