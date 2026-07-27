@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-26T16:54:03.298Z",
+ "updated": "2026-07-27T03:39:23.487Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6433,7 +6433,7 @@
     ]
    }
   ],
-  "updated": "2026-07-26T16:54:01.748Z",
+  "updated": "2026-07-27T03:39:22.246Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6767,7 +6767,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-26T16:54:03.298Z"
+  "updated": "2026-07-27T03:39:23.487Z"
  },
  "SQUADS": {
   "mexico": [
@@ -7140,6 +7140,32 @@
    {
     "name": "Cristian Volpato",
     "pos": "Attacking Midfield"
+   }
+  ],
+  "paraguay": [
+   {
+    "name": "Alexandro Maidana",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Andrés Cubas",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Braian Ojeda",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Damián Bobadilla",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Diego Gómez",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Fabián Balbuena",
+    "pos": "Centre-Back"
    }
   ]
  },
