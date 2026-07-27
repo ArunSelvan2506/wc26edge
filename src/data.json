@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-27T03:39:23.487Z",
+ "updated": "2026-07-27T06:58:40.531Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5918,7 +5918,7 @@
       "t2": "Australia",
       "gender": "men",
       "format": "ODI",
-      "venue": "Australia tour of Zimbabwe 2026",
+      "venue": "Harare Sports Club, Harare",
       "ist": "1:00pm",
       "utc": 1789457400000
      }
@@ -5935,7 +5935,7 @@
       "t2": "Australia",
       "gender": "men",
       "format": "ODI",
-      "venue": "Australia tour of Zimbabwe 2026",
+      "venue": "Harare Sports Club, Harare",
       "ist": "1:00pm",
       "utc": 1789716600000
      }
@@ -5952,7 +5952,7 @@
       "t2": "Australia",
       "gender": "men",
       "format": "ODI",
-      "venue": "Australia tour of Zimbabwe 2026",
+      "venue": "Harare Sports Club, Harare",
       "ist": "1:00pm",
       "utc": 1789889400000
      }
@@ -5969,7 +5969,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "Greenfield International Stadium, Thiruvananthapuram",
       "ist": "2:00pm",
       "utc": 1790497800000
      }
@@ -5986,7 +5986,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "Barsapara Cricket Stadium, Guwahati",
       "ist": "2:00pm",
       "utc": 1790757000000
      }
@@ -6003,7 +6003,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "Maharaja Yadavindra Singh International Cricket Stadium, Mullanpur, New Chandigarh",
       "ist": "2:00pm",
       "utc": 1791016200000
      }
@@ -6020,7 +6020,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
       "ist": "7:00pm",
       "utc": 1791293400000
      }
@@ -6037,7 +6037,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "JSCA International Stadium Complex, Ranchi",
       "ist": "7:00pm",
       "utc": 1791552600000
      }
@@ -6054,7 +6054,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "Holkar Stadium, Indore",
       "ist": "7:00pm",
       "utc": 1791725400000
      }
@@ -6071,7 +6071,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "Rajiv Gandhi International Stadium, Hyderabad",
       "ist": "7:00pm",
       "utc": 1791984600000
      }
@@ -6088,7 +6088,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
+      "venue": "M.Chinnaswamy Stadium, Bengaluru",
       "ist": "7:00pm",
       "utc": 1792243800000
      }
@@ -6103,9 +6103,9 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "New Zealand Women tour of Australia, 2026",
+      "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
       "utc": 1792311300000
      },
@@ -6114,9 +6114,9 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "Bangladesh Women tour of Australia, 2026",
+      "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
       "utc": 1792311300000
      }
@@ -6131,9 +6131,9 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "New Zealand Women tour of Australia, 2026",
+      "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
       "utc": 1792484100000
      },
@@ -6142,9 +6142,9 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "Bangladesh Women tour of Australia, 2026",
+      "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
       "utc": 1792484100000
      }
@@ -6161,7 +6161,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Hagley Oval, Christchurch",
       "ist": "12:30pm",
       "utc": 1792652400000
      },
@@ -6170,9 +6170,9 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "New Zealand Women tour of Australia, 2026",
+      "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
       "utc": 1792656900000
      },
@@ -6181,9 +6181,9 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "Bangladesh Women tour of Australia, 2026",
+      "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
       "utc": 1792656900000
      }
@@ -6200,7 +6200,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Hagley Oval, Christchurch",
       "ist": "12:30pm",
       "utc": 1792825200000
      }
@@ -6217,7 +6217,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Sky Stadium, Wellington",
       "ist": "12:30pm",
       "utc": 1793084400000
      }
@@ -6234,7 +6234,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Eden Park, Auckland",
       "ist": "12:30pm",
       "utc": 1793343600000
      }
@@ -6251,7 +6251,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Seddon Park, Hamilton",
       "ist": "12:30pm",
       "utc": 1793516400000
      }
@@ -6268,7 +6268,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Eden Park, Auckland",
       "ist": "7:30am",
       "utc": 1793757600000
      }
@@ -6285,7 +6285,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
       "utc": 1794016800000
      }
@@ -6302,7 +6302,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Seddon Park, Hamilton",
       "ist": "7:30am",
       "utc": 1794276000000
      }
@@ -6319,7 +6319,7 @@
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "England tour of Australia, 2026",
+      "venue": "Perth Stadium, Perth",
       "ist": "9:00am",
       "utc": 1794454200000
      }
@@ -6336,7 +6336,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
       "utc": 1794535200000
      }
@@ -6353,7 +6353,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
       "utc": 1794708000000
      },
@@ -6364,7 +6364,7 @@
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "England tour of Australia, 2026",
+      "venue": "Adelaide Oval, Adelaide",
       "ist": "9:00am",
       "utc": 1794713400000
      },
@@ -6375,7 +6375,7 @@
       "t2": "Bangladesh",
       "gender": "men",
       "format": "T20I",
-      "venue": "Bangladesh tour of South Africa, 2026",
+      "venue": "The Wanderers Stadium, Johannesburg",
       "ist": "1:30pm",
       "utc": 1794729600000
      }
@@ -6392,7 +6392,7 @@
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "England tour of Australia, 2026",
+      "venue": "Bellerive Oval, Hobart",
       "ist": "9:00am",
       "utc": 1794972600000
      }
@@ -6409,7 +6409,7 @@
       "t2": "India",
       "gender": "men",
       "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
+      "venue": "Basin Reserve, Wellington",
       "ist": "3:30am",
       "utc": 1795125600000
      }
@@ -6426,14 +6426,31 @@
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "England tour of Australia, 2026",
+      "venue": "Melbourne Cricket Ground, Melbourne",
       "ist": "1:45pm",
       "utc": 1795248900000
      }
     ]
+   },
+   {
+    "date": "Mon 23 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5c8b50aa-a500-4da5-bb12-88fdaed9a7ce",
+      "teams": "South Africa vs Bangladesh",
+      "t1": "South Africa",
+      "t2": "Bangladesh",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "SuperSport Park, Centurion",
+      "ist": "1:30pm",
+      "utc": 1795420800000
+     }
+    ]
    }
   ],
-  "updated": "2026-07-27T03:39:22.246Z",
+  "updated": "2026-07-27T06:58:38.886Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6767,7 +6784,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-27T03:39:23.487Z"
+  "updated": "2026-07-27T06:58:40.531Z"
  },
  "SQUADS": {
   "mexico": [
