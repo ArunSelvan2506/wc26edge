@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-07-28T20:13:20.968Z",
+ "updated": "2026-07-29T11:21:29.530Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5898,6 +5898,23 @@
       "venue": "Pakistan tour of West Indies, 2026",
       "ist": "7:30pm",
       "utc": 1785679200000
+     }
+    ]
+   },
+   {
+    "date": "Wed 5 Aug (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "b18d64b2-6b44-4147-847b-9fbab84b03dd",
+      "teams": "Afghanistan vs Ireland",
+      "t1": "Afghanistan",
+      "t2": "Ireland",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Afghanistan tour of Ireland, 2026",
+      "ist": "3:15pm",
+      "utc": 1785923100000
      }
     ]
    },
@@ -6461,7 +6478,7 @@
     ]
    }
   ],
-  "updated": "2026-07-28T20:13:19.526Z",
+  "updated": "2026-07-29T11:21:27.438Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6795,7 +6812,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-07-28T20:13:20.968Z"
+  "updated": "2026-07-29T11:21:29.530Z"
  },
  "SQUADS": {
   "mexico": [
