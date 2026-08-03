@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-01T09:02:20.904Z",
+ "updated": "2026-08-03T02:25:32.768Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 2 Aug (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "68f000b7-4d03-4727-b06f-ab9cc599caa8",
-      "teams": "Pakistan vs West Indies",
-      "t1": "Pakistan",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "Test",
-      "venue": "Pakistan tour of West Indies, 2026",
-      "ist": "7:30pm",
-      "utc": 1785679200000
-     }
-    ]
-   },
    {
     "date": "Wed 5 Aug (IST)",
     "series": "International",
@@ -6484,7 +6467,7 @@
     ]
    }
   ],
-  "updated": "2026-08-01T09:02:18.152Z",
+  "updated": "2026-08-03T02:25:29.358Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6818,7 +6801,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-01T09:02:20.904Z"
+  "updated": "2026-08-03T02:25:32.767Z"
  },
  "SQUADS": {
   "mexico": [
