@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-03T02:25:32.768Z",
+ "updated": "2026-08-03T06:17:28.014Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6069,7 +6069,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6080,7 +6080,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6097,7 +6097,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6108,7 +6108,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6136,7 +6136,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6147,7 +6147,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6465,9 +6465,26 @@
       "utc": 1795816800000
      }
     ]
+   },
+   {
+    "date": "Sun 29 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "6e33a324-9822-4274-95b7-37b002dd0377",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sydney Cricket Ground, Sydney",
+      "ist": "1:45pm",
+      "utc": 1795940100000
+     }
+    ]
    }
   ],
-  "updated": "2026-08-03T02:25:29.358Z",
+  "updated": "2026-08-03T06:17:24.028Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6801,7 +6818,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-03T02:25:32.767Z"
+  "updated": "2026-08-03T06:17:28.014Z"
  },
  "SQUADS": {
   "mexico": [
