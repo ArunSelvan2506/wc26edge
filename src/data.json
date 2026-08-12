@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-12T14:21:24.374Z",
+ "updated": "2026-08-12T18:56:29.789Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Wed 12 Aug (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "abd11553-6082-4611-8994-8dca421f30ca",
-      "teams": "Afghanistan vs Ireland",
-      "t1": "Afghanistan",
-      "t2": "Ireland",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Afghanistan tour of Ireland, 2026",
-      "ist": "3:15pm",
-      "utc": 1786527900000
-     }
-    ]
-   },
    {
     "date": "Fri 14 Aug (IST)",
     "series": "International",
@@ -6069,7 +6052,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6080,7 +6063,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6097,7 +6080,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6108,7 +6091,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6136,7 +6119,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6147,7 +6130,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6550,9 +6533,26 @@
       "utc": 1796643000000
      }
     ]
+   },
+   {
+    "date": "Thu 10 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "60a36fb9-a213-420f-a8d7-d3b2f0ee193d",
+      "teams": "South Africa vs Bangladesh",
+      "t1": "South Africa",
+      "t2": "Bangladesh",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Diamond Oval, Kimberley",
+      "ist": "9:30pm",
+      "utc": 1796918400000
+     }
+    ]
    }
   ],
-  "updated": "2026-08-12T14:21:20.015Z",
+  "updated": "2026-08-12T18:56:25.731Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6886,7 +6886,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-12T14:21:24.374Z"
+  "updated": "2026-08-12T18:56:29.789Z"
  },
  "SQUADS": {
   "mexico": [
