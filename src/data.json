@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-14T08:11:37.077Z",
+ "updated": "2026-08-14T12:55:25.049Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6052,7 +6052,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6063,7 +6063,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6080,7 +6080,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6091,7 +6091,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6119,7 +6119,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6130,7 +6130,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6550,9 +6550,26 @@
       "utc": 1796918400000
      }
     ]
+   },
+   {
+    "date": "Sat 12 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1cd63113-c402-40a1-bd72-5799f6ff1fdf",
+      "teams": "South Africa vs Bangladesh",
+      "t1": "South Africa",
+      "t2": "Bangladesh",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Willowmoore Park, Benoni",
+      "ist": "6:00pm",
+      "utc": 1797078600000
+     }
+    ]
    }
   ],
-  "updated": "2026-08-14T08:11:34.702Z",
+  "updated": "2026-08-14T12:55:21.817Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6886,7 +6903,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-14T08:11:37.077Z"
+  "updated": "2026-08-14T12:55:25.049Z"
  },
  "SQUADS": {
   "mexico": [
