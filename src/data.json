@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-15T07:26:12.231Z",
+ "updated": "2026-08-15T12:28:21.440Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5984,7 +5984,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5995,7 +5995,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6012,7 +6012,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6023,7 +6023,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6051,7 +6051,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6062,7 +6062,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6499,9 +6499,26 @@
       "utc": 1797078600000
      }
     ]
+   },
+   {
+    "date": "Sun 13 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "3986f76d-eec1-495b-9af1-ca986c8c258d",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Arun Jaitley Stadium, Delhi",
+      "ist": "2:00pm",
+      "utc": 1797150600000
+     }
+    ]
    }
   ],
-  "updated": "2026-08-15T07:26:09.055Z",
+  "updated": "2026-08-15T12:28:16.996Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6835,7 +6852,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-15T07:26:12.231Z"
+  "updated": "2026-08-15T12:28:21.440Z"
  },
  "SQUADS": {
   "mexico": [
