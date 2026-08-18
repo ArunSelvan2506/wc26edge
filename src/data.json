@@ -5834,11 +5834,62 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-18T13:38:19.821Z",
+ "updated": "2026-08-18T18:31:18.554Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
+   {
+    "date": "Tue 15 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "df123077-18c0-4ee1-a8ea-ba9fd29b0cce",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Harare Sports Club, Harare",
+      "ist": "1:00pm",
+      "utc": 1789457400000
+     }
+    ]
+   },
+   {
+    "date": "Fri 18 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0adee032-79d2-4986-a8a1-3fbc8dd7c887",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Harare Sports Club, Harare",
+      "ist": "1:00pm",
+      "utc": 1789716600000
+     }
+    ]
+   },
+   {
+    "date": "Sun 20 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "6a7ccfb3-514a-457d-a57e-ff736c1fac4c",
+      "teams": "Zimbabwe vs Australia",
+      "t1": "Zimbabwe",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Harare Sports Club, Harare",
+      "ist": "1:00pm",
+      "utc": 1789889400000
+     }
+    ]
+   },
    {
     "date": "Sun 27 Sep (IST)",
     "series": "International",
@@ -5984,7 +6035,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5995,7 +6046,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6012,7 +6063,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6023,7 +6074,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6051,7 +6102,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6062,7 +6113,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6248,17 +6299,6 @@
       "venue": "Adelaide Oval, Adelaide",
       "ist": "9:00am",
       "utc": 1794713400000
-     },
-     {
-      "id": "320358a9-db5c-4a12-abc1-c2a983b19341",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "The Wanderers Stadium, Johannesburg",
-      "ist": "1:30pm",
-      "utc": 1794729600000
      }
     ]
    },
@@ -6310,23 +6350,6 @@
       "venue": "Melbourne Cricket Ground, Melbourne",
       "ist": "1:45pm",
       "utc": 1795248900000
-     }
-    ]
-   },
-   {
-    "date": "Mon 23 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "5c8b50aa-a500-4da5-bb12-88fdaed9a7ce",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "SuperSport Park, Centurion",
-      "ist": "1:30pm",
-      "utc": 1795420800000
      }
     ]
    },
@@ -6399,23 +6422,6 @@
     ]
    },
    {
-    "date": "Tue 1 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "3d4c3c1b-d256-40eb-831a-1fc8b8e9d326",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Buffalo Park, East London",
-      "ist": "5:00pm",
-      "utc": 1796124600000
-     }
-    ]
-   },
-   {
     "date": "Wed 2 Dec (IST)",
     "series": "International",
     "matches": [
@@ -6431,94 +6437,9 @@
       "utc": 1796199300000
      }
     ]
-   },
-   {
-    "date": "Fri 4 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "2e81a313-a74e-43c0-b358-a637a164e908",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "St George's Park, Gqeberha",
-      "ist": "5:00pm",
-      "utc": 1796383800000
-     }
-    ]
-   },
-   {
-    "date": "Mon 7 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "da4ca7a7-5af5-416a-80ab-423402df01b3",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Newlands, Cape Town",
-      "ist": "5:00pm",
-      "utc": 1796643000000
-     }
-    ]
-   },
-   {
-    "date": "Thu 10 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "60a36fb9-a213-420f-a8d7-d3b2f0ee193d",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Diamond Oval, Kimberley",
-      "ist": "9:30pm",
-      "utc": 1796918400000
-     }
-    ]
-   },
-   {
-    "date": "Sat 12 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "1cd63113-c402-40a1-bd72-5799f6ff1fdf",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Willowmoore Park, Benoni",
-      "ist": "6:00pm",
-      "utc": 1797078600000
-     }
-    ]
-   },
-   {
-    "date": "Sun 13 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "6a53c574-0f0c-4bbe-868d-887da3cb9ce3",
-      "teams": "South Africa vs Bangladesh",
-      "t1": "South Africa",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "SuperSport Park, Centurion",
-      "ist": "6:00pm",
-      "utc": 1797165000000
-     }
-    ]
    }
   ],
-  "updated": "2026-08-18T13:38:15.413Z",
+  "updated": "2026-08-18T18:31:15.036Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6852,7 +6773,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-18T13:38:19.821Z"
+  "updated": "2026-08-18T18:31:18.554Z"
  },
  "SQUADS": {
   "mexico": [
