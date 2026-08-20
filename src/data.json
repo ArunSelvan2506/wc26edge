@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-20T02:18:04.138Z",
+ "updated": "2026-08-20T03:42:28.093Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6439,7 +6439,7 @@
     ]
    }
   ],
-  "updated": "2026-08-20T02:18:01.982Z",
+  "updated": "2026-08-20T03:42:26.042Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6773,7 +6773,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-20T02:18:04.138Z"
+  "updated": "2026-08-20T03:42:28.093Z"
  },
  "SQUADS": {
   "mexico": [
@@ -7172,36 +7172,6 @@
    {
     "name": "Fabián Balbuena",
     "pos": "Centre-Back"
-   }
-  ],
-  "turkey": [
-   {
-    "name": "Abdülkerim Bardakcı",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Arda Güler",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Çağlar Söyüncü",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Can Uzun",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Eren Elmalı",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Ferdi Kadıoğlu",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Hakan Çalhanoğlu",
-    "pos": "Defensive Midfield"
    }
   ]
  },
