@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-20T13:41:50.545Z",
+ "updated": "2026-08-20T18:32:36.934Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6035,7 +6035,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6046,7 +6046,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6063,7 +6063,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6074,7 +6074,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6102,7 +6102,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6113,7 +6113,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6388,23 +6388,6 @@
     ]
    },
    {
-    "date": "Sat 28 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "c81e7d49-463b-478a-bc28-06608c6466d2",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hagley Oval, Christchurch",
-      "ist": "3:30am",
-      "utc": 1795816800000
-     }
-    ]
-   },
-   {
     "date": "Sun 29 Nov (IST)",
     "series": "International",
     "matches": [
@@ -6439,7 +6422,7 @@
     ]
    }
   ],
-  "updated": "2026-08-20T13:41:46.783Z",
+  "updated": "2026-08-20T18:32:32.793Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6773,7 +6756,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-20T13:41:50.545Z"
+  "updated": "2026-08-20T18:32:36.934Z"
  },
  "SQUADS": {
   "mexico": [
