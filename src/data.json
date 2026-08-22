@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-22T07:27:16.361Z",
+ "updated": "2026-08-22T12:29:40.962Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6052,7 +6052,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6063,7 +6063,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6080,7 +6080,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6091,7 +6091,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6119,7 +6119,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6130,7 +6130,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6439,7 +6439,7 @@
     ]
    }
   ],
-  "updated": "2026-08-22T07:27:12.671Z",
+  "updated": "2026-08-22T12:29:38.730Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6447,103 +6447,96 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 219,
+    "pts": 224,
     "pos": 1,
     "wins": 6,
     "form": [
      "3",
      "1",
      "15",
-     "3",
-     "16"
+     "3"
     ]
    },
    "Lewis Hamilton": {
-    "r": 89,
+    "r": 88,
     "team": "Ferrari",
-    "pts": 169,
+    "pts": 171,
     "pos": 2,
     "wins": 1,
     "form": [
      "5",
      "4",
      "3",
-     "5",
-     "1"
+     "5"
     ]
    },
    "George Russell": {
-    "r": 87,
+    "r": 88,
     "team": "Mercedes",
-    "pts": 160,
+    "pts": 168,
     "pos": 3,
     "wins": 2,
     "form": [
      "7",
      "R",
      "2",
-     "1",
-     "2"
+     "1"
     ]
    },
    "Charles Leclerc": {
     "r": 82,
     "team": "Ferrari",
-    "pts": 138,
+    "pts": 145,
     "pos": 4,
     "wins": 1,
     "form": [
      "4",
      "2",
      "1",
-     "8",
-     "15"
+     "8"
     ]
    },
    "Lando Norris": {
-    "r": 79,
+    "r": 80,
     "team": "McLaren",
-    "pts": 128,
+    "pts": 134,
     "pos": 5,
     "wins": 1,
     "form": [
      "1",
      "7",
      "4",
-     "7",
-     "3"
+     "7"
     ]
    },
    "Max Verstappen": {
     "r": 75,
     "team": "Red Bull",
-    "pts": 109,
+    "pts": 112,
     "pos": 6,
     "wins": 0,
     "form": [
      "2",
      "3",
      "20",
-     "2",
-     "4"
+     "2"
     ]
    },
    "Oscar Piastri": {
     "r": 71,
     "team": "McLaren",
-    "pts": 92,
+    "pts": 96,
     "pos": 7,
     "wins": 0,
     "form": [
      "R",
      "5",
      "11",
-     "4",
-     "5"
+     "4"
     ]
    },
    "Isack Hadjar": {
-    "r": 66,
+    "r": 65,
     "team": "Red Bull",
     "pts": 68,
     "pos": 8,
@@ -6552,36 +6545,33 @@
      "6",
      "6",
      "5",
-     "6",
      "6"
+    ]
+   },
+   "Pierre Gasly": {
+    "r": 60,
+    "team": "Alpine F1 Team",
+    "pts": 43,
+    "pos": 9,
+    "wins": 0,
+    "form": [
+     "12",
+     "11",
+     "10",
+     "13"
     ]
    },
    "Liam Lawson": {
     "r": 60,
     "team": "RB F1 Team",
     "pts": 43,
-    "pos": 9,
+    "pos": 10,
     "wins": 0,
     "form": [
      "8",
      "12",
      "6",
-     "9",
-     "8"
-    ]
-   },
-   "Pierre Gasly": {
-    "r": 60,
-    "team": "Alpine F1 Team",
-    "pts": 42,
-    "pos": 10,
-    "wins": 0,
-    "form": [
-     "12",
-     "11",
-     "10",
-     "13",
-     "7"
+     "9"
     ]
    },
    "Arvid Lindblad": {
@@ -6594,8 +6584,7 @@
      "10",
      "9",
      "7",
-     "10",
-     "9"
+     "10"
     ]
    },
    "Franco Colapinto": {
@@ -6608,8 +6597,7 @@
      "15",
      "10",
      "9",
-     "15",
-     "10"
+     "15"
     ]
    },
    "Oliver Bearman": {
@@ -6622,8 +6610,7 @@
      "19",
      "14",
      "12",
-     "14",
-     "17"
+     "14"
     ]
    },
    "Gabriel Bortoleto": {
@@ -6636,7 +6623,6 @@
      "11",
      "8",
      "8",
-     "11",
      "11"
     ]
    },
@@ -6650,8 +6636,7 @@
      "18",
      "16",
      "17",
-     "R",
-     "12"
+     "R"
     ]
    },
    "Alexander Albon": {
@@ -6664,8 +6649,7 @@
      "17",
      "15",
      "R",
-     "17",
-     "R"
+     "17"
     ]
    },
    "Esteban Ocon": {
@@ -6678,8 +6662,7 @@
      "16",
      "17",
      "13",
-     "16",
-     "13"
+     "16"
     ]
    },
    "Nico Hülkenberg": {
@@ -6692,8 +6675,7 @@
      "9",
      "13",
      "R",
-     "12",
-     "R"
+     "12"
     ]
    },
    "Fernando Alonso": {
@@ -6706,8 +6688,7 @@
      "14",
      "19",
      "18",
-     "18",
-     "R"
+     "18"
     ]
    },
    "Lance Stroll": {
@@ -6720,7 +6701,6 @@
      "13",
      "R",
      "19",
-     "R",
      "R"
     ]
    },
@@ -6734,7 +6714,6 @@
      "R",
      "18",
      "16",
-     "R",
      "R"
     ]
    },
@@ -6748,9 +6727,16 @@
      "R",
      "R",
      "14",
-     "R",
-     "14"
+     "R"
     ]
+   },
+   "Yuki Tsunoda": {
+    "r": 50,
+    "team": "RB F1 Team",
+    "pts": 0,
+    "pos": null,
+    "wins": 0,
+    "form": null
    }
   },
   "event": {
@@ -6766,14 +6752,14 @@
     "Max Verstappen",
     "Oscar Piastri",
     "Isack Hadjar",
-    "Liam Lawson",
     "Pierre Gasly",
+    "Liam Lawson",
     "Arvid Lindblad",
     "Franco Colapinto"
    ]
   },
   "season": 2026,
-  "updated": "2026-08-22T07:27:16.361Z"
+  "updated": "2026-08-22T12:29:40.962Z"
  },
  "SQUADS": {
   "mexico": [
