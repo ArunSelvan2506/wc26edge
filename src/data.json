@@ -5834,11 +5834,28 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-22T19:19:06.976Z",
+ "updated": "2026-08-22T21:16:41.944Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
+   {
+    "date": "Sun 23 Aug (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "da887623-cb08-4550-b21f-0788f16e20e0",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "Test",
+      "venue": "India tour of Sri Lanka 2026",
+      "ist": "10:00am",
+      "utc": 1787459400000
+     }
+    ]
+   },
    {
     "date": "Thu 27 Aug (IST)",
     "series": "International",
@@ -6439,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-08-22T19:19:04.497Z",
+  "updated": "2026-08-22T21:16:39.239Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6759,7 +6776,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-22T19:19:06.975Z"
+  "updated": "2026-08-22T21:16:41.944Z"
  },
  "SQUADS": {
   "mexico": [
