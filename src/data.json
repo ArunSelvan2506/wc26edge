@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-25T19:27:31.290Z",
+ "updated": "2026-08-25T20:22:51.043Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5876,7 +5876,7 @@
       "teams": "Netherlands vs Scotland",
       "t1": "Netherlands",
       "t2": "Scotland",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "",
       "ist": "3:30pm",
@@ -5904,7 +5904,7 @@
       "teams": "Sri Lanka vs United Arab Emirates",
       "t1": "Sri Lanka",
       "t2": "United Arab Emirates",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "",
       "ist": "8:00pm",
@@ -6495,7 +6495,7 @@
     ]
    }
   ],
-  "updated": "2026-08-25T19:27:27.954Z",
+  "updated": "2026-08-25T20:22:48.392Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6838,7 +6838,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-25T19:27:31.290Z"
+  "updated": "2026-08-25T20:22:51.043Z"
  },
  "SQUADS": {
   "mexico": [
