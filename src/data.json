@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-08-26T03:00:37.834Z",
+ "updated": "2026-08-26T06:39:48.590Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,62 +5853,6 @@
       "venue": "Pakistan tour of England 2026",
       "ist": "3:30pm",
       "utc": 1787824800000
-     }
-    ]
-   },
-   {
-    "date": "Fri 28 Aug (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "9b8f6667-9e81-4f82-8916-6cc81b03dc35",
-      "teams": "Namibia vs South Africa",
-      "t1": "Namibia",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "",
-      "ist": "5:30am",
-      "utc": 1787875200000
-     },
-     {
-      "id": "cefcc64e-ca3a-467d-9800-d4e63c9944bb",
-      "teams": "Netherlands vs Scotland",
-      "t1": "Netherlands",
-      "t2": "Scotland",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "",
-      "ist": "3:30pm",
-      "utc": 1787911200000
-     }
-    ]
-   },
-   {
-    "date": "Sat 29 Aug (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "13326a76-286a-428c-ada8-9d185b4b65b0",
-      "teams": "South Africa vs Zimbabwe",
-      "t1": "South Africa",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "",
-      "ist": "1:30pm",
-      "utc": 1787990400000
-     },
-     {
-      "id": "e70211c0-aa41-4f92-8c65-d6ec619e9a07",
-      "teams": "Sri Lanka vs United Arab Emirates",
-      "t1": "Sri Lanka",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "",
-      "ist": "8:00pm",
-      "utc": 1788013800000
      }
     ]
    },
@@ -6108,7 +6052,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6119,7 +6063,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6136,7 +6080,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6147,7 +6091,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6175,7 +6119,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6186,7 +6130,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6461,6 +6405,23 @@
     ]
    },
    {
+    "date": "Sat 28 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c81e7d49-463b-478a-bc28-06608c6466d2",
+      "teams": "New Zealand vs India",
+      "t1": "New Zealand",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hagley Oval, Christchurch",
+      "ist": "3:30am",
+      "utc": 1795816800000
+     }
+    ]
+   },
+   {
     "date": "Sun 29 Nov (IST)",
     "series": "International",
     "matches": [
@@ -6495,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-08-26T03:00:35.626Z",
+  "updated": "2026-08-26T06:39:45.248Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6838,7 +6799,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-08-26T03:00:37.834Z"
+  "updated": "2026-08-26T06:39:48.590Z"
  },
  "SQUADS": {
   "mexico": [
