@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-01T20:27:24.834Z",
+ "updated": "2026-09-01T22:57:28.444Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5859,7 +5859,7 @@
       "teams": "England vs Ireland",
       "t1": "England",
       "t2": "Ireland",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Ireland Women tour of England 2026",
       "ist": "5:30pm",
@@ -5893,7 +5893,7 @@
       "teams": "India vs Pakistan",
       "t1": "India",
       "t2": "Pakistan",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Women's Asia Cup 2026",
       "ist": "8:00pm",
@@ -6501,7 +6501,7 @@
     ]
    }
   ],
-  "updated": "2026-09-01T20:27:22.402Z",
+  "updated": "2026-09-01T22:57:25.264Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6844,7 +6844,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-01T20:27:24.834Z"
+  "updated": "2026-09-01T22:57:28.444Z"
  },
  "SQUADS": {
   "mexico": [
