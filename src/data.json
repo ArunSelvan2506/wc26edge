@@ -5834,73 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-01T22:57:28.444Z",
+ "updated": "2026-09-02T00:52:17.663Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Thu 3 Sep (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "81efc519-6af6-4f31-af4d-b7637eb55882",
-      "teams": "Namibia vs Zimbabwe",
-      "t1": "Namibia",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Namibia T20I Tri-Series 2026",
-      "ist": "5:30pm",
-      "utc": 1788436800000
-     },
-     {
-      "id": "e2a278cf-2790-4e75-a372-2f0441de5a0c",
-      "teams": "England vs Ireland",
-      "t1": "England",
-      "t2": "Ireland",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland Women tour of England 2026",
-      "ist": "5:30pm",
-      "utc": 1788436800000
-     }
-    ]
-   },
-   {
-    "date": "Fri 4 Sep (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "fd3cf71b-7d84-426e-832a-bd64963ff5d7",
-      "teams": "Namibia vs South Africa",
-      "t1": "Namibia",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Namibia T20I Tri-Series 2026",
-      "ist": "5:30pm",
-      "utc": 1788523200000
-     }
-    ]
-   },
-   {
-    "date": "Sat 5 Sep (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "819a2058-3028-4b4d-8196-0ff7f466dcd0",
-      "teams": "India vs Pakistan",
-      "t1": "India",
-      "t2": "Pakistan",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Women's Asia Cup 2026",
-      "ist": "8:00pm",
-      "utc": 1788618600000
-     }
-    ]
-   },
    {
     "date": "Tue 15 Sep (IST)",
     "series": "International",
@@ -6097,7 +6035,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6108,7 +6046,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6125,7 +6063,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6136,7 +6074,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6164,7 +6102,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6175,7 +6113,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6501,7 +6439,7 @@
     ]
    }
   ],
-  "updated": "2026-09-01T22:57:25.264Z",
+  "updated": "2026-09-02T00:52:13.468Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6844,7 +6782,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-01T22:57:28.444Z"
+  "updated": "2026-09-02T00:52:17.663Z"
  },
  "SQUADS": {
   "mexico": [
