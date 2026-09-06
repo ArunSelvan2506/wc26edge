@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-05T19:51:12.786Z",
+ "updated": "2026-09-06T14:49:51.287Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6456,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-09-05T19:51:08.862Z",
+  "updated": "2026-09-06T14:49:47.893Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6758,9 +6758,9 @@
    }
   },
   "event": {
-   "date": "Sun 6 Sep (IST)",
-   "utc": 1788699600000,
-   "series": "Italian Grand Prix · Monza",
+   "date": "Sun 13 Sep (IST)",
+   "utc": 1789304400000,
+   "series": "Spanish Grand Prix · Madrid",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6777,7 +6777,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-05T19:51:12.786Z"
+  "updated": "2026-09-06T14:49:51.287Z"
  },
  "SQUADS": {
   "mexico": [
