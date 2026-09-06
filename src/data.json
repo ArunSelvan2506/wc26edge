@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-06T14:49:51.287Z",
+ "updated": "2026-09-06T21:55:13.815Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6456,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-09-06T14:49:47.893Z",
+  "updated": "2026-09-06T21:55:10.285Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6464,10 +6464,11 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 242,
+    "pts": 267,
     "pos": 1,
-    "wins": 6,
+    "wins": 7,
     "form": [
+     "1",
      "2",
      "3",
      "1",
@@ -6477,10 +6478,11 @@
    "George Russell": {
     "r": 88,
     "team": "Mercedes",
-    "pts": 183,
+    "pts": 201,
     "pos": 2,
     "wins": 2,
     "form": [
+     "2",
      "3",
      "7",
      "R",
@@ -6488,12 +6490,13 @@
     ]
    },
    "Lewis Hamilton": {
-    "r": 88,
+    "r": 86,
     "team": "Ferrari",
-    "pts": 183,
+    "pts": 191,
     "pos": 3,
     "wins": 1,
     "form": [
+     "6",
      "4",
      "5",
      "4",
@@ -6501,12 +6504,13 @@
     ]
    },
    "Lando Norris": {
-    "r": 83,
+    "r": 82,
     "team": "McLaren",
-    "pts": 159,
+    "pts": 171,
     "pos": 4,
     "wins": 2,
     "form": [
+     "4",
      "1",
      "1",
      "7",
@@ -6514,12 +6518,13 @@
     ]
    },
    "Charles Leclerc": {
-    "r": 82,
+    "r": 79,
     "team": "Ferrari",
     "pts": 155,
     "pos": 5,
     "wins": 1,
     "form": [
+     "R",
      "5",
      "4",
      "2",
@@ -6527,12 +6532,13 @@
     ]
    },
    "Max Verstappen": {
-    "r": 73,
+    "r": 74,
     "team": "Red Bull",
-    "pts": 112,
+    "pts": 127,
     "pos": 6,
     "wins": 0,
     "form": [
+     "3",
      "R",
      "2",
      "3",
@@ -6540,12 +6546,13 @@
     ]
    },
    "Oscar Piastri": {
-    "r": 71,
+    "r": 72,
     "team": "McLaren",
-    "pts": 104,
+    "pts": 116,
     "pos": 7,
     "wins": 0,
     "form": [
+     "5",
      "6",
      "R",
      "5",
@@ -6553,9 +6560,9 @@
     ]
    },
    "Isack Hadjar": {
-    "r": 64,
+    "r": 63,
     "team": "Red Bull",
-    "pts": 68,
+    "pts": 71,
     "pos": 8,
     "wins": 0,
     "form": [
@@ -6567,10 +6574,11 @@
    "Liam Lawson": {
     "r": 60,
     "team": "RB F1 Team",
-    "pts": 49,
+    "pts": 51,
     "pos": 9,
     "wins": 0,
     "form": [
+     "14",
      "7",
      "8",
      "12",
@@ -6578,12 +6586,13 @@
     ]
    },
    "Pierre Gasly": {
-    "r": 59,
+    "r": 58,
     "team": "Alpine F1 Team",
-    "pts": 44,
+    "pts": 41,
     "pos": 10,
     "wins": 0,
     "form": [
+     "7",
      "10",
      "12",
      "11",
@@ -6593,10 +6602,11 @@
    "Arvid Lindblad": {
     "r": 55,
     "team": "RB F1 Team",
-    "pts": 23,
+    "pts": 29,
     "pos": 11,
     "wins": 0,
     "form": [
+     "8",
      "12",
      "10",
      "9",
@@ -6606,10 +6616,11 @@
    "Franco Colapinto": {
     "r": 54,
     "team": "Alpine F1 Team",
-    "pts": 19,
+    "pts": 21,
     "pos": 12,
     "wins": 0,
     "form": [
+     "9",
      "14",
      "15",
      "10",
@@ -6617,12 +6628,13 @@
     ]
    },
    "Oliver Bearman": {
-    "r": 54,
+    "r": 53,
     "team": "Haas F1 Team",
     "pts": 18,
     "pos": 13,
     "wins": 0,
     "form": [
+     "15",
      "R",
      "19",
      "14",
@@ -6636,6 +6648,7 @@
     "pos": 14,
     "wins": 0,
     "form": [
+     "11",
      "13",
      "11",
      "8",
@@ -6649,6 +6662,7 @@
     "pos": 15,
     "wins": 0,
     "form": [
+     "12",
      "8",
      "9",
      "13",
@@ -6662,6 +6676,7 @@
     "pos": 16,
     "wins": 0,
     "form": [
+     "13",
      "16",
      "18",
      "16",
@@ -6677,6 +6692,7 @@
     "form": [
      "17",
      "17",
+     "17",
      "15",
      "R"
     ]
@@ -6688,6 +6704,7 @@
     "pos": 18,
     "wins": 0,
     "form": [
+     "16",
      "R",
      "16",
      "17",
@@ -6701,6 +6718,7 @@
     "pos": 19,
     "wins": 0,
     "form": [
+     "R",
      "9",
      "14",
      "19",
@@ -6710,10 +6728,11 @@
    "Yuki Tsunoda": {
     "r": 50,
     "team": "RB F1 Team",
-    "pts": 0,
+    "pts": 1,
     "pos": 20,
     "wins": 0,
     "form": [
+     "10",
      "11"
     ]
    },
@@ -6724,6 +6743,7 @@
     "pos": 21,
     "wins": 0,
     "form": [
+     "R",
      "R",
      "13",
      "R",
@@ -6737,6 +6757,7 @@
     "pos": 22,
     "wins": 0,
     "form": [
+     "19",
      "R",
      "R",
      "18",
@@ -6750,6 +6771,7 @@
     "pos": 23,
     "wins": 0,
     "form": [
+     "18",
      "15",
      "R",
      "R",
@@ -6777,7 +6799,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-06T14:49:51.287Z"
+  "updated": "2026-09-06T21:55:13.815Z"
  },
  "SQUADS": {
   "mexico": [
