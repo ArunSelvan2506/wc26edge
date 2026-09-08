@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-07T21:53:09.617Z",
+ "updated": "2026-09-08T07:46:30.655Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5862,12 +5862,12 @@
     "matches": [
      {
       "id": "df123077-18c0-4ee1-a8ea-ba9fd29b0cce",
-      "teams": "Zimbabwe vs Australia",
-      "t1": "Zimbabwe",
-      "t2": "Australia",
+      "teams": "Australia vs Zimbabwe",
+      "t1": "Australia",
+      "t2": "Zimbabwe",
       "gender": "men",
       "format": "ODI",
-      "venue": "Harare Sports Club, Harare",
+      "venue": "Australia tour of Zimbabwe 2026",
       "ist": "1:00pm",
       "utc": 1789457400000
      }
@@ -6456,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-09-07T21:53:07.120Z",
+  "updated": "2026-09-08T07:46:27.846Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6799,7 +6799,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-07T21:53:09.617Z"
+  "updated": "2026-09-08T07:46:30.655Z"
  },
  "SQUADS": {
   "mexico": [
