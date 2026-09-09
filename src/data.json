@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-09T16:59:17.475Z",
+ "updated": "2026-09-09T22:12:24.231Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Wed 9 Sep (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "4d504550-036d-42bd-9f49-4fd0c038be54",
-      "teams": "England vs Pakistan",
-      "t1": "England",
-      "t2": "Pakistan",
-      "gender": "men",
-      "format": "Test",
-      "venue": "Pakistan tour of England 2026",
-      "ist": "3:30pm",
-      "utc": 1788948000000
-     }
-    ]
-   },
    {
     "date": "Tue 15 Sep (IST)",
     "series": "International",
@@ -6456,7 +6439,7 @@
     ]
    }
   ],
-  "updated": "2026-09-09T16:59:13.906Z",
+  "updated": "2026-09-09T22:12:18.962Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6799,7 +6782,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-09T16:59:17.475Z"
+  "updated": "2026-09-09T22:12:24.231Z"
  },
  "SQUADS": {
   "mexico": [
