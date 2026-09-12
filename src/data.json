@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-12T18:54:22.557Z",
+ "updated": "2026-09-12T21:09:22.738Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6035,7 +6035,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6046,7 +6046,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6063,7 +6063,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6074,7 +6074,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6102,7 +6102,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6113,7 +6113,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6439,7 +6439,7 @@
     ]
    }
   ],
-  "updated": "2026-09-12T18:54:19.150Z",
+  "updated": "2026-09-12T21:09:18.609Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6454,8 +6454,7 @@
      "1",
      "2",
      "3",
-     "1",
-     "15"
+     "1"
     ]
    },
    "George Russell": {
@@ -6468,8 +6467,7 @@
      "2",
      "3",
      "7",
-     "R",
-     "2"
+     "R"
     ]
    },
    "Lewis Hamilton": {
@@ -6482,8 +6480,7 @@
      "6",
      "4",
      "5",
-     "4",
-     "3"
+     "4"
     ]
    },
    "Lando Norris": {
@@ -6496,8 +6493,7 @@
      "4",
      "1",
      "1",
-     "7",
-     "4"
+     "7"
     ]
    },
    "Charles Leclerc": {
@@ -6510,8 +6506,7 @@
      "R",
      "5",
      "4",
-     "2",
-     "1"
+     "2"
     ]
    },
    "Max Verstappen": {
@@ -6524,8 +6519,7 @@
      "3",
      "R",
      "2",
-     "3",
-     "20"
+     "3"
     ]
    },
    "Oscar Piastri": {
@@ -6538,8 +6532,7 @@
      "5",
      "6",
      "R",
-     "5",
-     "11"
+     "5"
     ]
    },
    "Isack Hadjar": {
@@ -6550,8 +6543,7 @@
     "wins": 0,
     "form": [
      "6",
-     "6",
-     "5"
+     "6"
     ]
    },
    "Liam Lawson": {
@@ -6564,8 +6556,7 @@
      "14",
      "7",
      "8",
-     "12",
-     "6"
+     "12"
     ]
    },
    "Pierre Gasly": {
@@ -6578,8 +6569,7 @@
      "7",
      "10",
      "12",
-     "11",
-     "10"
+     "11"
     ]
    },
    "Arvid Lindblad": {
@@ -6592,8 +6582,7 @@
      "8",
      "12",
      "10",
-     "9",
-     "7"
+     "9"
     ]
    },
    "Franco Colapinto": {
@@ -6606,8 +6595,7 @@
      "9",
      "14",
      "15",
-     "10",
-     "9"
+     "10"
     ]
    },
    "Oliver Bearman": {
@@ -6620,8 +6608,7 @@
      "15",
      "R",
      "19",
-     "14",
-     "12"
+     "14"
     ]
    },
    "Gabriel Bortoleto": {
@@ -6634,7 +6621,6 @@
      "11",
      "13",
      "11",
-     "8",
      "8"
     ]
    },
@@ -6648,8 +6634,7 @@
      "12",
      "8",
      "9",
-     "13",
-     "R"
+     "13"
     ]
    },
    "Carlos Sainz": {
@@ -6662,8 +6647,7 @@
      "13",
      "16",
      "18",
-     "16",
-     "17"
+     "16"
     ]
    },
    "Alexander Albon": {
@@ -6676,8 +6660,7 @@
      "17",
      "17",
      "17",
-     "15",
-     "R"
+     "15"
     ]
    },
    "Esteban Ocon": {
@@ -6690,8 +6673,7 @@
      "16",
      "R",
      "16",
-     "17",
-     "13"
+     "17"
     ]
    },
    "Fernando Alonso": {
@@ -6704,8 +6686,7 @@
      "R",
      "9",
      "14",
-     "19",
-     "18"
+     "19"
     ]
    },
    "Yuki Tsunoda": {
@@ -6729,8 +6710,7 @@
      "R",
      "R",
      "13",
-     "R",
-     "19"
+     "R"
     ]
    },
    "Valtteri Bottas": {
@@ -6743,8 +6723,7 @@
      "19",
      "R",
      "R",
-     "18",
-     "16"
+     "18"
     ]
    },
    "Sergio Pérez": {
@@ -6757,8 +6736,7 @@
      "18",
      "15",
      "R",
-     "R",
-     "14"
+     "R"
     ]
    }
   },
@@ -6782,7 +6760,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-12T18:54:22.557Z"
+  "updated": "2026-09-12T21:09:22.738Z"
  },
  "SQUADS": {
   "mexico": [
