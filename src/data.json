@@ -5834,11 +5834,156 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-14T05:42:28.600Z",
+ "updated": "2026-09-14T17:32:14.259Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
+   {
+    "date": "Tue 15 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "89c2f8c7-a9a7-46ca-bf5b-167306253b8a",
+      "teams": "Australia vs Zimbabwe",
+      "t1": "Australia",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "",
+      "ist": "1:00pm",
+      "utc": 1789457400000
+     },
+     {
+      "id": "f29936a3-7d2a-4e6a-a15b-a623b6bac8c5",
+      "teams": "South Africa vs Zimbabwe",
+      "t1": "South Africa",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "",
+      "ist": "5:00pm",
+      "utc": 1789471800000
+     },
+     {
+      "id": "944d7b4b-6f2e-4fd5-b83a-d1b4692c2cae",
+      "teams": "Afghanistan vs India",
+      "t1": "Afghanistan",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "",
+      "ist": "7:30pm",
+      "utc": 1789480800000
+     },
+     {
+      "id": "df9a9699-39e3-4fa8-9d76-ea7c9a5cf99f",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sri Lanka tour of England, 2026",
+      "ist": "11:00pm",
+      "utc": 1789493400000
+     }
+    ]
+   },
+   {
+    "date": "Thu 17 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "bd2e878b-83bb-4f26-9c5f-bcf21258d48a",
+      "teams": "Pakistan vs Thailand",
+      "t1": "Pakistan",
+      "t2": "Thailand",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "",
+      "ist": "10:30am",
+      "utc": 1789621200000
+     },
+     {
+      "id": "c91e1f62-458d-4e63-ac78-df407814b906",
+      "teams": "South Africa vs Zimbabwe",
+      "t1": "South Africa",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "",
+      "ist": "4:30pm",
+      "utc": 1789642800000
+     },
+     {
+      "id": "beab0916-1b5a-47e7-b063-d3ff13fc86af",
+      "teams": "Afghanistan vs India",
+      "t1": "Afghanistan",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "",
+      "ist": "7:30pm",
+      "utc": 1789653600000
+     },
+     {
+      "id": "4a1b00de-b47c-4f26-9420-9d30594be721",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sri Lanka tour of England, 2026",
+      "ist": "11:00pm",
+      "utc": 1789666200000
+     }
+    ]
+   },
+   {
+    "date": "Fri 18 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c87f70db-caeb-4b36-9639-7ac5cd522ab3",
+      "teams": "Australia vs Zimbabwe",
+      "t1": "Australia",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "",
+      "ist": "1:00pm",
+      "utc": 1789716600000
+     }
+    ]
+   },
+   {
+    "date": "Sat 19 Sep (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "e59f72fc-c537-48de-92be-289dcbd8f6ec",
+      "teams": "South Africa vs Zimbabwe",
+      "t1": "South Africa",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "",
+      "ist": "4:30pm",
+      "utc": 1789815600000
+     },
+     {
+      "id": "c88f0df0-3236-4192-9498-ba3fba532e51",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sri Lanka tour of England, 2026",
+      "ist": "7:00pm",
+      "utc": 1789824600000
+     }
+    ]
+   },
    {
     "date": "Sun 27 Sep (IST)",
     "series": "International",
@@ -6355,7 +6500,7 @@
     ]
    }
   ],
-  "updated": "2026-09-14T05:42:25.838Z",
+  "updated": "2026-09-14T17:32:11.972Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6698,7 +6843,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-14T05:42:28.600Z"
+  "updated": "2026-09-14T17:32:14.259Z"
  },
  "SQUADS": {
   "mexico": [
