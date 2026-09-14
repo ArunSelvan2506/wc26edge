@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-14T17:32:14.259Z",
+ "updated": "2026-09-14T21:22:01.418Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5859,7 +5859,7 @@
       "teams": "South Africa vs Zimbabwe",
       "t1": "South Africa",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "",
       "ist": "5:00pm",
@@ -5898,7 +5898,7 @@
       "teams": "Pakistan vs Thailand",
       "t1": "Pakistan",
       "t2": "Thailand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "",
       "ist": "10:30am",
@@ -5909,7 +5909,7 @@
       "teams": "South Africa vs Zimbabwe",
       "t1": "South Africa",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "",
       "ist": "4:30pm",
@@ -5965,7 +5965,7 @@
       "teams": "South Africa vs Zimbabwe",
       "t1": "South Africa",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "",
       "ist": "4:30pm",
@@ -6500,7 +6500,7 @@
     ]
    }
   ],
-  "updated": "2026-09-14T17:32:11.972Z",
+  "updated": "2026-09-14T21:21:57.838Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6843,7 +6843,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-14T17:32:14.259Z"
+  "updated": "2026-09-14T21:22:01.418Z"
  },
  "SQUADS": {
   "mexico": [
