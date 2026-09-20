@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-20T05:39:42.131Z",
+ "updated": "2026-09-20T10:31:27.665Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5850,7 +5850,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "Greenfield International Stadium, Thiruvananthapuram",
+      "venue": "West Indies tour of India, 2026",
       "ist": "2:00pm",
       "utc": 1790497800000
      }
@@ -6388,7 +6388,7 @@
     ]
    }
   ],
-  "updated": "2026-09-20T05:39:39.749Z",
+  "updated": "2026-09-20T10:31:24.214Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6731,7 +6731,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-20T05:39:42.131Z"
+  "updated": "2026-09-20T10:31:27.665Z"
  },
  "SQUADS": {
   "mexico": [
