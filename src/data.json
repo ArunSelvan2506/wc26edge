@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-22T05:47:36.732Z",
+ "updated": "2026-09-23T13:17:29.233Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5867,7 +5867,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "Barsapara Cricket Stadium, Guwahati",
+      "venue": "West Indies tour of India, 2026",
       "ist": "2:00pm",
       "utc": 1790757000000
      }
@@ -6388,7 +6388,7 @@
     ]
    }
   ],
-  "updated": "2026-09-22T05:47:33.814Z",
+  "updated": "2026-09-23T13:17:26.252Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6731,7 +6731,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-22T05:47:36.732Z"
+  "updated": "2026-09-23T13:17:29.233Z"
  },
  "SQUADS": {
   "mexico": [
