@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-26T14:01:05.877Z",
+ "updated": "2026-09-26T18:15:19.077Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5984,7 +5984,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5995,7 +5995,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6012,7 +6012,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6023,7 +6023,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6051,7 +6051,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6062,7 +6062,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6388,7 +6388,7 @@
     ]
    }
   ],
-  "updated": "2026-09-26T14:01:03.178Z",
+  "updated": "2026-09-26T18:15:16.114Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6484,7 +6484,7 @@
     "pos": 7,
     "wins": 0,
     "form": [
-     "14",
+     "13",
      "8",
      "5",
      "6",
@@ -6579,7 +6579,7 @@
     "pos": 14,
     "wins": 0,
     "form": [
-     "13",
+     "15",
      "13",
      "11",
      "13",
@@ -6703,7 +6703,7 @@
     "pos": 23,
     "wins": 0,
     "form": [
-     "15",
+     "14",
      "R",
      "18",
      "15",
@@ -6731,7 +6731,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-26T14:01:05.877Z"
+  "updated": "2026-09-26T18:15:19.077Z"
  },
  "SQUADS": {
   "mexico": [
