@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-27T17:25:14.858Z",
+ "updated": "2026-09-28T03:19:20.574Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6371,7 +6371,7 @@
     ]
    }
   ],
-  "updated": "2026-09-27T17:25:12.038Z",
+  "updated": "2026-09-28T03:19:17.137Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6714,7 +6714,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-27T17:25:14.858Z"
+  "updated": "2026-09-28T03:19:20.574Z"
  },
  "SQUADS": {
   "mexico": [
@@ -7143,6 +7143,40 @@
    {
     "name": "Hakan Çalhanoğlu",
     "pos": "Defensive Midfield"
+   }
+  ],
+  "germany": [
+   {
+    "name": "Aleksandar Pavlović",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Angelo Stiller",
+    "pos": "Defensive Midfield"
+   },
+   {
+    "name": "Antonio Rüdiger",
+    "pos": "Centre-Back"
+   },
+   {
+    "name": "Assan Ouédraogo",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "David Raum",
+    "pos": "Left-Back"
+   },
+   {
+    "name": "Felix Nmecha",
+    "pos": "Central Midfield"
+   },
+   {
+    "name": "Florian Wirtz",
+    "pos": "Attacking Midfield"
+   },
+   {
+    "name": "Jamal Musiala",
+    "pos": "Attacking Midfield"
    }
   ]
  },
