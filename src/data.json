@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-28T23:38:37.490Z",
+ "updated": "2026-09-29T03:56:33.126Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6371,7 +6371,7 @@
     ]
    }
   ],
-  "updated": "2026-09-28T23:38:34.484Z",
+  "updated": "2026-09-29T03:56:29.669Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6714,7 +6714,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-28T23:38:37.490Z"
+  "updated": "2026-09-29T03:56:33.126Z"
  },
  "SQUADS": {
   "mexico": [
@@ -7086,96 +7086,6 @@
    },
    {
     "name": "Cristian Volpato",
-    "pos": "Attacking Midfield"
-   }
-  ],
-  "paraguay": [
-   {
-    "name": "Alexandro Maidana",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Andrés Cubas",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Braian Ojeda",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Damián Bobadilla",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Diego Gómez",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Fabián Balbuena",
-    "pos": "Centre-Back"
-   }
-  ],
-  "turkey": [
-   {
-    "name": "Abdülkerim Bardakcı",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Arda Güler",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Çağlar Söyüncü",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Can Uzun",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Eren Elmalı",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Ferdi Kadıoğlu",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Hakan Çalhanoğlu",
-    "pos": "Defensive Midfield"
-   }
-  ],
-  "germany": [
-   {
-    "name": "Aleksandar Pavlović",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Angelo Stiller",
-    "pos": "Defensive Midfield"
-   },
-   {
-    "name": "Antonio Rüdiger",
-    "pos": "Centre-Back"
-   },
-   {
-    "name": "Assan Ouédraogo",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "David Raum",
-    "pos": "Left-Back"
-   },
-   {
-    "name": "Felix Nmecha",
-    "pos": "Central Midfield"
-   },
-   {
-    "name": "Florian Wirtz",
-    "pos": "Attacking Midfield"
-   },
-   {
-    "name": "Jamal Musiala",
     "pos": "Attacking Midfield"
    }
   ]
