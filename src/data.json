@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-09-29T03:56:33.126Z",
+ "updated": "2026-09-29T16:45:31.845Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5884,7 +5884,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "Bharat Ratna Shri Atal Bihari Vajpayee Ekana Cricket Stadium, Lucknow",
+      "venue": "West Indies tour of India, 2026",
       "ist": "7:00pm",
       "utc": 1791293400000
      }
@@ -6371,7 +6371,7 @@
     ]
    }
   ],
-  "updated": "2026-09-29T03:56:29.669Z",
+  "updated": "2026-09-29T16:45:29.062Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6714,7 +6714,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-09-29T03:56:33.126Z"
+  "updated": "2026-09-29T16:45:31.845Z"
  },
  "SQUADS": {
   "mexico": [
