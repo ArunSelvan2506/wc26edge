@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-02T13:30:44.050Z",
+ "updated": "2026-10-02T18:56:09.416Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5884,7 +5884,7 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "JSCA International Stadium Complex, Ranchi",
+      "venue": "West Indies tour of India, 2026",
       "ist": "7:00pm",
       "utc": 1791552600000
      }
@@ -5950,7 +5950,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5961,7 +5961,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5978,7 +5978,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5989,7 +5989,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6017,7 +6017,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6028,7 +6028,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6354,7 +6354,7 @@
     ]
    }
   ],
-  "updated": "2026-10-02T13:30:41.171Z",
+  "updated": "2026-10-02T18:56:06.801Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6697,7 +6697,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-02T13:30:44.050Z"
+  "updated": "2026-10-02T18:56:09.416Z"
  },
  "SQUADS": {
   "mexico": [
