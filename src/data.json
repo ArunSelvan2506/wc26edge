@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-04T15:37:50.446Z",
+ "updated": "2026-10-04T18:59:01.788Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5860,6 +5860,17 @@
     "date": "Fri 9 Oct (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "51482a19-a41a-494e-82a0-3714b5a77360",
+      "teams": "Australia vs South Africa",
+      "t1": "Australia",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Australia tour of South Africa, 2026",
+      "ist": "1:00pm",
+      "utc": 1791531000000
+     },
      {
       "id": "ff0a0eb6-4abf-474b-9aa6-99fac469b2f2",
       "teams": "India vs West Indies",
@@ -5913,36 +5924,19 @@
     ]
    },
    {
-    "date": "Wed 14 Oct (IST)",
+    "date": "Tue 13 Oct (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "3c451481-9fa8-400b-a7b6-27cffc21e1a8",
-      "teams": "India vs West Indies",
-      "t1": "India",
-      "t2": "West Indies",
+      "id": "aad277c2-2412-4f1c-9d00-98dbe078132e",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
       "gender": "men",
-      "format": "ODI",
-      "venue": "Rajiv Gandhi International Stadium, Hyderabad",
-      "ist": "7:00pm",
-      "utc": 1791984600000
-     }
-    ]
-   },
-   {
-    "date": "Sat 17 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "f6ac293e-72ae-434e-aabc-dec0bdcc2114",
-      "teams": "India vs West Indies",
-      "t1": "India",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "M.Chinnaswamy Stadium, Bengaluru",
-      "ist": "7:00pm",
-      "utc": 1792243800000
+      "format": "T20I",
+      "venue": "Rawalpindi Cricket Stadium, Rawalpindi",
+      "ist": "8:30pm",
+      "utc": 1791903600000
      }
     ]
    },
@@ -5955,7 +5949,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5966,7 +5960,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5983,7 +5977,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5994,7 +5988,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6022,7 +6016,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6033,7 +6027,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6144,6 +6138,23 @@
     ]
    },
    {
+    "date": "Mon 9 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0c09b5c9-b9dc-46a4-884b-c9d546ba3b10",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Rawalpindi Cricket Stadium, Rawalpindi",
+      "ist": "10:30am",
+      "utc": 1794200400000
+     }
+    ]
+   },
+   {
     "date": "Tue 10 Nov (IST)",
     "series": "International",
     "matches": [
@@ -6219,6 +6230,23 @@
       "venue": "Adelaide Oval, Adelaide",
       "ist": "9:00am",
       "utc": 1794713400000
+     }
+    ]
+   },
+   {
+    "date": "Tue 17 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "f5e3ea0a-1952-4abc-bde1-597cf73cf330",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Gaddafi Stadium, Lahore",
+      "ist": "10:30am",
+      "utc": 1794891600000
      }
     ]
    },
@@ -6357,9 +6385,179 @@
       "utc": 1796199300000
      }
     ]
+   },
+   {
+    "date": "Thu 17 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "fc61d2fc-9a7b-498d-82de-a77b2f49650a",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "The Wanderers Stadium, Johannesburg",
+      "ist": "1:30pm",
+      "utc": 1797494400000
+     }
+    ]
+   },
+   {
+    "date": "Sat 26 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "e3777d92-9e16-44e5-b09b-5c76a997de6b",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "SuperSport Park, Centurion",
+      "ist": "1:30pm",
+      "utc": 1798272000000
+     }
+    ]
+   },
+   {
+    "date": "Sun 3 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5e68a90a-24c3-42b1-852c-07a9f6aeef49",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Newlands, Cape Town",
+      "ist": "2:00pm",
+      "utc": 1798965000000
+     }
+    ]
+   },
+   {
+    "date": "Sun 10 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1ab5c9ff-a440-444b-8e5c-e617eb9eac99",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Boland Park, Paarl",
+      "ist": "1:30pm",
+      "utc": 1799568000000
+     }
+    ]
+   },
+   {
+    "date": "Wed 13 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "15c7d880-6988-4533-8045-6c20d34c0066",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Mangaung Oval, Bloemfontein",
+      "ist": "5:00pm",
+      "utc": 1799839800000
+     }
+    ]
+   },
+   {
+    "date": "Fri 15 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "ab1f5fa7-970d-4b3d-8af1-ede54c485f3d",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Mangaung Oval, Bloemfontein",
+      "ist": "1:30pm",
+      "utc": 1800000000000
+     }
+    ]
+   },
+   {
+    "date": "Sat 16 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1807786d-ae42-4daf-9849-039ea9683acd",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "McLean Park, Napier",
+      "ist": "7:30am",
+      "utc": 1800064800000
+     }
+    ]
+   },
+   {
+    "date": "Tue 19 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1e39fba5-1889-476c-9490-0dcc1f05e5cc",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sky Stadium, Wellington",
+      "ist": "7:30am",
+      "utc": 1800324000000
+     }
+    ]
+   },
+   {
+    "date": "Fri 22 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "322b1a1f-7732-477d-b3d1-9b040d6f03f4",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "University Oval, Dunedin",
+      "ist": "7:30am",
+      "utc": 1800583200000
+     }
+    ]
+   },
+   {
+    "date": "Tue 26 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "0c2ae2d2-9759-4adf-a98e-12726e129454",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hagley Oval, Christchurch",
+      "ist": "12:30pm",
+      "utc": 1800946800000
+     }
+    ]
    }
   ],
-  "updated": "2026-10-04T15:37:48.145Z",
+  "updated": "2026-10-04T18:58:56.400Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6367,10 +6565,11 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 302,
+    "pts": 320,
     "pos": 1,
     "wins": 8,
     "form": [
+     "2",
      "5",
      "1",
      "1",
@@ -6378,12 +6577,13 @@
     ]
    },
    "George Russell": {
-    "r": 89,
+    "r": 87,
     "team": "Mercedes",
     "pts": 236,
     "pos": 2,
     "wins": 3,
     "form": [
+     "20",
      "1",
      "5",
      "2",
@@ -6393,49 +6593,53 @@
    "Lewis Hamilton": {
     "r": 83,
     "team": "Ferrari",
-    "pts": 199,
+    "pts": 214,
     "pos": 3,
     "wins": 1,
     "form": [
+     "3",
      "6",
      "R",
      "6",
      "4"
     ]
    },
-   "Lando Norris": {
-    "r": 81,
-    "team": "McLaren",
-    "pts": 186,
-    "pos": 4,
-    "wins": 2,
-    "form": [
-     "R",
-     "3",
-     "4",
-     "1"
-    ]
-   },
    "Charles Leclerc": {
     "r": 80,
     "team": "Ferrari",
-    "pts": 179,
-    "pos": 5,
+    "pts": 191,
+    "pos": 4,
     "wins": 1,
     "form": [
+     "4",
      "4",
      "4",
      "R",
      "5"
     ]
    },
-   "Max Verstappen": {
-    "r": 77,
-    "team": "Red Bull",
-    "pts": 163,
-    "pos": 6,
-    "wins": 0,
+   "Lando Norris": {
+    "r": 79,
+    "team": "McLaren",
+    "pts": 188,
+    "pos": 5,
+    "wins": 2,
     "form": [
+     "9",
+     "R",
+     "3",
+     "4",
+     "1"
+    ]
+   },
+   "Max Verstappen": {
+    "r": 79,
+    "team": "Red Bull",
+    "pts": 188,
+    "pos": 6,
+    "wins": 1,
+    "form": [
+     "1",
      "2",
      "2",
      "3",
@@ -6445,10 +6649,11 @@
    "Oscar Piastri": {
     "r": 70,
     "team": "McLaren",
-    "pts": 120,
+    "pts": 128,
     "pos": 7,
     "wins": 0,
     "form": [
+     "6",
      "13",
      "8",
      "5",
@@ -6456,22 +6661,24 @@
     ]
    },
    "Isack Hadjar": {
-    "r": 64,
+    "r": 65,
     "team": "Red Bull",
-    "pts": 86,
+    "pts": 96,
     "pos": 8,
     "wins": 0,
     "form": [
+     "5",
      "3"
     ]
    },
    "Liam Lawson": {
     "r": 60,
     "team": "RB F1 Team",
-    "pts": 59,
+    "pts": 65,
     "pos": 9,
     "wins": 0,
     "form": [
+     "7",
      "12",
      "6",
      "14",
@@ -6479,12 +6686,13 @@
     ]
    },
    "Pierre Gasly": {
-    "r": 57,
+    "r": 56,
     "team": "Alpine F1 Team",
     "pts": 41,
     "pos": 10,
     "wins": 0,
     "form": [
+     "16",
      "R",
      "12",
      "7",
@@ -6494,10 +6702,11 @@
    "Arvid Lindblad": {
     "r": 56,
     "team": "RB F1 Team",
-    "pts": 37,
+    "pts": 38,
     "pos": 11,
     "wins": 0,
     "form": [
+     "10",
      "7",
      "9",
      "8",
@@ -6511,6 +6720,7 @@
     "pos": 12,
     "wins": 0,
     "form": [
+     "13",
      "R",
      "7",
      "9",
@@ -6524,6 +6734,7 @@
     "pos": 13,
     "wins": 0,
     "form": [
+     "14",
      "9",
      "16",
      "15",
@@ -6537,6 +6748,7 @@
     "pos": 14,
     "wins": 0,
     "form": [
+     "18",
      "15",
      "13",
      "11",
@@ -6551,6 +6763,7 @@
     "wins": 0,
     "form": [
      "11",
+     "11",
      "10",
      "12",
      "8"
@@ -6563,19 +6776,35 @@
     "pos": 16,
     "wins": 0,
     "form": [
+     "15",
      "8",
      "11",
      "16",
      "R"
     ]
    },
-   "Carlos Sainz": {
+   "Fernando Alonso": {
     "r": 51,
-    "team": "Williams",
+    "team": "Aston Martin",
     "pts": 7,
     "pos": 17,
     "wins": 0,
     "form": [
+     "8",
+     "R",
+     "17",
+     "R",
+     "9"
+    ]
+   },
+   "Carlos Sainz": {
+    "r": 51,
+    "team": "Williams",
+    "pts": 7,
+    "pos": 18,
+    "wins": 0,
+    "form": [
+     "17",
      "10",
      "R",
      "13",
@@ -6586,26 +6815,14 @@
     "r": 51,
     "team": "Williams",
     "pts": 5,
-    "pos": 18,
-    "wins": 0,
-    "form": [
-     "R",
-     "15",
-     "17",
-     "17"
-    ]
-   },
-   "Fernando Alonso": {
-    "r": 50,
-    "team": "Aston Martin",
-    "pts": 3,
     "pos": 19,
     "wins": 0,
     "form": [
      "R",
-     "17",
      "R",
-     "9"
+     "15",
+     "17",
+     "17"
     ]
    },
    "Yuki Tsunoda": {
@@ -6627,6 +6844,7 @@
     "pos": 21,
     "wins": 0,
     "form": [
+     "12",
      "R",
      "R",
      "R",
@@ -6640,6 +6858,7 @@
     "pos": 22,
     "wins": 0,
     "form": [
+     "R",
      "16",
      "18",
      "19",
@@ -6653,6 +6872,7 @@
     "pos": 23,
     "wins": 0,
     "form": [
+     "19",
      "14",
      "R",
      "18",
@@ -6668,8 +6888,8 @@
     "Andrea Kimi Antonelli",
     "George Russell",
     "Lewis Hamilton",
-    "Lando Norris",
     "Charles Leclerc",
+    "Lando Norris",
     "Max Verstappen",
     "Oscar Piastri",
     "Isack Hadjar",
@@ -6680,7 +6900,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-04T15:37:50.446Z"
+  "updated": "2026-10-04T18:59:01.788Z"
  },
  "SQUADS": {
   "mexico": [
