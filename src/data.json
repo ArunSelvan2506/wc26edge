@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-04T04:01:32.583Z",
+ "updated": "2026-10-04T10:51:51.974Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6348,7 +6348,7 @@
     ]
    }
   ],
-  "updated": "2026-10-04T04:01:29.206Z",
+  "updated": "2026-10-04T10:51:50.024Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6650,9 +6650,9 @@
    }
   },
   "event": {
-   "date": "Sun 4 Oct (IST)",
-   "utc": 1791097200000,
-   "series": "Bahrain Grand Prix in Malaysia · Kuala Lumpur",
+   "date": "Sun 11 Oct (IST)",
+   "utc": 1791720000000,
+   "series": "Singapore Grand Prix · Marina Bay",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6669,7 +6669,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-04T04:01:32.583Z"
+  "updated": "2026-10-04T10:51:51.974Z"
  },
  "SQUADS": {
   "mexico": [
