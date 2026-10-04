@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-04T18:59:01.788Z",
+ "updated": "2026-10-04T22:15:49.754Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5949,7 +5949,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5960,7 +5960,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5977,7 +5977,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5988,7 +5988,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6016,7 +6016,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6027,7 +6027,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6557,7 +6557,7 @@
     ]
    }
   ],
-  "updated": "2026-10-04T18:58:56.400Z",
+  "updated": "2026-10-04T22:15:47.630Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6900,7 +6900,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-04T18:59:01.788Z"
+  "updated": "2026-10-04T22:15:49.754Z"
  },
  "SQUADS": {
   "mexico": [
