@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-03T20:32:03.436Z",
+ "updated": "2026-10-04T04:01:32.583Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6348,7 +6348,7 @@
     ]
    }
   ],
-  "updated": "2026-10-03T20:32:00.944Z",
+  "updated": "2026-10-04T04:01:29.206Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6669,7 +6669,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-03T20:32:03.436Z"
+  "updated": "2026-10-04T04:01:32.583Z"
  },
  "SQUADS": {
   "mexico": [
@@ -9594,7 +9594,7 @@
     "pos": "Defender"
    },
    {
-    "name": "Mohammad Taha",
+    "name": "Mohammad Abu Ghoush",
     "pos": "Midfield"
    },
    {
