@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-04T10:51:51.974Z",
+ "updated": "2026-10-04T15:37:50.446Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5895,9 +5895,20 @@
       "t2": "West Indies",
       "gender": "men",
       "format": "ODI",
-      "venue": "Holkar Stadium, Indore",
+      "venue": "West Indies tour of India, 2026",
       "ist": "7:00pm",
       "utc": 1791725400000
+     },
+     {
+      "id": "0cb2b44c-69b3-4c50-b1a5-9af598ffecaf",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sri Lanka tour of Pakistan, 2026",
+      "ist": "8:30pm",
+      "utc": 1791730800000
      }
     ]
    },
@@ -6348,7 +6359,7 @@
     ]
    }
   ],
-  "updated": "2026-10-04T10:51:50.024Z",
+  "updated": "2026-10-04T15:37:48.145Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6669,7 +6680,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-04T10:51:51.974Z"
+  "updated": "2026-10-04T15:37:50.446Z"
  },
  "SQUADS": {
   "mexico": [
