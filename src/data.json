@@ -5834,39 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-09T16:48:54.091Z",
+ "updated": "2026-10-09T21:26:03.335Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 9 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "51482a19-a41a-494e-82a0-3714b5a77360",
-      "teams": "Australia vs South Africa",
-      "t1": "Australia",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Australia tour of South Africa, 2026",
-      "ist": "1:00pm",
-      "utc": 1791531000000
-     },
-     {
-      "id": "ff0a0eb6-4abf-474b-9aa6-99fac469b2f2",
-      "teams": "India vs West Indies",
-      "t1": "India",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
-      "ist": "7:00pm",
-      "utc": 1791552600000
-     }
-    ]
-   },
    {
     "date": "Sun 11 Oct (IST)",
     "series": "International",
@@ -6546,7 +6518,7 @@
     ]
    }
   ],
-  "updated": "2026-10-09T16:48:52.030Z",
+  "updated": "2026-10-09T21:26:00.164Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6889,7 +6861,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-09T16:48:54.091Z"
+  "updated": "2026-10-09T21:26:03.335Z"
  },
  "SQUADS": {
   "mexico": [
