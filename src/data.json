@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-10T14:59:09.930Z",
+ "updated": "2026-10-10T23:09:22.112Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6535,7 +6535,7 @@
     ]
    }
   ],
-  "updated": "2026-10-10T14:59:07.255Z",
+  "updated": "2026-10-10T23:09:18.265Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6543,19 +6543,18 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 320,
+    "pts": 325,
     "pos": 1,
     "wins": 8,
     "form": [
      "2",
      "5",
      "1",
-     "1",
-     "2"
+     "1"
     ]
    },
    "George Russell": {
-    "r": 87,
+    "r": 86,
     "team": "Mercedes",
     "pts": 236,
     "pos": 2,
@@ -6564,64 +6563,59 @@
      "20",
      "1",
      "5",
-     "2",
-     "3"
+     "2"
     ]
    },
    "Lewis Hamilton": {
-    "r": 83,
+    "r": 84,
     "team": "Ferrari",
-    "pts": 214,
+    "pts": 221,
     "pos": 3,
     "wins": 1,
     "form": [
      "3",
      "6",
      "R",
-     "6",
-     "4"
+     "6"
     ]
    },
    "Charles Leclerc": {
     "r": 80,
     "team": "Ferrari",
-    "pts": 191,
+    "pts": 197,
     "pos": 4,
     "wins": 1,
     "form": [
      "4",
      "4",
      "4",
-     "R",
-     "5"
-    ]
-   },
-   "Lando Norris": {
-    "r": 79,
-    "team": "McLaren",
-    "pts": 188,
-    "pos": 5,
-    "wins": 2,
-    "form": [
-     "9",
-     "R",
-     "3",
-     "4",
-     "1"
+     "R"
     ]
    },
    "Max Verstappen": {
-    "r": 79,
+    "r": 80,
     "team": "Red Bull",
-    "pts": 188,
-    "pos": 6,
+    "pts": 196,
+    "pos": 5,
     "wins": 1,
     "form": [
      "1",
      "2",
      "2",
+     "3"
+    ]
+   },
+   "Lando Norris": {
+    "r": 79,
+    "team": "McLaren",
+    "pts": 189,
+    "pos": 6,
+    "wins": 2,
+    "form": [
+     "9",
+     "R",
      "3",
-     "R"
+     "4"
     ]
    },
    "Oscar Piastri": {
@@ -6634,8 +6628,7 @@
      "6",
      "13",
      "8",
-     "5",
-     "6"
+     "5"
     ]
    },
    "Isack Hadjar": {
@@ -6650,17 +6643,16 @@
     ]
    },
    "Liam Lawson": {
-    "r": 60,
+    "r": 61,
     "team": "RB F1 Team",
-    "pts": 65,
+    "pts": 69,
     "pos": 9,
     "wins": 0,
     "form": [
      "7",
      "12",
      "6",
-     "14",
-     "7"
+     "14"
     ]
    },
    "Pierre Gasly": {
@@ -6673,8 +6665,7 @@
      "16",
      "R",
      "12",
-     "7",
-     "10"
+     "7"
     ]
    },
    "Arvid Lindblad": {
@@ -6687,8 +6678,7 @@
      "10",
      "7",
      "9",
-     "8",
-     "12"
+     "8"
     ]
    },
    "Franco Colapinto": {
@@ -6701,22 +6691,20 @@
      "13",
      "R",
      "7",
-     "9",
-     "14"
+     "9"
     ]
    },
    "Oliver Bearman": {
-    "r": 53,
+    "r": 54,
     "team": "Haas F1 Team",
-    "pts": 20,
+    "pts": 23,
     "pos": 13,
     "wins": 0,
     "form": [
      "14",
      "9",
      "16",
-     "15",
-     "R"
+     "15"
     ]
    },
    "Gabriel Bortoleto": {
@@ -6729,22 +6717,20 @@
      "18",
      "15",
      "13",
-     "11",
-     "13"
+     "11"
     ]
    },
    "Nico Hülkenberg": {
     "r": 51,
     "team": "Audi",
-    "pts": 7,
+    "pts": 9,
     "pos": 15,
     "wins": 0,
     "form": [
      "11",
      "11",
      "10",
-     "12",
-     "8"
+     "12"
     ]
    },
    "Esteban Ocon": {
@@ -6757,8 +6743,7 @@
      "15",
      "8",
      "11",
-     "16",
-     "R"
+     "16"
     ]
    },
    "Fernando Alonso": {
@@ -6771,8 +6756,7 @@
      "8",
      "R",
      "17",
-     "R",
-     "9"
+     "R"
     ]
    },
    "Carlos Sainz": {
@@ -6785,8 +6769,7 @@
      "17",
      "10",
      "R",
-     "13",
-     "16"
+     "13"
     ]
    },
    "Alexander Albon": {
@@ -6799,7 +6782,6 @@
      "R",
      "R",
      "15",
-     "17",
      "17"
     ]
    },
@@ -6811,8 +6793,7 @@
     "wins": 0,
     "form": [
      "14",
-     "10",
-     "11"
+     "10"
     ]
    },
    "Lance Stroll": {
@@ -6823,7 +6804,6 @@
     "wins": 0,
     "form": [
      "12",
-     "R",
      "R",
      "R",
      "R"
@@ -6839,8 +6819,7 @@
      "R",
      "16",
      "18",
-     "19",
-     "R"
+     "19"
     ]
    },
    "Sergio Pérez": {
@@ -6853,8 +6832,7 @@
      "19",
      "14",
      "R",
-     "18",
-     "15"
+     "18"
     ]
    }
   },
@@ -6867,8 +6845,8 @@
     "George Russell",
     "Lewis Hamilton",
     "Charles Leclerc",
-    "Lando Norris",
     "Max Verstappen",
+    "Lando Norris",
     "Oscar Piastri",
     "Isack Hadjar",
     "Liam Lawson",
@@ -6878,7 +6856,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-10T14:59:09.930Z"
+  "updated": "2026-10-10T23:09:22.111Z"
  },
  "SQUADS": {
   "mexico": [
