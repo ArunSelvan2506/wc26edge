@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-11T10:31:48.356Z",
+ "updated": "2026-10-11T16:29:51.109Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6546,7 +6546,7 @@
     ]
    }
   ],
-  "updated": "2026-10-11T10:31:46.144Z",
+  "updated": "2026-10-11T16:29:47.596Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6554,10 +6554,11 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 325,
+    "pts": 340,
     "pos": 1,
     "wins": 8,
     "form": [
+     "3",
      "2",
      "5",
      "1",
@@ -6565,12 +6566,13 @@
     ]
    },
    "George Russell": {
-    "r": 86,
+    "r": 85,
     "team": "Mercedes",
-    "pts": 236,
+    "pts": 238,
     "pos": 2,
     "wins": 3,
     "form": [
+     "9",
      "20",
      "1",
      "5",
@@ -6580,49 +6582,53 @@
    "Lewis Hamilton": {
     "r": 84,
     "team": "Ferrari",
-    "pts": 221,
+    "pts": 229,
     "pos": 3,
     "wins": 1,
     "form": [
+     "6",
      "3",
      "6",
      "R",
      "6"
     ]
    },
-   "Charles Leclerc": {
-    "r": 80,
-    "team": "Ferrari",
-    "pts": 197,
-    "pos": 4,
-    "wins": 1,
-    "form": [
-     "4",
-     "4",
-     "4",
-     "R"
-    ]
-   },
    "Max Verstappen": {
-    "r": 80,
+    "r": 83,
     "team": "Red Bull",
-    "pts": 196,
-    "pos": 5,
-    "wins": 1,
+    "pts": 221,
+    "pos": 4,
+    "wins": 2,
     "form": [
+     "1",
      "1",
      "2",
      "2",
      "3"
     ]
    },
+   "Charles Leclerc": {
+    "r": 82,
+    "team": "Ferrari",
+    "pts": 215,
+    "pos": 5,
+    "wins": 1,
+    "form": [
+     "2",
+     "4",
+     "4",
+     "4",
+     "R"
+    ]
+   },
    "Lando Norris": {
-    "r": 79,
+    "r": 80,
     "team": "McLaren",
-    "pts": 189,
+    "pts": 201,
     "pos": 6,
     "wins": 2,
     "form": [
+     "4",
      "9",
      "R",
      "3",
@@ -6632,10 +6638,11 @@
    "Oscar Piastri": {
     "r": 70,
     "team": "McLaren",
-    "pts": 128,
+    "pts": 138,
     "pos": 7,
     "wins": 0,
     "form": [
+     "5",
      "6",
      "13",
      "8",
@@ -6643,12 +6650,13 @@
     ]
    },
    "Isack Hadjar": {
-    "r": 65,
+    "r": 64,
     "team": "Red Bull",
-    "pts": 96,
+    "pts": 97,
     "pos": 8,
     "wins": 0,
     "form": [
+     "10",
      "5",
      "3"
     ]
@@ -6656,10 +6664,11 @@
    "Liam Lawson": {
     "r": 61,
     "team": "RB F1 Team",
-    "pts": 69,
+    "pts": 75,
     "pos": 9,
     "wins": 0,
     "form": [
+     "7",
      "7",
      "12",
      "6",
@@ -6673,6 +6682,7 @@
     "pos": 10,
     "wins": 0,
     "form": [
+     "11",
      "16",
      "R",
      "12",
@@ -6686,6 +6696,7 @@
     "pos": 11,
     "wins": 0,
     "form": [
+     "15",
      "10",
      "7",
      "9",
@@ -6699,6 +6710,7 @@
     "pos": 12,
     "wins": 0,
     "form": [
+     "R",
      "13",
      "R",
      "7",
@@ -6706,42 +6718,45 @@
     ]
    },
    "Oliver Bearman": {
-    "r": 54,
+    "r": 53,
     "team": "Haas F1 Team",
     "pts": 23,
     "pos": 13,
     "wins": 0,
     "form": [
+     "12",
      "14",
      "9",
      "16",
      "15"
     ]
    },
-   "Gabriel Bortoleto": {
+   "Nico Hülkenberg": {
     "r": 52,
     "team": "Audi",
-    "pts": 10,
+    "pts": 13,
     "pos": 14,
     "wins": 0,
     "form": [
-     "18",
-     "15",
-     "13",
-     "11"
-    ]
-   },
-   "Nico Hülkenberg": {
-    "r": 51,
-    "team": "Audi",
-    "pts": 9,
-    "pos": 15,
-    "wins": 0,
-    "form": [
+     "8",
      "11",
      "11",
      "10",
      "12"
+    ]
+   },
+   "Gabriel Bortoleto": {
+    "r": 51,
+    "team": "Audi",
+    "pts": 10,
+    "pos": 15,
+    "wins": 0,
+    "form": [
+     "R",
+     "18",
+     "15",
+     "13",
+     "11"
     ]
    },
    "Esteban Ocon": {
@@ -6751,6 +6766,7 @@
     "pos": 16,
     "wins": 0,
     "form": [
+     "13",
      "15",
      "8",
      "11",
@@ -6764,6 +6780,7 @@
     "pos": 17,
     "wins": 0,
     "form": [
+     "16",
      "8",
      "R",
      "17",
@@ -6777,6 +6794,7 @@
     "pos": 18,
     "wins": 0,
     "form": [
+     "14",
      "17",
      "10",
      "R",
@@ -6790,6 +6808,7 @@
     "pos": 19,
     "wins": 0,
     "form": [
+     "18",
      "R",
      "R",
      "15",
@@ -6814,6 +6833,7 @@
     "pos": 21,
     "wins": 0,
     "form": [
+     "R",
      "12",
      "R",
      "R",
@@ -6827,6 +6847,7 @@
     "pos": 22,
     "wins": 0,
     "form": [
+     "19",
      "R",
      "16",
      "18",
@@ -6840,6 +6861,7 @@
     "pos": 23,
     "wins": 0,
     "form": [
+     "17",
      "19",
      "14",
      "R",
@@ -6848,15 +6870,15 @@
    }
   },
   "event": {
-   "date": "Sun 11 Oct (IST)",
-   "utc": 1791720000000,
-   "series": "Singapore Grand Prix · Marina Bay",
+   "date": "Mon 26 Oct (IST)",
+   "utc": 1792958400000,
+   "series": "United States Grand Prix · Austin",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
     "Lewis Hamilton",
-    "Charles Leclerc",
     "Max Verstappen",
+    "Charles Leclerc",
     "Lando Norris",
     "Oscar Piastri",
     "Isack Hadjar",
@@ -6867,7 +6889,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-11T10:31:48.355Z"
+  "updated": "2026-10-11T16:29:51.109Z"
  },
  "SQUADS": {
   "mexico": [
