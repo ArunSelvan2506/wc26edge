@@ -5834,39 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-11T16:29:51.109Z",
+ "updated": "2026-10-11T20:44:52.992Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 11 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "8775724e-9bb6-4494-91ca-7822c201aec5",
-      "teams": "India vs West Indies",
-      "t1": "India",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
-      "ist": "7:00pm",
-      "utc": 1791725400000
-     },
-     {
-      "id": "0cb2b44c-69b3-4c50-b1a5-9af598ffecaf",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sri Lanka tour of Pakistan, 2026",
-      "ist": "8:30pm",
-      "utc": 1791730800000
-     }
-    ]
-   },
    {
     "date": "Tue 13 Oct (IST)",
     "series": "International",
@@ -6546,7 +6518,7 @@
     ]
    }
   ],
-  "updated": "2026-10-11T16:29:47.596Z",
+  "updated": "2026-10-11T20:44:48.955Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6889,7 +6861,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-11T16:29:51.109Z"
+  "updated": "2026-10-11T20:44:52.992Z"
  },
  "SQUADS": {
   "mexico": [
