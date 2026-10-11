@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-10T23:09:22.112Z",
+ "updated": "2026-10-11T10:31:48.356Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5923,13 +5923,24 @@
     "series": "International",
     "matches": [
      {
+      "id": "87c745f1-00b1-4eae-a083-d67fffd80388",
+      "teams": "Australia vs South Africa",
+      "t1": "Australia",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Australia tour of South Africa, 2026",
+      "ist": "1:00pm",
+      "utc": 1792308600000
+     },
+     {
       "id": "96c28c45-810b-4794-984e-e5207b34dfa3",
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "North Sydney Oval, Sydney",
+      "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792311300000
      },
@@ -5938,9 +5949,9 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "North Sydney Oval, Sydney",
+      "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792311300000
      }
@@ -6535,7 +6546,7 @@
     ]
    }
   ],
-  "updated": "2026-10-10T23:09:18.265Z",
+  "updated": "2026-10-11T10:31:46.144Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6856,7 +6867,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-10T23:09:22.111Z"
+  "updated": "2026-10-11T10:31:48.355Z"
  },
  "SQUADS": {
   "mexico": [
