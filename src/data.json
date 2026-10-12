@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-11T20:44:52.992Z",
+ "updated": "2026-10-12T00:09:26.480Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5938,7 +5938,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5949,7 +5949,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5977,7 +5977,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5988,7 +5988,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6348,108 +6348,6 @@
     ]
    },
    {
-    "date": "Thu 17 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "fc61d2fc-9a7b-498d-82de-a77b2f49650a",
-      "teams": "South Africa vs England",
-      "t1": "South Africa",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "The Wanderers Stadium, Johannesburg",
-      "ist": "1:30pm",
-      "utc": 1797494400000
-     }
-    ]
-   },
-   {
-    "date": "Sat 26 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "e3777d92-9e16-44e5-b09b-5c76a997de6b",
-      "teams": "South Africa vs England",
-      "t1": "South Africa",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "SuperSport Park, Centurion",
-      "ist": "1:30pm",
-      "utc": 1798272000000
-     }
-    ]
-   },
-   {
-    "date": "Sun 3 Jan (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "5e68a90a-24c3-42b1-852c-07a9f6aeef49",
-      "teams": "South Africa vs England",
-      "t1": "South Africa",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Newlands, Cape Town",
-      "ist": "2:00pm",
-      "utc": 1798965000000
-     }
-    ]
-   },
-   {
-    "date": "Sun 10 Jan (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "1ab5c9ff-a440-444b-8e5c-e617eb9eac99",
-      "teams": "South Africa vs England",
-      "t1": "South Africa",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Boland Park, Paarl",
-      "ist": "1:30pm",
-      "utc": 1799568000000
-     }
-    ]
-   },
-   {
-    "date": "Wed 13 Jan (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "15c7d880-6988-4533-8045-6c20d34c0066",
-      "teams": "South Africa vs England",
-      "t1": "South Africa",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Mangaung Oval, Bloemfontein",
-      "ist": "5:00pm",
-      "utc": 1799839800000
-     }
-    ]
-   },
-   {
-    "date": "Fri 15 Jan (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "ab1f5fa7-970d-4b3d-8af1-ede54c485f3d",
-      "teams": "South Africa vs England",
-      "t1": "South Africa",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Mangaung Oval, Bloemfontein",
-      "ist": "1:30pm",
-      "utc": 1800000000000
-     }
-    ]
-   },
-   {
     "date": "Sat 16 Jan (IST)",
     "series": "International",
     "matches": [
@@ -6518,7 +6416,7 @@
     ]
    }
   ],
-  "updated": "2026-10-11T20:44:48.955Z",
+  "updated": "2026-10-12T00:09:23.021Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6861,7 +6759,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-11T20:44:52.992Z"
+  "updated": "2026-10-12T00:09:26.480Z"
  },
  "SQUADS": {
   "mexico": [
