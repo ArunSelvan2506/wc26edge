@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-12T00:09:26.480Z",
+ "updated": "2026-10-12T16:25:38.413Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5938,7 +5938,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5949,7 +5949,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5977,7 +5977,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -5988,7 +5988,7 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "North Sydney Oval, Sydney",
       "ist": "1:45pm",
@@ -6416,7 +6416,7 @@
     ]
    }
   ],
-  "updated": "2026-10-12T00:09:23.021Z",
+  "updated": "2026-10-12T16:25:36.578Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6759,7 +6759,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-12T00:09:26.480Z"
+  "updated": "2026-10-12T16:25:38.413Z"
  },
  "SQUADS": {
   "mexico": [
