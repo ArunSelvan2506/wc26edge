@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-12T16:25:38.413Z",
+ "updated": "2026-10-13T13:25:55.440Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5874,9 +5874,37 @@
     ]
    },
    {
+    "date": "Fri 16 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "b9c38067-96a6-41ea-94ba-417b4d8f0f23",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Zimbabwe Women tour of India, 2026",
+      "ist": "7:00pm",
+      "utc": 1792157400000
+     }
+    ]
+   },
+   {
     "date": "Sat 17 Oct (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "a8de3763-0abf-448a-b584-a242bfa15745",
+      "teams": "Bangladesh vs Zimbabwe",
+      "t1": "Bangladesh",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ODI Tri-Nation Series in UAE, 2026",
+      "ist": "5:30pm",
+      "utc": 1792238400000
+     },
      {
       "id": "f6ac293e-72ae-434e-aabc-dec0bdcc2114",
       "teams": "India vs West Indies",
@@ -5906,6 +5934,17 @@
       "utc": 1792308600000
      },
      {
+      "id": "98d2afd6-f4dc-4d43-a25b-0f812d8bc5c6",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1792310400000
+     },
+     {
       "id": "96c28c45-810b-4794-984e-e5207b34dfa3",
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
@@ -5926,6 +5965,34 @@
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792311300000
+     },
+     {
+      "id": "85f911c5-a5e8-465b-90af-c601fce75012",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Zimbabwe Women tour of India, 2026",
+      "ist": "7:00pm",
+      "utc": 1792330200000
+     }
+    ]
+   },
+   {
+    "date": "Mon 19 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5c423077-05b4-45fb-9053-aad85439c1f3",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ODI Tri-Nation Series in UAE, 2026",
+      "ist": "5:30pm",
+      "utc": 1792411200000
      }
     ]
    },
@@ -5934,13 +6001,24 @@
     "series": "International",
     "matches": [
      {
+      "id": "17fc6ab9-84ba-490f-b35a-e671192df9cc",
+      "teams": "England vs Pakistan",
+      "t1": "England",
+      "t2": "Pakistan",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1792483200000
+     },
+     {
       "id": "2e5ee6e9-511f-434e-b794-9d3a792e2a6e",
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "North Sydney Oval, Sydney",
+      "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792484100000
      },
@@ -5949,9 +6027,9 @@
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "North Sydney Oval, Sydney",
+      "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792484100000
      }
@@ -6416,7 +6494,7 @@
     ]
    }
   ],
-  "updated": "2026-10-12T16:25:36.578Z",
+  "updated": "2026-10-13T13:25:53.563Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6759,7 +6837,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-12T16:25:38.413Z"
+  "updated": "2026-10-13T13:25:55.440Z"
  },
  "SQUADS": {
   "mexico": [
