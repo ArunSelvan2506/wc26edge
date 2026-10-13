@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-13T13:25:55.440Z",
+ "updated": "2026-10-13T20:01:43.380Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Tue 13 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "aad277c2-2412-4f1c-9d00-98dbe078132e",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sri Lanka tour of Pakistan, 2026",
-      "ist": "8:30pm",
-      "utc": 1791903600000
-     }
-    ]
-   },
    {
     "date": "Wed 14 Oct (IST)",
     "series": "International",
@@ -6032,6 +6015,17 @@
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792484100000
+     },
+     {
+      "id": "7ef2a3f0-c9f5-402a-9417-078e9d583d6e",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Zimbabwe Women tour of India, 2026",
+      "ist": "7:00pm",
+      "utc": 1792503000000
      }
     ]
    },
@@ -6494,7 +6488,7 @@
     ]
    }
   ],
-  "updated": "2026-10-13T13:25:53.563Z",
+  "updated": "2026-10-13T20:01:41.179Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6837,7 +6831,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-13T13:25:55.440Z"
+  "updated": "2026-10-13T20:01:43.380Z"
  },
  "SQUADS": {
   "mexico": [
