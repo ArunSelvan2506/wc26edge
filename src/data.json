@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-14T16:23:51.847Z",
+ "updated": "2026-10-14T20:24:26.371Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Wed 14 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "3c451481-9fa8-400b-a7b6-27cffc21e1a8",
-      "teams": "India vs West Indies",
-      "t1": "India",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
-      "ist": "7:00pm",
-      "utc": 1791984600000
-     }
-    ]
-   },
    {
     "date": "Thu 15 Oct (IST)",
     "series": "International",
@@ -6606,7 +6589,7 @@
     ]
    }
   ],
-  "updated": "2026-10-14T16:23:48.929Z",
+  "updated": "2026-10-14T20:24:22.771Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6949,7 +6932,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-14T16:23:51.847Z"
+  "updated": "2026-10-14T20:24:26.371Z"
  },
  "SQUADS": {
   "mexico": [
