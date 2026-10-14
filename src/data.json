@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-13T20:01:43.380Z",
+ "updated": "2026-10-14T00:05:16.349Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,6 +5843,17 @@
     "date": "Wed 14 Oct (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "c28bfd05-81dd-46d6-9873-b094df319ef3",
+      "teams": "Australia vs Bangladesh",
+      "t1": "Australia",
+      "t2": "Bangladesh",
+      "gender": "women",
+      "format": "ODI",
+      "venue": "Bangladesh Women tour of Australia, 2026",
+      "ist": "9:20am",
+      "utc": 1791949800000
+     },
      {
       "id": "3c451481-9fa8-400b-a7b6-27cffc21e1a8",
       "teams": "India vs West Indies",
@@ -6030,392 +6041,353 @@
     ]
    },
    {
-    "date": "Thu 22 Oct (IST)",
+    "date": "Thu 10 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "68be7da0-0e0a-4009-bca0-5a76dcc1d564",
-      "teams": "New Zealand vs India",
+      "id": "8b181d24-0904-4e32-8018-05d6fd0d98e2",
+      "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hagley Oval, Christchurch",
-      "ist": "12:30pm",
-      "utc": 1792652400000
-     },
-     {
-      "id": "1e140eff-3d6d-4b62-bfcf-cd723dd26cd7",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "North Sydney Oval, Sydney",
-      "ist": "1:45pm",
-      "utc": 1792656900000
-     },
-     {
-      "id": "e9272c0c-de16-4bbd-93a2-cd93989f67f3",
-      "teams": "Australia vs Bangladesh",
-      "t1": "Australia",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
-      "venue": "North Sydney Oval, Sydney",
-      "ist": "1:45pm",
-      "utc": 1792656900000
-     }
-    ]
-   },
-   {
-    "date": "Sat 24 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "7a614754-d3c7-4690-b8b2-2759ff00a673",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hagley Oval, Christchurch",
+      "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
-      "utc": 1792825200000
+      "utc": 1796886000000
      }
     ]
    },
    {
-    "date": "Tue 27 Oct (IST)",
+    "date": "Sat 12 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "1962f911-9e43-4b49-9e02-f3ef74b76fe6",
-      "teams": "New Zealand vs India",
+      "id": "6f67a370-7430-4d28-85c9-4c3c373e460e",
+      "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
+      "t2": "Bangladesh",
+      "gender": "women",
       "format": "T20I",
-      "venue": "Sky Stadium, Wellington",
+      "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
-      "utc": 1793084400000
+      "utc": 1797058800000
      }
     ]
    },
    {
-    "date": "Fri 30 Oct (IST)",
+    "date": "Sun 13 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "2445a90a-eef7-467e-8cb6-75c4203a8e2c",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Eden Park, Auckland",
-      "ist": "12:30pm",
-      "utc": 1793343600000
-     }
-    ]
-   },
-   {
-    "date": "Sun 1 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "936348e9-608f-4ca8-9cc5-5d3082ab0b90",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Seddon Park, Hamilton",
-      "ist": "12:30pm",
-      "utc": 1793516400000
-     }
-    ]
-   },
-   {
-    "date": "Wed 4 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "c547eb46-2025-413a-b7f2-6d1584daa42f",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Eden Park, Auckland",
-      "ist": "7:30am",
-      "utc": 1793757600000
-     }
-    ]
-   },
-   {
-    "date": "Sat 7 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "8d868342-e1d5-4f86-a4f0-093f6abab3f9",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sky Stadium, Wellington",
-      "ist": "7:30am",
-      "utc": 1794016800000
-     }
-    ]
-   },
-   {
-    "date": "Mon 9 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "0c09b5c9-b9dc-46a4-884b-c9d546ba3b10",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
+      "id": "0de6bd83-084d-4141-9323-9be80ba87465",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
       "t2": "Sri Lanka",
       "gender": "men",
       "format": "T20I",
-      "venue": "Rawalpindi Cricket Stadium, Rawalpindi",
-      "ist": "10:30am",
-      "utc": 1794200400000
+      "venue": "Arun Jaitley Stadium, Delhi",
+      "ist": "2:00pm",
+      "utc": 1797150600000
      }
     ]
    },
    {
-    "date": "Tue 10 Nov (IST)",
+    "date": "Tue 15 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "4cb54768-b317-42c6-bb7d-409dd2a6c862",
-      "teams": "New Zealand vs India",
+      "id": "2bb0af35-6f0e-42c2-a751-e538966cae46",
+      "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
-      "t2": "India",
+      "t2": "Bangladesh",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Sky Stadium, Wellington",
+      "ist": "12:30pm",
+      "utc": 1797318000000
+     }
+    ]
+   },
+   {
+    "date": "Wed 16 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "09dba477-11e4-436f-888a-f50d835de2be",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
       "gender": "men",
       "format": "T20I",
-      "venue": "Seddon Park, Hamilton",
-      "ist": "7:30am",
-      "utc": 1794276000000
+      "venue": "M.Chinnaswamy Stadium, Bengaluru",
+      "ist": "2:00pm",
+      "utc": 1797409800000
      }
     ]
    },
    {
-    "date": "Thu 12 Nov (IST)",
+    "date": "Thu 17 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "044eb601-88bc-4ded-95f6-e410617afeb3",
-      "teams": "Australia vs England",
-      "t1": "Australia",
+      "id": "331337d2-5c24-4478-ad50-298525724c95",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "Perth Stadium, Perth",
-      "ist": "9:00am",
-      "utc": 1794454200000
+      "venue": "The Wanderers Stadium, Johannesburg",
+      "ist": "1:30pm",
+      "utc": 1797494400000
      }
     ]
    },
    {
-    "date": "Fri 13 Nov (IST)",
+    "date": "Fri 18 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "dcd3e81d-98af-4ccc-b42a-05a6f3bd59e8",
-      "teams": "New Zealand vs India",
+      "id": "306bccba-98da-4e5f-a3c5-bbab33529fc8",
+      "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
+      "t2": "Bangladesh",
+      "gender": "women",
       "format": "T20I",
-      "venue": "Bay Oval, Mount Maunganui",
+      "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
-      "utc": 1794535200000
+      "utc": 1797559200000
      }
     ]
    },
    {
-    "date": "Sun 15 Nov (IST)",
+    "date": "Sat 19 Dec (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "8f6dadd6-2ac1-48b7-bfd4-a07ac156ca1b",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
+      "id": "03a16c03-ea25-4b69-9a95-e99c91961310",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
       "gender": "men",
+      "format": "T20I",
+      "venue": "Narendra Modi Stadium, Ahmedabad",
+      "ist": "2:00pm",
+      "utc": 1797669000000
+     }
+    ]
+   },
+   {
+    "date": "Mon 21 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "a0d32a1f-5395-475f-b45f-0ef9d5ae84d6",
+      "teams": "New Zealand vs Bangladesh",
+      "t1": "New Zealand",
+      "t2": "Bangladesh",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
-      "utc": 1794708000000
+      "utc": 1797818400000
+     }
+    ]
+   },
+   {
+    "date": "Tue 22 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5c4e90b8-1b4a-40b4-bf1d-6e524b5cd3bc",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Niranjan Shah Stadium, Khandheri, Rajkot",
+      "ist": "7:00pm",
+      "utc": 1797946200000
+     }
+    ]
+   },
+   {
+    "date": "Wed 23 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "326c2a50-1e06-4aa2-9f59-aff7271fb9c4",
+      "teams": "New Zealand vs Bangladesh",
+      "t1": "New Zealand",
+      "t2": "Bangladesh",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Bay Oval, Mount Maunganui",
+      "ist": "7:30am",
+      "utc": 1797991200000
+     }
+    ]
+   },
+   {
+    "date": "Thu 24 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "4378018d-3ba6-4874-b018-1f089118577c",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Barabati Stadium, Cuttack",
+      "ist": "7:00pm",
+      "utc": 1798119000000
+     }
+    ]
+   },
+   {
+    "date": "Sat 26 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "549686c8-e049-479d-8832-a253a3438830",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "SuperSport Park, Centurion",
+      "ist": "1:30pm",
+      "utc": 1798272000000
+     }
+    ]
+   },
+   {
+    "date": "Sun 27 Dec (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "f39855ec-4746-4f00-9de8-f6623a4ee5e6",
+      "teams": "India vs Sri Lanka",
+      "t1": "India",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Maharashtra Cricket Association Stadium, Pune",
+      "ist": "7:00pm",
+      "utc": 1798378200000
+     }
+    ]
+   },
+   {
+    "date": "Sun 3 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "affb4f81-cc41-41a2-9f77-1ed759008d7c",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Eden Gardens, Kolkata",
+      "ist": "2:00pm",
+      "utc": 1798965000000
      },
      {
-      "id": "25507052-def7-4a22-84d9-f6e4c886a9ef",
-      "teams": "Australia vs England",
-      "t1": "Australia",
+      "id": "ddb979ef-cd30-4152-bed2-630059d364f0",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "Adelaide Oval, Adelaide",
-      "ist": "9:00am",
-      "utc": 1794713400000
+      "venue": "Newlands, Cape Town",
+      "ist": "2:00pm",
+      "utc": 1798965000000
      }
     ]
    },
    {
-    "date": "Tue 17 Nov (IST)",
+    "date": "Wed 6 Jan (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "f5e3ea0a-1952-4abc-bde1-597cf73cf330",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
+      "id": "2e7a336b-dcf4-4fe9-802f-352f2fa6e713",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
       "gender": "men",
-      "format": "T20I",
-      "venue": "Gaddafi Stadium, Lahore",
-      "ist": "10:30am",
-      "utc": 1794891600000
+      "format": "ODI",
+      "venue": "Rajiv Gandhi International Stadium, Hyderabad",
+      "ist": "2:00pm",
+      "utc": 1799224200000
      }
     ]
    },
    {
-    "date": "Wed 18 Nov (IST)",
+    "date": "Sat 9 Jan (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "65a866a2-8e3a-49a4-91cf-9ed6a5854cb5",
-      "teams": "Australia vs England",
-      "t1": "Australia",
+      "id": "39311193-4ef3-4213-9011-e76d39be0eb5",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Wankhede Stadium, Mumbai",
+      "ist": "2:00pm",
+      "utc": 1799483400000
+     }
+    ]
+   },
+   {
+    "date": "Sun 10 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "955738ab-91e2-4faf-bcb5-ddf65b5b926d",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "Bellerive Oval, Hobart",
-      "ist": "9:00am",
-      "utc": 1794972600000
+      "venue": "Boland Park, Paarl",
+      "ist": "1:30pm",
+      "utc": 1799568000000
      }
     ]
    },
    {
-    "date": "Fri 20 Nov (IST)",
+    "date": "Wed 13 Jan (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "163a0512-5f23-4446-b450-fa888e36038e",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Basin Reserve, Wellington",
-      "ist": "3:30am",
-      "utc": 1795125600000
-     }
-    ]
-   },
-   {
-    "date": "Sat 21 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "9938f414-5b57-4cc8-bff8-e41e47c94fba",
-      "teams": "Australia vs England",
-      "t1": "Australia",
+      "id": "f8ffb3ac-478d-4d4f-a40f-a694e43d7b10",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "Melbourne Cricket Ground, Melbourne",
-      "ist": "1:45pm",
-      "utc": 1795248900000
+      "venue": "Mangaung Oval, Bloemfontein",
+      "ist": "5:00pm",
+      "utc": 1799839800000
      }
     ]
    },
    {
-    "date": "Tue 24 Nov (IST)",
+    "date": "Fri 15 Jan (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "b1e1ed10-cf14-4a8a-93e2-fca76e499756",
-      "teams": "Australia vs England",
-      "t1": "Australia",
+      "id": "b3029b94-c82b-451b-9203-e90c64c9d1ad",
+      "teams": "South Africa vs England",
+      "t1": "South Africa",
       "t2": "England",
       "gender": "men",
       "format": "T20I",
-      "venue": "Carrara Oval, Queensland",
-      "ist": "1:45pm",
-      "utc": 1795508100000
-     }
-    ]
-   },
-   {
-    "date": "Fri 27 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "3727c700-566c-4c38-b56d-5474fd01b013",
-      "teams": "Australia vs England",
-      "t1": "Australia",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "The Gabba, Brisbane",
-      "ist": "1:45pm",
-      "utc": 1795767300000
-     }
-    ]
-   },
-   {
-    "date": "Sat 28 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "c81e7d49-463b-478a-bc28-06608c6466d2",
-      "teams": "New Zealand vs India",
-      "t1": "New Zealand",
-      "t2": "India",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hagley Oval, Christchurch",
-      "ist": "3:30am",
-      "utc": 1795816800000
-     }
-    ]
-   },
-   {
-    "date": "Sun 29 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "6e33a324-9822-4274-95b7-37b002dd0377",
-      "teams": "Australia vs England",
-      "t1": "Australia",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sydney Cricket Ground, Sydney",
-      "ist": "1:45pm",
-      "utc": 1795940100000
-     }
-    ]
-   },
-   {
-    "date": "Wed 2 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "9357fb0b-d61a-44dc-8c5d-156bf3c7714c",
-      "teams": "Australia vs England",
-      "t1": "Australia",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Manuka Oval, Canberra",
-      "ist": "1:45pm",
-      "utc": 1796199300000
+      "venue": "Mangaung Oval, Bloemfontein",
+      "ist": "1:30pm",
+      "utc": 1800000000000
      }
     ]
    },
@@ -6454,6 +6426,23 @@
     ]
    },
    {
+    "date": "Thu 21 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "7a626906-771b-4375-b1ea-1c6fde062186",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Vidarbha Cricket Association Stadium, Nagpur",
+      "ist": "9:30am",
+      "utc": 1800504000000
+     }
+    ]
+   },
+   {
     "date": "Fri 22 Jan (IST)",
     "series": "International",
     "matches": [
@@ -6486,9 +6475,71 @@
       "utc": 1800946800000
      }
     ]
+   },
+   {
+    "date": "Fri 29 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "377d6d05-59a8-4adb-bb96-d53c3edb3cee",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "MA Chidambaram Stadium, Chennai",
+      "ist": "9:30am",
+      "utc": 1801195200000
+     },
+     {
+      "id": "612e2b49-c09f-433f-8e03-748e49f98171",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Saxton Oval, Nelson",
+      "ist": "12:30pm",
+      "utc": 1801206000000
+     }
+    ]
+   },
+   {
+    "date": "Sun 31 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "b35ab422-783a-4e05-b638-e82573b5e094",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Saxton Oval, Nelson",
+      "ist": "12:30pm",
+      "utc": 1801378800000
+     }
+    ]
+   },
+   {
+    "date": "Fri 5 Feb (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "2e90638b-3247-4bc4-a125-890d428381b1",
+      "teams": "New Zealand vs Sri Lanka",
+      "t1": "New Zealand",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Bay Oval, Mount Maunganui",
+      "ist": "3:30am",
+      "utc": 1801778400000
+     }
+    ]
    }
   ],
-  "updated": "2026-10-13T20:01:41.179Z",
+  "updated": "2026-10-14T00:05:14.299Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6831,7 +6882,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-13T20:01:43.380Z"
+  "updated": "2026-10-14T00:05:16.349Z"
  },
  "SQUADS": {
   "mexico": [
