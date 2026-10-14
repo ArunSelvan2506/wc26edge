@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-14T11:03:44.967Z",
+ "updated": "2026-10-14T16:23:51.847Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,6 +5853,23 @@
       "venue": "West Indies tour of India, 2026",
       "ist": "7:00pm",
       "utc": 1791984600000
+     }
+    ]
+   },
+   {
+    "date": "Thu 15 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "8068c292-3042-402b-a53f-76ddc54d9785",
+      "teams": "Canada vs Oman",
+      "t1": "Canada",
+      "t2": "Oman",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:30am",
+      "utc": 1792044000000
      }
     ]
    },
@@ -5877,6 +5894,28 @@
     "date": "Sat 17 Oct (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "cb919ac0-a0a4-4aec-8afd-7b0d2b2d558e",
+      "teams": "Canada vs Nepal",
+      "t1": "Canada",
+      "t2": "Nepal",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:30am",
+      "utc": 1792216800000
+     },
+     {
+      "id": "20822cbb-7fb1-4ba0-a975-b74bd2613bba",
+      "teams": "Bangladesh vs Zimbabwe",
+      "t1": "Bangladesh",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ODI Tri-Nation Series in UAE, 2026",
+      "ist": "5:30pm",
+      "utc": 1792238400000
+     },
      {
       "id": "a8de3763-0abf-448a-b584-a242bfa15745",
       "teams": "Bangladesh vs Zimbabwe",
@@ -5967,6 +6006,28 @@
     "series": "International",
     "matches": [
      {
+      "id": "d1a5aeba-24cc-4546-b214-df6de78f1247",
+      "teams": "Nepal vs Oman",
+      "t1": "Nepal",
+      "t2": "Oman",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:30am",
+      "utc": 1792389600000
+     },
+     {
+      "id": "a14f02f8-9bc2-44ad-b3aa-17e6e1972e80",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ODI Tri-Nation Series in UAE, 2026",
+      "ist": "5:30pm",
+      "utc": 1792411200000
+     },
+     {
       "id": "5c423077-05b4-45fb-9053-aad85439c1f3",
       "teams": "Afghanistan vs Zimbabwe",
       "t1": "Afghanistan",
@@ -6026,6 +6087,23 @@
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "7:00pm",
       "utc": 1792503000000
+     }
+    ]
+   },
+   {
+    "date": "Wed 21 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "430aaf02-f284-47b9-a4e4-452ae068887f",
+      "teams": "Afghanistan vs Bangladesh",
+      "t1": "Afghanistan",
+      "t2": "Bangladesh",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ODI Tri-Nation Series in UAE, 2026",
+      "ist": "5:30pm",
+      "utc": 1792584000000
      }
     ]
    },
@@ -6528,7 +6606,7 @@
     ]
    }
   ],
-  "updated": "2026-10-14T11:03:42.440Z",
+  "updated": "2026-10-14T16:23:48.929Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6871,7 +6949,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-14T11:03:44.967Z"
+  "updated": "2026-10-14T16:23:51.847Z"
  },
  "SQUADS": {
   "mexico": [
