@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-14T05:44:19.441Z",
+ "updated": "2026-10-14T11:03:44.967Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Wed 14 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "c28bfd05-81dd-46d6-9873-b094df319ef3",
-      "teams": "Australia vs Bangladesh",
-      "t1": "Australia",
-      "t2": "Bangladesh",
-      "gender": "women",
-      "format": "ODI",
-      "venue": "Bangladesh Women tour of Australia, 2026",
-      "ist": "9:20am",
-      "utc": 1791949800000
-     },
      {
       "id": "3c451481-9fa8-400b-a7b6-27cffc21e1a8",
       "teams": "India vs West Indies",
@@ -6539,7 +6528,7 @@
     ]
    }
   ],
-  "updated": "2026-10-14T05:44:17.221Z",
+  "updated": "2026-10-14T11:03:42.440Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6882,7 +6871,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-14T05:44:19.441Z"
+  "updated": "2026-10-14T11:03:44.967Z"
  },
  "SQUADS": {
   "mexico": [
