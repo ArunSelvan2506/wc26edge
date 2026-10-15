@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-14T20:24:26.371Z",
+ "updated": "2026-10-15T08:00:22.509Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6087,6 +6087,23 @@
       "venue": "ODI Tri-Nation Series in UAE, 2026",
       "ist": "5:30pm",
       "utc": 1792584000000
+     }
+    ]
+   },
+   {
+    "date": "Thu 22 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "68be7da0-0e0a-4009-bca0-5a76dcc1d564",
+      "teams": "India vs New Zealand",
+      "t1": "India",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of New Zealand 2026",
+      "ist": "12:30pm",
+      "utc": 1792652400000
      }
     ]
    },
@@ -6589,7 +6606,7 @@
     ]
    }
   ],
-  "updated": "2026-10-14T20:24:22.771Z",
+  "updated": "2026-10-15T08:00:17.194Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6932,7 +6949,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-14T20:24:26.371Z"
+  "updated": "2026-10-15T08:00:22.509Z"
  },
  "SQUADS": {
   "mexico": [
