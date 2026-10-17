@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-17T10:03:53.240Z",
+ "updated": "2026-10-17T14:01:46.270Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Sat 17 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "cb919ac0-a0a4-4aec-8afd-7b0d2b2d558e",
-      "teams": "Canada vs Nepal",
-      "t1": "Canada",
-      "t2": "Nepal",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "11:30am",
-      "utc": 1792216800000
-     },
      {
       "id": "20822cbb-7fb1-4ba0-a975-b74bd2613bba",
       "teams": "Bangladesh vs Zimbabwe",
@@ -6673,7 +6662,7 @@
     ]
    }
   ],
-  "updated": "2026-10-17T10:03:49.836Z",
+  "updated": "2026-10-17T14:01:42.461Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7016,7 +7005,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-17T10:03:53.240Z"
+  "updated": "2026-10-17T14:01:46.270Z"
  },
  "SQUADS": {
   "mexico": [
