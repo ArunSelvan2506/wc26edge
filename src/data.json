@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-17T17:43:20.324Z",
+ "updated": "2026-10-17T20:00:33.894Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sat 17 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "20822cbb-7fb1-4ba0-a975-b74bd2613bba",
-      "teams": "Bangladesh vs Zimbabwe",
-      "t1": "Bangladesh",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ODI Tri-Nation Series in UAE, 2026",
-      "ist": "5:30pm",
-      "utc": 1792238400000
-     }
-    ]
-   },
    {
     "date": "Sun 18 Oct (IST)",
     "series": "International",
@@ -6651,7 +6634,7 @@
     ]
    }
   ],
-  "updated": "2026-10-17T17:43:15.676Z",
+  "updated": "2026-10-17T20:00:29.302Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6994,7 +6977,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-17T17:43:20.324Z"
+  "updated": "2026-10-17T20:00:33.894Z"
  },
  "SQUADS": {
   "mexico": [
