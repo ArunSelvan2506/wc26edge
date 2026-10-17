@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-17T14:01:46.270Z",
+ "updated": "2026-10-17T17:43:20.324Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,17 +5853,6 @@
       "venue": "ODI Tri-Nation Series in UAE, 2026",
       "ist": "5:30pm",
       "utc": 1792238400000
-     },
-     {
-      "id": "f6ac293e-72ae-434e-aabc-dec0bdcc2114",
-      "teams": "India vs West Indies",
-      "t1": "India",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "West Indies tour of India, 2026",
-      "ist": "7:00pm",
-      "utc": 1792243800000
      }
     ]
    },
@@ -6662,7 +6651,7 @@
     ]
    }
   ],
-  "updated": "2026-10-17T14:01:42.461Z",
+  "updated": "2026-10-17T17:43:15.676Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7005,7 +6994,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-17T14:01:46.270Z"
+  "updated": "2026-10-17T17:43:20.324Z"
  },
  "SQUADS": {
   "mexico": [
