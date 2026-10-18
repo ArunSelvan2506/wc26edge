@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-18T14:15:31.384Z",
+ "updated": "2026-10-18T17:45:09.869Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5855,17 +5855,6 @@
       "utc": 1792308600000
      },
      {
-      "id": "98d2afd6-f4dc-4d43-a25b-0f812d8bc5c6",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Pakistan ODI Tri-Series, 2026",
-      "ist": "1:30pm",
-      "utc": 1792310400000
-     },
-     {
       "id": "3024d407-3fa8-4114-866f-03fc36f5f032",
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
@@ -5875,17 +5864,6 @@
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792311300000
-     },
-     {
-      "id": "85f911c5-a5e8-465b-90af-c601fce75012",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India, 2026",
-      "ist": "7:00pm",
-      "utc": 1792330200000
      }
     ]
    },
@@ -6651,7 +6629,7 @@
     ]
    }
   ],
-  "updated": "2026-10-18T14:15:27.162Z",
+  "updated": "2026-10-18T17:45:06.060Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6994,7 +6972,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-18T14:15:31.384Z"
+  "updated": "2026-10-18T17:45:09.869Z"
  },
  "SQUADS": {
   "mexico": [
