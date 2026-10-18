@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-18T05:21:38.503Z",
+ "updated": "2026-10-18T10:17:07.647Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6098,6 +6098,34 @@
       "venue": "Ireland tour of Namibia, 2026",
       "ist": "1:30pm",
       "utc": 1792828800000
+     }
+    ]
+   },
+   {
+    "date": "Sun 25 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "f542502b-a537-46a6-8dbd-48eeaedd4d90",
+      "teams": "England vs Pakistan",
+      "t1": "England",
+      "t2": "Pakistan",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1792915200000
+     },
+     {
+      "id": "bb9378ae-85dd-4513-85ef-069c87305750",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Zimbabwe Women tour of India, 2026",
+      "ist": "2:00pm",
+      "utc": 1792917000000
      }
     ]
    },
@@ -6634,7 +6662,7 @@
     ]
    }
   ],
-  "updated": "2026-10-18T05:21:34.850Z",
+  "updated": "2026-10-18T10:17:04.503Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6977,7 +7005,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-18T05:21:38.503Z"
+  "updated": "2026-10-18T10:17:07.647Z"
  },
  "SQUADS": {
   "mexico": [
