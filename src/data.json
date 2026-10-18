@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-18T20:00:22.974Z",
+ "updated": "2026-10-18T22:22:21.806Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 18 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "3024d407-3fa8-4114-866f-03fc36f5f032",
-      "teams": "Australia vs Bangladesh",
-      "t1": "Australia",
-      "t2": "Bangladesh",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "Bangladesh Women tour of Australia, 2026",
-      "ist": "1:45pm",
-      "utc": 1792311300000
-     }
-    ]
-   },
    {
     "date": "Mon 19 Oct (IST)",
     "series": "International",
@@ -6618,7 +6601,7 @@
     ]
    }
   ],
-  "updated": "2026-10-18T20:00:10.206Z",
+  "updated": "2026-10-18T22:22:19.394Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6961,7 +6944,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-18T20:00:22.974Z"
+  "updated": "2026-10-18T22:22:21.806Z"
  },
  "SQUADS": {
   "mexico": [
