@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-18T10:17:07.647Z",
+ "updated": "2026-10-18T14:15:31.384Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5864,17 +5864,6 @@
       "venue": "Pakistan ODI Tri-Series, 2026",
       "ist": "1:30pm",
       "utc": 1792310400000
-     },
-     {
-      "id": "96c28c45-810b-4794-984e-e5207b34dfa3",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "New Zealand Women tour of Australia, 2026",
-      "ist": "1:45pm",
-      "utc": 1792311300000
      },
      {
       "id": "3024d407-3fa8-4114-866f-03fc36f5f032",
@@ -6121,7 +6110,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6662,7 +6651,7 @@
     ]
    }
   ],
-  "updated": "2026-10-18T10:17:04.503Z",
+  "updated": "2026-10-18T14:15:27.162Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7005,7 +6994,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-18T10:17:07.647Z"
+  "updated": "2026-10-18T14:15:31.384Z"
  },
  "SQUADS": {
   "mexico": [
