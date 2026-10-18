@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-18T17:45:09.869Z",
+ "updated": "2026-10-18T20:00:22.974Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Sun 18 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "87c745f1-00b1-4eae-a083-d67fffd80388",
-      "teams": "Australia vs South Africa",
-      "t1": "Australia",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Australia tour of South Africa, 2026",
-      "ist": "1:00pm",
-      "utc": 1792308600000
-     },
      {
       "id": "3024d407-3fa8-4114-866f-03fc36f5f032",
       "teams": "Australia vs Bangladesh",
@@ -6629,7 +6618,7 @@
     ]
    }
   ],
-  "updated": "2026-10-18T17:45:06.060Z",
+  "updated": "2026-10-18T20:00:10.206Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6972,7 +6961,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-18T17:45:09.869Z"
+  "updated": "2026-10-18T20:00:22.974Z"
  },
  "SQUADS": {
   "mexico": [
