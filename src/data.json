@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-19T18:25:53.696Z",
+ "updated": "2026-10-19T22:46:24.754Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Mon 19 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "a14f02f8-9bc2-44ad-b3aa-17e6e1972e80",
-      "teams": "Afghanistan vs Zimbabwe",
-      "t1": "Afghanistan",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ODI Tri-Nation Series in UAE, 2026",
-      "ist": "5:30pm",
-      "utc": 1792411200000
-     }
-    ]
-   },
    {
     "date": "Tue 20 Oct (IST)",
     "series": "International",
@@ -5993,7 +5976,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6049,7 +6032,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6066,7 +6049,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6083,7 +6066,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6117,7 +6100,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "12:30pm",
@@ -6168,7 +6151,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
@@ -6202,7 +6185,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6236,7 +6219,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6590,7 +6573,7 @@
     ]
    }
   ],
-  "updated": "2026-10-19T18:25:51.410Z",
+  "updated": "2026-10-19T22:46:21.849Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6933,7 +6916,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-19T18:25:53.696Z"
+  "updated": "2026-10-19T22:46:24.754Z"
  },
  "SQUADS": {
   "mexico": [
