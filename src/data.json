@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-19T22:46:24.754Z",
+ "updated": "2026-10-20T07:03:59.331Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6037,6 +6037,23 @@
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
       "utc": 1792917000000
+     }
+    ]
+   },
+   {
+    "date": "Tue 27 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "1962f911-9e43-4b49-9e02-f3ef74b76fe6",
+      "teams": "India vs New Zealand",
+      "t1": "India",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of New Zealand 2026",
+      "ist": "12:30pm",
+      "utc": 1793084400000
      }
     ]
    },
@@ -6573,7 +6590,7 @@
     ]
    }
   ],
-  "updated": "2026-10-19T22:46:21.849Z",
+  "updated": "2026-10-20T07:03:55.664Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6916,7 +6933,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-19T22:46:24.754Z"
+  "updated": "2026-10-20T07:03:59.331Z"
  },
  "SQUADS": {
   "mexico": [
