@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-20T13:15:13.116Z",
+ "updated": "2026-10-20T18:16:48.527Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Tue 20 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "17fc6ab9-84ba-490f-b35a-e671192df9cc",
-      "teams": "England vs Pakistan",
-      "t1": "England",
-      "t2": "Pakistan",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Pakistan ODI Tri-Series, 2026",
-      "ist": "1:30pm",
-      "utc": 1792483200000
-     },
      {
       "id": "d15fcf8c-a4b4-44a3-8ae4-8043acbe5e56",
       "teams": "Australia vs Bangladesh",
@@ -5864,17 +5853,6 @@
       "venue": "Bangladesh Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792484100000
-     },
-     {
-      "id": "7ef2a3f0-c9f5-402a-9417-078e9d583d6e",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India, 2026",
-      "ist": "7:00pm",
-      "utc": 1792503000000
      }
     ]
    },
@@ -5965,7 +5943,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6021,7 +5999,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6076,6 +6054,17 @@
       "venue": "Australia tour of South Africa, 2026",
       "ist": "2:00pm",
       "utc": 1793089800000
+     },
+     {
+      "id": "1950e564-6c89-4a51-bd21-4b7413137434",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
+      "ist": "8:00pm",
+      "utc": 1793111400000
      }
     ]
    },
@@ -6088,7 +6077,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6105,7 +6094,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6139,7 +6128,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "12:30pm",
@@ -6190,7 +6179,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
@@ -6224,7 +6213,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6258,7 +6247,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6612,7 +6601,7 @@
     ]
    }
   ],
-  "updated": "2026-10-20T13:15:10.143Z",
+  "updated": "2026-10-20T18:16:45.701Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6955,7 +6944,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-20T13:15:13.115Z"
+  "updated": "2026-10-20T18:16:48.527Z"
  },
  "SQUADS": {
   "mexico": [
