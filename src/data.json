@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-20T07:03:59.331Z",
+ "updated": "2026-10-20T13:15:13.116Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,17 +5853,6 @@
       "venue": "Pakistan ODI Tri-Series, 2026",
       "ist": "1:30pm",
       "utc": 1792483200000
-     },
-     {
-      "id": "2e5ee6e9-511f-434e-b794-9d3a792e2a6e",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "New Zealand Women tour of Australia, 2026",
-      "ist": "1:45pm",
-      "utc": 1792484100000
      },
      {
       "id": "d15fcf8c-a4b4-44a3-8ae4-8043acbe5e56",
@@ -6054,6 +6043,39 @@
       "venue": "India tour of New Zealand 2026",
       "ist": "12:30pm",
       "utc": 1793084400000
+     },
+     {
+      "id": "339bd1c4-ccc3-44ba-9ad3-5dac79401d40",
+      "teams": "Ireland vs Namibia",
+      "t1": "Ireland",
+      "t2": "Namibia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Ireland tour of Namibia, 2026",
+      "ist": "1:30pm",
+      "utc": 1793088000000
+     },
+     {
+      "id": "bf282a4a-7348-487c-8b5c-12f2ac3f4237",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1793088000000
+     },
+     {
+      "id": "e50a9d29-3043-47ef-b9ed-034f79cc6b0b",
+      "teams": "Australia vs South Africa",
+      "t1": "Australia",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Australia tour of South Africa, 2026",
+      "ist": "2:00pm",
+      "utc": 1793089800000
      }
     ]
    },
@@ -6590,7 +6612,7 @@
     ]
    }
   ],
-  "updated": "2026-10-20T07:03:55.664Z",
+  "updated": "2026-10-20T13:15:10.143Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6933,7 +6955,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-20T07:03:59.331Z"
+  "updated": "2026-10-20T13:15:13.115Z"
  },
  "SQUADS": {
   "mexico": [
