@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-21T06:57:30.178Z",
+ "updated": "2026-10-21T12:45:40.594Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5872,17 +5872,6 @@
       "utc": 1792652400000
      },
      {
-      "id": "98e35c6a-8155-4959-8df7-b4ac6fc4edfd",
-      "teams": "Ireland vs Namibia",
-      "t1": "Ireland",
-      "t2": "Namibia",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland tour of Namibia, 2026",
-      "ist": "1:30pm",
-      "utc": 1792656000000
-     },
-     {
       "id": "374856f9-a78b-425b-b6db-10f190bb8eb6",
       "teams": "England vs Sri Lanka",
       "t1": "England",
@@ -5890,6 +5879,17 @@
       "gender": "men",
       "format": "ODI",
       "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1792656000000
+     },
+     {
+      "id": "98e35c6a-8155-4959-8df7-b4ac6fc4edfd",
+      "teams": "Ireland vs Namibia",
+      "t1": "Ireland",
+      "t2": "Namibia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Ireland tour of Namibia, 2026",
       "ist": "1:30pm",
       "utc": 1792656000000
      },
@@ -5967,6 +5967,17 @@
     "series": "International",
     "matches": [
      {
+      "id": "8ac2a8d5-2da4-4c95-9772-63a4fb6c42ca",
+      "teams": "Netherlands vs United Arab Emirates",
+      "t1": "Netherlands",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:00am",
+      "utc": 1792906200000
+     },
+     {
       "id": "f542502b-a537-46a6-8dbd-48eeaedd4d90",
       "teams": "England vs Pakistan",
       "t1": "England",
@@ -5995,6 +6006,17 @@
     "series": "International",
     "matches": [
      {
+      "id": "df5dd379-9372-490a-99d2-b6b54a17f9a5",
+      "teams": "Netherlands vs Oman",
+      "t1": "Netherlands",
+      "t2": "Oman",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:00am",
+      "utc": 1793079000000
+     },
+     {
       "id": "1962f911-9e43-4b49-9e02-f3ef74b76fe6",
       "teams": "India vs New Zealand",
       "t1": "India",
@@ -6006,17 +6028,6 @@
       "utc": 1793084400000
      },
      {
-      "id": "339bd1c4-ccc3-44ba-9ad3-5dac79401d40",
-      "teams": "Ireland vs Namibia",
-      "t1": "Ireland",
-      "t2": "Namibia",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland tour of Namibia, 2026",
-      "ist": "1:30pm",
-      "utc": 1793088000000
-     },
-     {
       "id": "bf282a4a-7348-487c-8b5c-12f2ac3f4237",
       "teams": "Pakistan vs Sri Lanka",
       "t1": "Pakistan",
@@ -6024,6 +6035,17 @@
       "gender": "men",
       "format": "ODI",
       "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1793088000000
+     },
+     {
+      "id": "339bd1c4-ccc3-44ba-9ad3-5dac79401d40",
+      "teams": "Ireland vs Namibia",
+      "t1": "Ireland",
+      "t2": "Namibia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Ireland tour of Namibia, 2026",
       "ist": "1:30pm",
       "utc": 1793088000000
      },
@@ -6065,6 +6087,17 @@
       "venue": "West Indies tour of Bangladesh, 2026",
       "ist": "9:00am",
       "utc": 1793158200000
+     },
+     {
+      "id": "7dc5c9c9-4924-4e36-a7a2-1f7eda3d5080",
+      "teams": "India vs Zimbabwe",
+      "t1": "India",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Zimbabwe Women tour of India, 2026",
+      "ist": "2:00pm",
+      "utc": 1793176200000
      }
     ]
    },
@@ -6601,7 +6634,7 @@
     ]
    }
   ],
-  "updated": "2026-10-21T06:57:26.315Z",
+  "updated": "2026-10-21T12:45:38.188Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6944,7 +6977,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-21T06:57:30.178Z"
+  "updated": "2026-10-21T12:45:40.594Z"
  },
  "SQUADS": {
   "mexico": [
