@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-21T17:51:34.949Z",
+ "updated": "2026-10-21T21:10:15.378Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Wed 21 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "430aaf02-f284-47b9-a4e4-452ae068887f",
-      "teams": "Afghanistan vs Bangladesh",
-      "t1": "Afghanistan",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ODI Tri-Nation Series in UAE, 2026",
-      "ist": "5:30pm",
-      "utc": 1792584000000
-     }
-    ]
-   },
    {
     "date": "Thu 22 Oct (IST)",
     "series": "International",
@@ -5931,6 +5914,17 @@
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
       "utc": 1792744200000
+     },
+     {
+      "id": "17cfca64-315b-498b-8009-57996a04342f",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ODI Tri-Nation Series in UAE, 2026",
+      "ist": "5:30pm",
+      "utc": 1792756800000
      }
     ]
    },
@@ -6634,7 +6628,7 @@
     ]
    }
   ],
-  "updated": "2026-10-21T17:51:31.005Z",
+  "updated": "2026-10-21T21:10:12.527Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6977,7 +6971,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-21T17:51:34.949Z"
+  "updated": "2026-10-21T21:10:15.378Z"
  },
  "SQUADS": {
   "mexico": [
