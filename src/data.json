@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-22T05:42:08.233Z",
+ "updated": "2026-10-22T11:03:01.411Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5855,17 +5855,6 @@
       "utc": 1792652400000
      },
      {
-      "id": "98e35c6a-8155-4959-8df7-b4ac6fc4edfd",
-      "teams": "Ireland vs Namibia",
-      "t1": "Ireland",
-      "t2": "Namibia",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland tour of Namibia, 2026",
-      "ist": "1:30pm",
-      "utc": 1792656000000
-     },
-     {
       "id": "374856f9-a78b-425b-b6db-10f190bb8eb6",
       "teams": "England vs Sri Lanka",
       "t1": "England",
@@ -5877,6 +5866,17 @@
       "utc": 1792656000000
      },
      {
+      "id": "98e35c6a-8155-4959-8df7-b4ac6fc4edfd",
+      "teams": "Ireland vs Namibia",
+      "t1": "Ireland",
+      "t2": "Namibia",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Ireland tour of Namibia, 2026",
+      "ist": "1:30pm",
+      "utc": 1792656000000
+     },
+     {
       "id": "e9272c0c-de16-4bbd-93a2-cd93989f67f3",
       "teams": "Australia vs Bangladesh",
       "t1": "Australia",
@@ -5884,17 +5884,6 @@
       "gender": "women",
       "format": "T20I",
       "venue": "Bangladesh Women tour of Australia, 2026",
-      "ist": "1:45pm",
-      "utc": 1792656900000
-     },
-     {
-      "id": "1e140eff-3d6d-4b62-bfcf-cd723dd26cd7",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "New Zealand Women tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1792656900000
      }
@@ -6109,6 +6098,17 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "11:00am",
       "utc": 1793251800000
+     },
+     {
+      "id": "074cb065-c64b-476a-89df-b6bcde4da715",
+      "teams": "England vs Sri Lanka",
+      "t1": "England",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1793260800000
      }
     ]
    },
@@ -6690,7 +6690,7 @@
     ]
    }
   ],
-  "updated": "2026-10-22T05:42:05.087Z",
+  "updated": "2026-10-22T11:02:57.942Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7033,7 +7033,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-22T05:42:08.233Z"
+  "updated": "2026-10-22T11:03:01.411Z"
  },
  "SQUADS": {
   "mexico": [
