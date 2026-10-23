@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-22T23:50:41.066Z",
+ "updated": "2026-10-23T03:07:35.269Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6070,6 +6070,34 @@
       "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
       "ist": "8:00pm",
       "utc": 1793284200000
+     }
+    ]
+   },
+   {
+    "date": "Fri 30 Oct (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "5df086ea-ee08-4249-a056-b090c9e50d88",
+      "teams": "Bangladesh vs Scotland",
+      "t1": "Bangladesh",
+      "t2": "Scotland",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "7:10am",
+      "utc": 1793324400000
+     },
+     {
+      "id": "328c85c1-85cf-4ecd-b718-b68c139a4c11",
+      "teams": "Pakistan vs United Arab Emirates",
+      "t1": "Pakistan",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "8:05am",
+      "utc": 1793327700000
      }
     ]
    },
@@ -6651,7 +6679,7 @@
     ]
    }
   ],
-  "updated": "2026-10-22T23:50:36.227Z",
+  "updated": "2026-10-23T03:07:31.247Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6994,7 +7022,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-22T23:50:41.066Z"
+  "updated": "2026-10-23T03:07:35.269Z"
  },
  "SQUADS": {
   "mexico": [
