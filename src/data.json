@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-23T14:36:46.100Z",
+ "updated": "2026-10-23T18:51:14.580Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 23 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "17cfca64-315b-498b-8009-57996a04342f",
-      "teams": "Afghanistan vs Zimbabwe",
-      "t1": "Afghanistan",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ODI Tri-Nation Series in UAE, 2026",
-      "ist": "5:30pm",
-      "utc": 1792756800000
-     }
-    ]
-   },
    {
     "date": "Sat 24 Oct (IST)",
     "series": "International",
@@ -5915,7 +5898,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6015,7 +5998,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6176,7 +6159,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6193,7 +6176,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6227,7 +6210,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "12:30pm",
@@ -6278,7 +6261,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
@@ -6312,7 +6295,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6346,7 +6329,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6657,7 +6640,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6674,7 +6657,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6702,7 +6685,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6743,9 +6726,26 @@
       "utc": 1802469600000
      }
     ]
+   },
+   {
+    "date": "Fri 19 Feb (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "74ee1451-fafd-472a-b651-2a09c7628d2c",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "JSCA International Stadium Complex, Ranchi",
+      "ist": "9:30am",
+      "utc": 1803009600000
+     }
+    ]
    }
   ],
-  "updated": "2026-10-23T14:36:42.567Z",
+  "updated": "2026-10-23T18:51:10.421Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7088,7 +7088,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-23T14:36:46.100Z"
+  "updated": "2026-10-23T18:51:14.580Z"
  },
  "SQUADS": {
   "mexico": [
