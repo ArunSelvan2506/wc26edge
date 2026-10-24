@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-24T05:19:41.419Z",
+ "updated": "2026-10-24T10:11:10.907Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6186,6 +6186,17 @@
       "venue": "Hong Kong Sixes 2026",
       "ist": "8:05am",
       "utc": 1793414100000
+     },
+     {
+      "id": "b2ee518b-8d47-430d-a28b-034dcac40cea",
+      "teams": "Netherlands vs United Arab Emirates",
+      "t1": "Netherlands",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:00am",
+      "utc": 1793424600000
      }
     ]
    },
@@ -6784,7 +6795,7 @@
     ]
    }
   ],
-  "updated": "2026-10-24T05:19:37.213Z",
+  "updated": "2026-10-24T10:11:08.175Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7127,7 +7138,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-24T05:19:41.419Z"
+  "updated": "2026-10-24T10:11:10.907Z"
  },
  "SQUADS": {
   "mexico": [
