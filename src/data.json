@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-24T14:12:59.554Z",
+ "updated": "2026-10-24T17:47:08.624Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sat 24 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "3ada9f3e-8e32-4f49-80d5-0f915e19d3fd",
-      "teams": "Ireland vs Namibia",
-      "t1": "Ireland",
-      "t2": "Namibia",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland tour of Namibia, 2026",
-      "ist": "1:30pm",
-      "utc": 1792828800000
-     }
-    ]
-   },
    {
     "date": "Sun 25 Oct (IST)",
     "series": "International",
@@ -6784,7 +6767,7 @@
     ]
    }
   ],
-  "updated": "2026-10-24T14:12:41.528Z",
+  "updated": "2026-10-24T17:47:06.347Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7127,7 +7110,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-24T14:12:59.554Z"
+  "updated": "2026-10-24T17:47:08.624Z"
  },
  "SQUADS": {
   "mexico": [
