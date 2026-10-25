@@ -5834,39 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-25T14:44:51.944Z",
+ "updated": "2026-10-25T18:03:43.669Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 25 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "f542502b-a537-46a6-8dbd-48eeaedd4d90",
-      "teams": "England vs Pakistan",
-      "t1": "England",
-      "t2": "Pakistan",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Pakistan ODI Tri-Series, 2026",
-      "ist": "1:30pm",
-      "utc": 1792915200000
-     },
-     {
-      "id": "bb9378ae-85dd-4513-85ef-069c87305750",
-      "teams": "India vs Zimbabwe",
-      "t1": "India",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Zimbabwe Women tour of India, 2026",
-      "ist": "2:00pm",
-      "utc": 1792917000000
-     }
-    ]
-   },
    {
     "date": "Tue 27 Oct (IST)",
     "series": "International",
@@ -5959,7 +5931,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6209,7 +6181,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6226,7 +6198,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6260,7 +6232,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "12:30pm",
@@ -6311,7 +6283,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
@@ -6345,7 +6317,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6379,7 +6351,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6690,7 +6662,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6707,7 +6679,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6735,7 +6707,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6795,7 +6767,7 @@
     ]
    }
   ],
-  "updated": "2026-10-25T14:44:49.810Z",
+  "updated": "2026-10-25T18:03:40.544Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6810,7 +6782,6 @@
      "3",
      "2",
      "5",
-     "1",
      "1"
     ]
    },
@@ -6824,8 +6795,7 @@
      "9",
      "20",
      "1",
-     "5",
-     "2"
+     "5"
     ]
    },
    "Lewis Hamilton": {
@@ -6838,8 +6808,7 @@
      "6",
      "3",
      "6",
-     "R",
-     "6"
+     "R"
     ]
    },
    "Max Verstappen": {
@@ -6852,8 +6821,7 @@
      "1",
      "1",
      "2",
-     "2",
-     "3"
+     "2"
     ]
    },
    "Charles Leclerc": {
@@ -6866,8 +6834,7 @@
      "2",
      "4",
      "4",
-     "4",
-     "R"
+     "4"
     ]
    },
    "Lando Norris": {
@@ -6880,8 +6847,7 @@
      "4",
      "9",
      "R",
-     "3",
-     "4"
+     "3"
     ]
    },
    "Oscar Piastri": {
@@ -6894,8 +6860,7 @@
      "5",
      "6",
      "13",
-     "8",
-     "5"
+     "8"
     ]
    },
    "Isack Hadjar": {
@@ -6920,8 +6885,7 @@
      "7",
      "7",
      "12",
-     "6",
-     "14"
+     "6"
     ]
    },
    "Pierre Gasly": {
@@ -6934,8 +6898,7 @@
      "11",
      "16",
      "R",
-     "12",
-     "7"
+     "12"
     ]
    },
    "Arvid Lindblad": {
@@ -6948,8 +6911,7 @@
      "15",
      "10",
      "7",
-     "9",
-     "8"
+     "9"
     ]
    },
    "Franco Colapinto": {
@@ -6962,8 +6924,7 @@
      "R",
      "13",
      "R",
-     "7",
-     "9"
+     "7"
     ]
    },
    "Oliver Bearman": {
@@ -6976,8 +6937,7 @@
      "12",
      "14",
      "9",
-     "16",
-     "15"
+     "16"
     ]
    },
    "Nico Hülkenberg": {
@@ -6990,8 +6950,7 @@
      "8",
      "11",
      "11",
-     "10",
-     "12"
+     "10"
     ]
    },
    "Gabriel Bortoleto": {
@@ -7004,8 +6963,7 @@
      "R",
      "18",
      "15",
-     "13",
-     "11"
+     "13"
     ]
    },
    "Esteban Ocon": {
@@ -7018,8 +6976,7 @@
      "13",
      "15",
      "8",
-     "11",
-     "16"
+     "11"
     ]
    },
    "Fernando Alonso": {
@@ -7032,8 +6989,7 @@
      "16",
      "8",
      "R",
-     "17",
-     "R"
+     "17"
     ]
    },
    "Carlos Sainz": {
@@ -7046,8 +7002,7 @@
      "14",
      "17",
      "10",
-     "R",
-     "13"
+     "R"
     ]
    },
    "Alexander Albon": {
@@ -7060,8 +7015,7 @@
      "18",
      "R",
      "R",
-     "15",
-     "17"
+     "15"
     ]
    },
    "Yuki Tsunoda": {
@@ -7071,8 +7025,7 @@
     "pos": 20,
     "wins": 0,
     "form": [
-     "14",
-     "10"
+     "14"
     ]
    },
    "Lance Stroll": {
@@ -7084,7 +7037,6 @@
     "form": [
      "R",
      "12",
-     "R",
      "R",
      "R"
     ]
@@ -7099,8 +7051,7 @@
      "19",
      "R",
      "16",
-     "18",
-     "19"
+     "18"
     ]
    },
    "Sergio Pérez": {
@@ -7113,8 +7064,7 @@
      "17",
      "19",
      "14",
-     "R",
-     "18"
+     "R"
     ]
    }
   },
@@ -7138,7 +7088,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-25T14:44:51.944Z"
+  "updated": "2026-10-25T18:03:43.669Z"
  },
  "SQUADS": {
   "mexico": [
