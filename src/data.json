@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-25T10:36:02.185Z",
+ "updated": "2026-10-25T14:44:51.944Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Sun 25 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "8ac2a8d5-2da4-4c95-9772-63a4fb6c42ca",
-      "teams": "Netherlands vs United Arab Emirates",
-      "t1": "Netherlands",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "11:00am",
-      "utc": 1792906200000
-     },
      {
       "id": "f542502b-a537-46a6-8dbd-48eeaedd4d90",
       "teams": "England vs Pakistan",
@@ -6197,6 +6186,17 @@
       "venue": "Ireland tour of Namibia, 2026",
       "ist": "1:30pm",
       "utc": 1793520000000
+     },
+     {
+      "id": "acf970cc-d8e7-447f-b8d3-ad5396a8c621",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
+      "ist": "8:00pm",
+      "utc": 1793543400000
      }
     ]
    },
@@ -6795,7 +6795,7 @@
     ]
    }
   ],
-  "updated": "2026-10-25T10:35:59.342Z",
+  "updated": "2026-10-25T14:44:49.810Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7138,7 +7138,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-25T10:36:02.185Z"
+  "updated": "2026-10-25T14:44:51.944Z"
  },
  "SQUADS": {
   "mexico": [
