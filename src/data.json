@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-25T23:44:32.575Z",
+ "updated": "2026-10-26T08:30:17.569Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6169,6 +6169,23 @@
       "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
       "ist": "8:00pm",
       "utc": 1793543400000
+     }
+    ]
+   },
+   {
+    "date": "Mon 2 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "a4a902f2-006c-49ad-9691-3baae52659bb",
+      "teams": "Netherlands vs Oman",
+      "t1": "Netherlands",
+      "t2": "Oman",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ICC Cricket World Cup League Two 2023-27",
+      "ist": "11:00am",
+      "utc": 1793597400000
      }
     ]
    },
@@ -6767,7 +6784,7 @@
     ]
    }
   ],
-  "updated": "2026-10-25T23:44:29.463Z",
+  "updated": "2026-10-26T08:30:13.890Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7110,7 +7127,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-25T23:44:32.574Z"
+  "updated": "2026-10-26T08:30:17.569Z"
  },
  "SQUADS": {
   "mexico": [
