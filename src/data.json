@@ -5834,39 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-27T17:20:48.289Z",
+ "updated": "2026-10-27T21:45:10.330Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Tue 27 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "e50a9d29-3043-47ef-b9ed-034f79cc6b0b",
-      "teams": "Australia vs South Africa",
-      "t1": "Australia",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Australia tour of South Africa, 2026",
-      "ist": "2:00pm",
-      "utc": 1793089800000
-     },
-     {
-      "id": "1950e564-6c89-4a51-bd21-4b7413137434",
-      "teams": "Afghanistan vs Zimbabwe",
-      "t1": "Afghanistan",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
-      "ist": "8:00pm",
-      "utc": 1793111400000
-     }
-    ]
-   },
    {
     "date": "Wed 28 Oct (IST)",
     "series": "International",
@@ -6086,6 +6058,17 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "11:00am",
       "utc": 1793424600000
+     },
+     {
+      "id": "26a2fa3f-529e-4a8a-9c8c-aae0274aab15",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "Pakistan ODI Tri-Series, 2026",
+      "ist": "1:30pm",
+      "utc": 1793433600000
      }
     ]
    },
@@ -6734,7 +6717,7 @@
     ]
    }
   ],
-  "updated": "2026-10-27T17:20:44.390Z",
+  "updated": "2026-10-27T21:45:06.181Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7077,7 +7060,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-27T17:20:48.289Z"
+  "updated": "2026-10-27T21:45:10.330Z"
  },
  "SQUADS": {
   "mexico": [
