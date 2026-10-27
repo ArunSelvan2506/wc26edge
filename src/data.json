@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-27T11:34:52.685Z",
+ "updated": "2026-10-27T17:20:48.289Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,39 +5843,6 @@
     "date": "Tue 27 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "df5dd379-9372-490a-99d2-b6b54a17f9a5",
-      "teams": "Netherlands vs Oman",
-      "t1": "Netherlands",
-      "t2": "Oman",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "11:00am",
-      "utc": 1793079000000
-     },
-     {
-      "id": "339bd1c4-ccc3-44ba-9ad3-5dac79401d40",
-      "teams": "Ireland vs Namibia",
-      "t1": "Ireland",
-      "t2": "Namibia",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland tour of Namibia, 2026",
-      "ist": "1:30pm",
-      "utc": 1793088000000
-     },
-     {
-      "id": "bf282a4a-7348-487c-8b5c-12f2ac3f4237",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Pakistan ODI Tri-Series, 2026",
-      "ist": "1:30pm",
-      "utc": 1793088000000
-     },
      {
       "id": "e50a9d29-3043-47ef-b9ed-034f79cc6b0b",
       "teams": "Australia vs South Africa",
@@ -5972,6 +5939,61 @@
     "series": "International",
     "matches": [
      {
+      "id": "80990f9d-9b88-4acc-8435-615e80942daf",
+      "teams": "Bangladesh vs Scotland",
+      "t1": "Bangladesh",
+      "t2": "Scotland",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "7:10am",
+      "utc": 1793324400000
+     },
+     {
+      "id": "9529d714-ca37-4617-9510-b7a1e3719ccf",
+      "teams": "Pakistan vs United Arab Emirates",
+      "t1": "Pakistan",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "8:05am",
+      "utc": 1793327700000
+     },
+     {
+      "id": "6183dcb0-d1a0-420f-8add-72c716fc11b9",
+      "teams": "Oman vs South Africa",
+      "t1": "Oman",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "9:00am",
+      "utc": 1793331000000
+     },
+     {
+      "id": "edbad102-f51e-4600-a73f-2aa80094a237",
+      "teams": "Bangladesh vs Sri Lanka",
+      "t1": "Bangladesh",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "10:50am",
+      "utc": 1793337600000
+     },
+     {
+      "id": "f34af7e2-9ab9-434b-9586-549a41e0744d",
+      "teams": "India vs Pakistan",
+      "t1": "India",
+      "t2": "Pakistan",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "11:45am",
+      "utc": 1793340900000
+     },
+     {
       "id": "2445a90a-eef7-467e-8cb6-75c4203a8e2c",
       "teams": "India vs New Zealand",
       "t1": "India",
@@ -5983,6 +6005,17 @@
       "utc": 1793343600000
      },
      {
+      "id": "5f6b32d1-4dcb-468c-a5a9-8445c688ed8d",
+      "teams": "Afghanistan vs South Africa",
+      "t1": "Afghanistan",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "12:40pm",
+      "utc": 1793344200000
+     },
+     {
       "id": "ea3f4407-fbeb-4929-ba18-e7511175200b",
       "teams": "Ireland vs Namibia",
       "t1": "Ireland",
@@ -5992,6 +6025,17 @@
       "venue": "Ireland tour of Namibia, 2026",
       "ist": "1:30pm",
       "utc": 1793347200000
+     },
+     {
+      "id": "8423f37a-7e8b-4509-a5ce-68ba23aca74c",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "1:35pm",
+      "utc": 1793347500000
      }
     ]
    },
@@ -5999,6 +6043,39 @@
     "date": "Sat 31 Oct (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "9f45e001-902f-4cd1-8987-4b5707925c4d",
+      "teams": "Afghanistan vs Oman",
+      "t1": "Afghanistan",
+      "t2": "Oman",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "6:15am",
+      "utc": 1793407500000
+     },
+     {
+      "id": "3dde79e5-6a4a-470e-bef8-437c22a93fcd",
+      "teams": "Scotland vs Sri Lanka",
+      "t1": "Scotland",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "7:10am",
+      "utc": 1793410800000
+     },
+     {
+      "id": "bda1cadb-9362-4905-aead-dde1fcb00f70",
+      "teams": "India vs United Arab Emirates",
+      "t1": "India",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "8:05am",
+      "utc": 1793414100000
+     },
      {
       "id": "b2ee518b-8d47-430d-a28b-034dcac40cea",
       "teams": "Netherlands vs United Arab Emirates",
@@ -6657,7 +6734,7 @@
     ]
    }
   ],
-  "updated": "2026-10-27T11:34:49.388Z",
+  "updated": "2026-10-27T17:20:44.390Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7000,7 +7077,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-27T11:34:52.685Z"
+  "updated": "2026-10-27T17:20:48.289Z"
  },
  "SQUADS": {
   "mexico": [
