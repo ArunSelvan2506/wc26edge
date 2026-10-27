@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-27T05:55:55.533Z",
+ "updated": "2026-10-27T11:34:52.685Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,17 +5853,6 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "11:00am",
       "utc": 1793079000000
-     },
-     {
-      "id": "1962f911-9e43-4b49-9e02-f3ef74b76fe6",
-      "teams": "India vs New Zealand",
-      "t1": "India",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
-      "ist": "12:30pm",
-      "utc": 1793084400000
      },
      {
       "id": "339bd1c4-ccc3-44ba-9ad3-5dac79401d40",
@@ -6668,7 +6657,7 @@
     ]
    }
   ],
-  "updated": "2026-10-27T05:55:52.283Z",
+  "updated": "2026-10-27T11:34:49.388Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7011,7 +7000,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-27T05:55:55.533Z"
+  "updated": "2026-10-27T11:34:52.685Z"
  },
  "SQUADS": {
   "mexico": [
