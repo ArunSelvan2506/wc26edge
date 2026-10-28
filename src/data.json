@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-28T13:46:28.255Z",
+ "updated": "2026-10-28T19:17:32.534Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Wed 28 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "e690b55f-e5ea-4b28-ac72-323d81d14291",
-      "teams": "Bangladesh vs West Indies",
-      "t1": "Bangladesh",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "Test",
-      "venue": "West Indies tour of Bangladesh, 2026",
-      "ist": "9:00am",
-      "utc": 1793158200000
-     }
-    ]
-   },
    {
     "date": "Thu 29 Oct (IST)",
     "series": "International",
@@ -6740,7 +6723,7 @@
     ]
    }
   ],
-  "updated": "2026-10-28T13:46:24.507Z",
+  "updated": "2026-10-28T19:17:30.184Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7083,7 +7066,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-28T13:46:28.255Z"
+  "updated": "2026-10-28T19:17:32.534Z"
  },
  "SQUADS": {
   "mexico": [
