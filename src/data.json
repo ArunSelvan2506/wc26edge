@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-27T21:45:10.330Z",
+ "updated": "2026-10-28T00:55:52.588Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5859,7 +5859,7 @@
       "teams": "India vs Zimbabwe",
       "t1": "India",
       "t2": "Zimbabwe",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Zimbabwe Women tour of India, 2026",
       "ist": "2:00pm",
@@ -6129,23 +6129,6 @@
     ]
    },
    {
-    "date": "Wed 9 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "514bf902-7ce1-47b7-a653-8dff4166ba64",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "Test",
-      "venue": "Perth Stadium, Perth",
-      "ist": "7:50am",
-      "utc": 1796782800000
-     }
-    ]
-   },
-   {
     "date": "Thu 10 Dec (IST)",
     "series": "International",
     "matches": [
@@ -6154,7 +6137,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6171,7 +6154,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Saxton Oval, Nelson",
       "ist": "12:30pm",
@@ -6205,7 +6188,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "12:30pm",
@@ -6235,17 +6218,6 @@
     "series": "International",
     "matches": [
      {
-      "id": "180e1d99-7962-4254-87be-4388b6fe7a05",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "Test",
-      "venue": "Adelaide Oval, Adelaide",
-      "ist": "6:00am",
-      "utc": 1797467400000
-     },
-     {
       "id": "331337d2-5c24-4478-ad50-298525724c95",
       "teams": "South Africa vs England",
       "t1": "South Africa",
@@ -6267,7 +6239,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Sky Stadium, Wellington",
       "ist": "7:30am",
@@ -6301,7 +6273,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6335,7 +6307,7 @@
       "teams": "New Zealand vs Bangladesh",
       "t1": "New Zealand",
       "t2": "Bangladesh",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Bay Oval, Mount Maunganui",
       "ist": "7:30am",
@@ -6374,17 +6346,6 @@
       "venue": "SuperSport Park, Centurion",
       "ist": "1:30pm",
       "utc": 1798272000000
-     },
-     {
-      "id": "5a984dfc-39ac-4833-9d0b-5b080533c12e",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "Test",
-      "venue": "New Zealand tour of Australia, 2026-27",
-      "ist": "5:00pm",
-      "utc": 1798284600000
      }
     ]
    },
@@ -6430,23 +6391,6 @@
       "venue": "Newlands, Cape Town",
       "ist": "2:00pm",
       "utc": 1798965000000
-     }
-    ]
-   },
-   {
-    "date": "Tue 5 Jan (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "98afe783-4363-4def-9252-ab9e891952c5",
-      "teams": "Australia vs New Zealand",
-      "t1": "Australia",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "Test",
-      "venue": "Sydney Cricket Ground, Sydney",
-      "ist": "5:00am",
-      "utc": 1799105400000
      }
     ]
    },
@@ -6570,6 +6514,23 @@
     ]
    },
    {
+    "date": "Thu 21 Jan (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "11fe5acf-43ce-4ea8-aa1d-f34e23d3b4fe",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Vidarbha Cricket Association Stadium, Nagpur",
+      "ist": "9:30am",
+      "utc": 1800504000000
+     }
+    ]
+   },
+   {
     "date": "Fri 22 Jan (IST)",
     "series": "International",
     "matches": [
@@ -6607,6 +6568,17 @@
     "date": "Fri 29 Jan (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "b022b5dd-0481-42b2-8fe7-576134eeb24c",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "MA Chidambaram Stadium, Chennai",
+      "ist": "9:30am",
+      "utc": 1801195200000
+     },
      {
       "id": "612e2b49-c09f-433f-8e03-748e49f98171",
       "teams": "New Zealand vs Sri Lanka",
@@ -6646,7 +6618,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6663,7 +6635,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6691,11 +6663,28 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
       "utc": 1801801800000
+     }
+    ]
+   },
+   {
+    "date": "Thu 11 Feb (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "7334d8fe-3f55-4410-9209-893e933ac57b",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Barsapara Cricket Stadium, Guwahati",
+      "ist": "9:00am",
+      "utc": 1802316600000
      }
     ]
    },
@@ -6715,9 +6704,26 @@
       "utc": 1802469600000
      }
     ]
+   },
+   {
+    "date": "Fri 19 Feb (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "363fdece-5d34-416c-9d67-f23e566a8d9e",
+      "teams": "India vs Australia",
+      "t1": "India",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "Test",
+      "venue": "JSCA International Stadium Complex, Ranchi",
+      "ist": "9:30am",
+      "utc": 1803009600000
+     }
+    ]
    }
   ],
-  "updated": "2026-10-27T21:45:06.181Z",
+  "updated": "2026-10-28T00:55:50.530Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7060,7 +7066,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-27T21:45:10.330Z"
+  "updated": "2026-10-28T00:55:52.588Z"
  },
  "SQUADS": {
   "mexico": [
