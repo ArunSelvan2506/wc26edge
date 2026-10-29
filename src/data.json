@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-29T04:06:11.486Z",
+ "updated": "2026-10-29T17:57:21.614Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,28 +5843,6 @@
     "date": "Thu 29 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "5dfe214e-3c24-4553-a0eb-a8d6ae12c063",
-      "teams": "Oman vs United Arab Emirates",
-      "t1": "Oman",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "11:00am",
-      "utc": 1793251800000
-     },
-     {
-      "id": "074cb065-c64b-476a-89df-b6bcde4da715",
-      "teams": "England vs Sri Lanka",
-      "t1": "England",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Pakistan ODI Tri-Series, 2026",
-      "ist": "1:30pm",
-      "utc": 1793260800000
-     },
      {
       "id": "d153b19d-6528-4b07-9dc1-5c03c8112df1",
       "teams": "Afghanistan vs Zimbabwe",
@@ -6142,6 +6120,17 @@
       "venue": "West Indies tour of Bangladesh, 2026",
       "ist": "9:00am",
       "utc": 1793849400000
+     },
+     {
+      "id": "8ad504bb-250d-41e3-b7cc-12cb65ea6e32",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
+      "ist": "11:00am",
+      "utc": 1793856600000
      }
     ]
    },
@@ -6740,7 +6729,7 @@
     ]
    }
   ],
-  "updated": "2026-10-29T04:06:06.879Z",
+  "updated": "2026-10-29T17:57:17.217Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7083,7 +7072,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-29T04:06:11.486Z"
+  "updated": "2026-10-29T17:57:21.614Z"
  },
  "SQUADS": {
   "mexico": [
