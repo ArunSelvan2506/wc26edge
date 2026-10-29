@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-28T19:17:32.534Z",
+ "updated": "2026-10-29T04:06:11.486Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6125,6 +6125,23 @@
       "venue": "ICC Cricket World Cup League Two 2023-27",
       "ist": "11:00am",
       "utc": 1793770200000
+     }
+    ]
+   },
+   {
+    "date": "Thu 5 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "29f0a681-bd9b-40c4-af2d-cae8b5ad4efb",
+      "teams": "Bangladesh vs West Indies",
+      "t1": "Bangladesh",
+      "t2": "West Indies",
+      "gender": "men",
+      "format": "Test",
+      "venue": "West Indies tour of Bangladesh, 2026",
+      "ist": "9:00am",
+      "utc": 1793849400000
      }
     ]
    },
@@ -6723,7 +6740,7 @@
     ]
    }
   ],
-  "updated": "2026-10-28T19:17:30.184Z",
+  "updated": "2026-10-29T04:06:06.879Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7066,7 +7083,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-28T19:17:32.534Z"
+  "updated": "2026-10-29T04:06:11.486Z"
  },
  "SQUADS": {
   "mexico": [
