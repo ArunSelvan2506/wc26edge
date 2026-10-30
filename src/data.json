@@ -5834,50 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-30T09:31:00.190Z",
+ "updated": "2026-10-30T16:29:44.578Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 30 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "2445a90a-eef7-467e-8cb6-75c4203a8e2c",
-      "teams": "India vs New Zealand",
-      "t1": "India",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
-      "ist": "12:30pm",
-      "utc": 1793343600000
-     },
-     {
-      "id": "ea3f4407-fbeb-4929-ba18-e7511175200b",
-      "teams": "Ireland vs Namibia",
-      "t1": "Ireland",
-      "t2": "Namibia",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Ireland tour of Namibia, 2026",
-      "ist": "1:30pm",
-      "utc": 1793347200000
-     },
-     {
-      "id": "8423f37a-7e8b-4509-a5ce-68ba23aca74c",
-      "teams": "Australia vs England",
-      "t1": "Australia",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "1:35pm",
-      "utc": 1793347500000
-     }
-    ]
-   },
    {
     "date": "Sat 31 Oct (IST)",
     "series": "International",
@@ -6646,7 +6607,7 @@
     ]
    }
   ],
-  "updated": "2026-10-30T09:30:57.056Z",
+  "updated": "2026-10-30T16:29:41.366Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6989,7 +6950,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-30T09:31:00.190Z"
+  "updated": "2026-10-30T16:29:44.578Z"
  },
  "SQUADS": {
   "mexico": [
