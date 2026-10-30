@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-30T02:22:15.056Z",
+ "updated": "2026-10-30T09:31:00.190Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,61 +5843,6 @@
     "date": "Fri 30 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "80990f9d-9b88-4acc-8435-615e80942daf",
-      "teams": "Bangladesh vs Scotland",
-      "t1": "Bangladesh",
-      "t2": "Scotland",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "7:10am",
-      "utc": 1793324400000
-     },
-     {
-      "id": "9529d714-ca37-4617-9510-b7a1e3719ccf",
-      "teams": "Pakistan vs United Arab Emirates",
-      "t1": "Pakistan",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "8:05am",
-      "utc": 1793327700000
-     },
-     {
-      "id": "6183dcb0-d1a0-420f-8add-72c716fc11b9",
-      "teams": "Oman vs South Africa",
-      "t1": "Oman",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "9:00am",
-      "utc": 1793331000000
-     },
-     {
-      "id": "edbad102-f51e-4600-a73f-2aa80094a237",
-      "teams": "Bangladesh vs Sri Lanka",
-      "t1": "Bangladesh",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "10:50am",
-      "utc": 1793337600000
-     },
-     {
-      "id": "f34af7e2-9ab9-434b-9586-549a41e0744d",
-      "teams": "India vs Pakistan",
-      "t1": "India",
-      "t2": "Pakistan",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "11:45am",
-      "utc": 1793340900000
-     },
      {
       "id": "2445a90a-eef7-467e-8cb6-75c4203a8e2c",
       "teams": "India vs New Zealand",
@@ -5908,17 +5853,6 @@
       "venue": "India tour of New Zealand 2026",
       "ist": "12:30pm",
       "utc": 1793343600000
-     },
-     {
-      "id": "5f6b32d1-4dcb-468c-a5a9-8445c688ed8d",
-      "teams": "Afghanistan vs South Africa",
-      "t1": "Afghanistan",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "12:40pm",
-      "utc": 1793344200000
      },
      {
       "id": "ea3f4407-fbeb-4929-ba18-e7511175200b",
@@ -6712,7 +6646,7 @@
     ]
    }
   ],
-  "updated": "2026-10-30T02:22:11.960Z",
+  "updated": "2026-10-30T09:30:57.056Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -7055,7 +6989,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-30T02:22:15.056Z"
+  "updated": "2026-10-30T09:31:00.190Z"
  },
  "SQUADS": {
   "mexico": [
