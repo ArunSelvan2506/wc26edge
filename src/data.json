@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-30T16:29:44.578Z",
+ "updated": "2026-10-31T01:23:29.209Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5875,6 +5875,17 @@
       "venue": "Hong Kong Sixes 2026",
       "ist": "8:05am",
       "utc": 1793414100000
+     },
+     {
+      "id": "98709e54-eaae-4896-933c-cc0e05cf535a",
+      "teams": "Bangladesh vs South Africa",
+      "t1": "Bangladesh",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "9:00am",
+      "utc": 1793417400000
      },
      {
       "id": "b2ee518b-8d47-430d-a28b-034dcac40cea",
@@ -6607,7 +6618,7 @@
     ]
    }
   ],
-  "updated": "2026-10-30T16:29:41.366Z",
+  "updated": "2026-10-31T01:23:25.967Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6950,7 +6961,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-30T16:29:44.578Z"
+  "updated": "2026-10-31T01:23:29.209Z"
  },
  "SQUADS": {
   "mexico": [
