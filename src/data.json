@@ -5834,32 +5834,48 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-31T14:16:36.589Z",
+ "updated": "2026-10-31T19:01:46.076Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
    {
-    "date": "Sat 31 Oct (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "26a2fa3f-529e-4a8a-9c8c-aae0274aab15",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "Pakistan ODI Tri-Series, 2026",
-      "ist": "1:30pm",
-      "utc": 1793433600000
-     }
-    ]
-   },
-   {
     "date": "Sun 1 Nov (IST)",
     "series": "International",
     "matches": [
+     {
+      "id": "d342801e-1419-4024-880a-7e0faa697a63",
+      "teams": "Bangladesh vs India",
+      "t1": "Bangladesh",
+      "t2": "India",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "7:10am",
+      "utc": 1793497200000
+     },
+     {
+      "id": "262e1165-d8dd-499d-a45a-50b8b69154b9",
+      "teams": "England vs South Africa",
+      "t1": "England",
+      "t2": "South Africa",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "10:50am",
+      "utc": 1793510400000
+     },
+     {
+      "id": "894b34bc-9eea-42fd-ae32-ccbf5ea4755e",
+      "teams": "Oman vs Pakistan",
+      "t1": "Oman",
+      "t2": "Pakistan",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "11:45am",
+      "utc": 1793513700000
+     },
      {
       "id": "936348e9-608f-4ca8-9cc5-5d3082ab0b90",
       "teams": "India vs New Zealand",
@@ -5870,6 +5886,17 @@
       "venue": "India tour of New Zealand 2026",
       "ist": "12:30pm",
       "utc": 1793516400000
+     },
+     {
+      "id": "92747aca-aecc-4e0a-b45b-add77e2cfe06",
+      "teams": "Afghanistan vs Australia",
+      "t1": "Afghanistan",
+      "t2": "Australia",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "12:40pm",
+      "utc": 1793517000000
      },
      {
       "id": "83d4f7ed-e83e-4a70-ba8b-602090d777b1",
@@ -6580,7 +6607,7 @@
     ]
    }
   ],
-  "updated": "2026-10-31T14:16:30.976Z",
+  "updated": "2026-10-31T19:01:43.694Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6923,7 +6950,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-31T14:16:36.589Z"
+  "updated": "2026-10-31T19:01:46.076Z"
  },
  "SQUADS": {
   "mexico": [
