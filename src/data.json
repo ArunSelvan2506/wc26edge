@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-31T07:56:01.499Z",
+ "updated": "2026-10-31T14:16:36.589Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,28 +5843,6 @@
     "date": "Sat 31 Oct (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "b2ee518b-8d47-430d-a28b-034dcac40cea",
-      "teams": "Netherlands vs United Arab Emirates",
-      "t1": "Netherlands",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "11:00am",
-      "utc": 1793424600000
-     },
-     {
-      "id": "06484c44-55d5-4300-8d8f-68ed59595817",
-      "teams": "Australia vs United Arab Emirates",
-      "t1": "Australia",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "12:40pm",
-      "utc": 1793430600000
-     },
      {
       "id": "26a2fa3f-529e-4a8a-9c8c-aae0274aab15",
       "teams": "Pakistan vs Sri Lanka",
@@ -5875,17 +5853,6 @@
       "venue": "Pakistan ODI Tri-Series, 2026",
       "ist": "1:30pm",
       "utc": 1793433600000
-     },
-     {
-      "id": "fff79a10-9584-4062-b812-31ecea3c72d3",
-      "teams": "Afghanistan vs Scotland",
-      "t1": "Afghanistan",
-      "t2": "Scotland",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Hong Kong Sixes 2026",
-      "ist": "1:35pm",
-      "utc": 1793433900000
      }
     ]
    },
@@ -6613,7 +6580,7 @@
     ]
    }
   ],
-  "updated": "2026-10-31T07:55:58.411Z",
+  "updated": "2026-10-31T14:16:30.976Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6956,7 +6923,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-31T07:56:01.499Z"
+  "updated": "2026-10-31T14:16:36.589Z"
  },
  "SQUADS": {
   "mexico": [
