@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-10-31T22:59:58.225Z",
+ "updated": "2026-11-01T02:03:40.596Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,6 +5853,17 @@
       "venue": "Hong Kong Sixes 2026",
       "ist": "7:10am",
       "utc": 1793497200000
+     },
+     {
+      "id": "25f3a2af-fe6b-4adf-bd36-8e13f464ba70",
+      "teams": "Scotland vs United Arab Emirates",
+      "t1": "Scotland",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Hong Kong Sixes 2026",
+      "ist": "9:00am",
+      "utc": 1793503800000
      },
      {
       "id": "262e1165-d8dd-499d-a45a-50b8b69154b9",
@@ -6607,7 +6618,7 @@
     ]
    }
   ],
-  "updated": "2026-10-31T22:59:54.359Z",
+  "updated": "2026-11-01T02:03:38.302Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6935,7 +6946,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-10-31T22:59:58.225Z"
+  "updated": "2026-11-01T02:03:40.596Z"
  },
  "SQUADS": {
   "mexico": [
