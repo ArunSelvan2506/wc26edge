@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-01T16:43:10.616Z",
+ "updated": "2026-11-01T20:56:23.618Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 1 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "acf970cc-d8e7-447f-b8d3-ad5396a8c621",
-      "teams": "Afghanistan vs Zimbabwe",
-      "t1": "Afghanistan",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
-      "ist": "8:00pm",
-      "utc": 1793543400000
-     }
-    ]
-   },
    {
     "date": "Mon 2 Nov (IST)",
     "series": "International",
@@ -6541,7 +6524,7 @@
     ]
    }
   ],
-  "updated": "2026-11-01T16:43:08.246Z",
+  "updated": "2026-11-01T20:56:21.735Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6850,9 +6833,9 @@
    }
   },
   "event": {
-   "date": "Mon 2 Nov (IST)",
-   "utc": 1793563200000,
-   "series": "Mexico City Grand Prix · Mexico City",
+   "date": "Sun 8 Nov (IST)",
+   "utc": 1794157200000,
+   "series": "Brazilian Grand Prix · São Paulo",
    "field": [
     "Andrea Kimi Antonelli",
     "George Russell",
@@ -6869,7 +6852,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-01T16:43:10.616Z"
+  "updated": "2026-11-01T20:56:23.618Z"
  },
  "SQUADS": {
   "mexico": [
