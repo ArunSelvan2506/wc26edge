@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-02T07:08:26.290Z",
+ "updated": "2026-11-02T17:44:14.089Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Mon 2 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "a4a902f2-006c-49ad-9691-3baae52659bb",
-      "teams": "Netherlands vs Oman",
-      "t1": "Netherlands",
-      "t2": "Oman",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ICC Cricket World Cup League Two 2023-27",
-      "ist": "11:00am",
-      "utc": 1793597400000
-     }
-    ]
-   },
    {
     "date": "Wed 4 Nov (IST)",
     "series": "International",
@@ -6558,7 +6541,7 @@
     ]
    }
   ],
-  "updated": "2026-11-02T07:08:21.984Z",
+  "updated": "2026-11-02T17:44:09.704Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6909,7 +6892,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-02T07:08:26.289Z"
+  "updated": "2026-11-02T17:44:14.089Z"
  },
  "SQUADS": {
   "mexico": [
