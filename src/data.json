@@ -5834,39 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-05T11:48:43.065Z",
+ "updated": "2026-11-05T19:25:32.051Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Thu 5 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "29f0a681-bd9b-40c4-af2d-cae8b5ad4efb",
-      "teams": "Bangladesh vs West Indies",
-      "t1": "Bangladesh",
-      "t2": "West Indies",
-      "gender": "men",
-      "format": "Test",
-      "venue": "West Indies tour of Bangladesh, 2026",
-      "ist": "9:00am",
-      "utc": 1793849400000
-     },
-     {
-      "id": "8ad504bb-250d-41e3-b7cc-12cb65ea6e32",
-      "teams": "Afghanistan vs Zimbabwe",
-      "t1": "Afghanistan",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
-      "ist": "11:00am",
-      "utc": 1793856600000
-     }
-    ]
-   },
    {
     "date": "Sat 7 Nov (IST)",
     "series": "International",
@@ -6547,7 +6519,7 @@
     ]
    }
   ],
-  "updated": "2026-11-05T11:48:40.584Z",
+  "updated": "2026-11-05T19:25:28.157Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6898,7 +6870,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-05T11:48:43.065Z"
+  "updated": "2026-11-05T19:25:32.051Z"
  },
  "SQUADS": {
   "mexico": [
