@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-06T00:41:34.105Z",
+ "updated": "2026-11-06T07:36:49.425Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5904,6 +5904,34 @@
       "venue": "England tour of Australia, 2026",
       "ist": "9:00am",
       "utc": 1794454200000
+     }
+    ]
+   },
+   {
+    "date": "Fri 13 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "dcd3e81d-98af-4ccc-b42a-05a6f3bd59e8",
+      "teams": "India vs New Zealand",
+      "t1": "India",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of New Zealand 2026",
+      "ist": "7:30am",
+      "utc": 1794535200000
+     },
+     {
+      "id": "57c2fd02-75b1-49c8-9a02-b300f903f7a4",
+      "teams": "Afghanistan vs Zimbabwe",
+      "t1": "Afghanistan",
+      "t2": "Zimbabwe",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
+      "ist": "11:00am",
+      "utc": 1794547800000
      }
     ]
    },
@@ -6295,7 +6323,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6312,7 +6340,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6340,7 +6368,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6425,7 +6453,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6434,7 +6462,7 @@
     ]
    }
   ],
-  "updated": "2026-11-06T00:41:30.979Z",
+  "updated": "2026-11-06T07:36:45.261Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6785,7 +6813,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-06T00:41:34.105Z"
+  "updated": "2026-11-06T07:36:49.425Z"
  },
  "SQUADS": {
   "mexico": [
