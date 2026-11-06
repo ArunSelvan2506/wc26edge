@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-05T19:25:32.051Z",
+ "updated": "2026-11-06T00:41:34.105Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5908,40 +5908,6 @@
     ]
    },
    {
-    "date": "Thu 10 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "8b181d24-0904-4e32-8018-05d6fd0d98e2",
-      "teams": "New Zealand vs Bangladesh",
-      "t1": "New Zealand",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Saxton Oval, Nelson",
-      "ist": "12:30pm",
-      "utc": 1796886000000
-     }
-    ]
-   },
-   {
-    "date": "Sat 12 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "6f67a370-7430-4d28-85c9-4c3c373e460e",
-      "teams": "New Zealand vs Bangladesh",
-      "t1": "New Zealand",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Saxton Oval, Nelson",
-      "ist": "12:30pm",
-      "utc": 1797058800000
-     }
-    ]
-   },
-   {
     "date": "Sun 13 Dec (IST)",
     "series": "International",
     "matches": [
@@ -5955,23 +5921,6 @@
       "venue": "Arun Jaitley Stadium, Delhi",
       "ist": "2:00pm",
       "utc": 1797150600000
-     }
-    ]
-   },
-   {
-    "date": "Tue 15 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "2bb0af35-6f0e-42c2-a751-e538966cae46",
-      "teams": "New Zealand vs Bangladesh",
-      "t1": "New Zealand",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sky Stadium, Wellington",
-      "ist": "12:30pm",
-      "utc": 1797318000000
      }
     ]
    },
@@ -6010,23 +5959,6 @@
     ]
    },
    {
-    "date": "Fri 18 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "306bccba-98da-4e5f-a3c5-bbab33529fc8",
-      "teams": "New Zealand vs Bangladesh",
-      "t1": "New Zealand",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sky Stadium, Wellington",
-      "ist": "7:30am",
-      "utc": 1797559200000
-     }
-    ]
-   },
-   {
     "date": "Sat 19 Dec (IST)",
     "series": "International",
     "matches": [
@@ -6044,23 +5976,6 @@
     ]
    },
    {
-    "date": "Mon 21 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "a0d32a1f-5395-475f-b45f-0ef9d5ae84d6",
-      "teams": "New Zealand vs Bangladesh",
-      "t1": "New Zealand",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Bay Oval, Mount Maunganui",
-      "ist": "7:30am",
-      "utc": 1797818400000
-     }
-    ]
-   },
-   {
     "date": "Tue 22 Dec (IST)",
     "series": "International",
     "matches": [
@@ -6074,23 +5989,6 @@
       "venue": "Niranjan Shah Stadium, Khandheri, Rajkot",
       "ist": "7:00pm",
       "utc": 1797946200000
-     }
-    ]
-   },
-   {
-    "date": "Wed 23 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "326c2a50-1e06-4aa2-9f59-aff7271fb9c4",
-      "teams": "New Zealand vs Bangladesh",
-      "t1": "New Zealand",
-      "t2": "Bangladesh",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Bay Oval, Mount Maunganui",
-      "ist": "7:30am",
-      "utc": 1797991200000
      }
     ]
    },
@@ -6286,7 +6184,7 @@
       "t2": "Sri Lanka",
       "gender": "men",
       "format": "T20I",
-      "venue": "Sky Stadium, Wellington",
+      "venue": "Hnry Stadium, Wellington",
       "ist": "7:30am",
       "utc": 1800324000000
      }
@@ -6397,7 +6295,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6414,7 +6312,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6442,7 +6340,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6517,9 +6415,26 @@
       "utc": 1803700800000
      }
     ]
+   },
+   {
+    "date": "Thu 4 Mar (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "8048e123-241f-4ec7-b402-3a1c800d342b",
+      "teams": "Sri Lanka vs England",
+      "t1": "Sri Lanka",
+      "t2": "England",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "Rangiri Dambulla International Stadium, Dambulla",
+      "ist": "10:00am",
+      "utc": 1804134600000
+     }
+    ]
    }
   ],
-  "updated": "2026-11-05T19:25:28.157Z",
+  "updated": "2026-11-06T00:41:30.979Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6870,7 +6785,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-05T19:25:32.051Z"
+  "updated": "2026-11-06T00:41:34.105Z"
  },
  "SQUADS": {
   "mexico": [
