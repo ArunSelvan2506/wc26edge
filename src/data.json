@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-08T11:39:22.435Z",
+ "updated": "2026-11-08T17:32:06.068Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6484,7 +6484,7 @@
     ]
    }
   ],
-  "updated": "2026-11-08T11:39:20.505Z",
+  "updated": "2026-11-08T17:31:51.879Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6802,9 +6802,9 @@
    }
   },
   "event": {
-   "date": "Sun 8 Nov (IST)",
-   "utc": 1794157200000,
-   "series": "Brazilian Grand Prix · São Paulo",
+   "date": "Sun 22 Nov (IST)",
+   "utc": 1795320000000,
+   "series": "Las Vegas Grand Prix · Las Vegas",
    "field": [
     "Andrea Kimi Antonelli",
     "Max Verstappen",
@@ -6821,7 +6821,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-08T11:39:22.435Z"
+  "updated": "2026-11-08T17:32:06.068Z"
  },
  "SQUADS": {
   "mexico": [
