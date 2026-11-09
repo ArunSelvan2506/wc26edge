@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-09T01:23:57.866Z",
+ "updated": "2026-11-09T19:43:18.716Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Mon 9 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "0c09b5c9-b9dc-46a4-884b-c9d546ba3b10",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Sri Lanka tour of Pakistan, 2026",
-      "ist": "10:30am",
-      "utc": 1794200400000
-     }
-    ]
-   },
    {
     "date": "Tue 10 Nov (IST)",
     "series": "International",
@@ -6517,7 +6500,7 @@
     ]
    }
   ],
-  "updated": "2026-11-09T01:23:54.691Z",
+  "updated": "2026-11-09T19:43:13.718Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6877,7 +6860,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-09T01:23:57.866Z"
+  "updated": "2026-11-09T19:43:18.716Z"
  },
  "SQUADS": {
   "mexico": [
