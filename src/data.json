@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-08T21:37:21.422Z",
+ "updated": "2026-11-09T01:23:57.866Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -6517,7 +6517,7 @@
     ]
    }
   ],
-  "updated": "2026-11-08T21:37:17.642Z",
+  "updated": "2026-11-09T01:23:54.691Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6581,11 +6581,11 @@
    "Charles Leclerc": {
     "r": 82,
     "team": "Ferrari",
-    "pts": 251,
+    "pts": 249,
     "pos": 5,
     "wins": 1,
     "form": [
-     "7",
+     "8",
      "4",
      "2",
      "2",
@@ -6637,11 +6637,11 @@
    "Liam Lawson": {
     "r": 61,
     "team": "RB F1 Team",
-    "pts": 87,
+    "pts": 89,
     "pos": 9,
     "wins": 0,
     "form": [
-     "8",
+     "7",
      "7",
      "9",
      "7",
@@ -6877,7 +6877,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-08T21:37:21.422Z"
+  "updated": "2026-11-09T01:23:57.866Z"
  },
  "SQUADS": {
   "mexico": [
