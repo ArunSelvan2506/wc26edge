@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-09T19:43:18.716Z",
+ "updated": "2026-11-10T10:43:04.506Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Tue 10 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "4cb54768-b317-42c6-bb7d-409dd2a6c862",
-      "teams": "India vs New Zealand",
-      "t1": "India",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
-      "ist": "7:30am",
-      "utc": 1794276000000
-     }
-    ]
-   },
    {
     "date": "Thu 12 Nov (IST)",
     "series": "International",
@@ -5970,6 +5953,23 @@
       "venue": "Bangladesh tour of South Africa, 2026",
       "ist": "1:00pm",
       "utc": 1794727800000
+     }
+    ]
+   },
+   {
+    "date": "Tue 17 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "f5e3ea0a-1952-4abc-bde1-597cf73cf330",
+      "teams": "Pakistan vs Sri Lanka",
+      "t1": "Pakistan",
+      "t2": "Sri Lanka",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "Sri Lanka tour of Pakistan, 2026",
+      "ist": "10:30am",
+      "utc": 1794891600000
      }
     ]
    },
@@ -6500,7 +6500,7 @@
     ]
    }
   ],
-  "updated": "2026-11-09T19:43:13.718Z",
+  "updated": "2026-11-10T10:43:01.873Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6860,7 +6860,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-09T19:43:18.716Z"
+  "updated": "2026-11-10T10:43:04.506Z"
  },
  "SQUADS": {
   "mexico": [
