@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-11T04:26:02.707Z",
+ "updated": "2026-11-11T12:22:57.969Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5991,40 +5991,6 @@
     ]
    },
    {
-    "date": "Sun 13 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "0de6bd83-084d-4141-9323-9be80ba87465",
-      "teams": "India vs Sri Lanka",
-      "t1": "India",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "ACA-VDCA Cricket Stadium, Visakhapatnam",
-      "ist": "2:00pm",
-      "utc": 1797150600000
-     }
-    ]
-   },
-   {
-    "date": "Wed 16 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "09dba477-11e4-436f-888a-f50d835de2be",
-      "teams": "India vs Sri Lanka",
-      "t1": "India",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "M.Chinnaswamy Stadium, Bengaluru",
-      "ist": "2:00pm",
-      "utc": 1797409800000
-     }
-    ]
-   },
-   {
     "date": "Thu 17 Dec (IST)",
     "series": "International",
     "matches": [
@@ -6042,57 +6008,6 @@
     ]
    },
    {
-    "date": "Sat 19 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "03a16c03-ea25-4b69-9a95-e99c91961310",
-      "teams": "India vs Sri Lanka",
-      "t1": "India",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Narendra Modi Stadium, Ahmedabad",
-      "ist": "2:00pm",
-      "utc": 1797669000000
-     }
-    ]
-   },
-   {
-    "date": "Tue 22 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "5c4e90b8-1b4a-40b4-bf1d-6e524b5cd3bc",
-      "teams": "India vs Sri Lanka",
-      "t1": "India",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Niranjan Shah Stadium, Khandheri, Rajkot",
-      "ist": "7:00pm",
-      "utc": 1797946200000
-     }
-    ]
-   },
-   {
-    "date": "Thu 24 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "4378018d-3ba6-4874-b018-1f089118577c",
-      "teams": "India vs Sri Lanka",
-      "t1": "India",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Barabati Stadium, Cuttack",
-      "ist": "7:00pm",
-      "utc": 1798119000000
-     }
-    ]
-   },
-   {
     "date": "Sat 26 Dec (IST)",
     "series": "International",
     "matches": [
@@ -6106,23 +6021,6 @@
       "venue": "SuperSport Park, Centurion",
       "ist": "1:30pm",
       "utc": 1798272000000
-     }
-    ]
-   },
-   {
-    "date": "Sun 27 Dec (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "f39855ec-4746-4f00-9de8-f6623a4ee5e6",
-      "teams": "India vs Sri Lanka",
-      "t1": "India",
-      "t2": "Sri Lanka",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Maharashtra Cricket Association Stadium, Pune",
-      "ist": "7:00pm",
-      "utc": 1798378200000
      }
     ]
    },
@@ -6378,7 +6276,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6395,7 +6293,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6423,7 +6321,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6508,7 +6406,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6525,7 +6423,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "ODI",
       "venue": "Manuka Oval, Canberra",
       "ist": "9:20am",
@@ -6536,7 +6434,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6553,7 +6451,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "men",
+      "gender": "women",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "9:20am",
@@ -6564,16 +6462,33 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "men",
+      "gender": "women",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
       "utc": 1804480200000
      }
     ]
+   },
+   {
+    "date": "Thu 11 Mar (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "180ab62c-093a-4c7c-86e2-adbe07598727",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "Test",
+      "venue": "Melbourne Cricket Ground, Melbourne",
+      "ist": "8:30am",
+      "utc": 1804734000000
+     }
+    ]
    }
   ],
-  "updated": "2026-11-11T04:25:59.899Z",
+  "updated": "2026-11-11T12:22:55.096Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6933,7 +6848,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-11T04:26:02.707Z"
+  "updated": "2026-11-11T12:22:57.969Z"
  },
  "SQUADS": {
   "mexico": [
