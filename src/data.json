@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-10T23:52:42.781Z",
+ "updated": "2026-11-11T04:26:02.707Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5970,6 +5970,23 @@
       "venue": "Sri Lanka tour of Pakistan, 2026",
       "ist": "10:30am",
       "utc": 1794891600000
+     }
+    ]
+   },
+   {
+    "date": "Wed 18 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "39dd598c-9c6b-4343-bf0d-646230dddc2e",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "England tour of Australia, 2026",
+      "ist": "9:00am",
+      "utc": 1794972600000
      }
     ]
    },
@@ -6556,7 +6573,7 @@
     ]
    }
   ],
-  "updated": "2026-11-10T23:52:39.842Z",
+  "updated": "2026-11-11T04:25:59.899Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6916,7 +6933,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-10T23:52:42.781Z"
+  "updated": "2026-11-11T04:26:02.707Z"
  },
  "SQUADS": {
   "mexico": [
