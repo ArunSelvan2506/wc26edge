@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-11T19:58:46.944Z",
+ "updated": "2026-11-12T09:10:17.857Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,17 +5853,6 @@
       "venue": "England tour of Australia, 2026",
       "ist": "9:00am",
       "utc": 1794454200000
-     },
-     {
-      "id": "981e8508-63fe-4ac4-b92c-655fef836ae5",
-      "teams": "Ireland vs Sri Lanka",
-      "t1": "Ireland",
-      "t2": "Sri Lanka",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "11:00am",
-      "utc": 1794461400000
      },
      {
       "id": "d374d074-eb3b-428e-abab-9a6e94b83e5b",
@@ -6488,7 +6477,7 @@
     ]
    }
   ],
-  "updated": "2026-11-11T19:58:42.694Z",
+  "updated": "2026-11-12T09:10:15.224Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6848,7 +6837,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-11T19:58:46.944Z"
+  "updated": "2026-11-12T09:10:17.856Z"
  },
  "SQUADS": {
   "mexico": [
