@@ -5834,50 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-12T09:10:17.857Z",
+ "updated": "2026-11-12T17:52:38.881Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Thu 12 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "558f2771-a71f-4328-b84e-6ecf5b0eb18d",
-      "teams": "Australia vs England",
-      "t1": "Australia",
-      "t2": "England",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "England tour of Australia, 2026",
-      "ist": "9:00am",
-      "utc": 1794454200000
-     },
-     {
-      "id": "d374d074-eb3b-428e-abab-9a6e94b83e5b",
-      "teams": "Netherlands vs Thailand",
-      "t1": "Netherlands",
-      "t2": "Thailand",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "2:45pm",
-      "utc": 1794474900000
-     },
-     {
-      "id": "48c5e2f6-e4e4-4c45-b4b8-4ec66635a835",
-      "teams": "Bangladesh vs Pakistan",
-      "t1": "Bangladesh",
-      "t2": "Pakistan",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "2:45pm",
-      "utc": 1794474900000
-     }
-    ]
-   },
    {
     "date": "Fri 13 Nov (IST)",
     "series": "International",
@@ -6477,7 +6438,7 @@
     ]
    }
   ],
-  "updated": "2026-11-12T09:10:15.224Z",
+  "updated": "2026-11-12T17:52:36.159Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6837,7 +6798,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-12T09:10:17.856Z"
+  "updated": "2026-11-12T17:52:38.881Z"
  },
  "SQUADS": {
   "mexico": [
