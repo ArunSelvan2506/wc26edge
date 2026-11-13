@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-13T12:49:09.616Z",
+ "updated": "2026-11-13T20:16:11.078Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 13 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "57c2fd02-75b1-49c8-9a02-b300f903f7a4",
-      "teams": "Afghanistan vs Zimbabwe",
-      "t1": "Afghanistan",
-      "t2": "Zimbabwe",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Afghanistan vs Zimbabwe in UAE, 2026",
-      "ist": "11:00am",
-      "utc": 1794547800000
-     }
-    ]
-   },
    {
     "date": "Sun 15 Nov (IST)",
     "series": "International",
@@ -6232,7 +6215,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6249,7 +6232,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6277,7 +6260,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6362,7 +6345,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6379,7 +6362,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Manuka Oval, Canberra",
       "ist": "9:20am",
@@ -6390,7 +6373,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6407,7 +6390,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "9:20am",
@@ -6418,7 +6401,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6452,7 +6435,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "4:35am",
@@ -6461,7 +6444,7 @@
     ]
    }
   ],
-  "updated": "2026-11-13T12:49:05.373Z",
+  "updated": "2026-11-13T20:16:08.421Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6821,7 +6804,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-13T12:49:09.616Z"
+  "updated": "2026-11-13T20:16:11.078Z"
  },
  "SQUADS": {
   "mexico": [
