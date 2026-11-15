@@ -5834,28 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-15T15:15:10.834Z",
+ "updated": "2026-11-15T20:45:08.503Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Sun 15 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "f2ccd740-e51f-4cdc-bf0a-fe5c86005503",
-      "teams": "Bangladesh vs South Africa",
-      "t1": "Bangladesh",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Bangladesh tour of South Africa, 2026",
-      "ist": "1:00pm",
-      "utc": 1794727800000
-     }
-    ]
-   },
    {
     "date": "Tue 17 Nov (IST)",
     "series": "International",
@@ -6439,7 +6422,7 @@
     ]
    }
   ],
-  "updated": "2026-11-15T15:15:07.351Z",
+  "updated": "2026-11-15T20:45:02.105Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6799,7 +6782,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-15T15:15:10.834Z"
+  "updated": "2026-11-15T20:45:08.503Z"
  },
  "SQUADS": {
   "mexico": [
