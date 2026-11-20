@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-20T17:29:27.015Z",
+ "updated": "2026-11-20T23:37:12.781Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5904,6 +5904,23 @@
       "venue": "England tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1795767300000
+     }
+    ]
+   },
+   {
+    "date": "Sat 28 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c81e7d49-463b-478a-bc28-06608c6466d2",
+      "teams": "India vs New Zealand",
+      "t1": "India",
+      "t2": "New Zealand",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "India tour of New Zealand 2026",
+      "ist": "3:30am",
+      "utc": 1795816800000
      }
     ]
    },
@@ -6439,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-11-20T17:29:23.011Z",
+  "updated": "2026-11-20T23:37:08.981Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6799,7 +6816,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-20T17:29:27.015Z"
+  "updated": "2026-11-20T23:37:12.781Z"
  },
  "SQUADS": {
   "mexico": [
