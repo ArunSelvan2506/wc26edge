@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-19T18:48:08.788Z",
+ "updated": "2026-11-20T08:18:04.031Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,6 +5853,28 @@
       "venue": "India tour of New Zealand 2026",
       "ist": "3:30am",
       "utc": 1795125600000
+     },
+     {
+      "id": "b61c3067-ac06-4ade-aaaf-dc0b705174e0",
+      "teams": "Netherlands vs Scotland",
+      "t1": "Netherlands",
+      "t2": "Scotland",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's Emerging Nations Trophy, 2026",
+      "ist": "10:30am",
+      "utc": 1795150800000
+     },
+     {
+      "id": "f71a23e0-f244-4e76-8e6c-0655d76704c7",
+      "teams": "Ireland vs Pakistan",
+      "t1": "Ireland",
+      "t2": "Pakistan",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's Emerging Nations Trophy, 2026",
+      "ist": "2:45pm",
+      "utc": 1795166100000
      }
     ]
    },
@@ -5904,6 +5926,23 @@
       "venue": "England tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1795508100000
+     }
+    ]
+   },
+   {
+    "date": "Fri 27 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "c308d96d-b24e-4353-9afe-69972a6598ec",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "England tour of Australia, 2026",
+      "ist": "1:45pm",
+      "utc": 1795767300000
      }
     ]
    },
@@ -6193,7 +6232,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6210,7 +6249,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6238,7 +6277,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6323,7 +6362,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6340,7 +6379,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Manuka Oval, Canberra",
       "ist": "9:20am",
@@ -6351,7 +6390,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6368,7 +6407,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "9:20am",
@@ -6379,7 +6418,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6413,7 +6452,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "4:35am",
@@ -6430,7 +6469,7 @@
       "teams": "South Africa vs Australia",
       "t1": "South Africa",
       "t2": "Australia",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Diamond Oval, Kimberley",
       "ist": "9:30pm",
@@ -6439,7 +6478,7 @@
     ]
    }
   ],
-  "updated": "2026-11-19T18:48:05.034Z",
+  "updated": "2026-11-20T08:18:00.586Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6799,7 +6838,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-19T18:48:08.788Z"
+  "updated": "2026-11-20T08:18:04.031Z"
  },
  "SQUADS": {
   "mexico": [
