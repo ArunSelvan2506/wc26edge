@@ -5834,50 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-20T08:18:04.031Z",
+ "updated": "2026-11-20T17:29:27.015Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Fri 20 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "163a0512-5f23-4446-b450-fa888e36038e",
-      "teams": "India vs New Zealand",
-      "t1": "India",
-      "t2": "New Zealand",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "India tour of New Zealand 2026",
-      "ist": "3:30am",
-      "utc": 1795125600000
-     },
-     {
-      "id": "b61c3067-ac06-4ade-aaaf-dc0b705174e0",
-      "teams": "Netherlands vs Scotland",
-      "t1": "Netherlands",
-      "t2": "Scotland",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "10:30am",
-      "utc": 1795150800000
-     },
-     {
-      "id": "f71a23e0-f244-4e76-8e6c-0655d76704c7",
-      "teams": "Ireland vs Pakistan",
-      "t1": "Ireland",
-      "t2": "Pakistan",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "2:45pm",
-      "utc": 1795166100000
-     }
-    ]
-   },
    {
     "date": "Sat 21 Nov (IST)",
     "series": "International",
@@ -6478,7 +6439,7 @@
     ]
    }
   ],
-  "updated": "2026-11-20T08:18:00.586Z",
+  "updated": "2026-11-20T17:29:23.011Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6838,7 +6799,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-20T08:18:04.031Z"
+  "updated": "2026-11-20T17:29:27.015Z"
  },
  "SQUADS": {
   "mexico": [
