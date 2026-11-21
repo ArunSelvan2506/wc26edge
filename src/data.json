@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-21T14:05:29.794Z",
+ "updated": "2026-11-21T20:44:29.536Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5875,6 +5875,17 @@
       "venue": "ACC Men's Asia Cup Rising Stars 2026",
       "ist": "11:30am",
       "utc": 1795327200000
+     },
+     {
+      "id": "05c61325-eade-4489-8af5-0ce99f56be6b",
+      "teams": "Ireland vs Zimbabwe",
+      "t1": "Ireland",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's Emerging Nations Trophy, 2026",
+      "ist": "2:45pm",
+      "utc": 1795338900000
      }
     ]
    },
@@ -6478,7 +6489,7 @@
     ]
    }
   ],
-  "updated": "2026-11-21T14:05:26.232Z",
+  "updated": "2026-11-21T20:44:25.192Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6816,7 +6827,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-21T14:05:29.794Z"
+  "updated": "2026-11-21T20:44:29.536Z"
  },
  "SQUADS": {
   "mexico": [
