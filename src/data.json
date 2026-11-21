@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-20T23:37:12.781Z",
+ "updated": "2026-11-21T05:23:34.342Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5853,6 +5853,23 @@
       "venue": "England tour of Australia, 2026",
       "ist": "1:45pm",
       "utc": 1795248900000
+     }
+    ]
+   },
+   {
+    "date": "Sun 22 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "fbb92c7e-d888-454b-9f21-cff468b527ea",
+      "teams": "Nepal vs United Arab Emirates",
+      "t1": "Nepal",
+      "t2": "United Arab Emirates",
+      "gender": "men",
+      "format": "ODI",
+      "venue": "ACC Men's Asia Cup Rising Stars 2026",
+      "ist": "11:30am",
+      "utc": 1795327200000
      }
     ]
    },
@@ -6456,7 +6473,7 @@
     ]
    }
   ],
-  "updated": "2026-11-20T23:37:08.981Z",
+  "updated": "2026-11-21T05:23:31.861Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6816,7 +6833,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-20T23:37:12.781Z"
+  "updated": "2026-11-21T05:23:34.342Z"
  },
  "SQUADS": {
   "mexico": [
