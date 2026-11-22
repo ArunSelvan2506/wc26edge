@@ -5834,54 +5834,26 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-22T07:42:34.875Z",
+ "updated": "2026-11-22T15:52:15.681Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
    {
-    "date": "Sun 22 Nov (IST)",
+    "date": "Mon 23 Nov (IST)",
     "series": "International",
     "matches": [
      {
-      "id": "43bc3831-3f8d-4c84-bd00-839b2b53bc2c",
-      "teams": "Pakistan vs Scotland",
+      "id": "dd5a2c21-8582-400f-83d9-69b4cebbd8f5",
+      "teams": "Pakistan vs Sri Lanka",
       "t1": "Pakistan",
-      "t2": "Scotland",
+      "t2": "Sri Lanka",
       "gender": "women",
       "format": "T20I",
       "venue": "ICC Women's Emerging Nations Trophy, 2026",
       "ist": "10:30am",
-      "utc": 1795323600000
+      "utc": 1795410000000
      },
-     {
-      "id": "fbb92c7e-d888-454b-9f21-cff468b527ea",
-      "teams": "Nepal vs United Arab Emirates",
-      "t1": "Nepal",
-      "t2": "United Arab Emirates",
-      "gender": "men",
-      "format": "ODI",
-      "venue": "ACC Men's Asia Cup Rising Stars 2026",
-      "ist": "11:30am",
-      "utc": 1795327200000
-     },
-     {
-      "id": "05c61325-eade-4489-8af5-0ce99f56be6b",
-      "teams": "Ireland vs Zimbabwe",
-      "t1": "Ireland",
-      "t2": "Zimbabwe",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "2:45pm",
-      "utc": 1795338900000
-     }
-    ]
-   },
-   {
-    "date": "Mon 23 Nov (IST)",
-    "series": "International",
-    "matches": [
      {
       "id": "a1b375bd-c1c7-42ae-b10a-d67a7b727e87",
       "teams": "Bangladesh vs South Africa",
@@ -5943,6 +5915,23 @@
       "venue": "India tour of New Zealand 2026",
       "ist": "3:30am",
       "utc": 1795816800000
+     }
+    ]
+   },
+   {
+    "date": "Sun 29 Nov (IST)",
+    "series": "International",
+    "matches": [
+     {
+      "id": "7c8aa4bc-2b41-4d9b-973a-c9eb42820e0c",
+      "teams": "Australia vs England",
+      "t1": "Australia",
+      "t2": "England",
+      "gender": "men",
+      "format": "T20I",
+      "venue": "England tour of Australia, 2026",
+      "ist": "1:45pm",
+      "utc": 1795940100000
      }
     ]
    },
@@ -6495,7 +6484,7 @@
     ]
    }
   ],
-  "updated": "2026-11-22T07:42:32.863Z",
+  "updated": "2026-11-22T15:52:12.820Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6503,10 +6492,11 @@
    "Andrea Kimi Antonelli": {
     "r": 100,
     "team": "Mercedes",
-    "pts": 390,
+    "pts": 402,
     "pos": 1,
     "wins": 9,
     "form": [
+     "4",
      "5",
      "3",
      "1",
@@ -6514,77 +6504,83 @@
     ]
    },
    "Max Verstappen": {
-    "r": 86,
+    "r": 88,
     "team": "Red Bull",
-    "pts": 279,
+    "pts": 304,
     "pos": 2,
-    "wins": 3,
+    "wins": 4,
     "form": [
+     "1",
      "2",
      "1",
      "3",
      "1"
     ]
    },
-   "George Russell": {
-    "r": 84,
-    "team": "Mercedes",
-    "pts": 262,
-    "pos": 3,
-    "wins": 3,
-    "form": [
-     "4",
-     "6",
-     "8",
-     "9"
-    ]
-   },
    "Lewis Hamilton": {
     "r": 83,
     "team": "Ferrari",
-    "pts": 261,
-    "pos": 4,
+    "pts": 267,
+    "pos": 3,
     "wins": 1,
     "form": [
+     "7",
      "9",
      "2",
      "4",
      "6"
     ]
    },
-   "Charles Leclerc": {
-    "r": 82,
-    "team": "Ferrari",
-    "pts": 249,
-    "pos": 5,
-    "wins": 1,
+   "George Russell": {
+    "r": 83,
+    "team": "Mercedes",
+    "pts": 264,
+    "pos": 4,
+    "wins": 3,
     "form": [
-     "8",
+     "9",
      "4",
-     "2",
-     "2"
+     "6",
+     "8",
+     "9"
     ]
    },
    "Lando Norris": {
-    "r": 82,
+    "r": 83,
     "team": "McLaren",
-    "pts": 246,
-    "pos": 6,
+    "pts": 264,
+    "pos": 5,
     "wins": 3,
     "form": [
+     "2",
      "1",
      "5",
      "5",
      "4"
     ]
    },
+   "Charles Leclerc": {
+    "r": 81,
+    "team": "Ferrari",
+    "pts": 250,
+    "pos": 6,
+    "wins": 1,
+    "form": [
+     "10",
+     "8",
+     "4",
+     "2",
+     "2"
+    ]
+   },
    "Oscar Piastri": {
-    "r": 69,
+    "r": 71,
     "team": "McLaren",
-    "pts": 152,
+    "pts": 167,
     "pos": 7,
     "wins": 0,
     "form": [
+     "3",
      "6",
      "13",
      "7",
@@ -6592,12 +6588,13 @@
     ]
    },
    "Isack Hadjar": {
-    "r": 66,
+    "r": 65,
     "team": "Red Bull",
     "pts": 122,
     "pos": 8,
     "wins": 0,
     "form": [
+     "15",
      "3",
      "9",
      "6",
@@ -6611,6 +6608,7 @@
     "pos": 9,
     "wins": 0,
     "form": [
+     "14",
      "7",
      "7",
      "9",
@@ -6618,12 +6616,13 @@
     ]
    },
    "Pierre Gasly": {
-    "r": 55,
+    "r": 56,
     "team": "Alpine F1 Team",
-    "pts": 42,
+    "pts": 52,
     "pos": 10,
     "wins": 0,
     "form": [
+     "5",
      "14",
      "17",
      "10",
@@ -6637,6 +6636,7 @@
     "pos": 11,
     "wins": 0,
     "form": [
+     "R",
      "11",
      "R",
      "12",
@@ -6644,12 +6644,13 @@
     ]
    },
    "Franco Colapinto": {
-    "r": 53,
+    "r": 54,
     "team": "Alpine F1 Team",
-    "pts": 27,
+    "pts": 35,
     "pos": 12,
     "wins": 0,
     "form": [
+     "6",
      "13",
      "15",
      "R",
@@ -6663,6 +6664,7 @@
     "pos": 13,
     "wins": 0,
     "form": [
+     "13",
      "17",
      "R",
      "R",
@@ -6676,6 +6678,7 @@
     "pos": 14,
     "wins": 0,
     "form": [
+     "12",
      "16",
      "8",
      "13",
@@ -6689,17 +6692,32 @@
     "pos": 15,
     "wins": 0,
     "form": [
+     "11",
      "10",
      "14",
      "11",
      "8"
     ]
    },
+   "Carlos Sainz": {
+    "r": 51,
+    "team": "Williams",
+    "pts": 11,
+    "pos": 16,
+    "wins": 0,
+    "form": [
+     "8",
+     "19",
+     "12",
+     "18",
+     "14"
+    ]
+   },
    "Esteban Ocon": {
     "r": 51,
     "team": "Haas F1 Team",
     "pts": 7,
-    "pos": 16,
+    "pos": 17,
     "wins": 0,
     "form": [
      "14",
@@ -6710,26 +6728,14 @@
     "r": 51,
     "team": "Aston Martin",
     "pts": 7,
-    "pos": 17,
-    "wins": 0,
-    "form": [
-     "12",
-     "R",
-     "16",
-     "16"
-    ]
-   },
-   "Carlos Sainz": {
-    "r": 51,
-    "team": "Williams",
-    "pts": 7,
     "pos": 18,
     "wins": 0,
     "form": [
      "19",
      "12",
-     "18",
-     "14"
+     "R",
+     "16",
+     "16"
     ]
    },
    "Alexander Albon": {
@@ -6739,6 +6745,7 @@
     "pos": 19,
     "wins": 0,
     "form": [
+     "W",
      "15",
      "11",
      "17",
@@ -6770,6 +6777,7 @@
     "pos": 22,
     "wins": 0,
     "form": [
+     "17",
      "R",
      "R",
      "15",
@@ -6783,6 +6791,7 @@
     "pos": 23,
     "wins": 0,
     "form": [
+     "18",
      "W",
      "R",
      "R",
@@ -6796,6 +6805,7 @@
     "pos": 24,
     "wins": 0,
     "form": [
+     "R",
      "18",
      "16",
      "19",
@@ -6809,6 +6819,7 @@
     "pos": 25,
     "wins": 0,
     "form": [
+     "16",
      "20"
     ]
    }
@@ -6820,10 +6831,10 @@
    "field": [
     "Andrea Kimi Antonelli",
     "Max Verstappen",
-    "George Russell",
     "Lewis Hamilton",
-    "Charles Leclerc",
+    "George Russell",
     "Lando Norris",
+    "Charles Leclerc",
     "Oscar Piastri",
     "Isack Hadjar",
     "Liam Lawson",
@@ -6833,7 +6844,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-22T07:42:34.875Z"
+  "updated": "2026-11-22T15:52:15.681Z"
  },
  "SQUADS": {
   "mexico": [
