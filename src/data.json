@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-22T15:52:15.681Z",
+ "updated": "2026-11-22T21:28:20.302Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5864,6 +5864,28 @@
       "venue": "Bangladesh tour of South Africa, 2026",
       "ist": "1:30pm",
       "utc": 1795420800000
+     },
+     {
+      "id": "5d855fd8-05b9-4f7f-8c0e-d3f6d5ad7540",
+      "teams": "Scotland vs Zimbabwe",
+      "t1": "Scotland",
+      "t2": "Zimbabwe",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's Emerging Nations Trophy, 2026",
+      "ist": "2:45pm",
+      "utc": 1795425300000
+     },
+     {
+      "id": "e402c771-289a-47b1-9a2a-733eec27ac01",
+      "teams": "Ireland vs Netherlands",
+      "t1": "Ireland",
+      "t2": "Netherlands",
+      "gender": "women",
+      "format": "T20I",
+      "venue": "ICC Women's Emerging Nations Trophy, 2026",
+      "ist": "2:45pm",
+      "utc": 1795425300000
      }
     ]
    },
@@ -6484,7 +6506,7 @@
     ]
    }
   ],
-  "updated": "2026-11-22T15:52:12.820Z",
+  "updated": "2026-11-22T21:28:17.269Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6844,7 +6866,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-22T15:52:15.681Z"
+  "updated": "2026-11-22T21:28:20.302Z"
  },
  "SQUADS": {
   "mexico": [
