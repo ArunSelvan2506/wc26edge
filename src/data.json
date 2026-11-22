@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-22T00:53:06.295Z",
+ "updated": "2026-11-22T07:42:34.875Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Sun 22 Nov (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "12438d6a-fe97-4687-9f0b-d3b787f8c560",
-      "teams": "Netherlands vs Sri Lanka",
-      "t1": "Netherlands",
-      "t2": "Sri Lanka",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "10:30am",
-      "utc": 1795323600000
-     },
      {
       "id": "43bc3831-3f8d-4c84-bd00-839b2b53bc2c",
       "teams": "Pakistan vs Scotland",
@@ -6243,7 +6232,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6260,7 +6249,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6288,7 +6277,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Asgiriya Stadium, Kandy",
       "ist": "10:00am",
@@ -6373,7 +6362,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6390,7 +6379,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Manuka Oval, Canberra",
       "ist": "9:20am",
@@ -6401,7 +6390,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6418,7 +6407,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "9:20am",
@@ -6429,7 +6418,7 @@
       "teams": "Sri Lanka vs England",
       "t1": "Sri Lanka",
       "t2": "England",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Rangiri Dambulla International Stadium, Dambulla",
       "ist": "10:00am",
@@ -6463,7 +6452,7 @@
       "teams": "Australia vs New Zealand",
       "t1": "Australia",
       "t2": "New Zealand",
-      "gender": "women",
+      "gender": "men",
       "format": "ODI",
       "venue": "Junction Oval, Melbourne",
       "ist": "4:35am",
@@ -6480,7 +6469,7 @@
       "teams": "South Africa vs Australia",
       "t1": "South Africa",
       "t2": "Australia",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Diamond Oval, Kimberley",
       "ist": "9:30pm",
@@ -6497,7 +6486,7 @@
       "teams": "South Africa vs Australia",
       "t1": "South Africa",
       "t2": "Australia",
-      "gender": "women",
+      "gender": "men",
       "format": "T20I",
       "venue": "Willowmoore Park, Benoni",
       "ist": "5:30pm",
@@ -6506,7 +6495,7 @@
     ]
    }
   ],
-  "updated": "2026-11-22T00:53:03.686Z",
+  "updated": "2026-11-22T07:42:32.863Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6825,9 +6814,9 @@
    }
   },
   "event": {
-   "date": "Sun 22 Nov (IST)",
-   "utc": 1795320000000,
-   "series": "Las Vegas Grand Prix · Las Vegas",
+   "date": "Sun 29 Nov (IST)",
+   "utc": 1795968000000,
+   "series": "Qatar Grand Prix · Lusail",
    "field": [
     "Andrea Kimi Antonelli",
     "Max Verstappen",
@@ -6844,7 +6833,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-22T00:53:06.294Z"
+  "updated": "2026-11-22T07:42:34.875Z"
  },
  "SQUADS": {
   "mexico": [
