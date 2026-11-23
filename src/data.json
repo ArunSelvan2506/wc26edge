@@ -5834,50 +5834,11 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-23T11:49:40.701Z",
+ "updated": "2026-11-23T23:17:47.631Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
   "blocks": [
-   {
-    "date": "Mon 23 Nov (IST)",
-    "series": "International",
-    "matches": [
-     {
-      "id": "a1b375bd-c1c7-42ae-b10a-d67a7b727e87",
-      "teams": "Bangladesh vs South Africa",
-      "t1": "Bangladesh",
-      "t2": "South Africa",
-      "gender": "men",
-      "format": "T20I",
-      "venue": "Bangladesh tour of South Africa, 2026",
-      "ist": "1:30pm",
-      "utc": 1795420800000
-     },
-     {
-      "id": "5d855fd8-05b9-4f7f-8c0e-d3f6d5ad7540",
-      "teams": "Scotland vs Zimbabwe",
-      "t1": "Scotland",
-      "t2": "Zimbabwe",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "2:45pm",
-      "utc": 1795425300000
-     },
-     {
-      "id": "e402c771-289a-47b1-9a2a-733eec27ac01",
-      "teams": "Ireland vs Netherlands",
-      "t1": "Ireland",
-      "t2": "Netherlands",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "2:45pm",
-      "utc": 1795425300000
-     }
-    ]
-   },
    {
     "date": "Tue 24 Nov (IST)",
     "series": "International",
@@ -6495,7 +6456,7 @@
     ]
    }
   ],
-  "updated": "2026-11-23T11:42:19.955Z",
+  "updated": "2026-11-23T23:17:45.208Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6855,7 +6816,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-23T11:49:40.700Z"
+  "updated": "2026-11-23T23:17:47.630Z"
  },
  "SQUADS": {
   "mexico": [
