@@ -5834,7 +5834,7 @@
   "nov": 10,
   "dec": 11
  },
- "updated": "2026-11-22T21:28:20.302Z",
+ "updated": "2026-11-23T11:49:40.701Z",
  "source": "openfootball (CC0 · free, no key)",
  "LIVE": {},
  "CRICKET": {
@@ -5843,17 +5843,6 @@
     "date": "Mon 23 Nov (IST)",
     "series": "International",
     "matches": [
-     {
-      "id": "dd5a2c21-8582-400f-83d9-69b4cebbd8f5",
-      "teams": "Pakistan vs Sri Lanka",
-      "t1": "Pakistan",
-      "t2": "Sri Lanka",
-      "gender": "women",
-      "format": "T20I",
-      "venue": "ICC Women's Emerging Nations Trophy, 2026",
-      "ist": "10:30am",
-      "utc": 1795410000000
-     },
      {
       "id": "a1b375bd-c1c7-42ae-b10a-d67a7b727e87",
       "teams": "Bangladesh vs South Africa",
@@ -6506,7 +6495,7 @@
     ]
    }
   ],
-  "updated": "2026-11-22T21:28:17.269Z",
+  "updated": "2026-11-23T11:42:19.955Z",
   "source": "CricketData.org"
  },
  "F1": {
@@ -6866,7 +6855,7 @@
    ]
   },
   "season": 2026,
-  "updated": "2026-11-22T21:28:20.302Z"
+  "updated": "2026-11-23T11:49:40.700Z"
  },
  "SQUADS": {
   "mexico": [
